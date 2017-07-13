@@ -1,0 +1,1121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+<item>
+<title>Создание массива</title>
+<content> 
+import numpy as np
+
+l = [[1, 2, 3],
+     [4, 5, 6],
+     [7, 8, 9]]
+
+print(np.array(l), end='\n\n')
+
+# 5x5 array of 0 with 1 on diagonal (Identity matrix)
+print(np.eye(3), end='\n\n')
+
+# Array of 6 evenly divided values from 0 to 100
+print(np.linspace(0,100,6), end='\n\n')
+
+# Array of values from 0 to less than 10 with step 3 (eg [0,3,6,9])
+print(np.arange(0,10,3), end='\n\n')
+
+# 2x3 array with all values 8
+print(np.full((2,3),8), end='\n\n')
+
+# 4x5 array of random floats between 0-1
+print(np.random.rand(4,5), end='\n\n')
+
+# 6x7 array of random floats between 0-100
+print(np.random.rand(6,7)*100, end='\n\n')
+
+# 2x3 array with random ints between 0-4
+print(np.random.randint(5,size=(2,3)), end='\n\n')	
+</content>
+<print>
+[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+
+[[ 1.  0.  0.]
+ [ 0.  1.  0.]
+ [ 0.  0.  1.]]
+
+[   0.   20.   40.   60.   80.  100.]
+
+[0 3 6 9]
+
+[[8 8 8]
+ [8 8 8]]
+
+[[ 0.29928396  0.06315335  0.64033318  0.97863473  0.79617336]
+ [ 0.79365916  0.59151206  0.40507363  0.35153041  0.56312282]
+ [ 0.3628814   0.90452425  0.83524625  0.44267742  0.11130935]
+ [ 0.75545246  0.10732077  0.92437714  0.17048936  0.43289407]]
+
+[[ 49.53256711  96.25683949  22.08137577  17.06758755   8.23851769
+   92.51528802  25.14358391]
+ [ 18.8659442   20.17249083  40.40941696  60.58138608  25.27922709
+   11.6171955   68.53556058]
+ [ 21.63283898  14.3734345   53.31605609  68.54694795  19.01524829
+   49.62365485  53.94686967]
+ [ 84.49603708  99.58293612  37.90762162  68.76291173  36.29537677
+   51.08262505  89.50430767]
+ [ 47.610246    27.8549196   38.59021787  72.52472523  20.65317676
+   98.49013554  95.24076754]
+ [ 58.43417929  93.3890169   75.10964881  27.18040356  52.60338476
+   89.731735    30.47528516]]
+
+[[0 0 3]
+ [1 2 4]]
+</print>
+</item> ,
+
+<item>
+<title>Добавление элемента в массив</title>
+<content> 
+import numpy as np
+
+arr = np.arange(6)
+print(arr)
+print(np.append(arr,8), end='\n\n')
+
+l =[[1,2,3],
+    [4,5,6]]
+arr = np.array(l)
+
+print(arr, end='\n\n')
+
+print(np.append(arr,[[7,8,9]],axis=0))
+</content>
+<print>
+[0 1 2 3 4 5]
+[0 1 2 3 4 5 8]
+
+[[1 2 3]
+ [4 5 6]]
+
+[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+</print>
+</item>
+
+<item>
+<title>Вставка элемента в массив</title>
+<content> 
+import numpy as np
+
+arr = np.arange(6)
+print(arr)
+print(np.insert(arr,1,8), end='\n\n')
+
+l =[[1,2,3],
+    [4,5,6]]
+arr = np.array(l)
+
+print(arr, end='\n\n')
+
+print(np.insert(arr,1,[[7,8,9]],axis=0))
+</content>
+<print>
+[0 1 2 3 4 5]
+[0 8 1 2 3 4 5]
+
+[[1 2 3]
+ [4 5 6]]
+
+[[1 2 3]
+ [7 8 9]
+ [4 5 6]]
+</print>
+</item>
+
+<item>
+<title>Удаление элемента</title>
+<content> 
+import numpy as np
+
+arr = np.arange(6)
+print(arr)
+print(np.delete(arr,1), end='\n\n')
+
+l =[[1,2,3],
+    [4,5,6]]
+arr = np.array(l)
+
+print(arr, end='\n\n')
+
+print(np.delete(arr,1,axis=0))
+</content>
+<print>
+[0 1 2 3 4 5]
+[0 2 3 4 5]
+
+[[1 2 3]
+ [4 5 6]]
+
+[[1 2 3]]
+</print>
+</item>
+
+<item>
+<title>Создание 1-мерного массива с элементами = 0</title>
+<content> 
+import numpy as np
+
+print(np.zeros(5))
+</content>
+<print>
+[ 0.  0.  0.  0.  0.]
+</print>
+</item> 
+
+<item>
+<title>Создание 2-мерного массива с элементами = 1</title>
+<content> 
+import numpy as np
+
+m = np.ones((3,3))
+print(m)
+</content>
+<print>
+[[ 1.  1.  1.]
+ [ 1.  1.  1.]
+ [ 1.  1.  1.]]
+</print>
+</item> 
+
+<item>
+<title>Создание 3-мерного пустого массива</title>
+<content> 
+import numpy as np
+
+m = np.empty((3,3,3))
+
+print(m)
+</content>
+<print>
+</print>
+</item> 
+
+
+<item>
+<title>Создание единичной матрицы</title>
+<content> 
+import numpy as np
+
+m = np.eye(3)
+
+print(m)
+
+m = np.identity(3)
+
+print(m)
+</content>
+<print>
+[[ 1.  0.  0.]
+ [ 0.  1.  0.]
+ [ 0.  0.  1.]]
+[[ 1.  0.  0.]
+ [ 0.  1.  0.]
+ [ 0.  0.  1.]]
+</print>
+</item> 
+
+
+<item>
+<title>Создание массива из диапазона</title>
+<content> 
+import numpy as np
+
+m = np.arange(1,10)
+
+print(m)
+</content>
+<print>
+[1 2 3 4 5 6 7 8 9]
+</print>
+</item> 
+
+<item>
+<title>Создание случайного массива с нормальным распределением</title>
+<content> 
+import numpy as np
+from numpy.random import randn
+
+samples = np.random.normal(size=(4,  4))
+
+print(samples,end='\n\n')
+
+m = np.array(randn(4,4))
+
+print(m)
+</content>
+<print>
+[[ 0.69025459  1.4201234  -1.32006384 -0.96131418]
+ [-0.27814437  0.28476788  0.98531921 -0.1125125 ]
+ [ 0.74259321  0.63883014  1.67319572 -0.82196822]
+ [-0.81783597 -0.35058113 -0.44138494 -0.9560704 ]]
+
+[[ 2.13923377 -0.05994462 -1.18426935  0.38287268]
+ [-0.29313235 -1.3717357  -0.0932126  -0.65992727]
+ [-0.99600499 -0.93796508  0.62710265  0.25870525]
+ [ 0.96231533  1.07340669  1.50766356  1.49105333]]
+</print>
+</item> 
+
+<item>
+<title>Получить размерность массива</title>
+<content>
+import numpy as np
+
+l = [[1, 2, 3],
+     [4, 5, 6],
+     [7, 8, 9]]
+m = np.array(l)
+
+print(m.ndim) 
+</content>
+<print>
+2
+</print>
+</item> 
+
+
+<item>
+<title>Получить форму массива</title>
+<content> 
+import numpy as np
+
+l = [[1, 2, 3],
+     [4, 5, 6],
+     [7, 8, 9]]
+m = np.array(l)
+
+print(m.shape)
+</content>
+<print>
+(3, 3)
+</print>
+</item> 
+
+
+<item>
+<title>Получить тип данных массива</title>
+<content> 
+import numpy as np
+
+l = [[1, 2, 3],
+     [4, 5, 6],
+     [7, 8, 9]]
+m = np.array(l)
+
+print(m.dtype)
+</content>
+<print>
+int32
+</print>
+</item> 
+
+
+<item>
+<title>Явное преобразование массива</title>
+<content> 
+import numpy as np
+
+l = [[1, 2, 3],
+     [4, 5, 6],
+     [7, 8, 9]]
+m = np.array(l)
+'''
+При вызове astype всегда создается новый массив (данные копируют­ся), даже если новый dtype не отличается от старого
+'''
+n = m.astype(np.float64)
+
+print(n)
+print(n.dtype)
+</content>
+<print>
+int64
+</print>
+</item> 
+
+
+<item>
+<title>Получение срезов</title>
+<content> 
+# -*- coding:utf-8 -*-
+import numpy as np
+
+l = [[1, 2, 3],
+     [4, 5, 6],
+     [7, 8, 9]]
+m = np.array(l)
+
+
+print(m[1:])
+print(m[0][1:],end="\n\n")
+
+# Данные копируются,
+print(m[2:].copy())
+print(m[1][2:].copy())
+</content>
+<print>
+[[4 5 6]
+ [7 8 9]]
+[2 3]
+
+[[7 8 9]]
+[6]
+</print>
+</item> 
+
+
+<item>
+<title>Доступ к элементам массива</title>
+<content> 
+import numpy as np
+
+l = [[1, 2, 3],
+     [4, 5, 6],
+     [7, 8, 9]]
+m = np.array(l)
+
+print(m[0][2])
+print(m[0,2])
+</content>
+<print>
+3
+3
+</print>
+</item> 
+
+
+<item>
+<title>Математические операции над массивами</title>
+<content> 
+import numpy as np
+
+l = [[1, 2, 3],
+     [4, 5, 6],
+     [7, 8, 9]]
+m = np.array(l)
+
+print(m + m, end='\n\n')
+print(m - m, end='\n\n')
+print(m * m, end='\n\n')
+print(m / m, end='\n\n')
+</content>
+<print>
+[[ 2  4  6]
+ [ 8 10 12]
+ [14 16 18]]
+
+[[0 0 0]
+ [0 0 0]
+ [0 0 0]]
+
+[[ 1  4  9]
+ [16 25 36]
+ [49 64 81]]
+
+[[ 1.  1.  1.]
+ [ 1.  1.  1.]
+ [ 1.  1.  1.]]
+</print>
+</item> 
+
+
+<item>
+<title>Булевое индексирование</title>
+<content> 
+import numpy as np
+
+l = [[1, 2, 3],
+     [4, 5, 6],
+     [7, 8, 9]]
+m = np.array(l)
+names =  np.array(['Bob', 'Joe', 'Will'])
+
+# Ключевые слова Python and и or с булевыми 
+# массивами не работают. 
+n = (names=='Joe') | (names=='Will')
+
+print(n)
+print(m[n])
+</content>
+<print>
+[False  True  True]
+[[4 5 6]
+ [7 8 9]]
+</print>
+</item> 
+
+
+<item>
+<title>Изменение формы</title>
+<content>
+import numpy as np
+
+m = np.arange(16)
+
+print(m,end='\n\n')
+print(m.reshape(4,4)) 
+print(m.ravel())
+
+# возвращает копию данных
+print(m.flatten())
+</content>
+<print>
+[ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15]
+
+[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]
+ [12 13 14 15]]
+ 
+ [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15]
+ [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15]
+</print>
+</item> 
+
+<item>
+<title>Транспонирование матрицы</title>
+<content> 
+import numpy as np
+
+l = [[1, 2, 3],
+     [4, 5, 6],
+     [7, 8, 9]]
+
+m = np.array(l)
+
+print(m,end='\n\n')
+# замена столбцов на строки
+print(m.transpose(),end='\n\n')
+print(m.T)
+</content>
+<print>
+[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+
+[[1 4 7]
+ [2 5 8]
+ [3 6 9]]
+ 
+ [[1 4 7]
+ [2 5 8]
+ [3 6 9]]
+</print>
+</item> 
+
+<item>
+<title>Изменение размерности resize()</title>
+<content> 
+#-*- coding:utf8 -*-
+import numpy as np
+
+l = [[1, 2, 3],
+     [4, 5, 6],
+     [7, 8, 9],
+     [10, 11, 12]]
+
+m = np.array(l)
+
+print(m,end='\n\n')
+'''
+reshape() возвращает ее аргумент с измененной формой, в то время как метод resize() изменяет сам массив:
+'''
+m.resize((2, 6))
+
+print(m)
+</content>
+<print>
+[[ 1  2  3]
+ [ 4  5  6]
+ [ 7  8  9]
+ [10 11 12]]
+
+[[ 1  2  3  4  5  6]
+ [ 7  8  9 10 11 12]]
+</print>
+</item> 
+
+<item>
+<title>Объединение многомерных массивов</title>
+<content> 
+import numpy as np
+
+l = [[1, 2, 3],
+     [4, 5, 6]]
+n =  [[7, 8, 9],
+     [10, 11, 12]]
+
+new_vert = np.vstack((n, l))
+new_hor = np.hstack((l, n))
+
+print(new_vert,end='\n\n')
+print(new_hor,end='\n\n')
+
+new_vert1 = np.concatenate([l, n],axis=0)
+print(new_vert1,end='\n\n')
+
+new_hor1 = np.concatenate([l, n],axis=1)
+print(new_hor1)
+</content>
+<print>
+[[ 7  8  9]
+ [10 11 12]
+ [ 1  2  3]
+ [ 4  5  6]]
+
+[[ 1  2  3  7  8  9]
+ [ 4  5  6 10 11 12]]
+
+[[ 1  2  3]
+ [ 4  5  6]
+ [ 7  8  9]
+ [10 11 12]]
+
+[[ 1  2  3  7  8  9]
+ [ 4  5  6 10 11 12]]
+</print>
+</item> 
+
+<item>
+<title>Объединение одномерных массивов</title>
+<content> 
+#-*- coding:utf8 -*-
+import numpy as np
+
+a = [1, 2, 3]
+b = [4, 5, 6]
+
+new_column = np.column_stack((a, b))
+new_row = np.row_stack((a, b))
+
+print(new_column,end='\n\n')
+print(new_row)
+</content>
+<print>
+[[1 4]
+ [2 5]
+ [3 6]]
+
+[[1 2 3]
+ [4 5 6]]
+</print>
+</item> 
+
+<item>
+<title>Разбиение массива</title>
+<content>
+#-*- coding:utf8 -*-
+import numpy as np
+
+l = [[1, 2, 3, 4],
+     [5, 6, 7, 8],
+     [9, 10, 11, 12],
+     [13, 14, 15, 16]]
+
+m = np.array(l)
+
+# Разбить на 2 части
+print(np.hsplit(m, 2),end='\n\n')
+
+# Разрезать m после 1 и до 4 столбца
+print(np.hsplit(m, (1,4)),end='\n\n')
+
+# Разрезать m после 1 и до 3 строки
+print(np.vsplit(m,(1,3)))
+</content>
+<print>
+[array([[ 1,  2],
+       [ 5,  6],
+       [ 9, 10],
+       [13, 14]]), 
+array([[ 3,  4],
+       [ 7,  8],
+       [11, 12],
+       [15, 16]])]
+
+[array([[ 1],
+       [ 5],
+       [ 9],
+       [13]]), 
+array([[ 2,  3,  4],
+       [ 6,  7,  8],
+       [10, 11, 12],
+       [14, 15, 16]]),	   
+array([], shape=(4, 0), dtype=int32)]
+
+[array([[1, 2, 3, 4]]), array([[ 5,  6,  7,  8],
+       [ 9, 10, 11, 12]]), array([[13, 14, 15, 16]])]
+</print>
+</item> 
+
+<item>
+<title>Унарные функции:sqrt(),exp()</title>
+<content> 
+#-*- coding:utf8 -*-
+import numpy as np
+
+l = [[1, 2, 3, 4],
+     [5, 6, 7, 8],
+     [9, 10, 11, 12],
+     [13, 14, 15, 16]]
+
+m = np.array(l)
+
+
+# извлечение корня
+print('sqrt: ',np.sqrt(m),end='\n\n')
+
+print('exp: ',np.exp(m),end='\n\n')
+</content>
+<print>
+sqrt:  [[ 1.          1.41421356  1.73205081  2.        ]
+ [ 2.23606798  2.44948974  2.64575131  2.82842712]
+ [ 3.          3.16227766  3.31662479  3.46410162]
+ [ 3.60555128  3.74165739  3.87298335  4.        ]]
+
+exp:  [[  2.71828183e+00   7.38905610e+00   2.00855369e+01   5.45981500e+01]
+ [  1.48413159e+02   4.03428793e+02   1.09663316e+03   2.98095799e+03]
+ [  8.10308393e+03   2.20264658e+04   5.98741417e+04   1.62754791e+05]
+ [  4.42413392e+05   1.20260428e+06   3.26901737e+06   8.88611052e+06]]
+</print>
+</item> 
+
+<item>
+<title>Статистические методы: sum(), mean(), min(), max()</title>
+<content> 
+#-*- coding:utf8 -*-
+import numpy as np
+
+l = [[1, 2, 3, 4],
+     [5, 6, 7, 8],
+     [9, 10, 11, 12],
+     [13, 14, 15, 16]]
+
+m = np.array(l)
+
+print('sum: ',m.sum())
+
+# среднне значение массива
+print('mean:',m.mean())
+
+# среднее значение по строкам
+print('mean:',m.mean(axis=1))
+print('mean:',np.mean(m))
+print('min: ',m.min())
+print('max: ',m.max())
+
+# минимальное число в каждой строке
+print('min row: ',m.min(axis=1))
+
+# минимальное число в каждом столбце
+print('min col: ',m.min(axis=0),end='\n\n')
+
+</content>
+<print>
+sum:  136
+mean: 8.5
+mean: [  2.5   6.5  10.5  14.5]
+mean: 8.5
+min:  1
+max:  16
+min row:  [ 1  5  9 13]
+min col:  [1 2 3 4]
+</print>
+</item> 
+
+<item>
+<title>Методы булевых массивов: any(), all()</title>
+<content> 
+bools =  np.array([False, False, True, False])
+m = np.array(bools)
+
+print(m.any())
+print(m.all())
+</content>
+<print>
+True
+False
+</print>
+</item> 
+
+<item>
+<title>Сортировка/Обратная сортировка</title>
+<content> 
+import numpy as np
+
+l = [[1, 2, 3, 4],
+     [5, 6, 22, 8],
+     [9, 10, 33, 12],
+     [13, 44, 15, 16]]
+
+m = np.array(l)
+m.sort(0)
+
+print(m,end='\n\n')
+
+m.sort(1)
+
+print(m,end='\n\n')
+
+print(m[:,: : -1])
+</content>
+<print>
+[[ 1  2  3  4]
+ [ 5  6 15  8]
+ [ 9 10 22 12]
+ [13 44 33 16]]
+
+[[ 1  2  3  4]
+ [ 5  6  8 15]
+ [ 9 10 12 22]
+ [13 16 33 44]]
+
+[[ 4  3  2  1]
+ [15  8  6  5]
+ [22 12 10  9]
+ [44 33 16 13]]
+</print>
+</item> 
+
+<item>
+<title>Сортировка с созданием копии массива</title>
+<content> 
+#-*- coding:utf8 -*-
+import numpy as np
+
+l = [[1, 2, 3, 4],
+     [5, 6, 22, 8],
+     [9, 10, 33, 12],
+     [13, 44, 15, 16]]
+
+m = np.array(l)
+
+n = np.sort(m,axis=0)
+
+print(n, end='\n\n')
+
+n = np.sort(m,axis=1)
+
+print(n, end='\n\n')
+
+# исходный массив неизменен
+print(m)
+</content>
+<print>
+[[ 1  2  3  4]
+ [ 5  6 15  8]
+ [ 9 10 22 12]
+ [13 44 33 16]]
+
+[[ 1  2  3  4]
+ [ 5  6  8 22]
+ [ 9 10 12 33]
+ [13 15 16 44]]
+
+[[ 1  2  3  4]
+ [ 5  6 22  8]
+ [ 9 10 33 12]
+ [13 44 15 16]]
+</print>
+</item> 
+
+<item>
+<title>Удаление дубликатов в массивах</title>
+<content>
+import numpy as np
+
+names = np.array(['Bob', 'Joe', 'Will', 'Bob', 'Will', 'Joe', 'Joe'])
+ints = np.array([3, 3, 3, 2, 2, 1, 1, 4, 4])
+
+print(np.unique(names))
+print(np.unique(ints)) 
+</content>
+<print>
+['Bob' 'Joe' 'Will']
+[1 2 3 4]
+</print>
+</item> 
+
+<item>
+<title>Присутствуют ли значения из одного массива в другом</title>
+<content> 
+import numpy as np
+
+ints = np.array([3, 3, 3, 2, 2, 1, 1, 4, 4])
+x = np.array([1, 0, 3])
+
+print(np.in1d(ints,x))
+</content>
+<print>
+[ True  True  True False False  True  True False False]
+</print>
+</item> 
+
+<item>
+<title>Сохранение/Загрузка массивов</title>
+<content> 
+import numpy as np
+
+l = [[1, 2, 3, 4],
+     [5, 6, 22, 8],
+     [9, 10, 33, 12],
+     [13, 44, 15, 16]]
+m = np.array(l)
+np.save('new_arr',m)
+
+n = np.load('new_arr.npy')
+print(n)
+</content>
+<print>
+[[ 1  2  3  4]
+ [ 5  6 22  8]
+ [ 9 10 33 12]
+ [13 44 15 16]]
+</print>
+</item> 
+
+<item>
+<title>Сохранение/Загрузка из текстовых файлов</title>
+<content> 
+import numpy as np
+'''
+test.txt
+0.580052,0.186730,1.040717,1.134411
+0.194163,-0.636917,-0.938659,0.124094
+-0.126410,0.268607,-0.695724,0.047428
+-1.484413,0.004176,-0.744203,0.005487
+2.302869,0.200131,1.670238,-1.881090
+-0.193230,1.047233,0.482803,0.960334
+'''
+arr =  np.loadtxt('test.txt',delimiter=',')
+print(arr,end='\n\n')
+
+m = np.where(arr > 0,1,0)
+
+print(m,end='\n\n')
+
+np.savetxt('test.txt',m,delimiter=',')
+s = np.loadtxt('test.txt',delimiter=',')
+
+print(s)
+</content>
+<print>
+[[ 0.580052  0.18673   1.040717  1.134411]
+ [ 0.194163 -0.636917 -0.938659  0.124094]
+ [-0.12641   0.268607 -0.695724  0.047428]
+ [-1.484413  0.004176 -0.744203  0.005487]
+ [ 2.302869  0.200131  1.670238 -1.88109 ]
+ [-0.19323   1.047233  0.482803  0.960334]]
+
+[[1 1 1 1]
+ [1 0 0 1]
+ [0 1 0 1]
+ [0 1 0 1]
+ [1 1 1 0]
+ [0 1 1 1]]
+
+[[ 1.  1.  1.  1.]
+ [ 1.  0.  0.  1.]
+ [ 0.  1.  0.  1.]
+ [ 0.  1.  0.  1.]
+ [ 1.  1.  1.  0.]
+ [ 0.  1.  1.  1.]]
+</print>
+</item> 
+
+<item>
+<title>Перемножение матриц</title>
+<content> 
+import numpy as np
+'''
+1 * 1 + 2 * 3 + 3 * 5 = 22
+'''
+x = np.array([[1, 2, 3], [4, 5, 6]])
+y = np.array([[1, 2], [3, 4], [5, 6]])
+
+print(x.dot(y),end='\n\n')
+print(np.dot(x, y))
+</content>
+<print>
+[[22 28]
+ [49 64]]
+
+[[22 28]
+ [49 64]]
+</print>
+</item> 
+
+<item>
+<title>Повторение элементов: repeat()</title>
+<content> 
+import numpy as np
+
+arr = np.arange(3)
+print(arr,end='\n\n')
+
+print(arr.repeat(2),end='\n\n')
+print(arr.repeat([2, 3, 4]),end='\n\n')
+
+l = [[1, 2, 3],
+     [4, 5, 6]]
+
+
+m = np.array(l)
+
+print(m.repeat(2,axis = 0),end='\n\n')
+print(m.repeat([2,3,1],axis = 1),end='\n\n')
+</content>
+<print>
+[0 1 2]
+
+[0 0 1 1 2 2]
+
+[0 0 1 1 1 2 2 2 2]
+
+[[1 2 3]
+ [1 2 3]
+ [4 5 6]
+ [4 5 6]]
+
+[[1 1 2 2 2 3]
+ [4 4 5 5 5 6]]
+</print>
+</item>
+
+<item>
+<title>Повторение элементов: tile()</title>
+<content> 
+import numpy as np
+
+arr = np.arange(3)
+
+print(arr,end='\n\n')
+print(np.tile(arr,2),end='\n\n')
+print(np.tile(arr,(2,2)),end='\n\n')
+
+l = [[1, 2, 3],
+     [4, 5, 6]]
+
+m = np.array(l)
+
+print(np.tile(m,2),end='\n\n')
+print(np.tile(m,(2,2)),end='\n\n')
+</content>
+<print>
+[0 1 2]
+
+[0 1 2 0 1 2]
+
+[[0 1 2 0 1 2]
+ [0 1 2 0 1 2]]
+
+[[1 2 3 1 2 3]
+ [4 5 6 4 5 6]]
+
+[[1 2 3 1 2 3]
+ [4 5 6 4 5 6]
+ [1 2 3 1 2 3]
+ [4 5 6 4 5 6]]
+</print>
+</item>
+
+<item>
+<title>Сложение элементов с промежуточным аккумулированием </title>
+<content> 
+import numpy as np
+
+l = [[1, 2, 3],
+     [4, 5, 6],
+     [7, 8, 9]]
+
+m = np.array(l)
+
+print(np.add.accumulate(m, axis=1),end='\n\n')
+print(np.add.accumulate(m, axis=0))
+</content>
+<print>
+[[ 1  3  6]
+ [ 4  9 15]
+ [ 7 15 24]]
+
+[[ 1  2  3]
+ [ 5  7  9]
+ [12 15 18]]
+</print>
+</item>
+
+<item>
+<title>Прямое произведение 2-х массивов</title>
+<content> 
+import numpy as np
+
+arr = np.arange(3)
+
+print(arr,end='\n\n')
+print(np.multiply.outer(arr,arr))
+</content>
+<print>
+[0 1 2]
+
+[[0 0 0]
+ [0 1 2]
+ [0 2 4]]
+</print>
+</item>
+
+<item>
+<title>Локальное сложение элементов: reduceat()</title>
+<content> 
+import numpy as np
+
+arr = np.arange(8)
+
+print(arr,end='\n\n')
+
+# сумма элементов от 0 до 5(5 не включается),от 5 до 7,от 7 до конца
+n = np.add.reduceat(arr, [0,  5,  7])
+print(n,end='\n\n')
+
+# сумма элементов от 0 до 4(4 не включается),от 1 до 5 и т.д.
+# [::2] задает шаг в 2 элемента
+n = np.add.reduceat(arr, [0,4, 1,5, 2,6, 3,7])[::2]
+print(n)
+</content>
+<print>
+[0 1 2 3 4 5 6 7]
+
+[10 11  7]
+
+[ 6 10 14 18]
+</print>
+</item>
+
+<item>
+<title>Поиск элементов в отсортированном массиве </title>
+<content> 
+import numpy as np
+
+arr =np.array([0, 1, 7, 12, 15])
+
+'''
+производит двоичный поиск в отсортированном массиве и возвращает место, в которое нужно было бы вставить значение, чтобы массив оставался отсортированным
+'''
+print(arr.searchsorted(9) ,end='\n\n')
+print(arr.searchsorted([0, 8, 11, 16]))
+</content>
+<print>
+3
+
+[0 3 3 5]
+</print>
+</item>
+
+</data>

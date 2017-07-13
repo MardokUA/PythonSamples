@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+
+<item>
+<title>Замена значений массива по условию</title>
+<content> 
+import numpy as np
+
+l = [[1, 2, 3],
+     [4, 5, 6],
+     [7, 8, 9]]
+
+m = np.array(l)
+m[m &lt; 5] = 0
+
+print(m)
+</content>
+<print>
+[[0 0 0]
+ [0 5 6]
+ [7 8 9]]
+</print>
+</item> 
+
+
+<item>
+<title>Прихотливое индексирование -  fancy indexing</title>
+<content>
+import numpy as np
+
+m = np.empty((4,4),dtype='int32')
+for i in range(4):
+    m[i] = i
+
+print(m,end='\n\n')
+
+'''
+Чтобы выбрать подмножество строк в определенном порядке,можно просто передать список или массив целых чисел, описывающих желаемый порядок.Отрицательные числа выбирают строки с конца
+'''
+print(m[[2,0,3,-1]]) 
+</content>
+<print>
+[[0 0 0 0]
+ [1 1 1 1]
+ [2 2 2 2]
+ [3 3 3 3]]
+
+[[2 2 2 2]
+ [0 0 0 0]
+ [3 3 3 3]
+ [3 3 3 3]]
+</print>
+</item> 
+
+<item>
+<title>Прихотливое индексирование -  take()</title>
+<content>
+import numpy as np
+
+arr = np.arange(10) * 100
+inds = [7,  1,  2,  6]
+
+print(arr, end='\n\n')
+# инициализирует новый массив по индексам 
+print(arr.take(inds), end='\n\n')
+
+inds = [2, 0, 2, 1]
+arr =  np.random.randn(2,4)
+
+print(arr, end='\n\n')
+print(arr.take(inds,axis=1))
+</content>
+<print>
+[  0 100 200 300 400 500 600 700 800 900]
+
+[700 100 200 600]
+
+[[ 0.46506263  0.10440986 -1.3039181   0.99243664]
+ [-0.46599251 -0.08268816  0.85564729  1.33252052]]
+
+[[-1.3039181   0.46506263 -1.3039181   0.10440986]
+ [ 0.85564729 -0.46599251  0.85564729 -0.08268816]]
+</print>
+</item> 
+
+<item>
+<title>Прихотливое индексирование -  put()</title>
+<content>
+import numpy as np
+
+arr = np.arange(10) * 100
+inds = [7,  1,  2,  6]
+
+print(arr, end='\n\n')
+
+# вставляет в позиции inds число 42
+np.put(arr,inds,42)
+
+print(arr, end='\n\n')
+</content>
+<print>
+[  0 100 200 300 400 500 600 700 800 900]
+
+[  0  42  42 300 400 500  42  42 800 900]
+</print>
+</item> 
+
+<item>
+<title>Выбор значения по условию</title>
+<content>
+xarr = np.array ([1.1,  1.2,  1.3,  1.4,  1.5])
+yarr = np.array ([2.1,  2.2,  2.3,  2.4,  2.5])
+cond = np.array([True, False, True, True, False])
+
+print(np.where(cond, xarr, yarr)) 
+</content>
+<print>
+[ 1.1  2.2  1.3  1.4  2.5]
+</print>
+</item> 
+
+<item>
+<title>Выбор значения по условию (2)</title>
+<content> 
+import numpy as np
+
+l = [[1, 2, 3, 4],
+     [5, 6, 7, 8],
+     [9, 10, 11, 12],
+     [13, 14, 15, 16]]
+
+m = np.array(l)
+
+print(np.where(m % 5, 0, m),end='\n\n')
+print(np.where(m &lt; 7, 0, 1))
+</content>
+<print>
+[[ 0  0  0  0]
+ [ 5  0  0  0]
+ [ 0 10  0  0]
+ [ 0  0 15  0]]
+
+[[0 0 0 0]
+ [0 0 1 1]
+ [1 1 1 1]
+ [1 1 1 1]]
+</print>
+</item> 
+
+<item>
+<title>Суммирование значений по условию</title>
+<content> 
+import numpy as np
+
+l = [[1, 2, 3, 4],
+     [5, 6, 7, 8],
+     [9, 10, 11, 12],
+     [13, 14, 15, 16]]
+
+m = np.array(l)
+
+print(m[(m &lt; 5)].sum())
+</content>
+<print>
+10
+</print>
+</item> 
+
+<item>
+<title>Сортировка 2-x массивов</title>
+<content> 
+import numpy as np
+
+first_name = np.array(['Bob','Jane','Steve','Bill','Barbara'])
+last_name = np.array(['Jones','Arnold','Arnold','Jones','Walters'])
+sorter =  np.lexsort((first_name,last_name))
+
+print(list(zip(last_name[sorter], first_name[sorter])))
+</content>
+<print>
+[('Arnold', 'Jane'), ('Arnold', 'Steve'), ('Jones', 'Bill'), ('Jones', 'Bob'), ('Walters', 'Barbara')]
+</print>
+</item> 
+
+<item>
+<title>Сортировка некоторых строк</title>
+<content> 
+import numpy as np
+
+arr = np.random.randn(5,5)
+
+print(arr, end='\n\n')
+
+arr[::2].sort(1)
+
+print(arr, end='\n\n')
+</content>
+<print>
+[[-0.30263048  0.04135036  0.98579241  0.75025984 -0.05812912]
+ [ 0.97941441  0.82691859 -0.19144981  0.41805951 -0.13163224]
+ [-1.09701117 -0.46242989 -1.21500281  0.91469593  0.07277518]
+ [-0.98811083 -0.58526629 -1.65939717  0.27014333  0.36883042]
+ [ 0.35082203  0.14277006  1.05158927 -0.1281721  -0.05746653]]
+
+[[-0.30263048 -0.05812912  0.04135036  0.75025984  0.98579241]
+ [ 0.97941441  0.82691859 -0.19144981  0.41805951 -0.13163224]
+ [-1.21500281 -1.09701117 -0.46242989  0.07277518  0.91469593]
+ [-0.98811083 -0.58526629 -1.65939717  0.27014333  0.36883042]
+ [-0.1281721  -0.05746653  0.14277006  0.35082203  1.05158927]]
+</print>
+</item> 
+
+<item>
+<title>Какому интервалу принадлежит число</title>
+<content> 
+import numpy as np
+
+data = np.floor(np.random.uniform(0,10000,size=50))
+bins = np.array([0,100,1000, 5000, 10000])
+
+print(data,end='\n\n')
+
+labels = bins.searchsorted(data)
+
+print(labels,end='\n\n')
+print(np.digitize(data,bins))
+</content>
+<print>
+[ 2365.  9469.  8852.  7538.  1930.  7482.  7743.  7171.  5996.  9235.
+  1331.  5852.  7817.  4225.  4783.  9342.  1333.  6330.  7256.  2747.
+  6344.  5297.  9416.  8287.  5412.  7085.  7604.  3907.  8702.  6663.
+  3059.   874.  5708.  5192.  6478.  1088.  5768.  7517.  5417.  5921.
+  2007.  8522.  9248.  1584.  1192.  8643.  6328.  7699.  4357.  5032.]
+
+[3 4 4 4 3 4 4 4 4 4 3 4 4 3 3 4 3 4 4 3 4 4 4 4 4 4 4 3 4 4 3 2 4 4 4 3 4
+ 4 4 4 3 4 4 3 3 4 4 4 3 4]
+
+[3 4 4 4 3 4 4 4 4 4 3 4 4 3 3 4 3 4 4 3 4 4 4 4 4 4 4 3 4 4 3 2 4 4 4 3 4
+ 4 4 4 3 4 4 3 3 4 4 4 3 4]
+</print>
+</item>
+
+<item>
+<title>Структурные массивы </title>
+<content> 
+import numpy as np
+'''
+Структурный массив - это объект ndarray,в котором каждый элемент можно рассматривать как аналог строки в таблице SQL, содержащий несколько именованных полей
+'''
+dtype = [('х ', np.float64), ('y', np.int32)]
+sarr = np.array([(1.5, 6), (np.pi, -2)], dtype=dtype)
+
+print(sarr)
+print(sarr[0])
+print(sarr[0]['y'])
+</content>
+<print>
+[( 1.5       ,  6) ( 3.14159265, -2)]
+( 1.5, 6)
+6
+</print>
+</item>
+
+<item>
+<title>Вложенные типы данных и многомерные поля </title>
+<content> 
+import numpy as np
+
+dtype = [('x', np.float64, 3), ('y', np.int32)]
+sarr = np.zeros(4, dtype=dtype)
+
+print(sarr, end='\n\n')
+print(sarr[0]['x'], end='\n\n')
+print(sarr['x'], end='\n\n')
+
+dtype = [('x',[('a', 'f8'),('b', 'f4')]), ('y',np.int32)]
+data = np.array([((1, 2),5),  ((3,4), 6)], dtype=dtype)
+
+print(data['x'])
+print(data['y'])
+print(data['x']['a'])
+</content>
+<print>
+[([ 0.,  0.,  0.], 0) ([ 0.,  0.,  0.], 0) ([ 0.,  0.,  0.], 0)
+ ([ 0.,  0.,  0.], 0)]
+
+[ 0.  0.  0.]
+
+[[ 0.  0.  0.]
+ [ 0.  0.  0.]
+ [ 0.  0.  0.]
+ [ 0.  0.  0.]]
+
+[( 1.,  2.) ( 3.,  4.)]
+[5 6]
+[ 1.  3.]
+</print>
+</item>
+
+</data>

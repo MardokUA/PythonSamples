@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+<item>
+<title>Открытие,запись в файл</title>
+<content> 
+# Открывает файл (создает/очищает)
+myfile = open('myfile.txt', 'w') 
+# Записывает строку текста
+myfile.write('hello text file\n') 
+myfile.write('goodbye text file\n')
+# Выталкивает выходные буферы на диск
+myfile.close() 
+# Открывает файл: 'r' – по умолчанию
+myfile = open('myfile.txt')
+# Читает строку 
+str = myfile.readline() 
+print(str)
+str1 = myfile.readline()
+print(str1)
+# Пустая строка: конец файл
+str2 = myfile.readline() 
+print(str2)
+</content>
+<print>
+hello text file
+goodbye text file
+</print>
+</item> 
+<item>
+<title>Чтение файла</title>
+<content> 
+# Прочитать файл целиком в строку
+str = open('myfile.txt').read() 
+print(str)
+</content>
+<print>
+hello text file
+goodbye text file
+</print>
+</item> 
+<item>
+<title>Построчное чтение файла</title>
+<content> 
+# Используйте итераторы, а не методы чтения
+for line in open(r'\myfile.txt',encoding='utf-8'): 
+    print(line, end='')
+</content>
+<print>
+hello text file
+goodbye text file
+</print>
+</item> 
+<item>
+<title>Сохранение и интерпретация объектов Python в файлах</title>
+<content> 
+'''
+Объекты языка Python должны
+записываться в файл только в виде строк
+'''
+X, Y, Z = 43, 44, 45 
+S = 'Spam' 
+D = {'a': 1, 'b': 2}
+L = [1, 2, 3]
+# Создает файл для записи
+F = open('datafile.txt', 'w')
+# Строки завершаются символом \n
+F.write(S + '\n') 
+# Преобразует числа в строки
+F.write('%s,%s,%s\n' % (X, Y, Z))
+# Преобразует и разделяет символом $
+F.write(str(L) + '$' + str(D) + '\n') 
+F.close()
+F = open('datafile.txt').read()
+print(F)
+</content>
+<print>
+Spam
+43,44,45
+[1, 2, 3]${'a': 1, 'b': 2}
+</print>
+</item> 
+<item>
+<title>Восстановление объектов из файла</title>
+<content> 
+# Открыть файл
+F = open('datafile.txt')
+# Прочитать одну строку
+line = F.readline()         
+print(line)
+line = F.readline()
+# Разбить на подстроки по запятым и преобразовать в список целых чисел
+l = [int(x) for x in line.split(',')]
+print(l)
+line = F.readline()
+# Разбить на строки по символу $
+m = line.split('$')        
+# Преобразовать строку в объект 
+l = eval(m[0])             
+print(l)
+d = eval(m[1])
+print(d)
+</content>
+<print>
+Spam
+[43, 44, 45]
+[1, 2, 3]
+{'a': 1, 'b': 2}
+</print>
+</item> 
+<item>
+<title>Запись/чтение объектов Python с помощью модуля pickle</title>
+<content> 
+D = {'a': 1, 'b': 2}
+F = open('datafile.txt', 'wb')
+import pickle
+# Модуль pickle запишет в файл любой объект
+pickle.dump(D, F)   
+F.close()
+F = open('datafile.txt', 'rb')
+# Загружает любые объекты из файла
+E = pickle.load(F)  
+print(E)
+</content>
+<print>
+{'a': 1, 'b': 2}
+</print>
+</item> 
+<item>
+<title>Сохранение и интерпретация
+упакованных двоичных данных в файлах
+</title>
+<content> 
+import struct
+# Открыть файл для записи в двоичном режиме
+F = open('data.bin', 'wb') 
+values = (1, 5, 2.7,2.5,b'hgf')
+# формат 2 int,2 float,строка из 3-х символов
+data = struct.pack('&lt;2i2f3s',*values)    
+# Записать строку байтов
+F.write(data) 
+F.close()
+F = open('data.bin', 'rb')
+# Получить упакованные двоичные данные
+data = F.read() 
+values = struct.unpack('&lt;2i2f3s', data)
+print(values)
+</content>
+<print>
+spam...99...['eggs']|..
+</print>
+</item>
+<item>
+<title>Перенаправление потока в файл</title>
+<content> 
+import sys
+# Перенаправить вывод в файл
+sys.stdout = open('log.txt', 'a') 
+while True:
+    reply =input()
+    print(reply)
+    if reply == 'stop':break
+</content>
+<print>
+</print>
+</item>
+<item>
+<title>Посимвольное чтение файла</title>
+<content> 
+x, y, z = 'spam', 99, ['eggs']
+print(x, y, z, sep='...', end='|..\n',file=open('data.txt', 'w'))
+file = open('data.txt')
+while True:
+	# Читать по одному символу
+    char = file.read(1)
+    if not char: break
+    print(char, end='')
+for char in open('data.txt').read():
+    print(char, end='')
+</content>
+<print>
+spam...99...['eggs']|..
+spam...99...['eggs']|..
+</print>
+</item>
+<item>
+<title>Чтение файла построчно</title>
+<content> 
+x, y, z = 'spam', 99, ['eggs']
+print(x, y, z, sep='...', end='|..\n',file=open('data.txt', 'w'))
+file = open('data.txt')
+while True:
+	# Читать строку за строкой
+    line = file.readline() 
+    if not line: break
+	
+	# Прочитанная строка уже содержит символ \n
+    print(line, end=' ')   
+file = open('data.txt', 'rb')
+while True:
+	# Читать блоками по 10 байтов
+    chunk = file.read(10)  
+    if not chunk: break
+    print(chunk)
+</content>
+<print>
+spam...99...['eggs']|..
+ b'spam...99.'
+b"..['eggs']"
+b'|..\r\n'
+</print>
+</item>
+<item>
+<title>Чтение файла построчно</title>
+<content> 
+x, y, z = 'spam', 99, ['eggs']
+print(x, y, z, sep='...', end='|..\n',file=open('data.txt', 'w'))
+'''
+Метод файлов readlines загружает файл целиком в список строк, тогда как при использовании итератора файла в каждой итерации загружается только одна строка
+'''
+for line in open('data.txt').readlines():
+    print(line, end='')
+'''
+Использование итератора: лучший способ
+чтения текста
+'''
+for line in open('data.txt'): 	
+    print(line, end='') 		
+</content>
+<print>
+spam...99...['eggs']|..
+spam...99...['eggs']|..
+</print>
+</item>
+</data>

@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+<item>
+<title>Создание словаря</title>
+<content> 
+d = {'one': 1, 'two': 2, 'three': 3}
+print(d)
+print(dict([('one', 1), ('two', 2), ('three', 3)]))
+print(dict('one' = 1, 'two' = 2, 'three' = 3))
+print(dict(one = 1, two = 2,three = 3))
+</content>
+<print>
+{'one': 1, 'two': 2, 'three': 3}
+{'one': 1, 'two': 2, 'three': 3}
+{'one': 1, 'two': 2, 'three': 3}
+{'one': 1, 'two': 2, 'three': 3}
+</print>
+</item> 
+<item>
+<title>Извлечение по ключу</title>
+<content> 
+d = {'one': 1, 'two': 2, 'three': 3}
+print(d['two'])
+</content>
+<print>
+2
+</print>
+</item> 
+<item>
+<title>Создание списка ключей</title>
+<content> 
+d = {'one': 1, 'two': 2, 'three': 3}
+print(list(d.keys()))
+</content>
+<print>
+['one', 'two', 'three']
+</print>
+</item> 
+<item>
+<title>Проверка на вхождение</title>
+<content> 
+d = {'one': 1, 'two': 2, 'three': 3}
+print('two' in d)
+</content>
+<print>
+True
+</print>
+</item> 
+<item>
+<title>Изменение элемента</title>
+<content> 
+d = {'one': 1, 'two': 2, 'three': 3}
+d['one'] = ['four', 'five']
+print(d)
+</content>
+<print>
+{'one': ['four', 'five'], 'two': 2, 'three': 3}
+</print>
+</item> 
+<item>
+<title>Удаление элемента</title>
+<content> 
+d = {'one': 1, 'two': 2, 'three': 3}
+del d['two']
+print(d)
+</content>
+<print>
+{'one': 1, 'three': 3}
+</print>
+</item> 
+<item>
+<title>Добавление элемента</title>
+<content> 
+d = {'one': 1, 'two': 2, 'three': 3}
+d['four'] = 4
+print(d)
+</content>
+<print>
+{'one': 1, 'two': 2, 'three': 3, 'four': 4}
+</print>
+</item> 
+<item>
+<title>Список значений элементов - values()</title>
+<content> 
+d = {'one': 1, 'two': 2, 'three': 3}
+l = list(d.values())
+print(l)
+</content>
+<print>
+[1, 2, 3]
+</print>
+</item> 
+<item>
+<title>Метод - items()</title>
+<content> 
+d = {'one': 1, 'two': 2, 'three': 3}
+print(d.items()))
+</content>
+<print>
+2
+None
+4
+</print>
+</item> 
+<item>
+<title>Объединенние словарей - update()</title>
+<content> 
+d = {'one': 1, 'two': 2, 'three': 3}
+e = {'four': 4, 'five': 5, 'six': 6}
+d.update(e)
+print(d)
+</content>
+<print>
+{'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6}
+</print>
+</item> 
+<item>
+<title>Удаление и возврат значения - pop()</title>
+<content> 
+d = {'one': 1, 'two': 2, 'three': 3}
+print(d.pop('one'))
+print(d)
+</content>
+<print>
+1{'two': 2, 'three': 3}
+</print>
+</item> 
+<item>
+<title>Структуры разреженных данных</title>
+<content> 
+'''
+Здесь словарь использован для представления трехмерного массива, в котором только два элемента, (2,3,4) и (7,8,9), имеют определенные значения. Ключами словаря являются кортежи, определяющие координаты непустых элементов.Благодаря этому вместо трехмерной матрицы, объемной и по большей части пустой, оказалось достаточно использовать словарь из двух элементов. В такой ситуации попытка доступа к пустым элементам будет приводить к возбуждению исключения, так как эти элементы физически отсутствуют
+'''
+m={}
+m[(2, 3, 4)]=88
+m[(7, 8, 9)]=99
+x=2;y=3;z=4
+print(m[(x, y, z)])
+print(m)
+</content>
+<print>
+88
+{(2, 3, 4): 88, (7, 8, 9): 99}
+</print>
+</item> 
+<item>
+<title>Объединенние ключей и значений</title>
+<content> 
+# Объединить ключи и значения
+L=list(zip(['a', 'b', 'c'], [1, 2, 3]))  
+print(L)
+# Создать словарь из результата
+D = dict(L)
+print(D)
+</content>
+<print>
+{'a': 1, 'b': 2, 'c': 3}
+</print>
+</item> 
+<item>
+<title>Инициализация с помощью fromkeys</title>
+<content>
+d = dict.fromkeys(['a', 'b', 'c'],0)
+print(d)
+d = dict.fromkeys('spam')
+print(d)
+</content>
+<print>
+{'a': 0, 'b': 0, 'c': 0}
+{'s': None, 'p': None, 'a': None, 'm': None}
+</print>
+</item> 
+<item>
+<title>Инициализация с помощью генератора</title>
+<content> 
+d =  {k: None for k in 'spam'}
+print(d)
+d = dict.fromkeys('spam')
+print(d)
+</content>
+<print>
+{'s': None, 'p': None, 'a': None, 'm': None}
+{'s': None, 'p': None, 'a': None, 'm': None}
+</print>
+</item> 
+<item>
+<title>Создание списков из keys, values, items</title>
+<content> 
+d =  {'a': 1, 'b': 2, 'c': 3}
+k = list(d.keys())
+v = list(d.values())
+i = list(d.items())
+print(k)
+print(v)
+print(i)
+</content>
+<print>
+dict_keys(['a', 'b', 'c'])
+dict_values([1, 2, 3])
+dict_items([('a', 1), ('b', 2), ('c', 3)])
+</print>
+</item> 
+<item>
+<title>JSON в объект словаря</title>
+<content> 
+import json
+path = r'path to file'
+records = [json.loads(line) for line in open(path)]
+print(records[0]["some json key in file"])
+</content>
+<print>
+</print>
+</item> 
+<item>
+<title>Сравнивание словарей</title>
+<content> 
+D1 = {'a': 1, 'b': 2}
+D2 = {'a': 1, 'b': 3}
+print(D1 == D2)
+print(sorted(D1.items()) &lt; sorted(D2.items()))
+</content>
+<print>
+False
+True
+</print>
+</item> 
+<item>
+<title>Как избежать появления ошибок обращения к несуществующему ключу</title>
+<content> 
+m={}
+m[(2, 3, 4)]=88
+m[(7, 8, 9)]=99
+if(2, 3, 6) in m:
+	print(m[(2, 3, 6)])
+else:
+	print ("if/else")
+try:
+	print(m[(2, 3, 6)])
+except KeyError:
+	print("try/except")
+	
+print(m.get((2, 3, 4),"m.get()"))
+print(m.get((2, 3, 6),"m.get()"))
+</content>
+<print>
+if/else
+try/except
+88
+m.get()
+</print>
+</item> 
+<item>
+<title>Сортировка ключей словаря</title>
+<content> 
+D = {'a':2, 'c':1, 'b':3}
+k = D.keys()
+l = list(k)
+l.sort()
+for k in l:
+    print(k,D[k])
+</content>
+<print>
+a 2
+b 3
+c 1
+</print>
+</item> 
+<item>
+<title>Создание словарей из списков</title>
+<content> 
+l = [1,2,3]
+n = ['one','two','three']
+d=dict(zip(l, n))
+print(d)
+</content>
+<print>
+{1: 'one', 2: 'two', 3: 'three'}
+</print>
+</item> 
+<item>
+<title>Проверка наличия ключей </title>
+<content> 
+d =  {'a': 1, 'b': 2, 'c': 3}
+if 'c' in d:
+	print('present', d['c'])
+print(d.get('c'))
+print(d.get('d'))
+if d.get('c') != None:
+	print('present',d['c'])
+</content>
+<print>
+present 3
+3
+None
+present 3
+</print>
+</item> 
+</data>

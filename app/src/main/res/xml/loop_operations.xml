@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+<item>
+<title>Общий формат while</title>
+<content> 
+while &lt;test1&gt;:          
+    &lt;statements1&gt;   
+	
+    # Выйти из цикла, пропустив часть else
+	if &lt;test2&gt;: break;	 
+	
+	# Перейти в начало цикла, к выражению test
+    if &lt;test3&gt;: continue 
+# Необязательная часть else
+else:   
+	'''                 
+	Выполняется, если выход из цикла 
+	производится не инструкцией break
+    '''
+	&lt;statements2&gt;        
+					     
+x = "python"
+while x:
+    print(x, end=' ')
+    x = x[1:]
+else:
+	print('\nstring is over')
+</content>
+<print>
+python ython thon hon on n 
+string is over
+</print>
+</item> 
+<item>
+<title>Имитация do-while цикла</title>
+<content> 
+x = 0
+while True:
+	x +=1
+	print(x,end = ' ')
+	if x == 10:break
+</content>
+<print>
+1 2 3 4 5 6 7 8 9 10 
+</print>
+</item> 
+<item>
+<title>Инструкция сontinue</title>
+<content> 
+x = 10
+while x:
+    x = x-1                   
+    if x % 2 != 0: continue 
+    print(x, end=' ')
+</content>
+<print>
+8 6 4 2 0 
+</print>
+</item> 
+<item>
+<title>Инструкция break</title>
+<content> 
+while 1:
+    name = input('Enter name:')
+    if name == 'stop': break
+    age = input('Enter age: ')
+    print('Hello', name, '=>', int(age) ** 2)
+</content>
+<print>
+Enter name:Den
+Enter age: 33
+Hello Den => 1089
+Enter name:Ned
+Enter age: 23
+Hello Ned => 529
+Enter name:stop
+</print>
+</item> 
+<item>
+<title>Общий формат цикла for</title>
+<content> 
+# Присваивает элементы объекта с переменной цикла
+for &lt;target&gt; in &lt;object&gt;: 
+&lt;statements&gt;
+	
+	# Выход из цикла, минуя блок else
+    if &lt;test&gt;: break   
+		
+	# Переход в начало цикла
+    if &lt;test&gt;: continue   
+else:
+	# Если не была вызвана инструкция ‘break
+	&lt;statements&gt;        
+</content>
+<print>
+</print>
+</item> 
+<item>
+<title>Типичные варианты использования for</title>
+<content> 
+l = ['spam', 'eggs', 'ham']
+for x in l:
+    print(x, end=' ')
+print()
+sum = 0
+for x in [1, 2, 3, 4]:
+    sum = sum + x
+print(sum,end='\n')
+prod = 1
+for item in range(1, 5):
+    prod *= item
+print(prod)
+</content>
+<print>
+spam eggs ham 
+10
+24
+</print>
+</item> 
+<item>
+<title>Обход объектов с помощью for</title>
+<content> 
+S = 'lumberjack'
+T = ('and', 'I’m', 'okay')
+T1 = [(1, 2), (3, 4), (5, 6)]
+for x in S:
+	
+	# Обход строки
+    print(x, end=' ') 
+print()
+for x in T:
+	
+	# Обход элементов кортежа
+    print(x, end=' ')
+print()
+D = {'a': 1, 'b': 2, 'c': 3}
+# Используется итератор словаря
+# и операция индексирования
+for key in D:
+	print(key, '=>', D[key])	
+print()							
+D = {'a': 4, 'c': 6, 'b': 5}
+for (key, value) in D.items():
+    print(key,' => ',value)
+</content>
+<print>
+l u m b e r j a c k 
+and I’m okay 
+a => 1
+b => 2
+c => 3
+a  =>  4
+c  =>  6
+b  =>  5
+</print>
+</item> 
+<item>
+<title>Присваивание кортежа (for)</title>
+<content> 
+T = [(1, 2), (3, 4), (5, 6)]
+# Операция присваивания кортежа
+for (a, b) in T: 
+	print(a, b)
+</content>
+<print>
+1 2
+3 4
+5 6
+</print>
+</item> 
+<item>
+<title>Обход вложеных структур - for</title>
+<content> 
+# Вложенные структуры также могут использоваться
+((a, b), c) = ((1, 2), 3) 
+print(((a, b), c))
+for ((a, b), c) in [((1, 2), 3), ((4, 5), 6)]:
+    print(a, b, c)
+print()
+for ((a, b), c) in [([7, 8], 9), ['XY', 12]]:
+    print(a, b, c)
+</content>
+<print>
+((1, 2), 3)
+1 2 3
+4 5 6
+7 8 9
+X Y 12
+</print>
+</item> 
+<item>
+<title>Присваивание последовательности множеству переменных</title>
+<content> 
+a, *b, c = (10, 21, 32, 44) 
+print(a, b, c)  
+            
+(1, [2, 3], 4)
+for (a, *b, c) in [(1, 2, 3, 4), (5, 6, 7, 8)]:
+    print(a, b, c)
+</content>
+<print>
+10 [21, 32] 44
+1 [2, 3] 4
+5 [6, 7] 8
+</print>
+</item> 
+<item>
+<title>Вложенные циклы for</title>
+<content> 
+seq1 = 'spam'
+seq2 = 'scam'
+res = [] 
+for x in seq1: 
+    if x in seq2: 
+        res.append(x) 
+for i in res:
+    print(i, end=' ')
+</content>
+<print>
+s a m 
+</print>
+</item> 
+<item>
+<title>Генерирование индексов и элементов: enumerate</title>
+<content> 
+n = 'python'
+for(i,item) in enumerate(n):
+    print(i,' ',item)
+</content>
+<print>
+0   p
+1   y
+2   t
+3   h
+4   o
+5   n
+</print>
+</item> 
+<item>
+<title>Функция map()</title>
+<content> 
+#map() - привязывает функцию к аргументу
+nums = [1, 2, 3]
+#Обычный вид
+def f(x):
+    return x*x
+for num in nums:
+    print (f(num),end=' ')
+print()
+# С использованием map()
+for x in map(f,nums):
+    print(x, end=' ')
+</content>
+<print>
+1 4 9 
+1 4 9 
+</print>
+</item> 
+<item>
+<title>Функция filter()</title>
+<content> 
+'''
+Возвращает итератор элементов,для которых заданная функция возвращает True
+'''
+numbers = [10, 4, 2, -1, 6]
+l = filter(bool, ['spam', '', 'ni'])
+print(list(l))
+l = filter(lambda x:x &lt;5,numbers)
+print(list(l))
+</content>
+<print>
+['spam', 'ni']
+[4, 2, -1]
+</print>
+</item> 
+</data>

@@ -1,0 +1,1635 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<data>
+
+<item>
+<title>Oбъект Series</title>
+<content> 
+from pandas import Series, DataFrame
+
+data = [4, 7, -5,  3]
+index = ['a','b','c','d']
+obj = Series(data=data,index=index)
+
+print(obj, end='\n\n')
+print(obj.values)
+print(obj.index)
+</content>
+<print>
+a    4
+b    7
+c   -5
+d    3
+dtype: int64
+
+[ 4  7 -5  3]
+Index(['a', 'b', 'c', 'd'], dtype='object')
+</print>
+</item>
+
+<item>
+<title>Изменение Series</title>
+<content> 
+from pandas import Series, DataFrame
+
+data = [4, 7, -5,  3]
+index = ['a', 'b', 'c', 'd']
+obj = Series(data=data,index=index)
+obj['d'] = 0
+print(obj, end='\n\n')
+</content>
+<print>
+a    4
+b    7
+c   -5
+d    0
+dtype: int64
+</print>
+</item>
+
+<item>
+<title>Фильтрация по значениям</title>
+<content> 
+'''
+Фильтрация с помощью булева масси­ва, скалярное умножение или применение математических функций, сохраняют связь между индексом и значением
+'''
+from pandas import Series, DataFrame
+
+data = [4, 7, -5,  3]
+index = ['a', 'b', 'c', 'd']
+obj = Series(data=data,index=index)
+
+print(obj[obj > 0], end='\n\n')
+</content>
+<print>
+a    4
+b    7
+d    3
+dtype: int64
+</print>
+</item>
+
+<item>
+<title>Изменение значений по условиям</title>
+<content> 
+from pandas import Series, DataFrame
+
+data = [4, 7, -5,  3]
+index = ['a', 'b', 'c', 'd']
+obj = Series(data=data,index=index)
+obj[obj > 0] = 100
+
+print(obj, end='\n\n')
+</content>
+<print>
+a    100
+b    100
+c     -5
+d    100
+dtype: int64
+</print>
+</item>
+
+<item>
+<title>Математические операции</title>
+<content> 
+'''
+Фильтрация с помощью булева масси­ва, скалярное умножение или применение математических функций, сохраняют связь между индексом и значением
+'''
+from pandas import Series, DataFrame
+
+data = [4, 7, -5,  3]
+index = ['a', 'b', 'c', 'd']
+obj = Series(data=data,index=index)
+
+print(obj * 2, end='\n\n')
+print(obj + 2, end='\n\n')
+print(obj / 2, end='\n\n')
+print(obj - 2, end='\n\n')
+</content>
+<print>
+a     8
+b    14
+c   -10
+d     6
+dtype: int64
+
+a    6
+b    9
+c   -3
+d    5
+dtype: int64
+
+a    2.0
+b    3.5
+c   -2.5
+d    1.5
+dtype: float64
+
+a    2
+b    5
+c   -7
+d    1
+dtype: int64
+</print>
+</item>
+
+<item>
+<title>Проверка на вхождение</title>
+<content> 
+from pandas import Series, DataFrame
+
+data = [4, 7, -5,  3]
+index = ['a', 'b', 'c', 'd']
+obj = Series(data=data,index=index)
+
+print('b' in obj)
+print('e' in obj)
+print(4 in obj.values)
+print(2 in obj.values)
+</content>
+<print>
+True
+False
+True
+False
+</print>
+</item>
+
+<item>
+<title>Создание Series из словаря</title>
+<content> 
+from pandas import Series, DataFrame
+
+data = {'Ohio':  35000,  'Texas':  71000,  'Oregon':  16000,  'Utah':  5000}
+obj = Series(data=data)
+
+print(obj)
+</content>
+<print>
+Ohio      35000
+Oregon    16000
+Texas     71000
+Utah       5000
+dtype: int64
+</print>
+</item>
+
+<item>
+<title>Нахождение NaN </title>
+<content> 
+import pandas as pd
+from pandas import Series, DataFrame
+
+data = {'Ohio':  None,  'Texas':  71000,  'Oregon':  16000,  'Utah':  5000}
+obj = Series(data=data)
+print(pd.isnull(obj), end='\n\n')
+print(pd.notnull(obj), end='\n\n')
+print(obj.isnull, end='\n\n')
+print(obj.notnull, end='\n\n')
+</content>
+<print>
+Ohio       True
+Oregon    False
+Texas     False
+Utah      False
+dtype: bool
+
+Ohio      False
+Oregon     True
+Texas      True
+Utah       True
+dtype: bool
+
+&lt;bound method NDFrame.isnull of Ohio          NaN
+Oregon    16000.0
+Texas     71000.0
+Utah       5000.0
+dtype: float64&gt;
+
+&lt;bound method NDFrame.notnull of Ohio          NaN
+Oregon    16000.0
+Texas     71000.0
+Utah       5000.0
+dtype: float64&gt;
+</print>
+</item>
+
+<item>
+<title>Аттрибут name</title>
+<content> 
+from pandas import Series, DataFrame
+
+data = {'Ohio':  None,  'Texas':  71000,  'Oregon':  16000,  'Utah':  5000}
+obj = Series(data=data)
+obj.name = 'population'
+obj.index.name = 'states'
+
+print(obj, end='\n\n')
+</content>
+<print>
+states
+Ohio          NaN
+Oregon    16000.0
+Texas     71000.0
+Utah       5000.0
+Name: population, dtype: float64
+</print>
+</item>
+
+<item>
+<title>Создание DataFrame</title>
+<content> 
+from pandas import Series, DataFrame
+
+data ={ 'state':  [   'Ohio',  'Ohio' ,   'Ohio',  'Nevada',  'Nevada'] ,
+        'year':[2000,2001,2002,2001,2002],
+        ' рор ' :  [ 1.5 ,  1.7 ,  3.6 ,  2.4 ,  2.9 ] }
+frame =  DataFrame(data)
+
+print(frame, end='\n\n')
+</content>
+<print>    
+	 рор    state year
+0    1.5    Ohio  2000
+1    1.7    Ohio  2001
+2    3.6    Ohio  2002
+3    2.4  Nevada  2001
+4    2.9  Nevada  2002
+</print>
+</item>
+
+<item>
+<title>Создание DataFrame (2)</title>
+<content> 
+from pandas import Series, DataFrame
+
+'''
+Ключи внешнего словаря будут интерпретированы как столбцы, а ключи внутреннего словаря - как индексы строк
+'''
+op  = {'Nevada':{2001:2.4,2002:2.9},
+       'Ohio':{2000:1.5,2001:1.7,2002:3.6}}
+
+frame =  DataFrame(op)
+
+print(frame,end='\n\n')
+print(frame.T,end='\n\n')
+</content>
+<print>
+      Nevada  Ohio
+2000     NaN   1.5
+2001     2.4   1.7
+2002     2.9   3.6
+
+        2000  2001  2002
+Nevada   NaN   2.4   2.9
+Ohio     1.5   1.7   3.6
+</print>
+</item>
+	
+<item>
+<title>Изменение порядка столбцов</title>
+<content> 
+from pandas import Series, DataFrame
+
+data ={ 'state':  [   'Ohio',  'Ohio' ,   'Ohio',  'Nevada',  'Nevada'] ,
+        'year':[2000,2001,2002,2001,2002],
+        'pop' :  [ 1.5 ,  1.7 ,  3.6 ,  2.4 ,  2.9 ]}
+frame =  DataFrame(data)
+
+print(frame, end='\n\n')
+
+frame =  DataFrame(data, columns=['year','state','pop'])
+
+print(frame, end='\n\n')
+</content>
+<print>
+   pop   state  year
+0  1.5    Ohio  2000
+1  1.7    Ohio  2001
+2  3.6    Ohio  2002
+3  2.4  Nevada  2001
+4  2.9  Nevada  2002
+
+   year   state  pop
+0  2000    Ohio  1.5
+1  2001    Ohio  1.7
+2  2002    Ohio  3.6
+3  2001  Nevada  2.4
+4  2002  Nevada  2.9
+</print>
+</item>
+
+<item>
+<title>Изменение значений столбцов</title>
+<content> 
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+data ={ 'state':  [   'Ohio',  'Ohio' ,   'Ohio',  'Nevada',  'Nevada'] ,
+        'year':[2000,2001,2002,2001,2002],
+        'popl' :  [ 1.5 ,  1.7 ,  3.6 ,  2.4 ,  2.9 ]}
+frame =  DataFrame(data)
+frame['popl'] = 22
+
+print(frame, end='\n\n')
+
+frame.popl = 33
+
+print(frame, end='\n\n')
+
+frame.popl = np.arange(5.)
+
+print(frame, end='\n\n')
+</content>
+<print>
+   popl   state  year
+0    22    Ohio  2000
+1    22    Ohio  2001
+2    22    Ohio  2002
+3    22  Nevada  2001
+4    22  Nevada  2002
+
+   popl   state  year
+0    33    Ohio  2000
+1    33    Ohio  2001
+2    33    Ohio  2002
+3    33  Nevada  2001
+4    33  Nevada  2002
+
+   popl   state  year
+0   0.0    Ohio  2000
+1   1.0    Ohio  2001
+2   2.0    Ohio  2002
+3   3.0  Nevada  2001
+4   4.0  Nevada  2002
+</print>
+</item>
+
+<item>
+<title>Доступ к строкам DataFrame</title>
+<content> 
+from pandas import Series, DataFrame
+
+data ={ 'state':  ['Ohio',  'Ohio' ,   'Ohio',  'Nevada',  'Nevada'] ,
+        'year':[2000,2001,2002,2001,2002],
+        'popl' :  [ 1.5 ,  1.7 ,  3.6 ,  2.4 ,  2.9 ]}
+index = ['one','two','three','four','five']
+frame =  DataFrame(data,index=index)
+
+
+print(frame.ix['three'], end='\n\n')
+print(frame.ix['three'].popl)
+print(frame.ix['three']['state'])
+</content>
+<print>
+popl      3.6
+state    Ohio
+year     2002
+Name: three, dtype: object
+
+3.6
+Ohio
+</print>
+</item>
+
+<item>
+<title>Вставка Series в DataFrame</title>
+<content> 
+from pandas import Series, DataFrame
+'''
+Если присваивается объект Series, то он будет точно согласован с индексом DataFrame, а в дырки будут вставлены значения NaN
+'''
+data ={ 'state':  ['Ohio',  'Ohio' ,   'Ohio',  'Nevada',  'Nevada'] ,
+        'year':[2000,2001,2002,2001,2002],
+        'popl' :  [ 1.5 ,  1.7 ,  3.6 ,  2.4 ,  2.9 ]}
+index = ['one','two','three','four','five']
+frame =  DataFrame(data,index=index)
+
+print(frame,end='\n\n')
+
+series = Series(data = [2.5,6,1.2],index=['two','four','five'])
+
+frame['popl'] = series
+
+print(frame)
+</content>
+<print>
+       popl   state  year
+one     1.5    Ohio  2000
+two     1.7    Ohio  2001
+three   3.6    Ohio  2002
+four    2.4  Nevada  2001
+five    2.9  Nevada  2002
+
+       popl   state  year
+one     NaN    Ohio  2000
+two     2.5    Ohio  2001
+three   NaN    Ohio  2002
+four    6.0  Nevada  2001
+five    1.2  Nevada  2002
+
+</print>
+</item>
+
+<item>
+<title>Удаление столбцов DataFrame</title>
+<content> 
+from pandas import Series, DataFrame
+
+data ={ 'state':  ['Ohio',  'Ohio' ,   'Ohio',  'Nevada',  'Nevada'] ,
+        'year':[2000,2001,2002,2001,2002],
+        'popl' :  [ 1.5 ,  1.7 ,  3.6 ,  2.4 ,  2.9 ]}
+index = ['one','two','three','four','five']
+frame =  DataFrame(data,index=index)
+
+print(frame,end='\n\n')
+
+del frame['popl']
+
+print(frame)
+</content>
+<print>
+       popl   state  year
+one     1.5    Ohio  2000
+two     1.7    Ohio  2001
+three   3.6    Ohio  2002
+four    2.4  Nevada  2001
+five    2.9  Nevada  2002
+
+        state  year
+one      Ohio  2000
+two      Ohio  2001
+three    Ohio  2002
+four   Nevada  2001
+five   Nevada  2002
+</print>
+</item>
+
+
+<item>
+<title>Переиндексация</title>
+<content> 
+from pandas import Series, DataFrame
+'''
+данные будут реорганизованы в соответствии с новым индексом, а если каких-то из имеющихся в этом индексе значений раньше не было, то вместо них будут подставлены отсутствующие значения
+'''
+obj = Series([4.5, 7.2, -5.3, 3.6], index=['d', 'b', 'a', 'c'])
+print(obj,end='\n\n')
+
+obj2 = obj.reindex(['a', 'b', 'c', 'd', 'e'],fill_value=0)
+
+print(obj2,end='\n\n')
+</content>
+<print>
+d    4.5
+b    7.2
+a   -5.3
+c    3.6
+dtype: float64
+
+a   -5.3
+b    7.2
+c    3.6
+d    4.5
+e    0.0
+dtype: float64
+</print>
+</item>
+
+<item>
+<title>Интерполяция - восполнение отсутствующих значений в процессе переиндексации. </title>
+<content> 
+from pandas import Series, DataFrame
+
+obj = Series(['blue', 'purple', 'yellow'], index=[0, 2, 4])
+print(obj,end='\n\n')
+
+obj2 = obj.reindex(range(6), method='ffill')
+
+print(obj2,end='\n\n')
+</content>
+<print>
+0      blue
+2    purple
+4    yellow
+dtype: object
+
+0      blue
+1      blue
+2    purple
+3    purple
+4    yellow
+5    yellow
+dtype: object
+</print>
+</item>
+
+<item>
+<title>Удаление элементов из оси (Series)</title>
+<content> 
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+obj = Series(np.arange(5.), index=['a', 'b', 'c', 'd', 'e'])
+print(obj,end='\n\n')
+
+new_obj = obj.drop(['c','d'])
+
+print(new_obj,end='\n\n')
+</content>
+<print>
+a    0.0
+b    1.0
+c    2.0
+d    3.0
+e    4.0
+dtype: float64
+
+a    0.0
+b    1.0
+e    4.0
+dtype: float64
+</print>
+</item>
+
+<item>
+<title>Удаление элементов из оси (DataFrame)</title>
+<content> 
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+data = DataFrame(np.arange(16).reshape((4, 4)),
+                  index=['Ohio', 'Colorado', 'Utah', 'New York'],
+                  columns=['one', 'two', 'three', 'four'])
+
+print(data,end='\n\n')
+print(data.drop(['Colorado','New York'],axis=0),end='\n\n')
+print(data.drop(['one','two'],axis=1),end='\n\n')
+</content>
+<print>
+          one  two  three  four
+Ohio        0    1      2     3
+Colorado    4    5      6     7
+Utah        8    9     10    11
+New York   12   13     14    15
+
+      one  two  three  four
+Ohio    0    1      2     3
+Utah    8    9     10    11
+
+          three  four
+Ohio          2     3
+Colorado      6     7
+Utah         10    11
+New York     14    15
+</print>
+</item>
+
+<item>
+<title>Доступ по индексу, выборка и фильтрация </title>
+<content> 
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+obj = Series(np.arange(4.), index=['a', 'b', 'c', 'd'])
+
+print(obj['b'])
+print(obj[1])
+print(obj[2:4],end='\n\n')
+print(obj[['b', 'a', 'd']],end='\n\n')
+print(obj[[1, 3]],end='\n\n')
+print(obj[obj &lt; 2],end='\n\n')
+
+obj['b':'c'] = 5
+
+print(obj,end='\n\n')
+</content>
+<print>
+1.0
+1.0
+c    2.0
+d    3.0
+dtype: float64
+
+b    1.0
+a    0.0
+d    3.0
+dtype: float64
+
+b    1.0
+d    3.0
+dtype: float64
+
+a    0.0
+b    1.0
+dtype: float64
+
+a    0.0
+b    5.0
+c    5.0
+d    3.0
+dtype: float64
+</print>
+</item>
+
+<item>
+<title>Достцп к индексам DataFrame</title>
+<content> 
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+data = DataFrame(np.arange(16).reshape((4, 4)),
+                  index=['Ohio', 'Colorado', 'Utah', 'New York'],
+                  columns=['one', 'two', 'three', 'four'])
+
+print(data,end='\n\n')
+print(data[['one','three']],end='\n\n')
+print(data[data['two']>5],end='\n\n')
+</content>
+<print>
+          one  two  three  four
+Ohio        0    1      2     3
+Colorado    4    5      6     7
+Utah        8    9     10    11
+New York   12   13     14    15
+
+          one  three
+Ohio        0      2
+Colorado    4      6
+Utah        8     10
+New York   12     14
+
+          one  two  three  four
+Utah        8    9     10    11
+New York   12   13     14    15
+</print>
+</item>
+
+<item>
+<title>Проверка DataFrame по условиям</title>
+<content> 
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+data = DataFrame(np.arange(16).reshape((4, 4)),
+                  index=['Ohio', 'Colorado', 'Utah', 'New York'],
+                  columns=['one', 'two', 'three', 'four'])
+
+print(data &lt; 5,end='\n\n')
+data[data &lt; 5] = 0
+print(data,end='\n\n')
+</content>
+<print>
+            one    two  three   four
+Ohio       True   True   True   True
+Colorado   True  False  False  False
+Utah      False  False  False  False
+New York  False  False  False  False
+
+          one  two  three  four
+Ohio        0    0      0     0
+Colorado    0    5      6     7
+Utah        8    9     10    11
+New York   12   13     14    15
+</print>
+</item>
+
+<item>
+<title>Срезы DataFrame,условия</title>
+<content> 
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+data = DataFrame(np.arange(16).reshape((4, 4)),
+                  index=['Ohio', 'Colorado', 'Utah', 'New York'],
+                  columns=['one', 'two', 'three', 'four'])
+
+print(data,end='\n\n')
+print(data.ix[:2,:3] ,end='\n\n')
+print(data.ix[data.three > 5,:3] ,end='\n\n')
+</content>
+<print>
+          one  two  three  four
+Ohio        0    1      2     3
+Colorado    4    5      6     7
+Utah        8    9     10    11
+New York   12   13     14    15
+
+          one  two  three
+Ohio        0    1      2
+Colorado    4    5      6
+
+          one  two  three
+Colorado    4    5      6
+Utah        8    9     10
+New York   12   13     14
+</print>
+</item>
+
+<item>
+<title>Арифметические операции </title>
+<content> 
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+df1 = DataFrame(np.arange(12.).reshape((3, 4)), columns=list('abcd'))
+df2 = DataFrame(np.arange(20.).reshape((4, 5)), columns=list('abcde'))
+
+print(df1.add(df2,fill_value = 0),end='\n\n')
+print(df1.sub(df2,fill_value = 0),end='\n\n')
+print(df1.div(df2,fill_value = 0),end='\n\n')
+print(df1.mul(df2,fill_value = 0),end='\n\n')
+</content>
+<print>
+      a     b     c     d     e
+0   0.0   2.0   4.0   6.0   4.0
+1   9.0  11.0  13.0  15.0   9.0
+2  18.0  20.0  22.0  24.0  14.0
+3  15.0  16.0  17.0  18.0  19.0
+
+      a     b     c     d     e
+0   0.0   0.0   0.0   0.0  -4.0
+1  -1.0  -1.0  -1.0  -1.0  -9.0
+2  -2.0  -2.0  -2.0  -2.0 -14.0
+3 -15.0 -16.0 -17.0 -18.0 -19.0
+
+     a         b         c         d    e
+0  NaN  1.000000  1.000000  1.000000  0.0
+1  0.8  0.833333  0.857143  0.875000  0.0
+2  0.8  0.818182  0.833333  0.846154  0.0
+3  0.0  0.000000  0.000000  0.000000  0.0
+
+      a     b      c      d    e
+0   0.0   1.0    4.0    9.0  0.0
+1  20.0  30.0   42.0   56.0  0.0
+2  80.0  99.0  120.0  143.0  0.0
+3   0.0   0.0    0.0    0.0  0.0
+</print>
+</item>
+
+<item>
+<title>Сортировка</title>
+<content> 
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+obj = Series(range(4), index=['d', 'a', 'b', 'c'])
+
+print(obj.sort_index(),end='\n\n')
+
+frame = DataFrame(np.arange(8).reshape((2, 4)), index=['three', 'one'],
+                       columns=['d', 'a', 'b', 'c'])
+
+print(frame.sort_index(),end='\n\n')
+print(frame.sort_index(axis=1,, ascending=False),end='\n\n')
+</content>
+<print>
+a    1
+b    2
+c    3
+d    0
+dtype: int32
+
+       d  a  b  c
+one    4  5  6  7
+three  0  1  2  3
+
+       d  c  b  a
+three  0  3  2  1
+one    4  7  6  5
+</print>
+</item>
+
+<item>
+<title>Сортировка Series по значениям</title>
+<content>
+from pandas import Series, DataFrame
+
+obj = Series(range(4), index=['d', 'a', 'b', 'c'])
+
+print(obj.sort_values(),end='\n\n') 
+</content>
+<print>
+d    0
+a    1
+b    2
+c    3
+dtype: int32
+</print>
+</item>
+
+<item>
+<title>Cортировка DataFrame по значениям</title>
+<content> 
+from pandas import Series, DataFrame
+
+frame = DataFrame({'b': [4, 7, -3, 2], 'a': [0, 1, 0, 1]})
+
+print(frame,end='\n\n')
+print(frame.sort_values(by='b'),end='\n\n')
+print(frame.sort_values(by=['a','b']),end='\n\n')
+</content>
+<print>
+   a  b
+0  0  4
+1  1  7
+2  0 -3
+3  1  2
+
+   a  b
+2  0 -3
+3  1  2
+0  0  4
+1  1  7
+
+   a  b
+2  0 -3
+0  0  4
+3  1  2
+1  1  7
+</print>
+</item>
+
+<item>
+<title>Ранжирование</title>
+<content> 
+from pandas import Series, DataFrame
+
+obj = Series([7, -5, 7, 4, 2, 0, 4])
+
+print(obj.rank(),end='\n\n')
+print(obj.rank(method='first'),end='\n\n')
+print(obj.rank(ascending=False, method='max'),end='\n\n')
+</content>
+<print>
+0    6.5
+1    1.0
+2    6.5
+3    4.5
+4    3.0
+5    2.0
+6    4.5
+dtype: float64
+
+0    6.0
+1    1.0
+2    7.0
+3    4.0
+4    3.0
+5    2.0
+6    5.0
+dtype: float64
+
+0    2.0
+1    7.0
+2    2.0
+3    4.0
+4    5.0
+5    6.0
+6    4.0
+dtype: float64
+</print>
+</item>
+
+<item>
+<title>Суммирование по столбцам/строкам</title>
+<content> 
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+df = DataFrame([[1.4, np.nan], [7.1, -4.5],[np.nan, np.nan], [0.75, -1.3]],
+                   index=['a', 'b', 'c', 'd'],
+                   columns=['one', 'two'])
+
+print(df)
+print(df.sum(),end='\n\n')
+print(df.sum(axis=1),end='\n\n')
+print(df.sum(axis=1,skipna=False),end='\n\n')
+print(df.cumsum(),end='\n\n')
+</content>
+<print>
+    one  two
+a  1.40  NaN
+b  7.10 -4.5
+c   NaN  NaN
+d  0.75 -1.3
+one    9.25
+two   -5.80
+dtype: float64
+
+a    1.40
+b    2.60
+c    0.00
+d   -0.55
+dtype: float64
+
+a     NaN
+b    2.60
+c     NaN
+d   -0.55
+dtype: float64
+
+    one  two
+a  1.40  NaN
+b  8.50 -4.5
+c   NaN  NaN
+d  9.25 -5.8
+</print>
+</item>
+
+<item>
+<title>Свойство DataFrame describe()</title>
+<content> 
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+df = DataFrame([[1.4, np.nan], [7.1, -4.5],[np.nan, np.nan], [0.75, -1.3]],
+                   index=['a', 'b', 'c', 'd'],
+                   columns=['one', 'two'])
+
+print(df)
+print(df.describe(),end='\n\n')
+</content>
+<print>
+    one  two
+a  1.40  NaN
+b  7.10 -4.5
+c   NaN  NaN
+d  0.75 -1.3
+            one       two
+count  3.000000  2.000000
+mean   3.083333 -2.900000
+std    3.493685  2.262742
+min    0.750000 -4.500000
+25%    1.075000 -3.700000
+50%    1.400000 -2.900000
+75%    4.250000 -2.100000
+max    7.100000 -1.300000
+</print>
+</item>
+
+<item>
+<title>Уникальные значения Series,счетчики значений,вхождение</title>
+<content> 
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+obj = Series(['c', 'a', 'd', 'a', 'a', 'b', 'b', 'c', 'c'])
+
+print(obj.unique())
+print(obj.value_counts(),end='\n\n')
+print(pd.value_counts(obj.values,sort=False),end='\n\n')
+
+# описание в заметках
+mask = obj.isin(['b','c'])
+
+print(mask,end='\n\n')
+print(obj[mask],end='\n\n')
+</content>
+<print>
+['c' 'a' 'd' 'b']
+c    3
+a    3
+b    2
+d    1
+dtype: int64
+
+a    3
+c    3
+d    1
+b    2
+dtype: int64
+
+0     True
+1    False
+2    False
+3    False
+4    False
+5     True
+6     True
+7     True
+8     True
+dtype: bool
+
+0    c
+5    b
+6    b
+7    c
+8    c
+dtype: object
+</print>
+</item>
+
+<item>
+
+
+<item>
+<title>Удаление отсутствующих данных Series</title>
+<content>
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+data = Series([1, np.nan, 3.5, np.nan, 7])
+
+print(data,end='\n\n')
+print(data.dropna(),end='\n\n')
+print(data[data.notnull()],end='\n\n') 
+</content>
+<print>
+0    1.0
+1    NaN
+2    3.5
+3    NaN
+4    7.0
+dtype: float64
+
+0    1.0
+2    3.5
+4    7.0
+dtype: float64
+
+0    1.0
+2    3.5
+4    7.0
+dtype: float64
+</print>
+</item>
+
+<item>
+<title>Удаление отсутствующих данных DataFrame</title>
+<content> 
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+data = DataFrame([[1., 6.5, 3.], [1., np.nan, np.nan],
+                   [np.nan, np.nan, np.nan], [np.nan, 6.5, 3.]])
+
+print(data,end='\n\n')
+print(data.dropna(),end='\n\n')
+
+# how='all' will only drop rows that are all NA:
+print(data.dropna(axis=0,how='all'),end='\n\n')
+</content>
+<print>
+     0    1    2
+0  1.0  6.5  3.0
+1  1.0  NaN  NaN
+2  NaN  NaN  NaN
+3  NaN  6.5  3.0
+
+     0    1    2
+0  1.0  6.5  3.0
+
+     0    1    2
+0  1.0  6.5  3.0
+1  1.0  NaN  NaN
+3  NaN  6.5  3.0
+</print>
+</item>
+
+<item>
+<title>Восполнение отсутствующих данных </title>
+<content> 
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+data = DataFrame([[1., 6.5, 3.], [1., np.nan, np.nan],
+                   [np.nan, np.nan, np.nan], [np.nan, 6.5, 3.]])
+
+print(data,end='\n\n')
+print(data.fillna(0),end='\n\n')
+</content>
+<print>
+     0    1    2
+0  1.0  6.5  3.0
+1  1.0  NaN  NaN
+2  NaN  NaN  NaN
+3  NaN  6.5  3.0
+
+     0    1    2
+0  1.0  6.5  3.0
+1  1.0  0.0  0.0
+2  0.0  0.0  0.0
+3  0.0  6.5  3.0
+</print>
+</item>
+
+<item>
+<title>Иерархическое индексирование Series</title>
+<content> 
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+data = Series(np.random.randn(10),
+                  index=[['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'd', 'd'],
+                  [1, 2, 3, 1, 2, 3, 1, 2, 2, 3]])
+
+print(data,end='\n\n')
+print(data['b'],end='\n\n')
+print(data['a':'c'],end='\n\n')
+print(data['a':'c'],end='\n\n')
+print(data.ix[['b', 'd']],end='\n\n')
+
+# выборка с «внутреннего» уровня:
+print(data[:,2],end='\n\n')
+</content>
+<print>
+a  1    1.801573
+   2   -2.077585
+   3   -1.288899
+b  1   -0.290470
+   2   -0.583967
+   3   -2.310463
+c  1    1.994905
+   2    0.000133
+d  2    2.139078
+   3    1.317171
+dtype: float64
+
+1   -0.290470
+2   -0.583967
+3   -2.310463
+dtype: float64
+
+a  1    1.801573
+   2   -2.077585
+   3   -1.288899
+b  1   -0.290470
+   2   -0.583967
+   3   -2.310463
+c  1    1.994905
+   2    0.000133
+dtype: float64
+
+a  1    1.801573
+   2   -2.077585
+   3   -1.288899
+b  1   -0.290470
+   2   -0.583967
+   3   -2.310463
+c  1    1.994905
+   2    0.000133
+dtype: float64
+
+b  1   -0.290470
+   2   -0.583967
+   3   -2.310463
+d  2    2.139078
+   3    1.317171
+dtype: float64
+
+a   -2.077585
+b   -0.583967
+c    0.000133
+d    2.139078
+dtype: float64
+</print>
+</item>
+
+<item>
+<title>Иерархическое индексирование DataFrame</title>
+<content> 
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+frame = DataFrame(np.arange(12).reshape((4, 3)),
+                      index=[['a', 'a', 'b', 'b'], [1, 2, 1, 2]],
+                      columns=[['Ohio', 'Ohio', 'Colorado'],
+                               ['Green', 'Red', 'Green']])
+
+print(frame,end='\n\n')
+
+frame.index.names = ['key1', 'key2']
+frame.columns.names = ['state', 'color']
+
+print(frame,end='\n\n')
+print(frame.swaplevel('key1','key2').sortlevel(1), end='\n\n')
+</content>
+<print>
+     Ohio     Colorado
+    Green Red    Green
+a 1     0   1        2
+  2     3   4        5
+b 1     6   7        8
+  2     9  10       11
+
+state      Ohio     Colorado
+color     Green Red    Green
+key1 key2                   
+a    1        0   1        2
+     2        3   4        5
+b    1        6   7        8
+     2        9  10       11
+
+state     Colorado  Ohio    
+color        Green Green Red
+key2 key1                   
+1    a           2     0   1
+2    a           5     3   4
+1    b           8     6   7
+2    b          11     9  10
+</print>
+</item>
+
+<title>Нахождение одинаковых значений в DataFrame</title>
+<content> 
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+data = DataFrame({'Qu1': [1, 3, 4, 3, 4],
+                     'Qu2': [2, 3, 1, 2, 3],
+                      'Qu3': [1, 5, 2, 4, 4]})
+
+print(data,end='\n\n')
+print(data.apply(pd.value_counts).fillna(0))
+</content>
+<print>
+   Qu1  Qu2  Qu3
+0    1    2    1
+1    3    3    5
+2    4    1    2
+3    3    2    4
+4    4    3    4
+
+   Qu1  Qu2  Qu3
+1  1.0  1.0  1.0
+2  0.0  2.0  1.0
+3  2.0  2.0  0.0
+4  2.0  0.0  2.0
+5  0.0  0.0  1.0
+</print>
+</item>
+
+<item>
+<title>Сводная статистика по уровню DataFrame</title>
+<content> 
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+frame = DataFrame(np.arange(12).reshape((4, 3)),
+                      index=[['a', 'a', 'b', 'b'], [1, 2, 1, 2]],
+                      columns=[['Ohio', 'Ohio', 'Colorado'],
+                               ['Green', 'Red', 'Green']])
+
+print(frame,end='\n\n')
+
+frame.index.names = ['key1', 'key2']
+frame.columns.names = ['state', 'color']
+
+print(frame.sum(level='key2'),end='\n\n')
+print(frame.sum(level='color', axis=1), end='\n\n')
+</content>
+<print>
+     Ohio     Colorado
+    Green Red    Green
+a 1     0   1        2
+  2     3   4        5
+b 1     6   7        8
+  2     9  10       11
+
+state  Ohio     Colorado
+color Green Red    Green
+key2                    
+1         6   8       10
+2        12  14       16
+
+color      Green  Red
+key1 key2            
+a    1         2    1
+     2         8    4
+b    1        14    7
+     2        20   10
+</print>
+</item>
+
+<item>
+<title>Работа со столбцами DataFrame </title>
+<content> 
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+frame = DataFrame({'a': range(7), 'b': range(7, 0, -1),
+                       'c': ['one', 'one', 'one', 'two', 'two', 'two', 'two'],
+                       'd': [0, 1, 2, 0, 1, 2, 3]})
+
+print(frame,end='\n\n')
+print(frame.set_index(['c', 'd']),end='\n\n')
+
+# По умолчанию столбцы удаляются из DataFrame,хотя их можно и оставить
+print(frame.set_index(['c', 'd'],drop=False),end='\n\n')
+
+# reset_index, делает прямо противоположное set_index;
+print(frame.reset_index(),end='\n\n')
+</content>
+<print>
+   a  b    c  d
+0  0  7  one  0
+1  1  6  one  1
+2  2  5  one  2
+3  3  4  two  0
+4  4  3  two  1
+5  5  2  two  2
+6  6  1  two  3
+
+       a  b
+c   d      
+one 0  0  7
+    1  1  6
+    2  2  5
+two 0  3  4
+    1  4  3
+    2  5  2
+    3  6  1
+
+       a  b    c  d
+c   d              
+one 0  0  7  one  0
+    1  1  6  one  1
+    2  2  5  one  2
+two 0  3  4  two  0
+    1  4  3  two  1
+    2  5  2  two  2
+    3  6  1  two  3
+
+   index  a  b    c  d
+0      0  0  7  one  0
+1      1  1  6  one  1
+2      2  2  5  one  2
+3      3  3  4  two  0
+4      4  4  3  two  1
+5      5  5  2  two  2
+6      6  6  1  two  3
+</print>
+</item>
+
+<item>
+<title>Изменение формы с помощью иерархического индексирования </title>
+<content>
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+data = DataFrame(np.arange(6).reshape((2, 3)),
+                    index=pd.Index(['Ohio', 'Colorado'], name='state'),
+                     columns=pd.Index(['one', 'two', 'three'], name='number'))
+
+
+print(data,end='\n\n')
+
+'''
+Метод stack поворачивает таблицу, так что столбцы оказываются строками, и в результате получается объект Series 
+'''
+print(data.stack(),end='\n\n')
+print(data.unstack(),end='\n\n') 
+</content>
+<print>
+number    one  two  three
+state                    
+Ohio        0    1      2
+Colorado    3    4      5
+
+state     number
+Ohio      one       0
+          two       1
+          three     2
+Colorado  one       3
+          two       4
+          three     5
+dtype: int32
+
+number  state   
+one     Ohio        0
+        Colorado    3
+two     Ohio        1
+        Colorado    4
+three   Ohio        2
+        Colorado    5
+dtype: int32
+</print>
+</item>
+
+<item>
+<title>Устранение дубликатов </title>
+<content>
+from pandas import Series, DataFrame
+
+data = DataFrame({'k1': ['one'] * 3 + ['two'] * 4,
+                     'k2': [1, 1, 2, 3, 3, 4, 4]})
+
+print(data,end='\n\n')
+print(data.duplicated(),end='\n\n')
+print(data.drop_duplicates(),end='\n\n')
+print(data.drop_duplicates(['k1','k2']),end='\n\n')
+</content>
+<print>
+    k1  k2
+0  one   1
+1  one   1
+2  one   2
+3  two   3
+4  two   3
+5  two   4
+6  two   4
+
+0    False
+1     True
+2    False
+3    False
+4     True
+5    False
+6     True
+dtype: bool
+
+    k1  k2
+0  one   1
+2  one   2
+3  two   3
+5  two   4
+
+    k1  k2
+0  one   1
+2  one   2
+3  two   3
+5  two   4
+</print>
+</item>
+
+<item>
+<title>Дискретизация и раскладывание </title>
+<content> 
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+# раскладывание возраста по категориям
+ages = [20, 22, 25, 27, 21, 23, 37, 31, 61, 45, 41, 32]
+bins = [18, 25, 35, 60, 100]
+group_names = ['Youth', 'YoungAdult', 'MiddleAged', 'Senior']
+cats = pd.cut(ages, bins, labels=group_names)
+
+print(cats,end='\n\n')
+print(cats.codes,end='\n\n')
+print(pd.value_counts(cats),end='\n\n')
+'''
+Согласно принятой в математике нотации интервалов круглая скобка означает, что соответствующий конец не включается (открыт), а квадратная - что включается (замкнут). Чтобы сделать открытым правый конец, следует задать параметр right=False: 
+'''
+print(pd.cut(ages, [18, 26, 36, 61, 100], right=False),end='\n\n')
+</content>
+<print>
+[Youth, Youth, Youth, YoungAdult, Youth, ..., YoungAdult, Senior, MiddleAged, MiddleAged, YoungAdult]
+Length: 12
+Categories (4, object): [MiddleAged &lt; Senior &lt; YoungAdult &lt; Youth]
+
+[3 3 3 2 3 3 0 2 1 0 0 2]
+
+Youth         5
+YoungAdult    3
+MiddleAged    3
+Senior        1
+dtype: int64
+
+[[18, 26), [18, 26), [18, 26), [26, 36), [18, 26), ..., [26, 36), [61, 100), [36, 61), [36, 61), [26, 36)]
+Length: 12
+Categories (4, interval[int64]): [[18, 26) &lt; [26, 36) &lt; [36, 61) &lt; [61, 100)]
+</print>
+</item>
+
+<item>
+<title>Дискретизация и раскладывание(2)</title>
+<content>
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+data = np.random.rand(20)
+
+print(pd.cut(data, 4, precision=2),end='\n\n') 
+</content>
+<print>
+[(0.096, 0.3], (0.096, 0.3], (0.3, 0.51], (0.51, 0.72], (0.096, 0.3], (0.72, 0.93]]
+Categories (4, interval[float64]): [(0.096, 0.3] &lt; (0.3, 0.51] &lt; (0.51, 0.72] &lt; (0.72, 0.93]]
+</print>
+</item>
+
+<item>
+<title>Дискретизация и раскладывание(3)</title>
+<content> 
+'''
+Родственный метод qcut раскладывает данные, исходя из выборочных квантилей. Метод cut обычно создает ящики, содержащие разное число точек, - это всецело определяемся распределением данных. Но поскольку qcut пользуется выборочными квантилями, то по определению получаются ящики равного размера
+'''
+data = np.random.randn(10) # Normally distributed
+cats = pd.qcut(data, 4) # Cut into quartiles
+print(cats,end='\n\n')
+print(pd.value_counts(cats),end='\n\n')
+'''
+Как и в случае cut, можно  задать величины кваптилей (числа от О до 1 включительно)самостоятельно
+'''
+print(pd.qcut(data, [0, 0.1, 0.5, 0.9, 1.]),end='\n\n')
+</content>
+<print>
+[(0.52, 0.811], (-0.883, 0.199], (0.811, 1.582], (-0.883, 0.199], (0.811, 1.582], (0.199, 0.52], (0.811, 1.582], (-0.883, 0.199], (0.199, 0.52], (0.52, 0.811]]
+Categories (4, interval[float64]): [(-0.883, 0.199] &lt; (0.199, 0.52] &lt; (0.52, 0.811] &lt; (0.811, 1.582]]
+
+(0.811, 1.582]     3
+(-0.883, 0.199]    3
+(0.52, 0.811]      2
+(0.199, 0.52]      2
+dtype: int64
+
+[(0.52, 1.524], (-0.714, 0.52], (1.524, 1.582], (-0.883, -0.714], (0.52, 1.524], (-0.714, 0.52], (0.52, 1.524], (-0.714, 0.52], (-0.714, 0.52], (0.52, 1.524]]
+Categories (4, interval[float64]): [(-0.883, -0.714] &lt; (-0.714, 0.52] &lt; (0.52, 1.524] &lt; (1.524, 1.582]]
+</print>
+</item>
+
+<item>
+<title>Обнаружение и фильтрация выбросов </title>
+<content> 
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+
+np.random.seed(12345)
+data = DataFrame(np.random.randn(1000, 4))
+print(data.describe(),end='\n\n')
+'''
+Допустим, что мы хотим найти  в одном из столбцов значения, превышающие 3 по абсолютной величине
+'''
+
+col = data[3]
+print(col[np.abs(col) > 3],end='\n\n')
+'''
+Чтобы выбрать все строки, в которых встречаются значения, по абсолютной величине превышающие 3, мы можем воспользоваться методом any для булева объекта DataFrame
+'''
+print(data[(np.abs(data) > 3).any(1)],end='\n\n')
+'''
+Можно также присваивать значения данным, удовлетворяющим этому критерию: Следующий код срезает значения, выходящие за границы интервала от -3 до 3:
+'''
+data[np.abs(data) > 3] = np.sign(data) * 3
+
+print(data.describe(),end='\n\n')
+</content>
+<print>
+                0            1            2            3
+count  1000.000000  1000.000000  1000.000000  1000.000000
+mean     -0.067684     0.067924     0.025598    -0.002298
+std       0.998035     0.992106     1.006835     0.996794
+min      -3.428254    -3.548824    -3.184377    -3.745356
+25%      -0.774890    -0.591841    -0.641675    -0.644144
+50%      -0.116401     0.101143     0.002073    -0.013611
+75%       0.616366     0.780282     0.680391     0.654328
+max       3.366626     2.653656     3.260383     3.927528
+
+97     3.927528
+305   -3.399312
+400   -3.745356
+Name: 3, dtype: float64
+
+            0         1         2         3
+5   -0.539741  0.476985  3.248944 -1.021228
+97  -0.774363  0.552936  0.106061  3.927528
+102 -0.655054 -0.565230  3.176873  0.959533
+305 -2.315555  0.457246 -0.025907 -3.399312
+324  0.050188  1.951312  3.260383  0.963301
+400  0.146326  0.508391 -0.196713 -3.745356
+499 -0.293333 -0.242459 -3.056990  1.918403
+523 -3.428254 -0.296336 -0.439938 -0.867165
+586  0.275144  1.179227 -3.184377  1.369891
+808 -0.362528 -3.548824  1.553205 -2.186301
+900  3.366626 -2.372214  0.851010  1.332846
+
+                 0            1            2            3
+count  1000.000000  1000.000000  1000.000000  1000.000000
+mean     -0.067623     0.068473     0.025153    -0.002081
+std       0.995485     0.990253     1.003977     0.989736
+min      -3.000000    -3.000000    -3.000000    -3.000000
+25%      -0.774890    -0.591841    -0.641675    -0.644144
+50%      -0.116401     0.101143     0.002073    -0.013611
+75%       0.616366     0.780282     0.680391     0.654328
+max       3.000000     2.653656     3.000000     3.000000
+
+</print>
+</item>
+
+</data>

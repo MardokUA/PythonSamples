@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+<item>
+<title>Сортировка выбором</title>
+<content> 
+def selection_sort(arrayToSort):
+    a = arrayToSort
+    for i in range(len(a)):
+        idxMin = i
+        for j in range(i+1, len(a)):
+            if a[j] &lt; a[idxMin]:
+                idxMin = j
+        tmp = a[idxMin]
+        a[idxMin] = a[i]
+        a[i] = tmp
+    return a
+arr = [34,3,5,1,2,3,5,4,2,43,24]
+print (selection_sort(arr))
+</content>
+<print>
+[1, 2, 2, 3, 3, 4, 5, 5, 24, 34, 43]
+</print>
+</item> 
+<item>
+<title>Сортировка вставками</title>
+<content> 
+def insertion_sort(array):
+    for i in range(1, len(array)):
+        while i > 0 and array[i] &lt; array[i - 1]:
+            array[i], array[i - 1] = array[i - 1], array[i]
+            i -= 1
+    return array
+arr = [34,3,5,1,2,3,5,4,2,43,24]
+print (insertion_sort(arr))
+</content>
+<print>
+[1, 2, 2, 3, 3, 4, 5, 5, 24, 34, 43
+</print>
+</item> 
+<item>
+<title>Сортировка пузьрьком</title>
+<content> 
+def bubble_sort(arrayToSort):
+    a = arrayToSort
+    for i in range(len(a),0,-1):
+        for j in range(1, i):
+            if a[j-1] > a[j]:
+                tmp = a[j-1]
+                a[j-1] = a[j]
+                a[j] = tmp
+                print a
+    return a
+arr = [5, 0, 10, 4, 1, 5, 8, 4, 3, 12, 41]
+print bubble_sort(arr)
+</content>
+<print>
+[1, 2, 2, 3, 3, 4, 5, 5, 24, 34, 43]
+</print>
+</item> 
+<item>
+<title>Сортировка слиянием</title>
+<content> 
+def MergerSort(a):
+    def MergerGroup(a, left, m, right):
+        if left >= right: return None
+        if m &lt; left or right &lt; m: return None
+        t = left
+        for j in range(m + 1, right + 1):  # подгруппа 2
+            for i in range(t, j):  # цикл подгруппы 1
+                if a[j] &lt; a[i]:
+                    r = a[j]
+                    # итерационно переставляем элементы, чтобы упорядочить
+                    for k in range(j, i, -1):
+                        a[k] = a[k - 1]
+                    a[i] = r
+                    t = i  # проджолжение вставки в группе 1
+                    break  # к следующему узлу из подгруппы 2
+    if len(a) &lt; 2: return None
+    k = 1
+    while k &lt; len(a):
+        g = 0
+        while g &lt; len(a):  # группы
+            z = g + k + k - 1  # последний эл-т группы
+            r = z if z &lt; len(a) else len(a) - 1  # последняя группа
+            MergerGroup(a, g, g + k - 1, r)  # слияние
+            g += 2 * k
+        k *= 2
+    return a
+arr = [34,3,5,1,2,3,5,4,2,43,24]
+print (MergerSort(arr))
+</content>
+<print>
+[1, 2, 2, 3, 3, 4, 5, 5, 24, 34, 43]
+</print>
+</item> 
+ 
+</data>

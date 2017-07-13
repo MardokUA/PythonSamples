@@ -1,0 +1,1226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data> 
+<item>
+<title>Порождающие шаблон - Абстрактная фабрика</title>
+<content> 
+"""
+Абстрактная фабрика (Abstract factory, Kit) - паттерн, порождающий объекты.
+Предоставляет интерфейс для создания семейств взаимосвязанных или взаимозависимых объектов,
+не специфицируя их конкретных классов.
+Классы абстрактной фабрики часто реализуются фабричными методами,
+но могут быть реализованы и с помощью паттерна прототип.
+"""
+class AbstractFactory(object):
+    def create_drink(self):
+        raise NotImplementedError()
+    def create_food(self):
+        raise NotImplementedError()
+class Drink(object):
+    def __init__(self, name):
+        self._name = name
+    def __str__(self):
+        return self._name
+class Food(object):
+    def __init__(self, name):
+        self._name = name
+    def __str__(self):
+        return self._name
+class ConcreteFactory1(AbstractFactory):
+    def create_drink(self):
+        return Drink('Coca-cola')
+    def create_food(self):
+        return Food('Hamburger')
+class ConcreteFactory2(AbstractFactory):
+    def create_drink(self):
+        return Drink('Pepsi')
+    def create_food(self):
+        return Food('Cheeseburger')
+def get_factory(ident):
+    if ident == 0:
+        return ConcreteFactory1()
+    elif ident == 1:
+        return ConcreteFactory2()
+factory = get_factory(1)
+print (factory.create_drink()) 
+print (factory.create_food())
+</content>
+<print>
+Pepsi
+Cheeseburger
+</print>
+</item> 
+<item>
+<title>Порождающие шаблон - Фабричный метод</title>
+<content> 
+"""
+Фабричный метод (Factory Method) - паттерн, порождающий классы.
+Определяет интерфейс для создания объекта, но оставляет подклассам решение о том, какой класс инстанцировать.
+Позволяет делегировать инстанцирование подклассам.
+Абстрактная фабрика часто реализуется с помощью фабричных методов.
+Фабричные методы часто вызываются внутри шаблонных методов.
+"""
+class Document(object):
+    def show(self):
+        raise NotImplementedError()
+class ODFDocument(Document):
+    def show(self):
+        print ('Open document format')
+class MSOfficeDocument(Document):
+    def show(self):
+        print ('MS Office document format')
+class Application(object):
+    def create_document(self, type_):
+        # параметризованный фабричный метод 
+        raise NotImplementedError()
+class MyApplication(Application):
+    def create_document(self, type_):
+        if type_ == 'odf':
+            return ODFDocument()
+        elif type_ == 'doc':
+            return MSOfficeDocument()
+app = MyApplication()
+app.create_document('odf').show() 
+app.create_document('doc').show() 
+</content>
+<print>
+Open document format
+MS Office document format
+</print>
+</item> 
+<item>
+<title>Порождающие шаблон - Строитель</title>
+<content> 
+"""
+Строитель (Builder) - паттерн, порождающий объекты.
+Отделяет конструирование сложного объекта от его представления,
+так что в результате одного и того же процесса конструирования могут получаться разные представления.
+От абстрактной фабрики отличается тем, что делает акцент на пошаговом конструировании объекта.
+Строитель возвращает объект на последнем шаге, тогда как абстрактная фабрика возвращает объект немедленно.
+Строитель часто используется для создания паттерна компоновщик.
+"""
+class Builder(object):
+    def build_body(self):
+        raise NotImplementedError()
+    def build_lamp(self):
+        raise NotImplementedError()
+    def build_battery(self):
+        raise NotImplementedError()
+    def create_flashlight(self):
+        raise NotImplementedError()
+class Flashlight(object):
+    """Карманный фонарик"""
+    def __init__(self, body, lamp, battery):
+        self._shine = False  # излучать свет
+        self._body = body
+        self._lamp = lamp
+        self._battery = battery
+    def on(self):
+        self._shine = True
+    def off(self):
+        self._shine = False
+    def __str__(self):
+        shine = 'on' if self._shine else 'off'
+        return 'Flashlight [%s]' % shine
+class Lamp(object):
+    """Лампочка"""
+class Body(object):
+    """Корпус"""
+class Battery(object):
+    """Батарея"""
+class FlashlightBuilder(Builder):
+    def build_body(self):
+        return Body()
+    def build_battery(self):
+        return Battery()
+    def build_lamp(self):
+        return Lamp()
+    def create_flashlight(self):
+        body = self.build_body()
+        lamp = self.build_lamp()
+        battery = self.build_battery()
+        return Flashlight(body, lamp, battery)
+builder = FlashlightBuilder()
+flashlight = builder.create_flashlight()
+flashlight.on()
+print (flashlight) # Flashlight [on]
+</content>
+<print>
+Flashlight [on]
+</print>
+</item> 
+<item>
+<title>Порождающие шаблон - Прототип</title>
+<content> 
+"""
+Прототип - паттерн, порождающий объекты.
+Задает виды создаваемых объектов с помощью экземпляра-прототипа
+и создает новые объекты путем копирования этого прототипа.
+"""
+import copy
+class Prototype(object):
+    def __init__(self):
+        self._objects = {}
+    def register(self, name, obj):
+        self._objects[name] = obj
+    def unregister(self, name):
+        del self._objects[name]
+    def clone(self, name, attrs):
+        obj = copy.deepcopy(self._objects[name])
+        obj.__dict__.update(attrs)
+        return obj
+class Bird(object):
+    """Птица"""
+prototype = Prototype()
+prototype.register('bird', Bird())
+owl = prototype.clone('bird', {'name': 'Owl'})
+# class '__main__.Bird' Owl
+print (type(owl), owl.name)  
+duck = prototype.clone('bird', {'name': 'Duck'})
+# class '__main__.Bird' Duck
+print (type(duck), duck.name) 
+</content>
+<print>
+class '__main__.Bird' Owl
+class '__main__.Bird' Duck
+</print>
+</item> 
+<item>
+<title>Порождающие шаблон - Синглтон</title>
+<content> 
+"""
+Одиночка (Singleton) - паттерн, порождающий объекты.
+Гарантирует, что у класса есть только один экземпляр, и предоставляет к нему глобальную точку доступа.
+С помощью паттерна одиночка могут быть реализованы многие паттерны (абстрактная фабрика, строитель, прототип).
+"""
+class SingletonMeta(type):
+    def __init__(cls, *args, **kwargs):
+        cls._instance = None
+        # глобальная точка доступа `Singleton.get_instance()`
+        cls.get_instance = classmethod(lambda c: c._instance)
+        super(SingletonMeta, cls).__init__(*args, **kwargs)
+    def __call__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super(SingletonMeta, cls).__call__(*args, **kwargs)
+        return cls._instance
+class Singleton(object):
+    __metaclass__ = SingletonMeta
+    def __init__(self, name):
+        self._name = name
+    def get_name(self):
+        return self._name
+obj1 = Singleton('MyInstance 1')
+print (obj1.get_name())  # MyInstance 1
+obj2 = Singleton('MyInstance 2')
+print (obj2.get_name())  # MyInstance 1
+print (obj1 is obj2 is Singleton.get_instance()) 
+</content>
+<print>
+MyInstance 1
+MyInstance 1
+True
+</print>
+</item> 
+<item>
+<title>Структурные шаблон - Адаптер </title>
+<content> 
+"""
+Адаптер - паттерн, структурирующий классы и объекты.
+Преобразует интерфейс одного класса в интерфейс другого, который ожидают клиенты.
+Адаптер обеспечивает совместную работу классов с несовместимыми интерфейсами, которая без него была бы невозможна.
+"""
+class Dog(object):
+    def __init__(self, name):
+        self._name = name
+    def bark(self):
+        return '%s: гав-гав!' % self._name
+class Cat(object):
+    def __init__(self, name):
+        self._name = name
+    def meow(self):
+        return '%s: мяу-мяу!' % self._name
+class CatAdapter(Dog):
+    '''
+	благодаря адаптеру мы можем использовать
+    интерфейс класса `Dog`, а реализацию класса `Cat`.
+	'''
+    def __init__(self, name):
+        super(CatAdapter, self).__init__(name=name)
+        self._cat = Cat(name=name)
+    def bark(self):
+        # запрос `bark` преобразуется в запрос `meow`
+        return self._cat.meow()
+dog = Dog('Spike')
+print (dog.bark())  
+dog = CatAdapter('Spike')
+print (dog.bark())</content>
+<print>
+Spike: woof-woof!
+Spike: Meow meow!
+</print>
+</item> 
+<item>
+<title>Структурные шаблон - Мост </title>
+<content> 
+"""
+Мост (Bridge) - паттерн, структурирующий объекты.
+Основная задача - отделить абстракцию от её реализации так,
+чтобы то и другое можно было изменять независимо.
+"""
+class TVBase(object):
+    """Абстрактный телевизор"""
+    def tune_channel(self, channel):
+        raise NotImplementedError()
+class SonyTV(TVBase):
+    """Телевизор Sony"""
+    def tune_channel(self, channel):
+        print('Sony TV: выбран %d канал' % channel)
+class SharpTV(TVBase):
+    """Телевизор Sharp"""
+    def tune_channel(self, channel):
+        print('Sharp TV: выбран %d канал' % channel)
+class RemoteControlBase(object):
+    """Абстрактный пульт управления"""
+    def __init__(self):
+        self._tv = self.get_tv()
+    def get_tv(self):
+        raise NotImplementedError()
+    def tune_channel(self, channel):
+        self._tv.tune_channel(channel)
+class RemoteControl(RemoteControlBase):
+    """Пульт управления"""
+    def __init__(self):
+        super(RemoteControl, self).__init__()
+        self._channel = 0  # текущий канал
+    def get_tv(self):
+        return SharpTV()
+    def tune_channel(self, channel):
+        super(RemoteControl, self).tune_channel(channel)
+        self._channel = channel
+    def next_channel(self):
+        self._channel += 1
+        self.tune_channel(self._channel)
+    def previous_channel(self):
+        self._channel -= 1
+        self.tune_channel(self._channel)
+remote_control = RemoteControl()
+remote_control.tune_channel(5)  # Sharp TV: выбран 5 канал
+remote_control.next_channel() # Sharp TV: выбран 6 канал
+</content>
+<print>
+Sharp TV: выбран 5 канал
+Sharp TV: выбран 6 канал
+</print>
+</item> 
+<item>
+<title>Структурные шаблон - Компоновщик </title>
+<content> 
+"""
+Компоновщик (Composite) - паттерн, структурирующий объекты.
+Компонует объекты в древовидные структуры для представления иерархий часть-целое.
+Позволяет клиентам единообразно трактовать индивидуальные и составные объекты.
+"""
+# Класс представляющий одновременно примитивы и контейнеры
+class Graphic(object):
+    def draw(self):
+        raise NotImplementedError()
+    def add(self, obj):
+        raise NotImplementedError()
+    def remove(self, obj):
+        raise NotImplementedError()
+    def get_child(self, index):
+        raise NotImplementedError()
+class Line(Graphic):
+    def draw(self):
+        print ('Линия')
+class Rectangle(Graphic):
+    def draw(self):
+        print ('Прямоугольник')
+class Text(Graphic):
+    def draw(self):
+        print ('Текст')
+class Picture(Graphic):
+    def __init__(self):
+        self._children = []
+    def draw(self):
+        print ('Изображение')
+        # вызываем отрисовку у вложенных объектов
+        for obj in self._children:
+            obj.draw()
+    def add(self, obj):
+        if isinstance(obj, Graphic) and not obj in self._children:
+            self._children.append(obj)
+    def remove(self, obj):
+        index = self._children.index(obj)
+        del self._children[index]
+    def get_child(self, index):
+        return self._children[index]
+pic = Picture()
+pic.add(Line())
+pic.add(Rectangle())
+pic.add(Text())
+pic.draw()
+line = pic.get_child(0)
+line.draw() 
+</content>
+<print>
+Изображение
+Линия
+Прямоугольник
+Текст
+Линия
+</print>
+</item> 
+<item>
+<title>Структурные шаблон - Декоратор </title>
+<content> 
+"""
+Декоратор (Decorator, Wrapper) - паттерн, структурирующий объекты.
+Динамически добавляет объекту новые обязанности.
+Является гибкой альтернативой порождению подклассов с целью расширения функциональности.
+"""
+class Man(object):
+    """Человек"""
+    def __init__(self, name):
+        self._name = name
+    def say(self):
+        print ('Привет! Меня зовут %s!' % self._name)
+class Jetpack(object):
+    """Реактивный ранец"""
+    def __init__(self, man):
+        self._man = man
+    def __getattr__(self, item):
+        return getattr(self._man, item)
+    def fly(self):
+        # расширяем функциональность объекта добавляя возможность летать
+        print ('%s летит на реактивном ранце!' % self._man._name)
+man = Man('Виктор')
+man_jetpack = Jetpack(man)
+man_jetpack.say()  # Привет! Меня зовут Виктор!
+man_jetpack.fly() # Виктор летит на реактивном ранце!
+</content>
+<print>
+Hello! My name Viktor!
+Viktor fly by jetpack!
+</print>
+</item> 
+<item>
+<title>Структурные шаблон - Фасад </title>
+<content> 
+"""
+Фасад (Facade) - паттерн, структурирующий объекты.
+Предоставляет унифицированный интерфейс вместо набора интерфейсов некоторой подсистемы.
+Фасад определяет интерфейс более высокого уровня, который упрощает использование подсистемы.
+"""
+class Paper(object):
+    """Бумага"""
+    def __init__(self, count):
+        self._count = count
+    def get_count(self):
+        return self._count
+    def draw(self, text):
+        if self._count > 0:
+            self._count -= 1
+            print (text)
+class Printer(object):
+    """Принтер"""
+    def error(self, msg):
+        print ('Error: %s' % msg)
+    def print_(self, paper, text):
+        if paper.get_count() > 0:
+            paper.draw(text)
+        else:
+            self.error('Paper is over')
+class Facade(object):
+    def __init__(self):
+        self._printer = Printer()
+        self._paper = Paper(1)
+    def write(self, text):
+        self._printer.print_(self._paper, text)
+f = Facade()
+f.write('Hello world!')
+f.write('Hello world!') 
+</content>
+<print>
+Hello world!
+Error: Paper is over
+</print>
+</item> 
+<item>
+<title>Структурные шаблон - Приспособленец  </title>
+<content> 
+"""
+Приспособленец (Flyweight) - паттерн, структурирующий объекты.
+Использует разделение для эффективной поддержки множества мелких объектов.
+"""
+import weakref
+class Color(object):
+    """Приспособленец"""
+    def __init__(self, name):
+        self._name = name
+    def __str__(self):
+        return self._name
+class ColorFactory(object):
+    """Фабрика приспособленцев"""
+    _colors = weakref.WeakValueDictionary()
+    @classmethod
+    def get_color(cls, name):
+        value = cls._colors.get(name)
+        if value is None:
+            value = Color(name)
+            cls._colors[name] = value
+        return value
+class Placemark(object):
+    """Метка на карте"""
+    def __init__(self, latitude, longitude, color_name):
+        # координаты - внутреннее состояние (т.к. они уникальны для каждой метки)
+        self._latitude = latitude
+        self._longitude = longitude
+        # цвет - внешнее состояние которое может быть общим у разных меток
+        self._color = ColorFactory.get_color(color_name)
+    def __str__(self):
+        args = (self._color, self._latitude, self._longitude)
+        return 'Color: %s; Coordinates: (%0.4f, %0.4f)' % args
+plmrk0 = Placemark(-74.007121, 40.714551, 'green')  # Нью-Йорк
+plmrk1 = Placemark(37.617761, 55.755773, 'green')  # Москва
+print (plmrk0)  # Цвет: green; Координаты: (-74.0071, 40.7146)
+print (plmrk1)  # Цвет: green; Координаты: (37.6178, 55.7558)
+print (plmrk0._color is plmrk1._color) # True
+</content>
+<print>
+Color: green; Coordinates: (-74.0071, 40.7146)
+Color: green; Coordinates: (37.6178, 55.7558)
+True
+</print>
+</item> 
+<item>
+<title>Структурные шаблон - Заместитель</title>
+<content> 
+"""
+Заместитель (Proxy, Surrogate) - паттерн, структурирующий объекты.
+Является суррогатом другого объекта и контролирует доступ к нему.
+"""
+from functools import partial
+from abc import ABCMeta, abstractmethod
+class ImageBase(metaclass=ABCMeta):
+    """Абстрактное изображение"""
+    def create(cls, width, height):
+        """Создает изображение"""
+        return cls(width, height)
+    @abstractmethod
+    def draw(self, x, y, color):
+        """Рисует точку заданным цветом"""
+        raise NotImplementedError()
+    @abstractmethod
+    def fill(self, color):
+        """Заливка цветом"""
+        raise NotImplementedError()
+    @abstractmethod
+    def save(self, filename):
+        """Сохраняет изображение в файл"""
+        raise NotImplementedError()
+class Image(ImageBase):
+    """Изображение"""
+    def __init__(self, width, height):
+        self._width = int(width)
+        self._height = int(height)
+    def draw(self, x, y, color):
+        print ('Drawing dot; coordinates: (%d, %d); color: %s' % (x, y, color))
+    def fill(self, color):
+        print ('Fill color %s' % color)
+    def save(self, filename):
+        print ('Saving image in %s' % filename)
+class ImageProxy(ImageBase):
+    """
+    Заместитель изображения.
+    Откладывает выполнение операций над изображением до момента его сохранения.
+    """
+    def __init__(self, *args, **kwargs):
+        self._image = Image(*args, **kwargs)
+        self.operations = []
+    def draw(self, *args):
+        func = partial(self._image.draw, *args)
+        self.operations.append(func)
+    def fill(self, *args):
+        func = partial(self._image.fill, *args)
+        self.operations.append(func)
+    def save(self, filename):
+        # выполняем все операции над изображением
+        list(map(lambda f: f(), self.operations))
+        self._image.save(filename)
+img = ImageProxy(200, 200)
+img.fill('gray')
+img.draw(0, 0, 'green')
+img.draw(0, 1, 'green')
+img.draw(1, 0, 'green')
+img.draw(1, 1, 'green')
+img.save('image.png')
+</content>
+<print>
+Fill color gray
+Drawing dot; coordinates: (0, 0); color: green
+Drawing dot; coordinates: (0, 1); color: green
+Drawing dot; coordinates: (1, 0); color: green
+Drawing dot; coordinates: (1, 1); color: green
+Saving image in image.png
+</print>
+</item> 
+<item>
+<title>Поведенческие шаблон - Цепочка обязанностей</title>
+<content> 
+"""
+Цепочка обязанностей (Chain of Responsibility) - паттерн поведения объектов.
+Позволяет избежать привязки отправителя запроса к его получателю,
+давая шанс обработать запрос нескольким объектам. Связывает объекты-получатели в цепочку
+и передает запрос вдоль этой цепочки, пока его не обработают.
+"""
+class HttpHandler(object):
+    """Абстрактный класс обработчика"""
+    def handle(self, code):
+        raise NotImplementedError()
+class Http404Handler(HttpHandler):
+    """Обработчик для кода 404"""
+    def handle(self, code):
+        if code == 404:
+            return 'Page not found'
+class Http500Handler(HttpHandler):
+    """Обработчик для кода 500"""
+    def handle(self, code):
+        if code == 500:
+            return 'Server error'
+class Client(object):
+    def __init__(self):
+        self._handlers = []
+    def add_handler(self, h):
+        self._handlers.append(h)
+    def response(self, code):
+        for h in self._handlers:
+            msg = h.handle(code)
+            if msg:
+                print ('Response: %s' % msg)
+                break
+        else:
+            print ('Response not handled')
+client = Client()
+client.add_handler(Http404Handler())
+client.add_handler(Http500Handler())
+client.response(400)  
+client.response(404)  
+client.response(500)
+</content>
+<print>
+Response not handled
+Response: Page not found
+Response: Server error
+</print>
+</item> 
+<item>
+<title>Поведенческие шаблон - Команда </title>
+<content> 
+"""
+Команда (Command, Action, Transaction) - паттерн поведения объектов.
+Инкапсулирует запрос как объект, позволяя тем самым задавать параметры клиентов
+для обработки соответствующих запросов, ставить запросы в очередь или протоколировать их,
+а также поддерживать отмену операций.
+"""
+class Light(object):
+    def turn_on(self):
+        print ('Light on')
+    def turn_off(self):
+        print ('Light off')
+class CommandBase(object):
+    def execute(self):
+        raise NotImplementedError()
+class LightCommandBase(CommandBase):
+    def __init__(self, light):
+        self.light = light
+class TurnOnLightCommand(LightCommandBase):
+    def execute(self):
+        self.light.turn_on()
+class TurnOffLightCommand(LightCommandBase):
+    def execute(self):
+        self.light.turn_off()
+class Switch(object):
+    def __init__(self, on_cmd, off_cmd):
+        self.on_cmd = on_cmd
+        self.off_cmd = off_cmd
+    def on(self):
+        self.on_cmd.execute()
+    def off(self):
+        self.off_cmd.execute()
+light = Light()
+switch = Switch(on_cmd=TurnOnLightCommand(light),
+                off_cmd=TurnOffLightCommand(light))
+switch.on()  
+switch.off() 
+</content>
+<print>
+Light on
+Light off
+</print>
+</item> 
+<item>
+<title>Поведенческие шаблон - Интерпретатор </title>
+<content> 
+# coding: utf-8
+"""
+Интерпретатор (Interpreter) - паттерн поведения классов.
+Для заданного языка определяет представление его грамматики,
+а также интерпретатор предложений этого языка.
+"""
+class RomanNumeralInterpreter(object):
+    """Интерпретатор римских цифр"""
+    def __init__(self):
+        self.grammar = {
+            'I': 1,
+            'V': 5,
+            'X': 10,
+            'L': 50,
+            'C': 100,
+            'D': 500,
+            'M': 1000
+        }
+    def interpret(self, text):
+        numbers = list(map(self.grammar.get, text))  # строки в значения
+        if None in numbers:
+            raise ValueError('Error statement: %s' % text)
+        result = 0  # накапливаем результат
+        temp = None  # запоминаем последнее значение
+        while numbers:
+            num = numbers.pop(0)
+            if temp is None or temp >= num:
+                result += num
+            else:
+                result += (num - temp * 2)
+            temp = num
+        return result
+interp = RomanNumeralInterpreter()
+print (interp.interpret('MMMCMXCIX') == 3999)  # True
+print (interp.interpret('MCMLXXXVIII') == 1988) # True
+</content>
+<print>
+True
+True
+</print>
+</item> 
+<item>
+<title>Поведенческие шаблон - Итератор </title>
+<content> 
+# coding: utf-8
+"""
+Итератор (Iterator) - паттерн поведения объектов.
+Предоставляет способ последовательного доступа ко всем элементам составного объекта,
+не раскрывая его внутреннего представления.
+"""
+class IteratorBase(object):
+    """Базовый класс итератора"""
+    def first(self):
+        """Возвращает первый элемент коллекции.
+        Если элемента не существует возбуждается исключение IndexError."""
+        raise NotImplementedError()
+    def last(self):
+        """Возвращает последний элемент коллекции.
+        Если элемента не существует возбуждается исключение IndexError."""
+        raise NotImplementedError()
+    def next(self):
+        """Возвращает следующий элемент коллекции"""
+        raise NotImplementedError()
+    def prev(self):
+        """Возвращает предыдущий элемент коллекции"""
+        raise NotImplementedError()
+    def current_item(self):
+        """Возвращает текущий элемент коллекции"""
+        raise NotImplementedError()
+    def is_done(self, index):
+        """Возвращает истину если элемент с указанным индексом существует, иначе ложь"""
+        raise NotImplementedError()
+    def get_item(self, index):
+        """Возвращает элемент коллекции с указанным индексом, иначе возбуждает исключение IndexError"""
+        raise NotImplementedError()
+class Iterator(IteratorBase):
+    def __init__(self, list_=None):
+        self._list = list_ or []
+        self._current = 0
+    def first(self):
+        return self._list[0]
+    def last(self):
+        return self._list[-1]
+    def current_item(self):
+        return self._list[self._current]
+    def is_done(self, index):
+        last_index = len(self._list) - 1
+        return 0  &lt;= index &lt;= last_index
+    def next(self):
+        self._current += 1
+        if not self.is_done(self._current):
+            self._current = 0
+        return self.current_item()
+    def prev(self):
+        self._current -= 1
+        if not self.is_done(self._current):
+            self._current = len(self._list) - 1
+        return self.current_item()
+    def get_item(self, index):
+        if not self.is_done(index):
+            raise IndexError('There is no element with such index: %d' % index)
+        return self._list[index]
+it = Iterator(['one', 'two', 'three', 'four', 'five'])
+print ([it.prev() for i in range(5)])  
+print ([it.next() for i in range(5)]) 
+</content>
+<print>
+['five', 'four', 'three', 'two', 'one']
+['two', 'three', 'four', 'five', 'one']
+</print>
+</item> 
+<item>
+<title>Поведенческие шаблон - Посредник </title>
+<content> 
+# coding: utf-8
+"""
+Посредник (Mediator) - паттерн поведения объектов.
+Определяет объект, инкапсулирующий способ взаимодействия множества объектов.
+Посредник обеспечивает слабую связанность системы, избавляя объекты от необъодимости явно ссылаться друг на друга
+и позволяя тем самым независимо изменять взаимодействия между ними.
+"""
+class WindowBase(object):
+    def show(self):
+        raise NotImplementedError()
+    def hide(self):
+        raise NotImplementedError()
+class MainWindow(WindowBase):
+    def show(self):
+        print ('Show MainWindow')
+    def hide(self):
+        print ('Hide MainWindow')
+class SettingWindow(WindowBase):
+    def show(self):
+        print ('Show SettingWindow')
+    def hide(self):
+        print ('Hide SettingWindow')
+class HelpWindow(WindowBase):
+    def show(self):
+        print ('Show HelpWindow')
+    def hide(self):
+        print ('Hide HelpWindow')
+class WindowMediator(object):
+    def __init__(self):
+        self.windows = dict.fromkeys(['main', 'setting', 'help'])
+    def show(self, win):
+        for window in self.windows.values():
+            if not window is win:
+                window.hide()
+        win.show()
+    def set_main(self, win):
+        self.windows['main'] = win
+    def set_setting(self, win):
+        self.windows['setting'] = win
+    def set_help(self, win):
+        self.windows['help'] = win
+main_win = MainWindow()
+setting_win = SettingWindow()
+help_win = HelpWindow()
+med = WindowMediator()
+med.set_main(main_win)
+med.set_setting(setting_win)
+med.set_help(help_win)
+main_win.show()
+print('-'*10)
+med.show(setting_win)
+print('-'*10)
+med.show(help_win)
+</content>
+<print>
+Show MainWindow
+----------
+Hide MainWindow
+Hide HelpWindow
+Show SettingWindow
+----------
+Hide MainWindow
+Hide SettingWindow
+Show HelpWindow
+</print>
+</item> 
+<item>
+<title>Поведенческие шаблон - Хранитель </title>
+<content> 
+# coding: utf-8
+"""
+Хранитель (Memento) - паттерн поведения объектов.
+Не нарушая инкапсуляции, фиксирует и выносит за пределы объекта его внутреннее состояние так,
+чтобы позднее можно было восстановить в нем объект.
+"""
+class Memento(object):
+    """Хранитель"""
+    def __init__(self, state):
+        self._state = state
+    def get_state(self):
+        return self._state
+class Caretaker(object):
+    """Опекун"""
+    def __init__(self):
+        self._memento = None
+    def get_memento(self):
+        return self._memento
+    def set_memento(self, memento):
+        self._memento = memento
+class Originator(object):
+    """Создатель"""
+    def __init__(self):
+        self._state = None
+    def set_state(self, state):
+        self._state = state
+    def get_state(self):
+        return self._state
+    def save_state(self):
+        return Memento(self._state)
+    def restore_state(self, memento):
+        self._state = memento.get_state()
+originator = Originator()
+caretaker = Caretaker()
+originator.set_state('on')
+print ('Originator state:', originator.get_state())  # Originator state: on
+caretaker.set_memento(originator.save_state())
+originator.set_state('off')
+print ('Originator change state:', originator.get_state())  # Originator change state: off
+originator.restore_state(caretaker.get_memento())
+print ('Originator restore state:', originator.get_state()) # Originator restore state: on
+</content>
+<print>
+Originator state: on
+Originator change state: off
+Originator restore state: on
+</print>
+</item> 
+<item>
+<title>Поведенческие шаблон - Наблюдатель</title>
+<content> 
+# coding: utf-8
+"""
+Наблюдатель (Observer, Dependents, Publish-Subscribe) - паттерн поведения объектов.
+Определяет зависимость типа "один ко многим" между объектами таким образом,
+что при изменении состояния одного объекта все зависящие от него оповещаются об этом
+и автоматически обновляются.
+"""
+class Subject(object):
+    """Субъект"""
+    def __init__(self):
+        self._data = None
+        self._observers = set()
+    def attach(self, observer):
+        # подписаться на оповещение
+        if not isinstance(observer, ObserverBase):
+            raise TypeError()
+        self._observers.add(observer)
+    def detach(self, observer):
+        # отписаться от оповещения
+        self._observers.remove(observer)
+    def get_data(self):
+        return self._data
+    def set_data(self, data):
+        self._data = data
+        self.notify(data)
+    def notify(self, data):
+        # уведомить всех наблюдателей о событии
+        for observer in self._observers:
+            observer.update(data)
+class ObserverBase(object):
+    """Абстрактный наблюдатель"""
+    def update(self, data):
+        raise NotImplementedError()
+class Observer(ObserverBase):
+    """Наблюдатель"""
+    def __init__(self, name):
+        self._name = name
+    def update(self, data):
+        print ('%s: %s' % (self._name, data))
+subject = Subject()
+subject.attach(Observer('Observer 1'))
+subject.attach(Observer('Observer 2'))
+subject.set_data('data for observer')
+</content>
+<print>
+Observer 1: data for observer
+Observer 2: data for observer
+</print>
+</item> 
+<item>
+<title>Поведенческие шаблон - Состояние </title>
+<content> 
+# coding: utf-8
+"""
+Состояние (State) - паттерн поведения объектов.
+Позволяет объекту варьировать свое поведение в зависимости от внутреннего состояния.
+Извне создается впечатление, что изменился класс объекта.
+"""
+class LampStateBase(object):
+    """Состояние лампы"""
+    def get_color(self):
+        raise NotImplementedError()
+class GreenLampState(LampStateBase):
+    def get_color(self):
+        return 'Green'
+class RedLampState(LampStateBase):
+    def get_color(self):
+        return 'Red'
+class BlueLampState(LampStateBase):
+    def get_color(self):
+        return 'Blue'
+class Lamp(object):
+    def __init__(self):
+        self._current_state = None
+        self._states = self.get_states()
+    def get_states(self):
+        return [GreenLampState(), RedLampState(), BlueLampState()]
+    def next_state(self):
+        if self._current_state is None:
+            self._current_state = self._states[0]
+        else:
+            index = self._states.index(self._current_state)
+            if index &lt; len(self._states) - 1:
+                index += 1
+            else:
+                index = 0
+            self._current_state = self._states[index]
+        return self._current_state
+    def light(self):
+        state = self.next_state()
+        print (state.get_color())
+lamp = Lamp()
+[lamp.light() for i in range(3)]
+</content>
+<print>
+Green
+Red
+Blue
+</print>
+</item> 
+<item>
+<title>Поведенческие шаблон - Стратегия </title>
+<content> 
+# coding: utf-8
+"""
+Стратегия (Strategy) - паттерн поведения объектов.
+Определяет семейство алгоритмов, инкапсулирует каждый из них и делает их взаимозаменяемыми.
+Стратегия позволяет изменять алгоритмы независимо от клиентов, которые ими пользуются.
+"""
+class ImageDecoder(object):
+    @staticmethod
+    def decode(filename):
+        raise NotImplementedError()
+class PNGImageDecoder(ImageDecoder):
+    @staticmethod
+    def decode(filename):
+        print ('PNG decode')
+class JPEGImageDecoder(ImageDecoder):
+    @staticmethod
+    def decode(filename):
+        print ('JPEG decode')
+class GIFImageDecoder(ImageDecoder):
+    @staticmethod
+    def decode(filename):
+        print ('GIF decode')
+class Image(object):
+    @classmethod
+    def open(cls, filename):
+        ext = filename.rsplit('.', 1)[-1]
+        if ext == 'png':
+            decoder = PNGImageDecoder
+        elif ext in ('jpg', 'jpeg'):
+            decoder = JPEGImageDecoder
+        elif ext == 'gif':
+            decoder = GIFImageDecoder
+        else:
+            raise RuntimeError('Can not decode file %s' % filename)
+        byterange = decoder.decode(filename)
+        return cls(byterange, filename)
+    def __init__(self, byterange, filename):
+        self._byterange = byterange
+        self._filename = filename
+Image.open('picture.png')  
+Image.open('picture.jpg')  
+Image.open('picture.gif') 
+</content>
+<print>
+PNG decode
+JPEG decode
+GIF decode
+</print>
+</item> 
+<item>
+<title>Поведенческие шаблон - Шаблонный метод</title>
+<content> 
+# coding: utf-8
+"""
+Шаблонный метод (Template method) - паттерн поведения классов.
+Шаблонный метод определяет основу алгоритма и позволяет подклассам переопределить некоторые шаги алгоритма,
+не изменяя его структуру в целом.
+"""
+class ExampleBase(object):
+    def template_method(self):
+        self.step_one()
+        self.step_two()
+        self.step_three()
+    def step_one(self):
+        raise NotImplementedError()
+    def step_two(self):
+        raise NotImplementedError()
+    def step_three(self):
+        raise NotImplementedError()
+class Example(ExampleBase):
+    def step_one(self):
+        print ('First step')
+    def step_two(self):
+        print ('Second step')
+    def step_three(self):
+        print ('Third step')
+example = Example()
+example.template_method()
+</content>
+<print>
+First step
+Second step
+Third step
+</print>
+</item> 
+<item>
+<title>Поведенческие шаблон - Постетитель </title>
+<content> 
+# coding: utf-8
+"""
+Постетитель (Visitor) - паттерн поведения объектов.
+Описывает операцию, выполняемую с каждым объектом из некоторой структуры.
+Паттерн посетитель позволяет определить новую операцию, не изменяя классы этих объектов.
+"""
+class FruitVisitor(object):
+    """Посетитель"""
+    def draw(self, fruit):
+        methods = {
+            Apple: self.draw_apple,
+            Pear: self.draw_pear,
+        }
+        draw = methods.get(type(fruit), self.draw_unknown)
+        draw(fruit)
+    def draw_apple(self, fruit):
+        print ('Apple')
+    def draw_pear(self, fruit):
+        print ('Pineapple')
+    def draw_unknown(self, fruit):
+        print ('Friut')
+class Fruit(object):
+    """Фрукты"""
+    def draw(self, visitor):
+        visitor.draw(self)
+class Apple(Fruit):
+    """Яблоко"""
+class Pear(Fruit):
+    """Груша"""
+class Banana(Fruit):
+    """Банан"""
+visitor = FruitVisitor()
+apple = Apple()
+apple.draw(visitor)
+pear = Pear()
+pear.draw(visitor)
+banana = Banana()
+banana.draw(visitor)
+</content>
+<print>
+Apple
+Pineapple
+Friut
+</print>
+</item> 
+<item>
+<title>Поведенческие шаблон - Классная доска</title>
+<content> 
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import abc
+import random
+class Blackboard(object):
+    def __init__(self):
+        self.experts = []
+        self.common_state = {
+            'problems': 0,
+            'suggestions': 0,
+            'contributions': [],
+            'progress': 0   # percentage, if 100 -> task is finished
+        }
+    def add_expert(self, expert):
+        self.experts.append(expert)
+class Controller(object):
+    def __init__(self, blackboard):
+        self.blackboard = blackboard
+    def run_loop(self):
+        while self.blackboard.common_state['progress'] %lt; 100:
+            for expert in self.blackboard.experts:
+                if expert.is_eager_to_contribute:
+                    expert.contribute()
+        return self.blackboard.common_state['contributions']
+class AbstractExpert(object):
+    __metaclass__ = abc.ABCMeta
+    def __init__(self, blackboard):
+        self.blackboard = blackboard
+    @abc.abstractproperty
+    def is_eager_to_contribute(self):
+        raise NotImplementedError('Must provide implementation in subclass.')
+    @abc.abstractmethod
+    def contribute(self):
+        raise NotImplementedError('Must provide implementation in subclass.')
+class Student(AbstractExpert):
+    @property
+    def is_eager_to_contribute(self):
+        return True
+    def contribute(self):
+        self.blackboard.common_state['problems'] += random.randint(1, 10)
+        self.blackboard.common_state['suggestions'] += random.randint(1, 10)
+        self.blackboard.common_state['contributions'] += [self.__class__.__name__]
+        self.blackboard.common_state['progress'] += random.randint(1, 2)
+class Scientist(AbstractExpert):
+    @property
+    def is_eager_to_contribute(self):
+        return random.randint(0, 1)
+    def contribute(self):
+        self.blackboard.common_state['problems'] += random.randint(10, 20)
+        self.blackboard.common_state['suggestions'] += random.randint(10, 20)
+        self.blackboard.common_state['contributions'] += [self.__class__.__name__]
+        self.blackboard.common_state['progress'] += random.randint(10, 30)
+class Professor(AbstractExpert):
+    @property
+    def is_eager_to_contribute(self):
+        return True if self.blackboard.common_state['problems'] > 100 else False
+    def contribute(self):
+        self.blackboard.common_state['problems'] += random.randint(1, 2)
+        self.blackboard.common_state['suggestions'] += random.randint(10, 20)
+        self.blackboard.common_state['contributions'] += [self.__class__.__name__]
+        self.blackboard.common_state['progress'] += random.randint(10, 100)
+if __name__ == '__main__':
+    blackboard = Blackboard()
+    blackboard.add_expert(Student(blackboard))
+    blackboard.add_expert(Scientist(blackboard))
+    blackboard.add_expert(Professor(blackboard))
+    c = Controller(blackboard)
+    contributions = c.run_loop()
+    from pprint import pprint
+pprint(contributions)
+</content>
+<print>
+['Student',
+ 'Scientist',
+ 'Student',
+ 'Scientist',
+ 'Student',
+ 'Student',
+ 'Student',
+ 'Student',
+ 'Scientist',
+ 'Student',
+ 'Student',
+ 'Scientist',
+ 'Student',
+ 'Scientist',
+ 'Professor']
+</print>
+</item> 
+</data>

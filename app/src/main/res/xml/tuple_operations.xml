@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+<item>
+<title>Инициализация кортежей</title>
+<content> 
+# Пустой кортеж
+t = ()	
+# Кортеж из одного элемента
+t = (0,)	
+print(t)
+# Кортеж из 4-х элементов
+t = (0, 'HI', 1.2, 3)	
+print(t)
+# Кортеж из 4-х элементов
+t = 0, 'HI', 1.2, 3		
+print(t)
+</content>
+<print>
+(0,)
+(0, 'HI', 1.2, 3)
+(0, 'HI', 1.2, 3)
+</print>
+</item> 
+<item>
+<title>Конкатенация кортежей</title>
+<content> 
+t1 = (1, 2)
+t2 = (3, 4)
+print(t1 + t2)
+</content>
+<print>
+(1, 2, 3, 4)
+</print>
+</item> 
+<item>
+<title>Повторение кортежей</title>
+<content> 
+t1 = (1, 2)
+print(t1 * 2)
+</content>
+<print>
+(1, 2, 1, 2)
+</print>
+</item> 
+<item>
+<title>Индексирование,извлечение среза</title>
+<content> 
+t = (1, 2, 3, 4)
+print(t[0])
+print(t[1:3])
+</content>
+<print>
+1
+(2, 3)
+</print>
+</item> 
+<item>
+<title>Методы кортежей - index(), count()</title>
+<content> 
+T = (1, 2, 4, 2, 4, 2) 
+# Первое вхождение находится в позиции 2
+print(T.index(2)) 
+# Следующее вхождение за позицией 2
+print(T.index(2, 2)) 
+# Определить количество 4 в кортеже
+print(T.count(4)) 
+</content>
+<print>
+1
+3
+2
+</print>
+</item> 
+<item>
+<title>Сортировка кортежей</title>
+<content> 
+t = ('cc', 'aa', 'dd', 'bb')
+# Создать список из элементов кортежа
+tmp = list(t) 
+# Отсортировать списка
+tmp.sort() 
+print(tmp)
+# Создать кортеж из элементов списка
+t1 = tuple(tmp) 
+print(t1)
+# Или использовать встроенную функцию sorted
+t2 = sorted(t)  
+print(t2) 
+</content>
+<print>
+['aa', 'bb', 'cc', 'dd']
+('aa', 'bb', 'cc', 'dd')
+['aa', 'bb', 'cc', 'dd']
+</print>
+</item> 
+<item>
+<title>Упаковка/распаковка кортежей</title>
+<content> 
+X = (1, 2)
+Y = (3, 4)
+# Упаковать кортежи: возвратит итерируемый объект
+L = list(zip(X, Y)) 
+print(L)
+# Распаковать упакованные кортежи!
+A, B = zip(*zip(X, Y)) 
+print(A)
+print(B)
+</content>
+<print>
+[(1, 3), (2, 4)]
+(1, 2)
+(3, 4)
+</print>
+</item> 
+</data>

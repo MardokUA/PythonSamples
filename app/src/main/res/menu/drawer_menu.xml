@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/group_item_1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/strings"
+            android:title="@string/string_menu">
+        </item>
+    </group>
+
+    <group
+        android:id="@+id/group_item_2"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/dictionaries"
+            android:title="@string/dic_menu">
+        </item>
+    </group>
+
+    <group
+        android:id="@+id/group_item_3"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/exeption"
+            android:title="@string/exept_menu">
+        </item>
+    </group>
+    <group
+        android:id="@+id/group_item_4"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/files"
+            android:title="@string/file_menu">
+        </item>
+    </group>
+
+    <group
+        android:id="@+id/group_item_5"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/loops"
+            android:title="@string/loop_menu">
+        </item>
+    </group>
+    <group
+        android:id="@+id/group_item_6"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/function"
+            android:title="@string/func_menu">
+        </item>
+    </group>
+
+    <group
+        android:id="@+id/group_item_7"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/generators"
+            android:title="@string/gen_menu">
+        </item>
+    </group>
+    <group
+        android:id="@+id/group_item_8"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/conditions"
+            android:title="@string/cond_menu">
+
+        </item>
+    </group>
+    <group
+        android:id="@+id/group_item_9"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/lists"
+            android:title="@string/list_menu">
+        </item>
+    </group>
+
+    <group
+        android:id="@+id/group_item_10"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/oop"
+            android:title="@string/oop_menu">
+        </item>
+    </group>
+
+    <group
+        android:id="@+id/group_item_11"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/time"
+            android:title="@string/time_menu">
+        </item>
+    </group>
+
+    <group
+        android:id="@+id/group_item_12"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/tuples"
+            android:title="@string/tup_menu">
+        </item>
+    </group>
+
+    <group
+        android:id="@+id/group_item_13"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/sorting"
+            android:title="@string/sort_menu">
+        </item>
+    </group>
+
+    <group
+        android:id="@+id/group_item_14"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/utils"
+            android:title="@string/util_menu">
+        </item>
+    </group>
+</menu>
