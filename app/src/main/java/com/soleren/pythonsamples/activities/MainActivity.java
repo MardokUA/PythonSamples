@@ -177,8 +177,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
             if(fm.getBackStackEntryCount() == 0) {
                 presenter.selectActionBarTitle(999);
                 binding.mainActivityRecycler.setVisibility(View.VISIBLE);
-
-
 //                binding.adView.loadAd(adRequest);
             }
         }

@@ -154,15 +154,12 @@ public void selectFragment(int itemId) {
         case 12:
             fragment = MainFragment.newInstance(Const.MENU_SORTING);
             break;
-
         case 13:
             fragment = MainFragment.newInstance(Const.MENU_NUMPY);
             break;
-
         case 14:
             fragment = MainFragment.newInstance(Const.MENU_PANDAS);
             break;
-
         case 15:
             fragment = MainFragment.newInstance(Const.MENU_UTILS);
             break;
