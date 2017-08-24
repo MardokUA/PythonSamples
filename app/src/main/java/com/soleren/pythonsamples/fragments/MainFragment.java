@@ -6,28 +6,22 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 
 import com.soleren.pythonsamples.R;
 import com.soleren.pythonsamples.activities.MainActivity;
 import com.soleren.pythonsamples.adapters.MainAdapter;
 import com.soleren.pythonsamples.data.Const;
 import com.soleren.pythonsamples.databinding.FragmentMainBinding;
-
-import com.soleren.pythonsamples.mvp.main_fragment.MainFragmentView;
+import com.soleren.pythonsamples.mvp.main_fragment.MainFragmentContract;
 import com.soleren.pythonsamples.mvp.main_fragment.MainFragmentPresenterImpl;
-import com.google.android.gms.ads.AdRequest;
 
 import java.util.ArrayList;
 
-public class MainFragment extends Fragment implements MainFragmentView {
+public class MainFragment extends Fragment implements MainFragmentContract.View {
 
     private FragmentMainBinding binding;
     private ArrayList<String> listTitles;
@@ -38,6 +32,7 @@ public class MainFragment extends Fragment implements MainFragmentView {
     private Bundle bundle;
     FragmentManager fm;
     private Toolbar toolbar;
+
     public MainFragment() {
         // Required empty public constructor
     }
@@ -54,7 +49,7 @@ public class MainFragment extends Fragment implements MainFragmentView {
     @Override
     public void onResume() {
         super.onResume();
-        if(binding.adView != null)
+        if (binding.adView != null)
             binding.adView.resume();
         fragmentName = getArguments().getString(ARG_PARAM1);
         presenter = new MainFragmentPresenterImpl(this);
@@ -63,6 +58,7 @@ public class MainFragment extends Fragment implements MainFragmentView {
 
 
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,8 +70,6 @@ public class MainFragment extends Fragment implements MainFragmentView {
             listTitles = presenter.getListTitles(fragmentName);
         }
     }
-
-
 
 
 //    @Override
@@ -95,7 +89,7 @@ public class MainFragment extends Fragment implements MainFragmentView {
     public android.view.View onCreateView(LayoutInflater inflater, ViewGroup container,
                                           Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_main,container,false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false);
         adapter = new MainAdapter(listTitles);
 
         binding.mainCategoryRecycler.setAdapter(adapter);
@@ -110,8 +104,8 @@ public class MainFragment extends Fragment implements MainFragmentView {
         adapter.setListener(new MainAdapter.AdapterListener() {
             @Override
             public void onClick(int position) {
-                presenter.selectFragment(fragmentName,position);
-                if(binding.adView != null)
+                presenter.selectFragment(fragmentName, position);
+                if (binding.adView != null)
                     binding.adView.destroy();
             }
         });
@@ -122,14 +116,14 @@ public class MainFragment extends Fragment implements MainFragmentView {
     @Override
     public void setTitle(String title) {
         this.title = title;
-        ((MainActivity)getActivity()).getSupportActionBar().setTitle(title);
+        ((MainActivity) getActivity()).getSupportActionBar().setTitle(title);
     }
 
     @Override
-    public void setFragment(MainActivity activity,Fragment fragment) {
+    public void setFragment(MainActivity activity, Fragment fragment) {
         fm = activity.getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.fragment_container,fragment)
+        ft.replace(R.id.fragment_container, fragment)
                 .addToBackStack(null)
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commit();
@@ -140,7 +134,7 @@ public class MainFragment extends Fragment implements MainFragmentView {
     @Override
     public void onPause() {
         super.onPause();
-        if(binding.adView != null)
+        if (binding.adView != null)
             binding.adView.pause();
     }
 
@@ -156,10 +150,9 @@ public class MainFragment extends Fragment implements MainFragmentView {
     public void onDestroyView() {
         super.onDestroyView();
         presenter.destroy();
-        if(binding.adView != null)
+        if (binding.adView != null)
             binding.adView.destroy();
     }
-
 
 
 }

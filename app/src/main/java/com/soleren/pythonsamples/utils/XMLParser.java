@@ -16,6 +16,7 @@ import java.util.ArrayList;
  */
 
 public class XMLParser {
+
     private static XMLParser xmlParser = new XMLParser();
     private static Context context;
     private static int resourceId;
@@ -29,7 +30,6 @@ public class XMLParser {
         resourceId = res;
         return xmlParser;
     }
-
 
     public ArrayList<Item> parse() {
         XmlPullParser xpp = prepare(resourceId);
@@ -124,16 +124,11 @@ public class XMLParser {
             return items;
 
 //            Log.d("!!!", "END_DOCUMENT");
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (XmlPullParserException | IOException e) {
             e.printStackTrace();
         }
         return null;
     }
-
-
-
 
      private XmlPullParser prepare(int id){
          return context.getResources().getXml(id);

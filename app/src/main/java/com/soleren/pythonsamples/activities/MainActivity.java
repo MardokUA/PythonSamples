@@ -1,29 +1,29 @@
 package com.soleren.pythonsamples.activities;
 
 import android.databinding.DataBindingUtil;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.WindowManager;
 
+import com.google.android.gms.ads.AdRequest;
 import com.soleren.pythonsamples.R;
 import com.soleren.pythonsamples.adapters.MainAdapter;
-
-
+import com.soleren.pythonsamples.data.Const;
 import com.soleren.pythonsamples.databinding.ActivityMainBinding;
+import com.soleren.pythonsamples.mvp.main_activity.MainActivityContract;
 import com.soleren.pythonsamples.mvp.main_activity.MainActivityPresenterImpl;
-import com.soleren.pythonsamples.mvp.main_activity.MainActivityView;
-import com.google.android.gms.ads.AdRequest;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements MainActivityView {
+public class MainActivity extends AppCompatActivity implements MainActivityContract.View {
+
     private ActionBarDrawerToggle drawerToggle;
     private ActivityMainBinding binding;
     private MainAdapter adapter;
@@ -43,8 +43,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
         fm = getSupportFragmentManager();
-        if(savedInstanceState != null) {
-            if(fm.getBackStackEntryCount() != 0) {
+        if (savedInstanceState != null) {
+            if (fm.getBackStackEntryCount() != 0) {
                 binding.mainActivityRecycler.setVisibility(View.GONE);
             }
         }
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
             public void onClick(int position) {
                 presenter.selectFragment(position);
                 binding.mainActivityRecycler.setVisibility(View.GONE);
-                if(binding.adView != null)
+                if (binding.adView != null)
                     binding.adView.destroy();
             }
         });
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putBoolean("visible",true);
+        outState.putBoolean("visible", true);
     }
 
 //    @Override
@@ -128,11 +128,10 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
     public void setActiveFragment(Fragment fragment) {
 
         FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.fragment_container,fragment)
+        ft.replace(R.id.fragment_container, fragment)
                 .addToBackStack(null)
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commit();
-
 
 
 //        getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
@@ -150,14 +149,14 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
     @Override
     protected void onPause() {
         super.onPause();
-        if(binding.adView != null)
+        if (binding.adView != null)
             binding.adView.pause();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if(binding.adView != null)
+        if (binding.adView != null)
             binding.adView.resume();
     }
 
@@ -165,7 +164,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
     protected void onDestroy() {
         super.onDestroy();
         presenter.destroy();
-        if(binding.adView != null)
+        if (binding.adView != null)
             binding.adView.destroy();
     }
 
@@ -173,13 +172,10 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
     public void onBackPressed() {
         super.onBackPressed();
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        if(fm != null) {
-            if(fm.getBackStackEntryCount() == 0) {
-                presenter.selectActionBarTitle(999);
+        if (fm != null) {
+            if (fm.getBackStackEntryCount() == 0) {
+                presenter.selectActionBarTitle(Const.TITLE);
                 binding.mainActivityRecycler.setVisibility(View.VISIBLE);
-
-
-//                binding.adView.loadAd(adRequest);
             }
         }
     }
