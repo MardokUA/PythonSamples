@@ -30,13 +30,11 @@ public class MainFragment extends Fragment implements MainFragmentContract.View 
     private static final String ARG_PARAM1 = "Name";
     private String fragmentName, title;
     private Bundle bundle;
-    FragmentManager fm;
-    private Toolbar toolbar;
+    private FragmentManager fm;
 
     public MainFragment() {
         // Required empty public constructor
     }
-
 
     public static Fragment newInstance(String fragmentName) {
         MainFragment fragment = new MainFragment();
@@ -55,8 +53,6 @@ public class MainFragment extends Fragment implements MainFragmentContract.View 
         presenter = new MainFragmentPresenterImpl(this);
         listTitles = presenter.getListTitles(fragmentName);
         presenter.selectTitle(bundle);
-
-
     }
 
     @Override
@@ -71,23 +67,10 @@ public class MainFragment extends Fragment implements MainFragmentContract.View 
         }
     }
 
-
-//    @Override
-//    public void setUserVisibleHint(boolean isVisibleToUser) {
-//        super.setUserVisibleHint(isVisibleToUser);
-//        public void setUserVisibleHint(boolean isVisibleToUser) {
-//            super.setUserVisibleHint(isVisibleToUser);
-//            if(isVisibleToUser) {
-//                // Set title
-//                getActivity().getActionBar()
-//                        .setTitle(R.string.thetitle);
-//            }
-//        }
-//    }
-
     @Override
     public android.view.View onCreateView(LayoutInflater inflater, ViewGroup container,
                                           Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false);
         adapter = new MainAdapter(listTitles);
@@ -97,9 +80,6 @@ public class MainFragment extends Fragment implements MainFragmentContract.View 
 
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         binding.mainCategoryRecycler.setLayoutManager(manager);
-
-//        AdRequest adRequest = new AdRequest.Builder().build();
-//        binding.adView.loadAd(adRequest);
 
         adapter.setListener(new MainAdapter.AdapterListener() {
             @Override
@@ -111,7 +91,6 @@ public class MainFragment extends Fragment implements MainFragmentContract.View 
         });
         return binding.getRoot();
     }
-
 
     @Override
     public void setTitle(String title) {
@@ -130,7 +109,6 @@ public class MainFragment extends Fragment implements MainFragmentContract.View 
 
     }
 
-
     @Override
     public void onPause() {
         super.onPause();
@@ -145,7 +123,6 @@ public class MainFragment extends Fragment implements MainFragmentContract.View 
         bundle.putString(Const.MAIN_FRAGMENT_NAME, title);
     }
 
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
@@ -154,5 +131,17 @@ public class MainFragment extends Fragment implements MainFragmentContract.View 
             binding.adView.destroy();
     }
 
+    //    @Override
+//    public void setUserVisibleHint(boolean isVisibleToUser) {
+//        super.setUserVisibleHint(isVisibleToUser);
+//        public void setUserVisibleHint(boolean isVisibleToUser) {
+//            super.setUserVisibleHint(isVisibleToUser);
+//            if(isVisibleToUser) {
+//                // Set title
+//                getActivity().getActionBar()
+//                        .setTitle(R.string.thetitle);
+//            }
+//        }
+//    }
 
 }

@@ -1,9 +1,9 @@
 package com.soleren.pythonsamples.mvp.main_activity;
 
-import android.content.Context;
 import android.support.v4.app.Fragment;
 
 import com.soleren.pythonsamples.R;
+import com.soleren.pythonsamples.application.PythonSamples;
 import com.soleren.pythonsamples.data.Const;
 import com.soleren.pythonsamples.fragments.MainFragment;
 import com.soleren.pythonsamples.mvp.base.BasePresenterAdapter;
@@ -16,22 +16,20 @@ public class MainActivityPresenterImpl extends BasePresenterAdapter implements M
     private MainActivityContract.View view;
     private Fragment fragment;
     private String[] drawerListTitles;
-    private Context context;
 
-    public MainActivityPresenterImpl(Context context) {
-        this.context = context;
-        this.view = (MainActivityContract.View) context;
+    public MainActivityPresenterImpl(MainActivityContract.View view) {
+        this.view = view;
     }
 
     @Override
     public ArrayList<String> getListTitles() {
-        drawerListTitles = context.getResources().getStringArray(R.array.menu_names);
+        drawerListTitles = PythonSamples.getAppContext().getResources().getStringArray(R.array.menu_names);
         return new ArrayList<>(Arrays.asList(drawerListTitles));
     }
 
     @Override
     public void selectActionBarTitle(int position) {
-        drawerListTitles = context.getResources().getStringArray(R.array.menu_names);
+        drawerListTitles =  PythonSamples.getAppContext().getResources().getStringArray(R.array.menu_names);
         if (position == Const.TITLE)
             view.setActionBarTitle("Python Samples");
         else

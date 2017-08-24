@@ -7,6 +7,7 @@ import com.soleren.pythonsamples.model.Item;
 import com.soleren.pythonsamples.mvp.base.BasePresenterAdapter;
 
 public class ItemFragmentPresenterImpl extends BasePresenterAdapter implements ItemFragmentContract.Presenter {
+
     private ItemFragmentContract.View view;
 
     public ItemFragmentPresenterImpl(ItemFragmentContract.View view) {
@@ -29,7 +30,6 @@ public class ItemFragmentPresenterImpl extends BasePresenterAdapter implements I
         view.showData(content, print);
     }
 
-
     @Override
     public void makeIntent(ShareActionProvider provider, String text) {
         Intent intent = new Intent(Intent.ACTION_SEND);
@@ -42,5 +42,4 @@ public class ItemFragmentPresenterImpl extends BasePresenterAdapter implements I
     public void destroy() {
         this.view = null;
     }
-
 }

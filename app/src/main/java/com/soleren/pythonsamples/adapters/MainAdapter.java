@@ -16,29 +16,24 @@ import java.util.ArrayList;
  */
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
+
     private ArrayList<String> titles;
     private AdapterListener listener;
+
     public MainAdapter(ArrayList<String> titles) {
         this.titles = titles;
     }
 
-    public void setListener(AdapterListener listener) {
-        this.listener = listener;
-    }
-
-
-
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        CardView view = (CardView)LayoutInflater.from(parent.getContext()).inflate(R.layout.category_view,parent,false);
+        CardView view = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.category_view, parent, false);
         return new ViewHolder(view);
     }
-
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         CardView cardView = holder.view;
-        TextView title = (TextView)cardView.findViewById(R.id.category_item);
+        TextView title = (TextView) cardView.findViewById(R.id.category_item);
         title.setText(titles.get(position));
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,21 +43,25 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         });
     }
 
-
     @Override
     public int getItemCount() {
         return titles.size();
     }
 
-
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
         private CardView view;
-        public ViewHolder(CardView itemView) {
+
+        ViewHolder(CardView itemView) {
             super(itemView);
             view = itemView;
         }
     }
-    public interface AdapterListener{
+
+    public void setListener(AdapterListener listener) {
+        this.listener = listener;
+    }
+
+    public interface AdapterListener {
         void onClick(int position);
     }
 }

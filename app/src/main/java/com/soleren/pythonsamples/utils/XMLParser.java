@@ -3,6 +3,7 @@ package com.soleren.pythonsamples.utils;
 import android.content.Context;
 import android.text.TextUtils;
 
+import com.soleren.pythonsamples.application.PythonSamples;
 import com.soleren.pythonsamples.model.Item;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -18,15 +19,13 @@ import java.util.ArrayList;
 public class XMLParser {
 
     private static XMLParser xmlParser = new XMLParser();
-    private static Context context;
     private static int resourceId;
     private ArrayList<Item> items;
 
     private XMLParser() {
     }
 
-    public static XMLParser getXmlParser(Context c, int res) {
-        context = c;
+    public static XMLParser getXmlParser(int res) {
         resourceId = res;
         return xmlParser;
     }
@@ -100,7 +99,8 @@ public class XMLParser {
                                 case "print":
                                     item.setPrint(xpp.getText());
                                     break;
-                                default:break;
+                                default:
+                                    break;
                             }
                         }
                         break;
@@ -118,9 +118,6 @@ public class XMLParser {
                 }
                 xpp.next();
             }
-//            for (Item item1 : items) {
-//                Log.d("!!!",item1.getId() + " " + item1.getTitle_ru() + " " + item1.getTitle_en() + " " + item1.getContent_ru() +" " +item1.getContent_en() + " " + item1.getPrint());
-//            }
             return items;
 
 //            Log.d("!!!", "END_DOCUMENT");
@@ -130,7 +127,7 @@ public class XMLParser {
         return null;
     }
 
-     private XmlPullParser prepare(int id){
-         return context.getResources().getXml(id);
-     }
+    private XmlPullParser prepare(int id) {
+        return PythonSamples.getAppContext().getResources().getXml(id);
+    }
 }

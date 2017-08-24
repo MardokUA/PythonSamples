@@ -1,11 +1,11 @@
 package com.soleren.pythonsamples.mvp.category_fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import com.soleren.pythonsamples.R;
 import com.soleren.pythonsamples.activities.MainActivity;
+import com.soleren.pythonsamples.application.PythonSamples;
 import com.soleren.pythonsamples.data.Const;
 import com.soleren.pythonsamples.fragments.ItemFragment;
 import com.soleren.pythonsamples.model.Item;
@@ -15,37 +15,31 @@ import com.soleren.pythonsamples.utils.XMLParser;
 import java.util.ArrayList;
 import java.util.Locale;
 
-/**
- * Created by den on 2017-05-23.
- */
-
 public class CategoryFragmentPresenterImpl extends BasePresenterAdapter implements CategoryFragmentContract.Presenter {
+
     private CategoryFragmentContract.View view;
     private MainActivity activity;
-    private Fragment fragment;
-    private Context context;
     private ArrayList<Item> items;
     private String title;
 
     public CategoryFragmentPresenterImpl(Fragment fragment) {
         this.view = (CategoryFragmentContract.View) fragment;
         this.activity = (MainActivity) fragment.getActivity();
-        this.context = fragment.getContext();
     }
 
     @Override
     public void selectTitle(Bundle bundle) {
-        if (bundle != null)
+        if (bundle != null) {
             title = bundle.getString(Const.CATEGORY_FRAGMENT_NAME);
-        else
+        } else {
             title = (String) activity.getSupportActionBar().getTitle();
-
+        }
         view.setTitle(title);
     }
 
     @Override
     public void selectTitle(int res) {
-        title = context.getResources().getString(res);
+        title = PythonSamples.getAppContext().getResources().getString(res);
         view.setTitle(title);
     }
 
@@ -167,7 +161,7 @@ public class CategoryFragmentPresenterImpl extends BasePresenterAdapter implemen
 
     @Override
     public void selectFragment(int position) {
-        fragment = ItemFragment.newInstance(items.get(position));
+        Fragment fragment = ItemFragment.newInstance(items.get(position));
         if (items.get(position).getContent() != null) {
             view.setTitle(title);
             view.setFragment(activity, fragment);
@@ -176,7 +170,7 @@ public class CategoryFragmentPresenterImpl extends BasePresenterAdapter implemen
 
     @Override
     public ArrayList<Item> getItemsFromXML(int res) {
-        return XMLParser.getXmlParser((Context) activity, res).parse();
+        return XMLParser.getXmlParser(res).parse();
     }
 
     @Override
@@ -184,10 +178,11 @@ public class CategoryFragmentPresenterImpl extends BasePresenterAdapter implemen
         items = getItemsFromXML(res);
         ArrayList<String> strings = new ArrayList<>();
         for (Item item : items) {
-            if ((Locale.getDefault().toString()).equals("en_US"))
+            if ((Locale.getDefault().toString()).equals("en_US")) {
                 strings.add(item.getTitle());
-            else
+            } else {
                 strings.add(item.getTitle());
+            }
         }
         return strings;
     }
