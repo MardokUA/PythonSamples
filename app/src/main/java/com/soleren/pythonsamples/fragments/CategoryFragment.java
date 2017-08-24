@@ -16,7 +16,6 @@ import com.soleren.pythonsamples.adapters.MainAdapter;
 import com.soleren.pythonsamples.data.Const;
 import com.soleren.pythonsamples.mvp.category_fragment.CategoryFragmentContract;
 import com.soleren.pythonsamples.mvp.category_fragment.CategoryFragmentPresenterImpl;
-import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
 
@@ -30,7 +29,6 @@ public class CategoryFragment extends Fragment implements CategoryFragmentContra
     private CategoryFragmentPresenterImpl presenter;
     private String fragmentName, title;
     private Bundle bundle;
-    private AdView adView;
 
     public CategoryFragment() {
         // Required empty public constructor
@@ -61,8 +59,7 @@ public class CategoryFragment extends Fragment implements CategoryFragmentContra
     @Override
     public void onResume() {
         super.onResume();
-        if (adView != null)
-            adView.resume();
+
         fragmentName = getArguments().getString(FRAGMENT_NAME);
         presenter = new CategoryFragmentPresenterImpl(this);
         listTitles = presenter.getListTitles(fragmentName);
@@ -81,15 +78,9 @@ public class CategoryFragment extends Fragment implements CategoryFragmentContra
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         root.setLayoutManager(manager);
 
-//        AdRequest adRequest = new AdRequest.Builder().build();
-//        adView = (AdView)view.findViewById(R.id.adView);
-//        adView.loadAd(adRequest);
-
         adapter.setListener(new MainAdapter.AdapterListener() {
             @Override
             public void onClick(int position) {
-                if (adView != null)
-                    adView.destroy();
                 presenter.selectFragment(position);
             }
         });
@@ -117,8 +108,7 @@ public class CategoryFragment extends Fragment implements CategoryFragmentContra
     @Override
     public void onStop() {
         super.onStop();
-        if (adView != null)
-            adView.pause();
+
         bundle = new Bundle();
         bundle.putString(Const.CATEGORY_FRAGMENT_NAME, title);
     }
@@ -127,7 +117,5 @@ public class CategoryFragment extends Fragment implements CategoryFragmentContra
     public void onDestroyView() {
         super.onDestroyView();
         presenter.destroy();
-        if (adView != null)
-            adView.destroy();
     }
 }

@@ -1,10 +1,10 @@
 package com.soleren.pythonsamples.adapters;
 
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.soleren.pythonsamples.R;
@@ -26,13 +26,13 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        CardView view = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.category_view, parent, false);
+        LinearLayout view = (LinearLayout) LayoutInflater.from(parent.getContext()).inflate(R.layout.category_view, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        CardView cardView = holder.view;
+        LinearLayout cardView = holder.view;
         TextView title = (TextView) cardView.findViewById(R.id.category_item);
         title.setText(titles.get(position));
         cardView.setOnClickListener(new View.OnClickListener() {
@@ -49,9 +49,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        private CardView view;
+        private LinearLayout view;
 
-        ViewHolder(CardView itemView) {
+        ViewHolder(LinearLayout itemView) {
             super(itemView);
             view = itemView;
         }

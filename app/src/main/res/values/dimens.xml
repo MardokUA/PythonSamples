@@ -11,4 +11,7 @@
     <dimen name="nav_header_height">160dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="settings_top">15dp</dimen>
+    <!-- List item dimens -->
+    <dimen name="list_item_text_size">16sp</dimen>
+    <dimen name="list_item_height">48dp</dimen>
 </resources>

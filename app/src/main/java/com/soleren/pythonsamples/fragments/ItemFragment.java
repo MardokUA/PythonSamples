@@ -1,6 +1,5 @@
 package com.soleren.pythonsamples.fragments;
 
-
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -21,7 +20,6 @@ import com.soleren.pythonsamples.model.Item;
 import com.soleren.pythonsamples.mvp.item_fragment.ItemFragmentContract;
 import com.soleren.pythonsamples.mvp.item_fragment.ItemFragmentPresenterImpl;
 
-
 public class ItemFragment extends Fragment implements ItemFragmentContract.View {
 
     private static final String ARG_PARAM1 = "Name";
@@ -30,13 +28,11 @@ public class ItemFragment extends Fragment implements ItemFragmentContract.View 
     private Item item;
     private ShareActionProvider shareActionProvider = null;
     private String content;
-    private boolean isScreenOn = false;
 
     public ItemFragment() {
         // Required empty public constructor
         setHasOptionsMenu(true);
     }
-
 
     public static ItemFragment newInstance(Item item) {
         ItemFragment fragment = new ItemFragment();
@@ -70,11 +66,6 @@ public class ItemFragment extends Fragment implements ItemFragmentContract.View 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_item, container, false);
 
         presenter.getItem(item);
-
-//        AdRequest adRequest = new AdRequest.Builder().build();
-//        binding.adView.loadAd(adRequest);
-
-
         return binding.getRoot();
     }
 
@@ -94,7 +85,6 @@ public class ItemFragment extends Fragment implements ItemFragmentContract.View 
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_share, menu);
         MenuItem menuItem = menu.findItem(R.id.action_share);
-//        shareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(menuItem);
         shareActionProvider = new ShareActionProvider(getActivity()) {
             @Override
             public View onCreateActionView() {

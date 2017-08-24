@@ -1,13 +1,11 @@
 package com.soleren.pythonsamples.fragments;
 
-
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -130,18 +128,4 @@ public class MainFragment extends Fragment implements MainFragmentContract.View 
         if (binding.adView != null)
             binding.adView.destroy();
     }
-
-    //    @Override
-//    public void setUserVisibleHint(boolean isVisibleToUser) {
-//        super.setUserVisibleHint(isVisibleToUser);
-//        public void setUserVisibleHint(boolean isVisibleToUser) {
-//            super.setUserVisibleHint(isVisibleToUser);
-//            if(isVisibleToUser) {
-//                // Set title
-//                getActivity().getActionBar()
-//                        .setTitle(R.string.thetitle);
-//            }
-//        }
-//    }
-
 }
