@@ -1,6 +1,7 @@
 package com.soleren.pythonsamples.utils;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.soleren.pythonsamples.application.PythonSamples;
 import com.soleren.pythonsamples.model.Item;
@@ -12,6 +13,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class XMLParser {
+
+    private static final String TAG = XMLParser.class.getName();
 
     private static XMLParser xmlParser = new XMLParser();
     private static int resourceId;
@@ -25,7 +28,6 @@ public class XMLParser {
     }
 
     public ArrayList<Item> parse() {
-
         XmlPullParser xpp = prepare(resourceId);
         ArrayList<Item> items = new ArrayList<>();
         Item item = new Item();
@@ -70,6 +72,7 @@ public class XMLParser {
                         if (tag.equals("print")) {
                             items.add(item);
                             item = new Item();
+                            Log.e(TAG, "Created item number : " + String.valueOf(items.size()));
                         }
                         if (!TextUtils.isEmpty(tag))
                             tag = "";
