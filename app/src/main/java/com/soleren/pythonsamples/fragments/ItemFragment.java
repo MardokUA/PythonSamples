@@ -43,7 +43,7 @@ public class ItemFragment extends Fragment implements ItemFragmentView{
     public static ItemFragment newInstance(Item item) {
         ItemFragment fragment = new ItemFragment();
         Bundle args = new Bundle();
-        args.putParcelable(ARG_PARAM1, item);
+//        args.putParcelable(ARG_PARAM1, item);
         fragment.setArguments(args);
         return fragment;
     }

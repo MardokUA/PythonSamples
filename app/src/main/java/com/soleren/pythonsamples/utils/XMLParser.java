@@ -10,6 +10,8 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by den on 2017-05-22.
@@ -45,27 +47,21 @@ public class XMLParser {
 
                     case XmlPullParser.START_TAG:
                         switch (xpp.getName()) {
-//                            case "id":
-//                                tag = "id";
-//                                break;
+                            case "id":
+                                tag = "id";
+                                break;
+                            case "menu":
+                                tag = "menu";
+                                break;
+                            case "submenu":
+                                tag = "submenu";
+                                break;
                             case "title":
                                 tag = "title";
                                 break;
                             case "content":
                                 tag = "content";
                                 break;
-//                            case "title_ru":
-//                                tag = "title_ru";
-//                                break;
-//                            case "title_en":
-//                                tag = "title_en";
-//                                break;
-//                            case "content_ru":
-//                                tag = "content_ru";
-//                                break;
-//                            case "content_en":
-//                                tag = "content_en";
-//                                break;
                             case "print":
                                 tag = "print";
                                 break;
@@ -76,27 +72,24 @@ public class XMLParser {
                     case XmlPullParser.TEXT:
                         if (!TextUtils.isEmpty(tag)) {
                             switch (tag) {
-//                                case "id":
-//                                    item.setId(xpp.getText());
-//                                    break;
+                                case "id":
+                                    tag = "id";
+                                    item.setId(xpp.getText());
+                                    break;
+                                case "menu":
+                                    tag = "menu";
+                                    item.setMenu(xpp.getText());
+                                    break;
+                                case "submenu":
+                                    tag = "submenu";
+                                    item.setSubmenu(xpp.getText());
+                                    break;
                                 case "title":
                                     item.setTitle(xpp.getText());
                                     break;
                                 case "content":
                                     item.setContent(xpp.getText());
                                     break;
-//                                case "title_ru":
-//                                    item.setTitle_ru(xpp.getText());
-//                                    break;
-//                                case "title_en":
-//                                    item.setTitle_en(xpp.getText());
-//                                    break;
-//                                case "content_ru":
-//                                    item.setContent_ru(xpp.getText());
-//                                    break;
-//                                case "content_en":
-//                                    item.setContent_en(xpp.getText());
-//                                    break;
                                 case "print":
                                     item.setPrint(xpp.getText());
                                     break;
@@ -109,9 +102,9 @@ public class XMLParser {
                             items.add(item);
                             item = new Item();
                         }
-                        if (!TextUtils.isEmpty(tag))
+                        if (!TextUtils.isEmpty(tag)) {
                             tag = "";
-
+                        }
                         break;
                     default:
                         break;
@@ -131,9 +124,6 @@ public class XMLParser {
         }
         return null;
     }
-
-
-
 
      private XmlPullParser prepare(int id){
          return context.getResources().getXml(id);

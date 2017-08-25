@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 
@@ -16,60 +17,64 @@ import com.soleren.pythonsamples.R;
 import com.soleren.pythonsamples.adapters.MainAdapter;
 
 
+import com.soleren.pythonsamples.data.Const;
 import com.soleren.pythonsamples.databinding.ActivityMainBinding;
-import com.soleren.pythonsamples.mvp.main_activity.MainActivityPresenterImpl;
-import com.soleren.pythonsamples.mvp.main_activity.MainActivityView;
+import com.soleren.pythonsamples.fragments.MainFragment;
+import com.soleren.pythonsamples.fragments.MenuFragment;
+import com.soleren.pythonsamples.model.Item;
 import com.google.android.gms.ads.AdRequest;
+import com.soleren.pythonsamples.utils.XMLParser;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements MainActivityView {
+public class MainActivity extends AppCompatActivity {
     private ActionBarDrawerToggle drawerToggle;
     private ActivityMainBinding binding;
     private MainAdapter adapter;
     private Toolbar toolbar;
-    private ArrayList<String> listTitles;
+    private ArrayList<String> listMenu;
+    private ArrayList<Item> listItems;
     //names of navbar menu
-    private MainActivityPresenterImpl presenter;
     private FragmentManager fm;
     private AdRequest adRequest;
     private boolean isScreenOn;
-
+    private XMLParser parser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-
+        listMenu = new ArrayList<>();
         fm = getSupportFragmentManager();
-        if(savedInstanceState != null) {
-            if(fm.getBackStackEntryCount() != 0) {
-                binding.mainActivityRecycler.setVisibility(View.GONE);
-            }
-        }
-//        drawerToggle = new ActionBarDrawerToggle(this, binding.drawerLayout, R.string.open_drawer, R.string.close_drawer);
-        presenter = new MainActivityPresenterImpl(this);
-//        binding.drawerLayout.addDrawerListener(drawerToggle);
+//        if(savedInstanceState != null) {
+//            if(fm.getBackStackEntryCount() != 0) {
+//                binding.mainActivityRecycler.setVisibility(View.GONE);
+//            }
+//        }
+//        parser = XMLParser.getXmlParser(this,R.xml.main);
 
-        listTitles = presenter.getListTitles();
-        adapter = new MainAdapter(listTitles);
-        binding.mainActivityRecycler.setAdapter(adapter);
-        LinearLayoutManager manager = new LinearLayoutManager(this);
-        binding.mainActivityRecycler.setLayoutManager(manager);
-
-
-        adapter.setListener(new MainAdapter.AdapterListener() {
-            @Override
-            public void onClick(int position) {
-                presenter.selectFragment(position);
-                binding.mainActivityRecycler.setVisibility(View.GONE);
-                if(binding.adView != null)
-                    binding.adView.destroy();
-            }
-        });
-        toolbar = binding.toolbar;
-        setSupportActionBar(toolbar);
+        drawerToggle = new ActionBarDrawerToggle(this, binding.drawerLayout, R.string.open_drawer, R.string.close_drawer);
+        binding.drawerLayout.addDrawerListener(drawerToggle);
+//        listItems = getListMenu(R.xml.main);
+//        Log.d("!!!",listItems.size()+"");
+//        adapter = new MainAdapter(listMenu);
+//        binding.mainActivityRecycler.setAdapter(adapter);
+//        LinearLayoutManager manager = new LinearLayoutManager(this);
+//        binding.mainActivityRecycler.setLayoutManager(manager);
+        setActiveFragment(MenuFragment.newInstance());
+//
+//        adapter.setListener(new MainAdapter.AdapterListener() {
+//            @Override
+//            public void onClick(int position) {
+//                presenter.selectFragment(position);
+//                binding.mainActivityRecycler.setVisibility(View.GONE);
+//                if(binding.adView != null)
+//                    binding.adView.destroy();
+//            }
+//        });
+//        toolbar = binding.toolbar;
+//        setSupportActionBar(toolbar);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        getSupportActionBar().setHomeButtonEnabled(true);
 
@@ -89,6 +94,14 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
 //        binding.adView.loadAd(adRequest);
     }
 
+    private ArrayList<Item> getListMenu(int res){
+        listItems = XMLParser.getXmlParser(this,res).parse();
+        for (Item listItem : listItems) {
+            if (!listMenu.contains(listItem.getMenu()) && listItem.getMenu() != null)
+                listMenu.add(listItem.getMenu());
+        }
+        return listItems;
+    }
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -118,13 +131,11 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
 //        return super.onOptionsItemSelected(item);
 //    }
 
-
-    @Override
     public void setActionBarTitle(String title) {
         toolbar.setTitle(title);
     }
 
-    @Override
+
     public void setActiveFragment(Fragment fragment) {
 
         FragmentTransaction ft = fm.beginTransaction();
@@ -132,8 +143,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
                 .addToBackStack(null)
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commit();
-
-
 
 //        getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
 //            @Override
@@ -164,7 +173,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        presenter.destroy();
         if(binding.adView != null)
             binding.adView.destroy();
     }
@@ -175,7 +183,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         if(fm != null) {
             if(fm.getBackStackEntryCount() == 0) {
-                presenter.selectActionBarTitle(999);
                 binding.mainActivityRecycler.setVisibility(View.VISIBLE);
 //                binding.adView.loadAd(adRequest);
             }

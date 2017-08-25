@@ -53,7 +53,6 @@ dtype: int64
 </print>
 </item>
 
-
 <item>
 <id>2</id>
 <menu>Pandas</menu>
@@ -120,7 +119,6 @@ b two
 </print>
 </item>
 
-
 <item>
 <id>3</id>
 <menu>Pandas</menu>
@@ -154,7 +152,6 @@ cty  JP  US
 3     2   3
 </print>
 </item>
-
 
 <item>
 <id>4</id>
@@ -192,7 +189,6 @@ b   -1.175843
 dtype: float64
 </print>
 </item>
-
 
 <item>
 <id>5</id>
@@ -237,7 +233,6 @@ print(pd.merge(df1,df2,on='key'),end='\n\n')
 
 </print>
 </item>
-
 
 <item>
 <id>6</id>
@@ -295,7 +290,6 @@ print(pd.merge(df1,df2,left_on='lkey', right_on='rkey',how='outer'),end='\n\n')
 </print>
 </item>
 
-
 <item>
 <id>7</id>
 <menu>Pandas</menu>
@@ -336,7 +330,6 @@ print(pd.merge(left, right, on=['key1', 'key2'], how='outer'))
 4  bar  two   NaN   7.0
 </print>
 </item>
-
 
 <item>
 <id>8</id>
@@ -389,7 +382,6 @@ print(pd.merge(left1, right1, left_on='key', right_index=True, how='outer'))
 5   c      5        NaN
 </print>
 </item>
-
 
 <item>
 <id>9</id>
@@ -451,7 +443,6 @@ Ohio   2000       4       5
 </print>
 </item>
 
-
 <item>
 <id>10</id>
 <menu>Pandas</menu>
@@ -503,7 +494,6 @@ e   5.0     6.0      13.0     14.0
 </print>
 </item>
 
-
 <item>
 <id>11</id>
 <menu>Pandas</menu>
@@ -538,9 +528,8 @@ print(np.concatenate([arr, arr], axis=0))
 </print>
 </item>
 
-
 <item>
-<id>12</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Слияние</submenu>
 <title>concat Series</title>
@@ -601,9 +590,8 @@ g  NaN  NaN    6.0
 </print>
 </item>
 
-
 <item>
-<id>13</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Слияние</submenu>
 <title>concat DataFrame</title>
@@ -645,9 +633,8 @@ c          4   5    7.0  8.0
 </print>
 </item>
 
-
 <item>
-<id>14</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Слияние</submenu>
 <title>Комбинирование перекрывающихся данных Series</title>
@@ -700,9 +687,8 @@ dtype: float64
 </print>
 </item>
 
-
 <item>
-<id>15</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Слияние</submenu>
 <title>Комбинирование перекрывающихся данных DataFrame</title>
@@ -745,9 +731,8 @@ print(df1.combine_first(df2),end='\n\n')
 </print>
 </item>
 
-
 <item>
-<id>16</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -761,9 +746,8 @@ Panel - трехмерный аналог DataFrame,соответственно
 </print>
 </item>
 
-
 <item>
-<id>17</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -798,9 +782,8 @@ NumPy 					Интерпретируется так же, как «словарь
 </print>
 </item>
 
-
 <item>
-<id>18</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -834,9 +817,8 @@ unique 			Вычисляет массив уникальных значений 
 </print>
 </item>
 
-
 <item>
-<id>19</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -852,9 +834,8 @@ ffill или pad 	Восполнить (или перенести) значен�
 </print>
 </item>
 
-
 <item>
-<id>20</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -878,9 +859,8 @@ level 			Сопоставить с простым объектом Index на у
 </print>
 </item>
 
-
 <item>
-<id>21</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -909,9 +889,8 @@ get_value, set_value	 Выбрать одно значение по меткам
 </print>
 </item>
 
-
 <item>
-<id>22</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -931,9 +910,8 @@ mul			Умножение(*)
 </print>
 </item>
 
-
 <item>
-<id>23</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -990,9 +968,8 @@ pct_change	Вычисляет процентное изменение
 </print>
 </item>
 
-
 <item>
-<id>24</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -1011,9 +988,8 @@ value_counts 	Возвращает объект Series, который соде�
 </print>
 </item>
 
-
 <item>
-<id>25</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -1033,9 +1009,8 @@ notnull 	Логическое отрицание isnull
 </print>
 </item>
 
-
 <item>
-<id>26</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -1057,9 +1032,8 @@ limit 		Для прямого и обратного восполнения ма�
 </print>
 </item>
 
-
 <item>
-<id>27</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -1079,9 +1053,8 @@ read_clipboard 	Вариант read_taЬle, который читает данн
 </print>
 </item>
 
-
 <item>
-<id>28</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -1136,9 +1109,8 @@ thousands 		Разделитель тысяч, например, ',' или '.'
 </print>
 </item>
 
-
 <item>
-<id>29</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -1172,9 +1144,8 @@ copy			Если равен False, то в некоторых особых слу
 </print>
 </item>
 
-
 <item>
-<id>30</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -1204,9 +1175,8 @@ ignore_index 	Не сохранять индексы вдоль оси конк�
 </print>
 </item>
 
-
 <item>
-<id>31</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -1235,9 +1205,8 @@ first,last 	Первое и последнее отличное от NA знач
 </print>
 </item>
 
-
 <item>
-<id>32</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Oбъект Series</title>
@@ -1264,9 +1233,8 @@ Index(['a', 'b', 'c', 'd'], dtype='object')
 </print>
 </item>
 
-
 <item>
-<id>33</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Изменение Series</title>
@@ -1288,9 +1256,8 @@ dtype: int64
 </print>
 </item>
 
-
 <item>
-<id>34</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Фильтрация по значениям</title>
@@ -1314,9 +1281,8 @@ dtype: int64
 </print>
 </item>
 
-
 <item>
-<id>35</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Изменение значений по условиям</title>
@@ -1339,9 +1305,8 @@ dtype: int64
 </print>
 </item>
 
-
 <item>
-<id>36</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Математические операции</title>
@@ -1387,9 +1352,8 @@ dtype: int64
 </print>
 </item>
 
-
 <item>
-<id>37</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Проверка на вхождение</title>
@@ -1413,9 +1377,8 @@ False
 </print>
 </item>
 
-
 <item>
-<id>38</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Создание Series из словаря</title>
@@ -1436,9 +1399,8 @@ dtype: int64
 </print>
 </item>
 
-
 <item>
-<id>39</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Нахождение NaN </title>
@@ -1480,9 +1442,8 @@ dtype: float64&gt;
 </print>
 </item>
 
-
 <item>
-<id>40</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Аттрибут name</title>
@@ -1506,9 +1467,8 @@ Name: population, dtype: float64
 </print>
 </item>
 
-
 <item>
-<id>41</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Создание DataFrame</title>
@@ -1532,9 +1492,8 @@ print(frame, end='\n\n')
 </print>
 </item>
 
-
 <item>
-<id>42</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Создание DataFrame (2)</title>
@@ -1563,10 +1522,9 @@ Nevada   NaN   2.4   2.9
 Ohio     1.5   1.7   3.6
 </print>
 </item>
-
 	
 <item>
-<id>43</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Изменение порядка столбцов</title>
@@ -1601,9 +1559,8 @@ print(frame, end='\n\n')
 </print>
 </item>
 
-
 <item>
-<id>44</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Изменение значений столбцов</title>
@@ -1652,9 +1609,8 @@ print(frame, end='\n\n')
 </print>
 </item>
 
-
 <item>
-<id>45</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Доступ к строкам DataFrame</title>
@@ -1683,9 +1639,8 @@ Ohio
 </print>
 </item>
 
-
 <item>
-<id>46</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Вставка Series в DataFrame</title>
@@ -1726,9 +1681,8 @@ five    1.2  Nevada  2002
 </print>
 </item>
 
-
 <item>
-<id>47</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Удаление столбцов DataFrame</title>
@@ -1765,9 +1719,8 @@ five   Nevada  2002
 </item>
 
 
-
 <item>
-<id>48</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Переиндексация</title>
@@ -1799,9 +1752,8 @@ dtype: float64
 </print>
 </item>
 
-
 <item>
-<id>49</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Интерполяция - восполнение отсутствующих значений в процессе переиндексации. </title>
@@ -1831,9 +1783,8 @@ dtype: object
 </print>
 </item>
 
-
 <item>
-<id>50</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Удаление элементов из оси (Series)</title>
@@ -1864,9 +1815,8 @@ dtype: float64
 </print>
 </item>
 
-
 <item>
-<id>51</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Удаление элементов из оси (DataFrame)</title>
@@ -1902,9 +1852,8 @@ New York     14    15
 </print>
 </item>
 
-
 <item>
-<id>52</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Доступ по индексу, выборка и фильтрация </title>
@@ -1954,9 +1903,8 @@ dtype: float64
 </print>
 </item>
 
-
 <item>
-<id>53</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Достцп к индексам DataFrame</title>
@@ -1992,9 +1940,8 @@ New York   12   13     14    15
 </print>
 </item>
 
-
 <item>
-<id>54</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Проверка DataFrame по условиям</title>
@@ -2026,9 +1973,8 @@ New York   12   13     14    15
 </print>
 </item>
 
-
 <item>
-<id>55</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Срезы DataFrame,условия</title>
@@ -2063,9 +2009,8 @@ New York   12   13     14
 </print>
 </item>
 
-
 <item>
-<id>56</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Арифметические операции </title>
@@ -2109,9 +2054,8 @@ print(df1.mul(df2,fill_value = 0),end='\n\n')
 </print>
 </item>
 
-
 <item>
-<id>57</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Сортировка</title>
@@ -2147,9 +2091,8 @@ one    4  7  6  5
 </print>
 </item>
 
-
 <item>
-<id>58</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Сортировка Series по значениям</title>
@@ -2169,9 +2112,8 @@ dtype: int32
 </print>
 </item>
 
-
 <item>
-<id>59</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Cортировка DataFrame по значениям</title>
@@ -2205,9 +2147,8 @@ print(frame.sort_values(by=['a','b']),end='\n\n')
 </print>
 </item>
 
-
 <item>
-<id>60</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Ранжирование</title>
@@ -2250,9 +2191,8 @@ dtype: float64
 </print>
 </item>
 
-
 <item>
-<id>61</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Суммирование по столбцам/строкам</title>
@@ -2301,9 +2241,8 @@ d  9.25 -5.8
 </print>
 </item>
 
-
 <item>
-<id>62</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Свойство DataFrame describe()</title>
@@ -2337,9 +2276,8 @@ max    7.100000 -1.300000
 </print>
 </item>
 
-
 <item>
-<id>63</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Уникальные значения Series,счетчики значений,вхождение</title>
@@ -2394,15 +2332,14 @@ dtype: object
 </print>
 </item>
 
-
 <item>
-<id>64</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 
 
 <item>
-<id>65</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Удаление отсутствующих данных Series</title>
@@ -2437,9 +2374,8 @@ dtype: float64
 </print>
 </item>
 
-
 <item>
-<id>66</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Удаление отсутствующих данных DataFrame</title>
@@ -2474,9 +2410,8 @@ print(data.dropna(axis=0,how='all'),end='\n\n')
 </print>
 </item>
 
-
 <item>
-<id>67</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Восполнение отсутствующих данных </title>
@@ -2506,9 +2441,8 @@ print(data.fillna(0),end='\n\n')
 </print>
 </item>
 
-
 <item>
-<id>68</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Иерархическое индексирование Series</title>
@@ -2583,9 +2517,8 @@ dtype: float64
 </print>
 </item>
 
-
 <item>
-<id>69</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Иерархическое индексирование DataFrame</title>
@@ -2633,7 +2566,6 @@ key2 key1
 </print>
 </item>
 
-
 <title>Нахождение одинаковых значений в DataFrame</title>
 <content> 
 import numpy as np
@@ -2664,9 +2596,8 @@ print(data.apply(pd.value_counts).fillna(0))
 </print>
 </item>
 
-
 <item>
-<id>70</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Сводная статистика по уровню DataFrame</title>
@@ -2711,9 +2642,8 @@ b    1        14    7
 </print>
 </item>
 
-
 <item>
-<id>71</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Работа со столбцами DataFrame </title>
@@ -2776,9 +2706,8 @@ two 0  3  4  two  0
 </print>
 </item>
 
-
 <item>
-<id>72</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Изменение формы с помощью иерархического индексирования </title>
@@ -2826,9 +2755,8 @@ dtype: int32
 </print>
 </item>
 
-
 <item>
-<id>73</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Устранение дубликатов </title>
@@ -2876,9 +2804,8 @@ dtype: bool
 </print>
 </item>
 
-
 <item>
-<id>74</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Дискретизация и раскладывание </title>
@@ -2920,9 +2847,8 @@ Categories (4, interval[int64]): [[18, 26) &lt; [26, 36) &lt; [36, 61) &lt; [61,
 </print>
 </item>
 
-
 <item>
-<id>75</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Дискретизация и раскладывание(2)</title>
@@ -2941,9 +2867,8 @@ Categories (4, interval[float64]): [(0.096, 0.3] &lt; (0.3, 0.51] &lt; (0.51, 0.
 </print>
 </item>
 
-
 <item>
-<id>76</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Дискретизация и раскладывание(3)</title>
@@ -2975,9 +2900,8 @@ Categories (4, interval[float64]): [(-0.883, -0.714] &lt; (-0.714, 0.52] &lt; (0
 </print>
 </item>
 
-
 <item>
-<id>77</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Обнаружение и фильтрация выбросов </title>
@@ -3049,9 +2973,8 @@ max       3.000000     2.653656     3.000000     3.000000
 </print>
 </item>
 
-
 <item>
-<id>78</id>
+<id></id>
 <menu>Сортировка</menu>
 <submenu>Базовые операции</submenu>
 <title>Сортировка выбором</title>
@@ -3074,9 +2997,8 @@ print (selection_sort(arr))
 [1, 2, 2, 3, 3, 4, 5, 5, 24, 34, 43]
 </print>
 </item> 
-
 <item>
-<id>79</id>
+<id></id>
 <menu>Сортировка</menu>
 <submenu>Базовые операции</submenu>
 <title>Сортировка вставками</title>
@@ -3094,9 +3016,8 @@ print (insertion_sort(arr))
 [1, 2, 2, 3, 3, 4, 5, 5, 24, 34, 43
 </print>
 </item> 
-
 <item>
-<id>80</id>
+<id></id>
 <menu>Сортировка</menu>
 <submenu>Базовые операции</submenu>
 <title>Сортировка пузьрьком</title>
@@ -3118,9 +3039,8 @@ print bubble_sort(arr)
 [1, 2, 2, 3, 3, 4, 5, 5, 24, 34, 43]
 </print>
 </item> 
-
 <item>
-<id>81</id>
+<id></id>
 <menu>Сортировка</menu>
 <submenu>Базовые операции</submenu>
 <title>Сортировка слиянием</title>
@@ -3159,9 +3079,8 @@ print (MergerSort(arr))
 </print>
 </item> 
 
-
 <item>
-<id>82</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Заметки</submenu>
 <title>Cтроки - упорядоченные последовательности символов, используемые для хранения и представления текстовой информации
@@ -3171,9 +3090,8 @@ print (MergerSort(arr))
 <print>
 </print>
 </item> 
-
 <item>
-<id>83</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Заметки</submenu>
 <title>Cтроки относятся к категории неизменяемых последовательностей, в том смысле, что символы, которые они содержат, имеют определенный порядок следования слева направо и сами строки невозможно изменить.
@@ -3183,9 +3101,8 @@ print (MergerSort(arr))
 <print>
 </print>
 </item> 
-
 <item>
-<id>84</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -3196,9 +3113,8 @@ print (MergerSort(arr))
 <print>
 </print>
 </item> 
-
 <item>
-<id>85</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -3209,9 +3125,8 @@ print (MergerSort(arr))
 <print>
 </print>
 </item> 
-
 <item>
-<id>86</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -3228,9 +3143,8 @@ knight”s  knight’s
 <print>
 </print>
 </item> 
-
 <item>
-<id>87</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -3245,9 +3159,8 @@ Meaning of Life"
 <print>
 </print>
 </item> 
-
 <item>
-<id>88</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -3261,9 +3174,8 @@ print(str)
 <print>
 </print>
 </item> 
-
 <item>
-<id>89</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -3274,9 +3186,8 @@ B языке Python нет символа,который служил бы пр�
 <print>
 </print>
 </item> 
-
 <item>
-<id>90</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -3285,9 +3196,8 @@ B языке Python нет символа,который служил бы пр�
 <content> 
 </content>
 </item> 
-
 <item>
-<id>91</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -3302,9 +3212,8 @@ myfile = open('C:\\new\\text.dat', 'w')
 </print>
 </item> 
 
-
 <item>
-<id>92</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Длина строки - len()</title>
@@ -3316,9 +3225,8 @@ print(len(str))
 4
 </print>
 </item>
-
 <item>
-<id>93</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Конкатенация строк</title>
@@ -3330,9 +3238,8 @@ print(str)
 abcdef
 </print>
 </item>
-
 <item>
-<id>94</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Повторение строк</title>
@@ -3345,9 +3252,8 @@ for c in myjob:
 h a c k e r
 </print>
 </item>
-
 <item>
-<id>95</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Поиск в строке</title>
@@ -3359,9 +3265,8 @@ print('k' in myjob)
 true
 </print>
 </item>
-
 <item>
-<id>96</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Поиск в строке с возвратом позиции - find()</title>
@@ -3373,9 +3278,8 @@ print(myjob.find('k'))
 3
 </print>
 </item>
-
 <item>
-<id>97</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Обращение к элементу строки по индексу</title>
@@ -3387,9 +3291,8 @@ print(s[0]+'  '+s[-2])
 p  o
 </print>
 </item>
-
 <item>
-<id>98</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Срезы - извлечение подстроки</title>
@@ -3401,9 +3304,8 @@ print(s[1:3]+'  '+s[1:]+'  '+s[:-1])
 yt  ython  pytho
 </print>
 </item>
-
 <item>
-<id>99</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Срезы-извлечение подстроки(2)</title>
@@ -3419,9 +3321,8 @@ print(s[1:10:2])
 erigp
 </print>
 </item>
-
 <item>
-<id>100</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Срезы-извлечение подстроки(3)</title>
@@ -3437,9 +3338,8 @@ print(s[-2:1:-2])
 nhy_nna
 </print>
 </item>
-
 <item>
-<id>101</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Пребразование из/в строку</title>
@@ -3454,9 +3354,8 @@ print(float(s))
 1.234e-10
 </print>
 </item>
-
 <item>
-<id>102</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Преобразование одиночного символав его целочисленный код ASCII</title>
@@ -3468,9 +3367,8 @@ print(a)
 115
 </print>
 </item>
-
 <item>
-<id>103</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Преобразование ASCII кода в символ</title>
@@ -3482,9 +3380,8 @@ print(a)
 s
 </print>
 </item>
-
 <item>
-<id>104</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Замещение символов в строке - replace()</title>
@@ -3497,9 +3394,8 @@ print(s)
 kivython
 </print>
 </item>
-
 <item>
-<id>105</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Выражения форматирования строки - %</title>
@@ -3526,9 +3422,8 @@ print('That is %d %s bird!' % (1, 'dead'))
 That is 1 dead bird!
 </print>
 </item>
-
 <item>
-<id>106</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Форматирование строк из словаря</title>
@@ -3541,9 +3436,8 @@ print(str % l)
 1 spam
 </print>
 </item>
-
 <item>
-<id>107</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Форматирование строк из словаря(2)</title>
@@ -3562,9 +3456,8 @@ Hello Bob!
 Your age squared is 40
 </print>
 </item>
-
 <item>
-<id>108</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Спецификаторы формата</title>
@@ -3576,9 +3469,8 @@ print("integers: ...%d...%6d...%-6d...%06d" % (x, x, x, x))
 integers: ...1234...  1234...1234  ...001234
 </print>
 </item>
-
 <item>
-<id>109</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Спецификаторы формата(2)</title>
@@ -3590,9 +3482,8 @@ print('%e | %f | %g' % (x, x, x))
 1.234568e+00 | 1.234568 | 1.23457
 </print>
 </item>
-
 <item>
-<id>110</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Спецификаторы формата(3)</title>
@@ -3604,9 +3495,8 @@ print('%-6.2f|%05.2f|%+06.1f' % (x, x, x))
 1.23  |01.23|+001.2
 </print>
 </item>
-
 <item>
-<id>111</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Метод форматирования строки - format()</title>
@@ -3617,9 +3507,8 @@ print('That is {0} {1} bird!'.format(1, 'dead'))
 That is 1 dead bird!
 </print>
 </item>
-
 <item>
-<id>112</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Метод форматирования строки(2) - format()</title>
@@ -3631,9 +3520,8 @@ print(template.format('spam', 'ham', 'eggs'))
 spam, ham and eggs
 </print>
 </item>
-
 <item>
-<id>113</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Метод форматирования строки(3) - format()</title>
@@ -3645,9 +3533,8 @@ print(template.format(motto = 'spam', pork = 'ham', food = 'eggs'))
 spam, ham and eggs
 </print>
 </item>
-
 <item>
-<id>114</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Метод форматирования строки(4) - format()</title>
@@ -3663,9 +3550,8 @@ My laptop runs win32
 My laptop runs win32
 </print>
 </item>
-
 <item>
-<id>115</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Метод форматирования строки(5) - format()</title>
@@ -3680,9 +3566,8 @@ first = S, third = A
 first = S, last = M, middle = ['P', 'A']
 </print>
 </item>
-
 <item>
-<id>116</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Метод форматирования строки - выравнивание</title>
@@ -3694,9 +3579,8 @@ print('|{0.platform:&gt;10}| = |{1[item]:&lt;10}|'.format(sys, dict(item = 'lapt
 |     win32| = |laptop    |
 </print>
 </item>
-
 <item>
-<id>117</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Метод форматирования строки (7) - format()</title>
@@ -3709,9 +3593,8 @@ print('{0:f}, {1:.2f}, {2:06.2f}'.format(3.14159, 3.14159, 3.14159))
 3.141590, 3.14, 003.14
 </print>
 </item>
-
 <item>
-<id>118</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Метод форматирования вывода цифр - format()</title>
@@ -3724,9 +3607,8 @@ print('{:,.2f}'.format(296999.2567))
 296,999.26
 </print>
 </item>
-
 <item>
-<id>119</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Длина строки - len()</title>
@@ -3738,9 +3620,8 @@ print(len(str))
 5
 </print>
 </item>
-
 <item>
-<id>120</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Вставка кавычек и апострофов в строку</title>
@@ -3752,9 +3633,8 @@ print(str)
 ('firs"t', "second's")
 </print>
 </item>
-
 <item>
-<id>121</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Преобразование строки в список -></title>
@@ -3767,9 +3647,8 @@ print(l)
 ['s', 'p', 'a', 'm', 'm', 'y']
 </print>
 </item>
-
 <item>
-<id>122</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>-> и обратно</title>
@@ -3785,9 +3664,8 @@ print(s)
 spaxxy
 </print>
 </item>
-
 <item>
-<id>123</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Строка-разделитель - join()</title>
@@ -3799,9 +3677,8 @@ print(s)
 I-|-like-|-python
 </print>
 </item>
-
 <item>
-<id>124</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Строковый метод - split()</title>
@@ -3813,9 +3690,8 @@ print(line.split(','))
 ['bob', 'hacker', '40']
 </print>
 </item>
-
 <item>
-<id>125</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Удаление пустых символов с конца строки - rstrip()</title>
@@ -3827,9 +3703,8 @@ print(line.rstrip())
 The knights who say Ni!
 </print>
 </item>
-
 <item>
-<id>126</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Пребразование символов в заглавные - upper()</title>
@@ -3841,9 +3716,8 @@ print(line.upper())
 THE KNIGHTS WHO SAY NI!
 </print>
 </item>
-
 <item>
-<id>127</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Проверка символов на принадлежность к буквам - isalpha()</title>
@@ -3855,9 +3729,8 @@ print(line.isalpha())
 False
 </print>
 </item>
-
 <item>
-<id>128</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Проверка окончания строки - endswith()</title>
@@ -3872,9 +3745,8 @@ True
 True
 </print>
 </item>
-
 <item>
-<id>129</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Удаление символов из строки</title>
@@ -3891,9 +3763,8 @@ The knights who say Ni
 The knights who say Ni
 </print>
 </item>
-
 <item>
-<id>130</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Проверка начала строки - startswith()</title>
@@ -3908,10 +3779,9 @@ True
 True
 </print>
 </item>
-
 	
 <item>
-<id>131</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Сравнивание строк</title>
@@ -3938,9 +3808,8 @@ True
 False
 </print>
 </item>
-
 <item>
-<id>132</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Модуль re</title>
@@ -3962,9 +3831,8 @@ print(b)
 (b'Bugger all', b'here', b'earth!')
 </print>
 </item>
-
 <item>
-<id>133</id>
+<id></id>
 <menu>Строки</menu>
 <submenu>Базовые операции</submenu>
 <title>Разбор XML</title>
@@ -3993,9 +3861,8 @@ Python Pocket Reference
 </print>
 </item>
 
-
 <item>
-<id>134</id>
+<id></id>
 <menu>Время</menu>
 <submenu>Базовые операции</submenu>
 <title>Вывод текущей даты/времени</title>
@@ -4015,9 +3882,8 @@ print(moment)
 </print>
 </item> 
 
-
 <item>
-<id>135</id>
+<id></id>
 <menu>Время</menu>
 <submenu>Базовые операции</submenu>
 <title>Вывод текущей даты/времени(2)</title>
@@ -4037,9 +3903,8 @@ print(moment)
 </print>
 </item> 
 
-
 <item>
-<id>136</id>
+<id></id>
 <menu>Время</menu>
 <submenu>Базовые операции</submenu>
 <title>timedelta - суммирование или вычитание количества дней</title>
@@ -4059,9 +3924,8 @@ print(delta)
 </print>
 </item> 
 
-
 <item>
-<id>137</id>
+<id></id>
 <menu>Время</menu>
 <submenu>Базовые операции</submenu>
 <title>Объекты даты</title>
@@ -4078,9 +3942,8 @@ print(my_date)
 </print>
 </item> 
 
-
 <item>
-<id>138</id>
+<id></id>
 <menu>Время</menu>
 <submenu>Базовые операции</submenu>
 <title>Объекты времени</title>
@@ -4100,9 +3963,8 @@ print(my_time)
 </print>
 </item> 
 
-
 <item>
-<id>139</id>
+<id></id>
 <menu>Время</menu>
 <submenu>Базовые операции</submenu>
 <title>Изменение даты/времени</title>
@@ -4120,9 +3982,8 @@ print(another_datetime)
 </print>
 </item>
 
-
 <item>
-<id>140</id>
+<id></id>
 <menu>Время</menu>
 <submenu>Базовые операции</submenu>
 <title>Получение объекта datetime, представляющий эпоху 01-01-1970</title>
@@ -4144,9 +4005,8 @@ print(epoch)
 </print>
 </item>
 
-
 <item>
-<id>141</id>
+<id></id>
 <menu>Время</menu>
 <submenu>Базовые операции</submenu>
 <title>Получение времени между эпохой и сейчас</title>
@@ -4171,9 +4031,8 @@ print(total_seconds)
 </print>
 </item>
 
-
 <item>
-<id>142</id>
+<id></id>
 <menu>Время</menu>
 <submenu>Базовые операции</submenu>
 <title>Восстановление даты со строки</title>
@@ -4188,9 +4047,8 @@ print(my_date)
 </print>
 </item> 
 
-
 <item>
-<id>143</id>
+<id></id>
 <menu>Время</menu>
 <submenu>Базовые операции</submenu>
 <title>Форматирование строки отображения даты</title>
@@ -4205,9 +4063,8 @@ print(string_date)
 </print>
 </item> 
 
-
 <item>
-<id>144</id>
+<id></id>
 <menu>Время</menu>
 <submenu>Базовые операции</submenu>
 <title>Парсинг Даты</title>
@@ -4227,9 +4084,8 @@ print(parse('6/12/2011', dayfirst=True) ,end='\n\n')
 </print>
 </item>
 
-
 <item>
-<id>145</id>
+<id></id>
 <menu>Время</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -4249,9 +4105,8 @@ timedelta 	Представляет разность между двумя зн�
 </print>
 </item>
 
-
 <item>
-<id>146</id>
+<id></id>
 <menu>Время</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -4287,9 +4142,8 @@ timedelta 	Представляет разность между двумя зн�
 </print>
 </item>
 
-
 <item>
-<id>147</id>
+<id></id>
 <menu>Кортежи</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -4300,9 +4154,8 @@ timedelta 	Представляет разность между двумя зн�
 <print>
 </print>
 </item> 
-
 <item>
-<id>148</id>
+<id></id>
 <menu>Кортежи</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -4315,9 +4168,8 @@ timedelta 	Представляет разность между двумя зн�
 <print>
 </print>
 </item> 
-
 <item>
-<id>149</id>
+<id></id>
 <menu>Кортежи</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -4330,9 +4182,8 @@ timedelta 	Представляет разность между двумя зн�
 <print>
 </print>
 </item> 
-
 <item>
-<id>150</id>
+<id></id>
 <menu>Кортежи</menu>
 <submenu>Заметки</submenu>
 <title>Относятся к категории неизменяемых последовательностей
@@ -4345,9 +4196,8 @@ timedelta 	Представляет разность между двумя зн�
 <print>
 </print>
 </item> 
-
 <item>
-<id>151</id>
+<id></id>
 <menu>Кортежи</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -4363,9 +4213,8 @@ timedelta 	Представляет разность между двумя зн�
 </print>
 </item> 
 
-
 <item>
-<id>152</id>
+<id></id>
 <menu>Кортежи</menu>
 <submenu>Заметки</submenu>
 <title>Массивы ссылок на объекты.
@@ -4378,9 +4227,8 @@ timedelta 	Представляет разность между двумя зн�
 </print>
 </item> 
 
-
 <item>
-<id>153</id>
+<id></id>
 <menu>Кортежи</menu>
 <submenu>Базовые операции</submenu>
 <title>Инициализация кортежей</title>
@@ -4403,9 +4251,8 @@ print(t)
 (0, 'HI', 1.2, 3)
 </print>
 </item> 
-
 <item>
-<id>154</id>
+<id></id>
 <menu>Кортежи</menu>
 <submenu>Базовые операции</submenu>
 <title>Конкатенация кортежей</title>
@@ -4418,9 +4265,8 @@ print(t1 + t2)
 (1, 2, 3, 4)
 </print>
 </item> 
-
 <item>
-<id>155</id>
+<id></id>
 <menu>Кортежи</menu>
 <submenu>Базовые операции</submenu>
 <title>Повторение кортежей</title>
@@ -4432,9 +4278,8 @@ print(t1 * 2)
 (1, 2, 1, 2)
 </print>
 </item> 
-
 <item>
-<id>156</id>
+<id></id>
 <menu>Кортежи</menu>
 <submenu>Базовые операции</submenu>
 <title>Индексирование,извлечение среза</title>
@@ -4450,7 +4295,7 @@ print(t[1:3])
 </item> 
 
 <item>
-<id>157</id>
+<id></id>
 <menu>Кортежи</menu>
 <submenu>Базовые операции</submenu>
 <title>Методы кортежей - index(), count()</title>
@@ -4469,9 +4314,8 @@ print(T.count(4))
 2
 </print>
 </item> 
-
 <item>
-<id>158</id>
+<id></id>
 <menu>Кортежи</menu>
 <submenu>Базовые операции</submenu>
 <title>Сортировка кортежей</title>
@@ -4495,9 +4339,8 @@ print(t2)
 ['aa', 'bb', 'cc', 'dd']
 </print>
 </item> 
-
 <item>
-<id>159</id>
+<id></id>
 <menu>Кортежи</menu>
 <submenu>Базовые операции</submenu>
 <title>Упаковка/распаковка кортежей</title>
@@ -4519,9 +4362,8 @@ print(B)
 </print>
 </item> 
 
-
 <item>
-<id>160</id>
+<id></id>
 <menu>Разное</menu>
 <submenu>Базовые операции</submenu>
 <title>Таймер</title>
@@ -4573,9 +4415,8 @@ for test in (forLoop, listComp, mapCall, genExpr, genFunc):
  genFunc  :  0.63332 = > [ 0... 999999]
 </print>
 </item> 
-
 <item>
-<id>161</id>
+<id></id>
 <menu>Разное</menu>
 <submenu>Базовые операции</submenu>
 <title>pickle</title>
@@ -4603,9 +4444,8 @@ print(object)
 &lt;__main__.someClass object at 0x009A1690>
 </print>
 </item> 
-
 <item>
-<id>162</id>
+<id></id>
 <menu>Разное</menu>
 <submenu>Базовые операции</submenu>
 <title>shelve</title>
@@ -4630,9 +4470,8 @@ print(object)
 </print>
 </item>
 
-
 <item>
-<id>163</id>
+<id></id>
 <menu>Словари</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -4643,9 +4482,8 @@ print(object)
 <print>
 </print>
 </item> 
-
 <item>
-<id>164</id>
+<id></id>
 <menu>Словари</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -4656,9 +4494,8 @@ print(object)
 <print>
 </print>
 </item> 
-
 <item>
-<id>165</id>
+<id></id>
 <menu>Словари</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -4669,9 +4506,8 @@ print(object)
 <print>
 </print>
 </item> 
-
 <item>
-<id>166</id>
+<id></id>
 <menu>Словари</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -4682,9 +4518,8 @@ print(object)
 <print>
 </print>
 </item> 
-
 <item>
-<id>167</id>
+<id></id>
 <menu>Словари</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -4696,9 +4531,8 @@ print(object)
 </print>
 </item> 
 
-
 <item>
-<id>168</id>
+<id></id>
 <menu>Словари</menu>
 <submenu>Базовые операции</submenu>
 <title>Создание словаря</title>
@@ -4716,9 +4550,8 @@ print(dict(one = 1, two = 2,three = 3))
 {'one': 1, 'two': 2, 'three': 3}
 </print>
 </item> 
-
 <item>
-<id>169</id>
+<id></id>
 <menu>Словари</menu>
 <submenu>Базовые операции</submenu>
 <title>Извлечение по ключу</title>
@@ -4730,9 +4563,8 @@ print(d['two'])
 2
 </print>
 </item> 
-
 <item>
-<id>170</id>
+<id></id>
 <menu>Словари</menu>
 <submenu>Базовые операции</submenu>
 <title>Создание списка ключей</title>
@@ -4744,9 +4576,8 @@ print(list(d.keys()))
 ['one', 'two', 'three']
 </print>
 </item> 
-
 <item>
-<id>171</id>
+<id></id>
 <menu>Словари</menu>
 <submenu>Базовые операции</submenu>
 <title>Проверка на вхождение</title>
@@ -4758,9 +4589,8 @@ print('two' in d)
 True
 </print>
 </item> 
-
 <item>
-<id>172</id>
+<id></id>
 <menu>Словари</menu>
 <submenu>Базовые операции</submenu>
 <title>Изменение элемента</title>
@@ -4773,9 +4603,8 @@ print(d)
 {'one': ['four', 'five'], 'two': 2, 'three': 3}
 </print>
 </item> 
-
 <item>
-<id>173</id>
+<id></id>
 <menu>Словари</menu>
 <submenu>Базовые операции</submenu>
 <title>Удаление элемента</title>
@@ -4788,9 +4617,8 @@ print(d)
 {'one': 1, 'three': 3}
 </print>
 </item> 
-
 <item>
-<id>174</id>
+<id></id>
 <menu>Словари</menu>
 <submenu>Базовые операции</submenu>
 <title>Добавление элемента</title>
@@ -4803,9 +4631,8 @@ print(d)
 {'one': 1, 'two': 2, 'three': 3, 'four': 4}
 </print>
 </item> 
-
 <item>
-<id>175</id>
+<id></id>
 <menu>Словари</menu>
 <submenu>Базовые операции</submenu>
 <title>Список значений элементов - values()</title>
@@ -4818,9 +4645,8 @@ print(l)
 [1, 2, 3]
 </print>
 </item> 
-
 <item>
-<id>176</id>
+<id></id>
 <menu>Словари</menu>
 <submenu>Базовые операции</submenu>
 <title>Метод - items()</title>
@@ -4834,9 +4660,8 @@ None
 4
 </print>
 </item> 
-
 <item>
-<id>177</id>
+<id></id>
 <menu>Словари</menu>
 <submenu>Базовые операции</submenu>
 <title>Объединенние словарей - update()</title>
@@ -4850,9 +4675,8 @@ print(d)
 {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6}
 </print>
 </item> 
-
 <item>
-<id>178</id>
+<id></id>
 <menu>Словари</menu>
 <submenu>Базовые операции</submenu>
 <title>Удаление и возврат значения - pop()</title>
@@ -4865,9 +4689,8 @@ print(d)
 1{'two': 2, 'three': 3}
 </print>
 </item> 
-
 <item>
-<id>179</id>
+<id></id>
 <menu>Словари</menu>
 <submenu>Базовые операции</submenu>
 <title>Структуры разреженных данных</title>
@@ -4887,9 +4710,8 @@ print(m)
 {(2, 3, 4): 88, (7, 8, 9): 99}
 </print>
 </item> 
-
 <item>
-<id>180</id>
+<id></id>
 <menu>Словари</menu>
 <submenu>Базовые операции</submenu>
 <title>Объединенние ключей и значений</title>
@@ -4905,9 +4727,8 @@ print(D)
 {'a': 1, 'b': 2, 'c': 3}
 </print>
 </item> 
-
 <item>
-<id>181</id>
+<id></id>
 <menu>Словари</menu>
 <submenu>Базовые операции</submenu>
 <title>Инициализация с помощью fromkeys</title>
@@ -4922,9 +4743,8 @@ print(d)
 {'s': None, 'p': None, 'a': None, 'm': None}
 </print>
 </item> 
-
 <item>
-<id>182</id>
+<id></id>
 <menu>Словари</menu>
 <submenu>Базовые операции</submenu>
 <title>Инициализация с помощью генератора</title>
@@ -4939,9 +4759,8 @@ print(d)
 {'s': None, 'p': None, 'a': None, 'm': None}
 </print>
 </item> 
-
 <item>
-<id>183</id>
+<id></id>
 <menu>Словари</menu>
 <submenu>Базовые операции</submenu>
 <title>Создание списков из keys, values, items</title>
@@ -4960,9 +4779,8 @@ dict_values([1, 2, 3])
 dict_items([('a', 1), ('b', 2), ('c', 3)])
 </print>
 </item> 
-
 <item>
-<id>184</id>
+<id></id>
 <menu>Словари</menu>
 <submenu>Базовые операции</submenu>
 <title>JSON в объект словаря</title>
@@ -4975,9 +4793,8 @@ print(records[0]["some json key in file"])
 <print>
 </print>
 </item> 
-
 <item>
-<id>185</id>
+<id></id>
 <menu>Словари</menu>
 <submenu>Базовые операции</submenu>
 <title>Сравнивание словарей</title>
@@ -4992,9 +4809,8 @@ False
 True
 </print>
 </item> 
-
 <item>
-<id>186</id>
+<id></id>
 <menu>Словари</menu>
 <submenu>Базовые операции</submenu>
 <title>Как избежать появления ошибок обращения к несуществующему ключу</title>
@@ -5021,9 +4837,8 @@ try/except
 m.get()
 </print>
 </item> 
-
 <item>
-<id>187</id>
+<id></id>
 <menu>Словари</menu>
 <submenu>Базовые операции</submenu>
 <title>Сортировка ключей словаря</title>
@@ -5041,9 +4856,8 @@ b 3
 c 1
 </print>
 </item> 
-
 <item>
-<id>188</id>
+<id></id>
 <menu>Словари</menu>
 <submenu>Базовые операции</submenu>
 <title>Создание словарей из списков</title>
@@ -5057,9 +4871,8 @@ print(d)
 {1: 'one', 2: 'two', 3: 'three'}
 </print>
 </item> 
-
 <item>
-<id>189</id>
+<id></id>
 <menu>Словари</menu>
 <submenu>Базовые операции</submenu>
 <title>Проверка наличия ключей </title>
@@ -5080,9 +4893,8 @@ present 3
 </print>
 </item> 
 
-
 <item>
-<id>190</id>
+<id></id>
 <menu>Исключения</menu>
 <submenu>Заметки</submenu>
 <title>try/except
@@ -5100,9 +4912,8 @@ with/as
 <print>
 </print>
 </item> 
-
 <item>
-<id>191</id>
+<id></id>
 <menu>Исключения</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -5140,9 +4951,8 @@ finally:
 <print>
 </print>
 </item> 
-
 <item>
-<id>192</id>
+<id></id>
 <menu>Исключения</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -5166,9 +4976,8 @@ finally:
 <print>
 </print>
 </item> 
-
 <item>
-<id>193</id>
+<id></id>
 <menu>Исключения</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -5184,9 +4993,8 @@ print(line)
 </print>
 </item> 
 
-
 <item>
-<id>194</id>
+<id></id>
 <menu>Исключения</menu>
 <submenu>Базовые операции</submenu>
 <title>Обработка исключений</title>
@@ -5204,9 +5012,8 @@ except ZeroDivisionError as msg:
 division by zero
 </print>
 </item>
-
 <item>
-<id>195</id>
+<id></id>
 <menu>Исключения</menu>
 <submenu>Базовые операции</submenu>
 <title>Возбуждение исключений</title>
@@ -5222,9 +5029,8 @@ except IndexError:
 got exception
 </print>
 </item> 
-
 <item>
-<id>196</id>
+<id></id>
 <menu>Исключения</menu>
 <submenu>Базовые операции</submenu>
 <title>Пользовательские исключения</title>
@@ -5246,9 +5052,8 @@ except Bad:
 got Bad
 </print>
 </item> 
-
 <item>
-<id>197</id>
+<id></id>
 <menu>Исключения</menu>
 <submenu>Базовые операции</submenu>
 <title>Заключительные операции - finally</title>
@@ -5269,9 +5074,8 @@ division by zero
 after except
 </print>
 </item> 
-
 <item>
-<id>198</id>
+<id></id>
 <menu>Исключения</menu>
 <submenu>Базовые операции</submenu>
 <title>Запись ошибки в файл</title>
@@ -5299,9 +5103,8 @@ Error at spam.txt 40
 </print>
 </item> 
 
-
 <item>
-<id>199</id>
+<id></id>
 <menu>Исключения</menu>
 <submenu>Расширеный функционал</submenu>
 <title>Нахождение файлов в папке</title>
@@ -5312,9 +5115,8 @@ onlyfiles = [f for f in listdir(path_to_folder) if isfile(join(path, f))]
 </print>
 </item>
 
-
 <item>
-<id>200</id>
+<id></id>
 <menu>Файлы</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -5325,9 +5127,8 @@ onlyfiles = [f for f in listdir(path_to_folder) if isfile(join(path, f))]
 <print>
 </print>
 </item> 
-
 <item>
-<id>201</id>
+<id></id>
 <menu>Файлы</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -5338,9 +5139,8 @@ onlyfiles = [f for f in listdir(path_to_folder) if isfile(join(path, f))]
 <print>
 </print>
 </item> 
-
 <item>
-<id>202</id>
+<id></id>
 <menu>Файлы</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -5351,9 +5151,8 @@ onlyfiles = [f for f in listdir(path_to_folder) if isfile(join(path, f))]
 <print>
 </print>
 </item> 
-
 <item>
-<id>203</id>
+<id></id>
 <menu>Файлы</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -5365,9 +5164,8 @@ onlyfiles = [f for f in listdir(path_to_folder) if isfile(join(path, f))]
 </print>
 </item> 
 
-
 <item>
-<id>204</id>
+<id></id>
 <menu>Файлы</menu>
 <submenu>Базовые операции</submenu>
 <title>Открытие,запись в файл</title>
@@ -5395,9 +5193,8 @@ hello text file
 goodbye text file
 </print>
 </item> 
-
 <item>
-<id>205</id>
+<id></id>
 <menu>Файлы</menu>
 <submenu>Базовые операции</submenu>
 <title>Чтение файла</title>
@@ -5411,9 +5208,8 @@ hello text file
 goodbye text file
 </print>
 </item> 
-
 <item>
-<id>206</id>
+<id></id>
 <menu>Файлы</menu>
 <submenu>Базовые операции</submenu>
 <title>Построчное чтение файла</title>
@@ -5427,9 +5223,8 @@ hello text file
 goodbye text file
 </print>
 </item> 
-
 <item>
-<id>207</id>
+<id></id>
 <menu>Файлы</menu>
 <submenu>Базовые операции</submenu>
 <title>Сохранение и интерпретация объектов Python в файлах</title>
@@ -5460,9 +5255,8 @@ Spam
 [1, 2, 3]${'a': 1, 'b': 2}
 </print>
 </item> 
-
 <item>
-<id>208</id>
+<id></id>
 <menu>Файлы</menu>
 <submenu>Базовые операции</submenu>
 <title>Восстановление объектов из файла</title>
@@ -5492,9 +5286,8 @@ Spam
 {'a': 1, 'b': 2}
 </print>
 </item> 
-
 <item>
-<id>209</id>
+<id></id>
 <menu>Файлы</menu>
 <submenu>Базовые операции</submenu>
 <title>Запись/чтение объектов Python с помощью модуля pickle</title>
@@ -5514,9 +5307,8 @@ print(E)
 {'a': 1, 'b': 2}
 </print>
 </item> 
-
 <item>
-<id>210</id>
+<id></id>
 <menu>Файлы</menu>
 <submenu>Базовые операции</submenu>
 <title>Сохранение и интерпретация
@@ -5542,9 +5334,8 @@ print(values)
 spam...99...['eggs']|..
 </print>
 </item>
-
 <item>
-<id>211</id>
+<id></id>
 <menu>Файлы</menu>
 <submenu>Базовые операции</submenu>
 <title>Перенаправление потока в файл</title>
@@ -5560,9 +5351,8 @@ while True:
 <print>
 </print>
 </item>
-
 <item>
-<id>212</id>
+<id></id>
 <menu>Файлы</menu>
 <submenu>Базовые операции</submenu>
 <title>Посимвольное чтение файла</title>
@@ -5583,9 +5373,8 @@ spam...99...['eggs']|..
 spam...99...['eggs']|..
 </print>
 </item>
-
 <item>
-<id>213</id>
+<id></id>
 <menu>Файлы</menu>
 <submenu>Базовые операции</submenu>
 <title>Чтение файла построчно</title>
@@ -5614,9 +5403,8 @@ b"..['eggs']"
 b'|..\r\n'
 </print>
 </item>
-
 <item>
-<id>214</id>
+<id></id>
 <menu>Файлы</menu>
 <submenu>Базовые операции</submenu>
 <title>Чтение файла построчно</title>
@@ -5641,9 +5429,8 @@ spam...99...['eggs']|..
 </print>
 </item>
 
-
 <item>
-<id>215</id>
+<id></id>
 <menu>Встроеные функции</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -5655,9 +5442,8 @@ lambda функции
 <print>
 </print>
 </item> 
-
 <item>
-<id>216</id>
+<id></id>
 <menu>Встроеные функции</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -5668,9 +5454,8 @@ yield передает объект результата вызывающей п
 <print>
 </print>
 </item> 
-
 <item>
-<id>217</id>
+<id></id>
 <menu>Встроеные функции</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -5681,9 +5466,8 @@ nonlocal объявляет переменные, находящиеся в об
 <print>
 </print>
 </item> 
-
 <item>
-<id>218</id>
+<id></id>
 <menu>Встроеные функции</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -5694,9 +5478,8 @@ lambda – это выражение, а не инструкция. По это�
 <print>
 </print>
 </item> 
-
 <item>
-<id>219</id>
+<id></id>
 <menu>Встроеные функции</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -5708,9 +5491,8 @@ lambda – это выражение, а не инструкция. По это�
 </print>
 </item> 
 
-
 <item>
-<id>220</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Операции с файлами</submenu>
 <title>Переформатирование пробелов</title>
@@ -5721,9 +5503,8 @@ result =pd.read_taЫe('ch06/ex3.txt',  sep='\s+')
 </print>
 </item>
 
-
 <item>
-<id>221</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Операции с файлами</submenu>
 <title>Пропуск строк в начале файла</title>
@@ -5734,9 +5515,8 @@ pd.read_csv('ch06/ex4.csv',skiprows=[0,2,3])
 </print>
 </item>
 
-
 <item>
-<id>222</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Операции с файлами</submenu>
 <title>Чтение файла порциями</title>
@@ -5751,9 +5531,8 @@ pd.read_csv('ch06/ex6.csv', chunksize=l000)
 </print>
 </item>
 
-
 <item>
-<id>223</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Операции с файлами</submenu>
 <title>Вывод данных в файл </title>
@@ -5774,9 +5553,8 @@ data.to_csv(sys.stdout,index=False, cols=['a', 'b',  'с'))
 </print>
 </item>
 
-
 <item>
-<id>224</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -5790,9 +5568,8 @@ One-dimensional array-like object containing an array of data (of any NumPy data
 </print>
 </item>
 
-
 <item>
-<id>225</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -5810,9 +5587,8 @@ Can think of Series as a fixed-length, ordered dict. Series can be substitued in
 </print>
 </item>
 
-
 <item>
-<id>226</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -5848,9 +5624,8 @@ series2 = series1.unique()
 </print>
 </item>
 
-
 <item>
-<id>227</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -5864,9 +5639,8 @@ Tabular data structure with ordered collections of columns, each of which can be
 </print>
 </item>
 
-
 <item>
-<id>228</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -5894,9 +5668,8 @@ df1 = pd.DataFrame(dict1)
 </print>
 </item>
 
-
 <item>
-<id>229</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -5941,9 +5714,8 @@ df1.T
 </print>
 </item>
 
-
 <item>
-<id>230</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -5975,9 +5747,8 @@ df1['outerCol3']['InnerCol2']
 </print>
 </item>
 
-
 <item>
-<id>231</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -6007,9 +5778,8 @@ Data selection performance is much better if the index is sorted starting with t
 </print>
 </item>
 
-
 <item>
-<id>232</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -6030,9 +5800,8 @@ df1.sum(level = 'col3', axis = 1)
 </print>
 </item>
 
-
 <item>
-<id>233</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -6052,9 +5821,8 @@ df2 = df1.set_index(['col3', 'col4']) *
 </print>
 </item>
 
-
 <item>
-<id>234</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -6086,9 +5854,8 @@ df1.dropna(thresh = 3)
 </print>
 </item>
 
-
 <item>
-<id>235</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -6118,9 +5885,8 @@ with the value from 2, NOT 5 and 6.
 </print>
 </item>
 
-
 <item>
-<id>236</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -6153,9 +5919,8 @@ df1[df1['col2'] > 6] *
 </print>
 </item>
 
-
 <item>
-<id>237</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -6177,9 +5942,8 @@ df1.drop('col2', axis = 1)
 </print>
 </item>
 
-
 <item>
-<id>238</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -6216,9 +5980,8 @@ df1.ix[[..], [..]]
 </print>
 </item>
 
-
 <item>
-<id>239</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -6241,9 +6004,8 @@ df1 - df1.ix[0]
 </print>
 </item>
 
-
 <item>
-<id>240</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -6288,9 +6050,8 @@ df1.rank(axis = 1)
 </print>
 </item>
 
-
 <item>
-<id>241</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -6319,9 +6080,8 @@ df1.applymap(f)
 </print>
 </item>
 
-
 <item>
-<id>242</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -6387,9 +6147,8 @@ df1.groupby(len).sum()
 </print>
 </item>
 
-
 <item>
-<id>243</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -6416,9 +6175,8 @@ grouped.agg({'col1' : [min, max], 'col3' : sum})
 </print>
 </item>
 
-
 <item>
-<id>244</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -6458,9 +6216,8 @@ by_year.apply(regress, 'AAPL', ['SPX'])
 </print>
 </item>
 
-
 <item>
-<id>245</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -6499,9 +6256,8 @@ df3 = df1.combine_first(df2)
 </print>
 </item>
 
-
 <item>
-<id>246</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -6531,9 +6287,8 @@ pivotedDf2  = df1.pivot('date', 'stock_name', 'price')
 </print>
 </item>
 
-
 <item>
-<id>247</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -6625,9 +6380,8 @@ dummyDf = pd.get_dummies(df1['col2'], prefix = 'col-')
 </print>
 </item>
 
-
 <item>
-<id>248</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -6656,9 +6410,8 @@ df1.to_csv(filepath/sys.stdout, sep = ',')
 </print>
 </item>
 
-
 <item>
-<id>249</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -6680,9 +6433,8 @@ df1 = pd.DataFrame(data['name'], columns = ['field1'])
 </print>
 </item>
 
-
 <item>
-<id>250</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -6702,9 +6454,8 @@ lxml.objectify.parse(open(filepath)).getroot()
 </print>
 </item>
 
-
 <item>
-<id>251</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -6727,9 +6478,8 @@ df1.describe()
 </print>
 </item>
 
-
 <item>
-<id>252</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -6756,9 +6506,8 @@ returns.AAPL.corr(returns.JD)
 </print>
 </item>
 
-
 <item>
-<id>253</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -6796,9 +6545,8 @@ pd.isnull(NaT) => True
 </print>
 </item>
 
-
 <item>
-<id>254</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -6841,9 +6589,8 @@ ts1.truncate(after = '1/8/2011')
 </print>
 </item>
 
-
 <item>
-<id>255</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -6902,9 +6649,8 @@ MonthEnd().rollforward(datetime(2008, 8, 8)) => 2008-08-31
 </print>
 </item>
 
-
 <item>
-<id>256</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -6953,9 +6699,8 @@ stamp + 2 * Hour() => 2012-11-04-01:30:00 -500 EST
 </print>
 </item>
 
-
 <item>
-<id>257</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -7000,9 +6745,8 @@ index 3 will copy value from index 2.
 </print>
 </item>
 
-
 <item>
-<id>258</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -7023,9 +6767,8 @@ px.ix['2008'].plot()
 </print>
 </item>
 
-
 <item>
-<id>259</id>
+<id></id>
 <menu>Pandas</menu>
 <submenu>Шпаргалки(англ.)</submenu>
 <title>
@@ -7048,9 +6791,8 @@ PERFORMANCE
 </print>
 </item>
 
-
 <item>
-<id>260</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Перегрузка операторов</submenu>
 <title>Вычитание классов и чисел - __del__</title>
@@ -7079,9 +6821,8 @@ print(Y.data)
 3
 </print>
 </item> 
-
 <item>
-<id>261</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Перегрузка операторов</submenu>
 <title>Вычитание классов - __del__</title>
@@ -7109,9 +6850,8 @@ print(X - Y)
 1 4 9 16 25 
 </print>
 </item> 
-
 <item>
-<id>262</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Перегрузка операторов</submenu>
 <title>Проверка на вхождение:__contains__, __iter__ и __getitem__</title>
@@ -7173,9 +6913,8 @@ iter=> next:next:next:next:next:next:['0b1', '0b10', '0b11', '0b100', '0b101']
 iter=> next:1 @ next:2 @ next:3 @ next:4 @ next:5 @ next:
 </print>
 </item> 
-
 <item>
-<id>263</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Перегрузка операторов</submenu>
 <title>Обращения к атрибутам: __getattr__ и __setattr__</title>
@@ -7214,9 +6953,8 @@ Getting: new_attr
 new_attr
 </print>
 </item> 
-
 <item>
-<id>264</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Перегрузка операторов</submenu>
 <title>
@@ -7259,9 +6997,8 @@ add 88 __main__.Commuter object at 0x005113F0
 radd 99 88
 </print>
 </item> 
-
 <item>
-<id>265</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Перегрузка операторов</submenu>
 <title>Комбинированная операция сложения __iadd__</title>
@@ -7298,9 +7035,8 @@ Called: (1, 2, 3) {}
 Called: (1, 2, 3) {'x': 4, 'y': 5}
 </print>
 </item> 
-
 <item>
-<id>266</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Перегрузка операторов</submenu>
 <title>Сравнение: __lt__, __gt__ и другие</title>
@@ -7327,9 +7063,8 @@ __lt__
 False
 </print>
 </item> 
-
 <item>
-<id>267</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Перегрузка операторов</submenu>
 <title>Проверка логического значения:__bool__ и __len__</title>
@@ -7362,9 +7097,8 @@ Not X
 4
 </print>
 </item> 
-
 <item>
-<id>268</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Перегрузка операторов</submenu>
 <title>Уничтожение объектов: __del__</title>
@@ -7385,9 +7119,8 @@ Goodbye Brian
 </print>
 </item>
 
-
 <item>
-<id>269</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Шаблоны</submenu>
 <title>Порождающие шаблон - Абстрактная фабрика</title>
@@ -7438,9 +7171,8 @@ Pepsi
 Cheeseburger
 </print>
 </item> 
-
 <item>
-<id>270</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Шаблоны</submenu>
 <title>Порождающие шаблон - Фабричный метод</title>
@@ -7480,9 +7212,8 @@ Open document format
 MS Office document format
 </print>
 </item> 
-
 <item>
-<id>271</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Шаблоны</submenu>
 <title>Порождающие шаблон - Строитель</title>
@@ -7545,9 +7276,8 @@ print (flashlight) # Flashlight [on]
 Flashlight [on]
 </print>
 </item> 
-
 <item>
-<id>272</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Шаблоны</submenu>
 <title>Порождающие шаблон - Прототип</title>
@@ -7585,9 +7315,8 @@ class '__main__.Bird' Owl
 class '__main__.Bird' Duck
 </print>
 </item> 
-
 <item>
-<id>273</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Шаблоны</submenu>
 <title>Порождающие шаблон - Синглтон</title>
@@ -7625,9 +7354,8 @@ MyInstance 1
 True
 </print>
 </item> 
-
 <item>
-<id>274</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Шаблоны</submenu>
 <title>Структурные шаблон - Адаптер </title>
@@ -7667,9 +7395,8 @@ Spike: woof-woof!
 Spike: Meow meow!
 </print>
 </item> 
-
 <item>
-<id>275</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Шаблоны</submenu>
 <title>Структурные шаблон - Мост </title>
@@ -7724,9 +7451,8 @@ Sharp TV: выбран 5 канал
 Sharp TV: выбран 6 канал
 </print>
 </item> 
-
 <item>
-<id>276</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Шаблоны</submenu>
 <title>Структурные шаблон - Компоновщик </title>
@@ -7787,9 +7513,8 @@ line.draw()
 Линия
 </print>
 </item> 
-
 <item>
-<id>277</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Шаблоны</submenu>
 <title>Структурные шаблон - Декоратор </title>
@@ -7824,9 +7549,8 @@ Hello! My name Viktor!
 Viktor fly by jetpack!
 </print>
 </item> 
-
 <item>
-<id>278</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Шаблоны</submenu>
 <title>Структурные шаблон - Фасад </title>
@@ -7870,9 +7594,8 @@ Hello world!
 Error: Paper is over
 </print>
 </item> 
-
 <item>
-<id>279</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Шаблоны</submenu>
 <title>Структурные шаблон - Приспособленец  </title>
@@ -7921,9 +7644,8 @@ Color: green; Coordinates: (37.6178, 55.7558)
 True
 </print>
 </item> 
-
 <item>
-<id>280</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Шаблоны</submenu>
 <title>Структурные шаблон - Заместитель</title>
@@ -7997,9 +7719,8 @@ Drawing dot; coordinates: (1, 1); color: green
 Saving image in image.png
 </print>
 </item> 
-
 <item>
-<id>281</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Шаблоны</submenu>
 <title>Поведенческие шаблон - Цепочка обязанностей</title>
@@ -8050,9 +7771,8 @@ Response: Page not found
 Response: Server error
 </print>
 </item> 
-
 <item>
-<id>282</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Шаблоны</submenu>
 <title>Поведенческие шаблон - Команда </title>
@@ -8099,9 +7819,8 @@ Light on
 Light off
 </print>
 </item> 
-
 <item>
-<id>283</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Шаблоны</submenu>
 <title>Поведенческие шаблон - Интерпретатор </title>
@@ -8147,9 +7866,8 @@ True
 True
 </print>
 </item> 
-
 <item>
-<id>284</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Шаблоны</submenu>
 <title>Поведенческие шаблон - Итератор </title>
@@ -8221,9 +7939,8 @@ print ([it.next() for i in range(5)])
 ['two', 'three', 'four', 'five', 'one']
 </print>
 </item> 
-
 <item>
-<id>285</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Шаблоны</submenu>
 <title>Поведенческие шаблон - Посредник </title>
@@ -8294,9 +8011,8 @@ Hide SettingWindow
 Show HelpWindow
 </print>
 </item> 
-
 <item>
-<id>286</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Шаблоны</submenu>
 <title>Поведенческие шаблон - Хранитель </title>
@@ -8349,9 +8065,8 @@ Originator change state: off
 Originator restore state: on
 </print>
 </item> 
-
 <item>
-<id>287</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Шаблоны</submenu>
 <title>Поведенческие шаблон - Наблюдатель</title>
@@ -8405,9 +8120,8 @@ Observer 1: data for observer
 Observer 2: data for observer
 </print>
 </item> 
-
 <item>
-<id>288</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Шаблоны</submenu>
 <title>Поведенческие шаблон - Состояние </title>
@@ -8460,9 +8174,8 @@ Red
 Blue
 </print>
 </item> 
-
 <item>
-<id>289</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Шаблоны</submenu>
 <title>Поведенческие шаблон - Стратегия </title>
@@ -8516,9 +8229,8 @@ JPEG decode
 GIF decode
 </print>
 </item> 
-
 <item>
-<id>290</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Шаблоны</submenu>
 <title>Поведенческие шаблон - Шаблонный метод</title>
@@ -8556,9 +8268,8 @@ Second step
 Third step
 </print>
 </item> 
-
 <item>
-<id>291</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Шаблоны</submenu>
 <title>Поведенческие шаблон - Постетитель </title>
@@ -8608,9 +8319,8 @@ Pineapple
 Friut
 </print>
 </item> 
-
 <item>
-<id>292</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Шаблоны</submenu>
 <title>Поведенческие шаблон - Классная доска</title>
@@ -8705,9 +8415,8 @@ pprint(contributions)
 </print>
 </item> 
 
-
 <item>
-<id>293</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Базовые операции</submenu>
 <title>Создание и вызов класса</title>
@@ -8734,9 +8443,8 @@ bob
 mel
 </print>
 </item> 
-
 <item>
-<id>294</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Базовые операции</submenu>
 <title>Наследование</title>
@@ -8786,9 +8494,8 @@ Current value = " abcxyz"
 [ThirdClass: abcabcabc]
 </print>
 </item> 
-
 <item>
-<id>295</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Базовые операции</submenu>
 <title>Добавление атрибутов в класс</title>
@@ -8803,9 +8510,8 @@ print(y.name)
 name
 </print>
 </item> 
-
 <item>
-<id>296</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Базовые операции</submenu>
 <title>Присваивание функции атрибуту класса</title>
@@ -8834,9 +8540,8 @@ NAME
 NAME
 </print>
 </item> 
-
 <item>
-<id>297</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Базовые операции</submenu>
 <title>Переопределение методов</title>
@@ -8890,9 +8595,8 @@ Jones
 [Person: Tom Jones, 60000]
 </print>
 </item> 
-
 <item>
-<id>298</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Базовые операции</submenu>
 <title>Переопределение конструкторов</title>
@@ -8948,9 +8652,8 @@ Jones
 [Person: Tom Jones, 55000]
 </print>
 </item>
-
 <item>
-<id>299</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Базовые операции</submenu>
 <title>Абстрактные методы</title>
@@ -8986,9 +8689,8 @@ except AssertionError as msg:
 raise - You need override method
 </print>
 </item>
-
 <item>
-<id>300</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Базовые операции</submenu>
 <title>Абстрактные классы</title>
@@ -9017,9 +8719,8 @@ c3.test(50)
 TypeError: Can't instantiate abstract class Class3 with abstract methods test
 </print>
 </item>
-
 <item>
-<id>301</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Базовые операции</submenu>
 <title>ООП и композиция: взаимосвязи типа «является»</title>
@@ -9075,9 +8776,8 @@ Server interfaces with customer
 PizzaRobot makes pizza
 </print>
 </item>
-
 <item>
-<id>302</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Базовые операции</submenu>
 <title>ООП и композиция: взаимосвязи типа «имеет»</title>
@@ -9156,9 +8856,8 @@ oven bakes
 Shaggy pays for item to  Employee: name = Pat, salary = 40000 
 </print>
 </item>
-
 <item>
-<id>303</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Базовые операции</submenu>
 <title>Связаные методы</title>
@@ -9180,9 +8879,8 @@ hello world
 hello world
 </print>
 </item>
-
 <item>
-<id>304</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Базовые операции</submenu>
 <title>Статические методы - staticmethod</title>
@@ -9220,9 +8918,8 @@ c1.sum3(23, 5)
 </print>
 </item>
 
-
 <item>
-<id>305</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -9233,9 +8930,8 @@ c1.sum3(23, 5)
 <print>
 </print>
 </item> 
-
 <item>
-<id>306</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -9246,9 +8942,8 @@ c1.sum3(23, 5)
 <print>
 </print>
 </item> 
-
 <item>
-<id>307</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -9284,9 +8979,8 @@ __oct__ , __hex__ , __complex__ , __int__ , __long__ , __float__ — возвр�
 <print>
 </print>
 </item> 
-
 <item>
-<id>308</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -9382,9 +9076,8 @@ __new__
 <print>
 </print>
 </item>
-
 <item>
-<id>309</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Заметки</submenu>
 <title>Инициализатор __init__, вызывается автоматически всякий раз, когда создается новый экземпляр.
@@ -9402,9 +9095,8 @@ class Person:
 <print>
 </print>
 </item> 
-
 <item>
-<id>310</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -9426,9 +9118,8 @@ class DerivedClass(BaseClass):
 <print>
 </print>
 </item> 
-
 <item>
-<id>311</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -9447,9 +9138,8 @@ x = Person()
 <print>
 </print>
 </item> 
-
 <item>
-<id>312</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -9496,9 +9186,8 @@ c1.f_func4()
 <print>
 </print>
 </item> 
-
 <item>
-<id>313</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -9515,9 +9204,8 @@ class Class4(Class2, Class3):
 <print>
 </print>
 </item> 
-
 <item>
-<id>314</id>
+<id></id>
 <menu>ООП</menu>
 <submenu>Заметки</submenu>
 <title>Не возможно выполнить перегрузку операторов ,так как инструкция def
@@ -9530,9 +9218,8 @@ class Class4(Class2, Class3):
 </print>
 </item>
 
-
 <item>
-<id>315</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Создание массива</title>
@@ -9605,9 +9292,8 @@ print(np.random.randint(5,size=(2,3)), end='\n\n')
 </print>
 </item> ,
 
-
 <item>
-<id>316</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Добавление элемента в массив</title>
@@ -9639,9 +9325,8 @@ print(np.append(arr,[[7,8,9]],axis=0))
 </print>
 </item>
 
-
 <item>
-<id>317</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Вставка элемента в массив</title>
@@ -9673,9 +9358,8 @@ print(np.insert(arr,1,[[7,8,9]],axis=0))
 </print>
 </item>
 
-
 <item>
-<id>318</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Удаление элемента</title>
@@ -9705,9 +9389,8 @@ print(np.delete(arr,1,axis=0))
 </print>
 </item>
 
-
 <item>
-<id>319</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Создание 1-мерного массива с элементами = 0</title>
@@ -9721,9 +9404,8 @@ print(np.zeros(5))
 </print>
 </item> 
 
-
 <item>
-<id>320</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Создание 2-мерного массива с элементами = 1</title>
@@ -9740,9 +9422,8 @@ print(m)
 </print>
 </item> 
 
-
 <item>
-<id>321</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Создание 3-мерного пустого массива</title>
@@ -9758,9 +9439,8 @@ print(m)
 </item> 
 
 
-
 <item>
-<id>322</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Создание единичной матрицы</title>
@@ -9786,9 +9466,8 @@ print(m)
 </item> 
 
 
-
 <item>
-<id>323</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Создание массива из диапазона</title>
@@ -9804,9 +9483,8 @@ print(m)
 </print>
 </item> 
 
-
 <item>
-<id>324</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Создание случайного массива с нормальным распределением</title>
@@ -9835,9 +9513,8 @@ print(m)
 </print>
 </item> 
 
-
 <item>
-<id>325</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Получить размерность массива</title>
@@ -9857,9 +9534,8 @@ print(m.ndim)
 </item> 
 
 
-
 <item>
-<id>326</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Получить форму массива</title>
@@ -9879,9 +9555,8 @@ print(m.shape)
 </item> 
 
 
-
 <item>
-<id>327</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Получить тип данных массива</title>
@@ -9901,9 +9576,8 @@ int32
 </item> 
 
 
-
 <item>
-<id>328</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Явное преобразование массива</title>
@@ -9928,9 +9602,8 @@ int64
 </item> 
 
 
-
 <item>
-<id>329</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Получение срезов</title>
@@ -9962,9 +9635,8 @@ print(m[1][2:].copy())
 </item> 
 
 
-
 <item>
-<id>330</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Доступ к элементам массива</title>
@@ -9986,9 +9658,8 @@ print(m[0,2])
 </item> 
 
 
-
 <item>
-<id>331</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Математические операции над массивами</title>
@@ -10025,9 +9696,8 @@ print(m / m, end='\n\n')
 </item> 
 
 
-
 <item>
-<id>332</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Булевое индексирование</title>
@@ -10055,9 +9725,8 @@ print(m[n])
 </item> 
 
 
-
 <item>
-<id>333</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Изменение формы</title>
@@ -10086,9 +9755,8 @@ print(m.flatten())
 </print>
 </item> 
 
-
 <item>
-<id>334</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Транспонирование матрицы</title>
@@ -10121,9 +9789,8 @@ print(m.T)
 </print>
 </item> 
 
-
 <item>
-<id>335</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Изменение размерности resize()</title>
@@ -10157,9 +9824,8 @@ print(m)
 </print>
 </item> 
 
-
 <item>
-<id>336</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Объединение многомерных массивов</title>
@@ -10202,9 +9868,8 @@ print(new_hor1)
 </print>
 </item> 
 
-
 <item>
-<id>337</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Объединение одномерных массивов</title>
@@ -10231,9 +9896,8 @@ print(new_row)
 </print>
 </item> 
 
-
 <item>
-<id>338</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Разбиение массива</title>
@@ -10282,9 +9946,8 @@ array([], shape=(4, 0), dtype=int32)]
 </print>
 </item> 
 
-
 <item>
-<id>339</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Унарные функции:sqrt(),exp()</title>
@@ -10318,9 +9981,8 @@ exp:  [[  2.71828183e+00   7.38905610e+00   2.00855369e+01   5.45981500e+01]
 </print>
 </item> 
 
-
 <item>
-<id>340</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Статистические методы: sum(), mean(), min(), max()</title>
@@ -10365,9 +10027,8 @@ min col:  [1 2 3 4]
 </print>
 </item> 
 
-
 <item>
-<id>341</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Методы булевых массивов: any(), all()</title>
@@ -10384,9 +10045,8 @@ False
 </print>
 </item> 
 
-
 <item>
-<id>342</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Сортировка/Обратная сортировка</title>
@@ -10427,9 +10087,8 @@ print(m[:,: : -1])
 </print>
 </item> 
 
-
 <item>
-<id>343</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Сортировка с созданием копии массива</title>
@@ -10473,9 +10132,8 @@ print(m)
 </print>
 </item> 
 
-
 <item>
-<id>344</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Удаление дубликатов в массивах</title>
@@ -10494,9 +10152,8 @@ print(np.unique(ints))
 </print>
 </item> 
 
-
 <item>
-<id>345</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Присутствуют ли значения из одного массива в другом</title>
@@ -10513,9 +10170,8 @@ print(np.in1d(ints,x))
 </print>
 </item> 
 
-
 <item>
-<id>346</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Сохранение/Загрузка массивов</title>
@@ -10540,9 +10196,8 @@ print(n)
 </print>
 </item> 
 
-
 <item>
-<id>347</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Сохранение/Загрузка из текстовых файлов</title>
@@ -10593,9 +10248,8 @@ print(s)
 </print>
 </item> 
 
-
 <item>
-<id>348</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Перемножение матриц</title>
@@ -10619,9 +10273,8 @@ print(np.dot(x, y))
 </print>
 </item> 
 
-
 <item>
-<id>349</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Повторение элементов: repeat()</title>
@@ -10660,9 +10313,8 @@ print(m.repeat([2,3,1],axis = 1),end='\n\n')
 </print>
 </item>
 
-
 <item>
-<id>350</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Повторение элементов: tile()</title>
@@ -10701,9 +10353,8 @@ print(np.tile(m,(2,2)),end='\n\n')
 </print>
 </item>
 
-
 <item>
-<id>351</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Сложение элементов с промежуточным аккумулированием </title>
@@ -10730,9 +10381,8 @@ print(np.add.accumulate(m, axis=0))
 </print>
 </item>
 
-
 <item>
-<id>352</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Прямое произведение 2-х массивов</title>
@@ -10753,9 +10403,8 @@ print(np.multiply.outer(arr,arr))
 </print>
 </item>
 
-
 <item>
-<id>353</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Локальное сложение элементов: reduceat()</title>
@@ -10784,9 +10433,8 @@ print(n)
 </print>
 </item>
 
-
 <item>
-<id>354</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Базовые операции</submenu>
 <title>Поиск элементов в отсортированном массиве </title>
@@ -10808,9 +10456,8 @@ print(arr.searchsorted([0, 8, 11, 16]))
 </print>
 </item>
 
-
 <item>
-<id>355</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -10836,9 +10483,8 @@ empty,  empty_like	Создают новые массивы, выделяя по
 </item> 
 
 
-
 <item>
-<id>356</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -10885,9 +10531,8 @@ logical_not 		Вычислить значение истинности not  х �
 </item> 
 
 
-
 <item>
-<id>357</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -10927,9 +10572,8 @@ logical_xor  		Вычислить логическое значение исти
 </print>
 </item> 
 
-
 <item>
-<id>358</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -10956,9 +10600,8 @@ cumprod 			Нарастающее произведение с начальным
 </print>
 </item> 
 
-
 <item>
-<id>359</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -10982,9 +10625,8 @@ setxor1d(x, у) 		Симметрическая разность множеств
 </print>
 </item> 
 
-
 <item>
-<id>360</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -11018,9 +10660,8 @@ lstsq 				Вычисляет решение уравнения y  =  xb по м�
 </print>
 </item> 
 
-
 <item>
-<id>361</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -11056,9 +10697,8 @@ uniform 		Случайная выборка с равномерным распр
 </print>
 </item>
 
-
 <item>
-<id>362</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -11085,9 +10725,8 @@ hsplit / vsplit		Вспомогательные функции для разби
 </print>
 </item>
 
-
 <item>
-<id>363</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -11107,9 +10746,8 @@ outer(x, у) 		Применяет операцию ко всем парам эл
 </print>
 </item>
 
-
 <item>
-<id>364</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -11129,9 +10767,8 @@ np.savetxt('file.csv',arr,delimiter=',') 	Writes to a CSV file
 </print>
 </item>
 
-
 <item>
-<id>365</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -11166,9 +10803,8 @@ np.random.randint(5,size=(2,3)) 	2x3 array with random ints between 0-4
 </item>
 
 
-
 <item>
-<id>366</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -11192,9 +10828,8 @@ np.info(np.eye) 	View documentation for np.eye
 </print>
 </item>
 
-
 <item>
-<id>367</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -11223,9 +10858,8 @@ arr.resize((5,6)) 	Changes arr shape to 5x6 and fills new values with 0
 </item>
 
 
-
 <item>
-<id>368</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -11246,9 +10880,8 @@ np.delete(arr,4,axis=1) 	Deletes column on index 4 of arr
 </item>
 
 
-
 <item>
-<id>369</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -11268,9 +10901,8 @@ np.hsplit(arr,5) 	Splits arr horizontally on the 5th index
 </print>
 </item>
 
-
 <item>
-<id>370</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -11306,9 +10938,8 @@ arr[arr&lt;5] 	Returns array elements smaller than 5
 </print>
 </item>
 
-
 <item>
-<id>371</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -11330,9 +10961,8 @@ np.power(arr,5) 	Raise each array element to the 5th power
 </print>
 </item>
 
-
 <item>
-<id>372</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -11370,9 +11000,8 @@ np.round(arr) 	Rounds to the nearest int
 </print>
 </item>
 
-
 <item>
-<id>373</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -11398,9 +11027,8 @@ arr.corrcoef() 			Returns correlation coefficient of array
 </print>
 </item>
 
-
 <item>
-<id>374</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Расширеный функционал</submenu>
 <title>Замена значений массива по условию</title>
@@ -11424,9 +11052,8 @@ print(m)
 </item> 
 
 
-
 <item>
-<id>375</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Расширеный функционал</submenu>
 <title>Прихотливое индексирование -  fancy indexing</title>
@@ -11457,9 +11084,8 @@ print(m[[2,0,3,-1]])
 </print>
 </item> 
 
-
 <item>
-<id>376</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Расширеный функционал</submenu>
 <title>Прихотливое индексирование -  take()</title>
@@ -11492,9 +11118,8 @@ print(arr.take(inds,axis=1))
 </print>
 </item> 
 
-
 <item>
-<id>377</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Расширеный функционал</submenu>
 <title>Прихотливое индексирование -  put()</title>
@@ -11518,9 +11143,8 @@ print(arr, end='\n\n')
 </print>
 </item> 
 
-
 <item>
-<id>378</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Расширеный функционал</submenu>
 <title>Выбор значения по условию</title>
@@ -11536,9 +11160,8 @@ print(np.where(cond, xarr, yarr))
 </print>
 </item> 
 
-
 <item>
-<id>379</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Расширеный функционал</submenu>
 <title>Выбор значения по условию (2)</title>
@@ -11568,9 +11191,8 @@ print(np.where(m &lt; 7, 0, 1))
 </print>
 </item> 
 
-
 <item>
-<id>380</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Расширеный функционал</submenu>
 <title>Суммирование значений по условию</title>
@@ -11591,9 +11213,8 @@ print(m[(m &lt; 5)].sum())
 </print>
 </item> 
 
-
 <item>
-<id>381</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Расширеный функционал</submenu>
 <title>Сортировка 2-x массивов</title>
@@ -11611,9 +11232,8 @@ print(list(zip(last_name[sorter], first_name[sorter])))
 </print>
 </item> 
 
-
 <item>
-<id>382</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Расширеный функционал</submenu>
 <title>Сортировка некоторых строк</title>
@@ -11643,9 +11263,8 @@ print(arr, end='\n\n')
 </print>
 </item> 
 
-
 <item>
-<id>383</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Расширеный функционал</submenu>
 <title>Какому интервалу принадлежит число</title>
@@ -11677,9 +11296,8 @@ print(np.digitize(data,bins))
 </print>
 </item>
 
-
 <item>
-<id>384</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Расширеный функционал</submenu>
 <title>Структурные массивы </title>
@@ -11702,9 +11320,8 @@ print(sarr[0]['y'])
 </print>
 </item>
 
-
 <item>
-<id>385</id>
+<id></id>
 <menu>Numpy</menu>
 <submenu>Расширеный функционал</submenu>
 <title>Вложенные типы данных и многомерные поля </title>
@@ -11742,9 +11359,8 @@ print(data['x']['a'])
 </print>
 </item>
 
-
 <item>
-<id>386</id>
+<id></id>
 <menu>Циклы</menu>
 <submenu>Базовые операции</submenu>
 <title>Общий формат while</title>
@@ -11777,9 +11393,8 @@ python ython thon hon on n
 string is over
 </print>
 </item> 
-
 <item>
-<id>387</id>
+<id></id>
 <menu>Циклы</menu>
 <submenu>Базовые операции</submenu>
 <title>Имитация do-while цикла</title>
@@ -11794,9 +11409,8 @@ while True:
 1 2 3 4 5 6 7 8 9 10 
 </print>
 </item> 
-
 <item>
-<id>388</id>
+<id></id>
 <menu>Циклы</menu>
 <submenu>Базовые операции</submenu>
 <title>Инструкция сontinue</title>
@@ -11811,9 +11425,8 @@ while x:
 8 6 4 2 0 
 </print>
 </item> 
-
 <item>
-<id>389</id>
+<id></id>
 <menu>Циклы</menu>
 <submenu>Базовые операции</submenu>
 <title>Инструкция break</title>
@@ -11834,9 +11447,8 @@ Hello Ned => 529
 Enter name:stop
 </print>
 </item> 
-
 <item>
-<id>390</id>
+<id></id>
 <menu>Циклы</menu>
 <submenu>Базовые операции</submenu>
 <title>Общий формат цикла for</title>
@@ -11857,9 +11469,8 @@ else:
 <print>
 </print>
 </item> 
-
 <item>
-<id>391</id>
+<id></id>
 <menu>Циклы</menu>
 <submenu>Базовые операции</submenu>
 <title>Типичные варианты использования for</title>
@@ -11883,9 +11494,8 @@ spam eggs ham
 24
 </print>
 </item> 
-
 <item>
-<id>392</id>
+<id></id>
 <menu>Циклы</menu>
 <submenu>Базовые операции</submenu>
 <title>Обход объектов с помощью for</title>
@@ -11924,9 +11534,8 @@ c  =>  6
 b  =>  5
 </print>
 </item> 
-
 <item>
-<id>393</id>
+<id></id>
 <menu>Циклы</menu>
 <submenu>Базовые операции</submenu>
 <title>Присваивание кортежа (for)</title>
@@ -11942,9 +11551,8 @@ for (a, b) in T:
 5 6
 </print>
 </item> 
-
 <item>
-<id>394</id>
+<id></id>
 <menu>Циклы</menu>
 <submenu>Базовые операции</submenu>
 <title>Обход вложеных структур - for</title>
@@ -11966,9 +11574,8 @@ for ((a, b), c) in [([7, 8], 9), ['XY', 12]]:
 X Y 12
 </print>
 </item> 
-
 <item>
-<id>395</id>
+<id></id>
 <menu>Циклы</menu>
 <submenu>Базовые операции</submenu>
 <title>Присваивание последовательности множеству переменных</title>
@@ -11986,9 +11593,8 @@ for (a, *b, c) in [(1, 2, 3, 4), (5, 6, 7, 8)]:
 5 [6, 7] 8
 </print>
 </item> 
-
 <item>
-<id>396</id>
+<id></id>
 <menu>Циклы</menu>
 <submenu>Базовые операции</submenu>
 <title>Вложенные циклы for</title>
@@ -12006,9 +11612,8 @@ for i in res:
 s a m 
 </print>
 </item> 
-
 <item>
-<id>397</id>
+<id></id>
 <menu>Циклы</menu>
 <submenu>Базовые операции</submenu>
 <title>Генерирование индексов и элементов: enumerate</title>
@@ -12026,9 +11631,8 @@ for(i,item) in enumerate(n):
 5   n
 </print>
 </item> 
-
 <item>
-<id>398</id>
+<id></id>
 <menu>Циклы</menu>
 <submenu>Базовые операции</submenu>
 <title>Функция map()</title>
@@ -12050,9 +11654,8 @@ for x in map(f,nums):
 1 4 9 
 </print>
 </item> 
-
 <item>
-<id>399</id>
+<id></id>
 <menu>Циклы</menu>
 <submenu>Базовые операции</submenu>
 <title>Функция filter()</title>
@@ -12072,9 +11675,8 @@ print(list(l))
 </print>
 </item>
 
-
 <item>
-<id>400</id>
+<id></id>
 <menu>Циклы</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -12088,9 +11690,8 @@ next и возвращающий кортеж (index, value) для каждог
 </print>
 </item> 
 
-
 <item>
-<id>401</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Базовые операции</submenu>
 <title>Инициализация списка</title>
@@ -12100,9 +11701,8 @@ l=[]
 <print>
 </print>
 </item> 
-
 <item>
-<id>402</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Базовые операции</submenu>
 <title>Длина списка</title>
@@ -12114,9 +11714,8 @@ print(len(l))
 3
 </print>
 </item> 
-
 <item>
-<id>403</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Базовые операции</submenu>
 <title>Конкатенация списков</title>
@@ -12129,9 +11728,8 @@ print(l + s)
 [1, 2, 3, 4, 5, 6]
 </print>
 </item> 
-
 <item>
-<id>404</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Базовые операции</submenu>
 <title>Повторение списков</title>
@@ -12143,9 +11741,8 @@ print(s * 2)
 [4, 5, 6, 4, 5, 6]
 </print>
 </item> 
-
 <item>
-<id>405</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Базовые операции</submenu>
 <title>Проверка на вхождение</title>
@@ -12157,9 +11754,8 @@ print(3 in l)
 True
 </print>
 </item> 
-
 <item>
-<id>406</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Базовые операции</submenu>
 <title>Итерация списка</title>
@@ -12171,9 +11767,8 @@ for x in [1, 2, 3]:
 1 2 3
 </print>
 </item> 
-
 <item>
-<id>407</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Базовые операции</submenu>
 <title>Доступ к элементу / Срезы</title>
@@ -12189,9 +11784,8 @@ three
 ['two', 'three']
 </print>
 </item> 
-
 <item>
-<id>408</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Базовые операции</submenu>
 <title>Двумерный массив</title>
@@ -12205,9 +11799,8 @@ print(m[1][1])
 5
 </print>
 </item> 
-
 <item>
-<id>409</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Базовые операции</submenu>
 <title>Присваивание по срезам</title>
@@ -12220,9 +11813,8 @@ print(l)
 [10, 11, 3]
 </print>
 </item> 
-
 <item>
-<id>410</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Базовые операции</submenu>
 <title>Добавление элемента - append()</title>
@@ -12235,9 +11827,8 @@ print(l)
 [1, 2, 3, 'hello']
 </print>
 </item> 
-
 <item>
-<id>411</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Базовые операции</submenu>
 <title>Сортировка - sort()</title>
@@ -12259,9 +11850,8 @@ print(l)
 ['Mouse', 'Dog', 'cat']
 </print>
 </item> 
-
 <item>
-<id>412</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Базовые операции</submenu>
 <title>Сортировка с возвратом результата - sorted()</title>
@@ -12277,9 +11867,8 @@ print(s)
 ['mouse', 'dog', 'cat']
 </print>
 </item> 
-
 <item>
-<id>413</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Базовые операции</submenu>
 <title>Добавление нескольких элементов в конец списке - extend()</title>
@@ -12292,9 +11881,8 @@ print(l)
 [1, 2, 3, 4, 5]
 </print>
 </item> 
-
 <item>
-<id>414</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Базовые операции</submenu>
 <title>Удаление и возврат элемента - pop()</title>
@@ -12308,9 +11896,8 @@ print(l.pop(1),'-',l)
 2 - [1, 3, 4]
 </print>
 </item> 
-
 <item>
-<id>415</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Базовые операции</submenu>
 <title>Реверс списка - reverse()</title>
@@ -12323,9 +11910,8 @@ print(l)
 [5, 4, 3, 2, 1]
 </print>
 </item> 
-
 <item>
-<id>416</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Базовые операции</submenu>
 <title>Встроенная функция сортировки - reversed()</title>
@@ -12337,9 +11923,8 @@ print(list(reversed(l)))
 [5, 4, 3, 2, 1]
 </print>
 </item> 
-
 <item>
-<id>417</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Базовые операции</submenu>
 <title>Вставка элемента в нужную позицию - insert()</title>
@@ -12352,9 +11937,8 @@ print(l)
 ['one', 'four', 'two', 'three']
 </print>
 </item> 
-
 <item>
-<id>418</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Базовые операции</submenu>
 <title>Удаление элемента с определенным значением - remove()</title>
@@ -12367,9 +11951,8 @@ print(l)
 ['one', 'three']
 </print>
 </item> 
-
 <item>
-<id>419</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Базовые операции</submenu>
 <title>Удаление элемента по индексу - del</title>
@@ -12382,9 +11965,8 @@ print(l)
 ['two', 'three']
 </print>
 </item> 
-
 <item>
-<id>420</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Базовые операции</submenu>
 <title>Удаление сегмента списка - del</title>
@@ -12401,9 +11983,8 @@ print(l)
 ['one']
 </print>
 </item> 
-
 <item>
-<id>421</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Базовые операции</submenu>
 <title>Удаление и возврат значения - pop()</title>
@@ -12421,9 +12002,8 @@ print(l)
 ['one']
 </print>
 </item> 
-
 <item>
-<id>422</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Базовые операции</submenu>
 <title>Сравнение списков</title>
@@ -12450,9 +12030,8 @@ False
 False True
 </print>
 </item> 
-
 <item>
-<id>423</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Базовые операции</submenu>
 <title>Сумма списка,макс/мин элемент - sum(), max(), min()</title>
@@ -12468,9 +12047,8 @@ print(min(l))
 1
 </print>
 </item>
-
 <item>
-<id>424</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Базовые операции</submenu>
 <title>Проверка на истинность массива - any(), all()</title>
@@ -12488,9 +12066,8 @@ False
 </print>
 </item>
 
-
 <item>
-<id>425</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -12500,9 +12077,8 @@ False
 <print>
 </print>
 </item> 
-
 <item>
-<id>426</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -12514,9 +12090,8 @@ C функциональной точки зрения, списки – это 
 <print>
 </print>
 </item> 
-
 <item>
-<id>427</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -12527,9 +12102,8 @@ C функциональной точки зрения, списки – это 
 <print>
 </print>
 </item> 
-
 <item>
-<id>428</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -12540,9 +12114,8 @@ C функциональной точки зрения, списки – это 
 <print>
 </print>
 </item> 
-
 <item>
-<id>429</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -12554,9 +12127,8 @@ C функциональной точки зрения, списки – это 
 <print>
 </print>
 </item> 
-
 <item>
-<id>430</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -12568,9 +12140,8 @@ C функциональной точки зрения, списки – это 
 <print>
 </print>
 </item>
-
 <item>
-<id>431</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -12581,9 +12152,8 @@ C функциональной точки зрения, списки – это 
 <print>
 </print>
 </item> 
-
 <item>
-<id>432</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Заметки</submenu>
 <title>
@@ -12594,9 +12164,8 @@ C функциональной точки зрения, списки – это 
 <print>
 </print>
 </item> 
-
 <item>
-<id>433</id>
+<id></id>
 <menu>Списки</menu>
 <submenu>Заметки</submenu>
 <title> 
@@ -12608,9 +12177,8 @@ C функциональной точки зрения, списки – это 
 </print>
 </item>
 
-
 <item>
-<id>434</id>
+<id></id>
 <menu>Генераторы</menu>
 <submenu>Базовые операции</submenu>
 <title>Генераторы словарей</title>
@@ -12631,9 +12199,8 @@ print(D)
 {'spam': 'SPAM!', 'eggs': 'EGGS!', 'ham': 'HAM!'}
 </print>
 </item> 
-
 <item>
-<id>435</id>
+<id></id>
 <menu>Генераторы</menu>
 <submenu>Базовые операции</submenu>
 <title>Генераторы списков</title>
@@ -12654,9 +12221,8 @@ ss pp aa mm
 [100, 200, 300, 101, 201, 301, 102, 202, 302]
 </print>
 </item> 
-
 <item>
-<id>436</id>
+<id></id>
 <menu>Генераторы</menu>
 <submenu>Базовые операции</submenu>
 <title>Расширенный синтаксис генераторов списков</title>
@@ -12680,9 +12246,8 @@ print(a)
 [30, 31, 60, 62, 90, 93, 120, 124, 150, 155, 180, 186, 210, 217, 240, 248]
 </print>
 </item> 
-
 <item>
-<id>437</id>
+<id></id>
 <menu>Генераторы</menu>
 <submenu>Базовые операции</submenu>
 <title>Сложные примеры генераторов</title>
@@ -12708,9 +12273,8 @@ print(s)
 ['odd', 'even', 'odd', 'even', 'odd', 'even', 'odd', 'even', 'odd', 'even']
 </print>
 </item> 
-
 <item>
-<id>438</id>
+<id></id>
 <menu>Генераторы</menu>
 <submenu>Базовые операции</submenu>
 <title>Сложные пример генераторов(2)</title>
@@ -12742,9 +12306,8 @@ print(res)
 </print>
 </item>
 
-
 <item>
-<id>439</id>
+<id></id>
 <menu>Встроеные функции</menu>
 <submenu>Базовые операции</submenu>
 <title>Определение функции</title>
@@ -12758,9 +12321,8 @@ def &lt;name&gt;(arg1, arg2,... argN):
 <print>
 </print>
 </item> 
-
 <item>
-<id>440</id>
+<id></id>
 <menu>Встроеные функции</menu>
 <submenu>Базовые операции</submenu>
 <title>Вызов функции</title>
@@ -12777,9 +12339,8 @@ func(1)
 1
 </print>
 </item> 
-
 <item>
-<id>441</id>
+<id></id>
 <menu>Встроеные функции</menu>
 <submenu>Базовые операции</submenu>
 <title>Присоединение атрибутов</title>
@@ -12793,9 +12354,8 @@ print(f.attr)
 hello
 </print>
 </item> 
-
 <item>
-<id>442</id>
+<id></id>
 <menu>Встроеные функции</menu>
 <submenu>Базовые операции</submenu>
 <title>nonlocal</title>
@@ -12818,9 +12378,8 @@ hello
 UnboundLocalError: local variable 'state' referenced before assignment
 </print>
 </item> 
-
 <item>
-<id>443</id>
+<id></id>
 <menu>Встроеные функции</menu>
 <submenu>Базовые операции</submenu>
 <title>Рекурсивные функции вычисление суммы</title>
@@ -12837,9 +12396,8 @@ print(mysum(L))
 15
 </print>
 </item> 
-
 <item>
-<id>444</id>
+<id></id>
 <menu>Встроеные функции</menu>
 <submenu>Базовые операции</submenu>
 <title>lambda выражения</title>
@@ -12867,9 +12425,8 @@ print(l(5))
 [1, 4, 3, 2, 1, 0]
 </print>
 </item> 
-
 <item>
-<id>445</id>
+<id></id>
 <menu>Встроеные функции</menu>
 <submenu>Базовые операции</submenu>
 <title>Вложенные lambda-выражения </title>
@@ -12893,9 +12450,8 @@ print(((lambda x: (lambda y: x + y))(99))(4))
 101
 </print>
 </item> 
-
 <item>
-<id>446</id>
+<id></id>
 <menu>Встроеные функции</menu>
 <submenu>Базовые операции</submenu>
 <title>Функция map()</title>
@@ -12912,9 +12468,8 @@ print(m)
 [4, 5, 6, 7]
 </print>
 </item> 
-
 <item>
-<id>447</id>
+<id></id>
 <menu>Встроеные функции</menu>
 <submenu>Базовые операции</submenu>
 <title>Функция filter()</title>
@@ -12930,9 +12485,8 @@ print(l)
 [-4, -2, 0, 2, 4]
 </print>
 </item> 
-
 <item>
-<id>448</id>
+<id></id>
 <menu>Встроеные функции</menu>
 <submenu>Базовые операции</submenu>
 <title>Функция reduce()</title>
@@ -12957,6 +12511,5 @@ print(l)
 [4, 3, 2, 1]
 </print>
 </item>
-
 
 </data>
