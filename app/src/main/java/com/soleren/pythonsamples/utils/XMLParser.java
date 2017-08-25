@@ -1,8 +1,8 @@
 package com.soleren.pythonsamples.utils;
 
-import android.content.Context;
 import android.text.TextUtils;
 
+import com.soleren.pythonsamples.application.PythonSamples;
 import com.soleren.pythonsamples.model.Item;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -10,8 +10,6 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by den on 2017-05-22.
@@ -19,15 +17,13 @@ import java.util.Map;
 
 public class XMLParser {
     private static XMLParser xmlParser = new XMLParser();
-    private static Context context;
     private static int resourceId;
     private ArrayList<Item> items;
 
     private XMLParser() {
     }
 
-    public static XMLParser getXmlParser(Context c, int res) {
-        context = c;
+    public static XMLParser getXmlParser(int res) {
         resourceId = res;
         return xmlParser;
     }
@@ -42,9 +38,7 @@ public class XMLParser {
             while (xpp.getEventType() != XmlPullParser.END_DOCUMENT) {
                 switch (xpp.getEventType()) {
                     case XmlPullParser.START_DOCUMENT:
-//                        Log.d("!!!", "Start");
                         break;
-
                     case XmlPullParser.START_TAG:
                         switch (xpp.getName()) {
                             case "id":
@@ -65,10 +59,8 @@ public class XMLParser {
                             case "print":
                                 tag = "print";
                                 break;
-
                         }
                         break;
-
                     case XmlPullParser.TEXT:
                         if (!TextUtils.isEmpty(tag)) {
                             switch (tag) {
@@ -93,7 +85,8 @@ public class XMLParser {
                                 case "print":
                                     item.setPrint(xpp.getText());
                                     break;
-                                default:break;
+                                default:
+                                    break;
                             }
                         }
                         break;
@@ -111,21 +104,15 @@ public class XMLParser {
                 }
                 xpp.next();
             }
-//            for (Item item1 : items) {
-//                Log.d("!!!",item1.getId() + " " + item1.getTitle_ru() + " " + item1.getTitle_en() + " " + item1.getContent_ru() +" " +item1.getContent_en() + " " + item1.getPrint());
-//            }
             return items;
 
-//            Log.d("!!!", "END_DOCUMENT");
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (XmlPullParserException | IOException e) {
             e.printStackTrace();
         }
         return null;
     }
 
-     private XmlPullParser prepare(int id){
-         return context.getResources().getXml(id);
-     }
+    private XmlPullParser prepare(int id) {
+        return PythonSamples.getAppContext().getResources().getXml(id);
+    }
 }
