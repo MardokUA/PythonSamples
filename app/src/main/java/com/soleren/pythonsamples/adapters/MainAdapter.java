@@ -38,7 +38,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         holder.mRootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onItemClick(currentText);
+                if (listener != null) {
+                    listener.onItemClick(currentText);
+                }
             }
         });
     }

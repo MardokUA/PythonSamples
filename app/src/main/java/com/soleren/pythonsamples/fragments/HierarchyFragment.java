@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,8 @@ import com.soleren.pythonsamples.utils.CategoryFactory;
  */
 
 public class HierarchyFragment extends Fragment implements MainAdapter.AdapterListener {
+
+    private static final String TAG = HierarchyFragment.class.getName();
 
     protected FragmentChangeListener mFragmentChangeListener;
     protected MainAdapter mMainAdapter;
@@ -36,11 +39,11 @@ public class HierarchyFragment extends Fragment implements MainAdapter.AdapterLi
 
     protected void createAdapter() {
         mMainAdapter = new MainAdapter(CategoryFactory.getMenuList());
-        mMainAdapter.setListener(this);
     }
 
     private void initAdapter() {
         RecyclerView.LayoutManager manager = new LinearLayoutManager(getActivity());
+        mMainAdapter.setListener(this);
         mRecyclerView.setLayoutManager(manager);
         mRecyclerView.setAdapter(mMainAdapter);
     }
@@ -56,7 +59,7 @@ public class HierarchyFragment extends Fragment implements MainAdapter.AdapterLi
      */
     @Override
     public void onItemClick(String adapterItemTitle) {
-
+        Log.e(TAG, "onItemClick()");
     }
 
     /**

@@ -8,6 +8,7 @@ import android.view.MenuItem;
 
 import com.soleren.pythonsamples.R;
 import com.soleren.pythonsamples.data.Const;
+import com.soleren.pythonsamples.fragments.ContentFragment;
 import com.soleren.pythonsamples.fragments.HierarchyFragment;
 import com.soleren.pythonsamples.fragments.MenuFragment;
 import com.soleren.pythonsamples.fragments.SubMenuFragment;
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         switch (nextFragment) {
             case Const.SUB_MENU_TITLE_ID:
                 SubMenuFragment subMenuFragment = new SubMenuFragment();
+                subMenuFragment.setFragmentChangeListener(fragmentChangeListener);
                 getSupportFragmentManager()
                         .beginTransaction()
                         .setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_pop_enter, R.anim.fragment_pop_exit)
@@ -83,13 +85,22 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case Const.TITLE_ID:
                 TitleFragment titleFragment = new TitleFragment();
+                titleFragment.setFragmentChangeListener(fragmentChangeListener);
                 getSupportFragmentManager()
                         .beginTransaction()
+                        .setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_pop_enter, R.anim.fragment_pop_exit)
                         .replace(R.id.fragment_container, titleFragment)
                         .addToBackStack(TitleFragment.class.getName())
                         .commit();
                 break;
             case Const.CONTENT_ID:
+                ContentFragment contentFragment = new ContentFragment();
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_pop_enter, R.anim.fragment_pop_exit)
+                        .replace(R.id.fragment_container, contentFragment)
+                        .addToBackStack(ContentFragment.class.getName())
+                        .commit();
                 break;
         }
     }

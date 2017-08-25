@@ -15,7 +15,8 @@ import java.util.Map;
 public class CategoryFactory {
 
     private static Map<String, Item> mContentList;
-    private static String currentMenuKey;
+    private static String mCurrentMenuKey;
+    private static String mCurrentTitleKey;
 
     static {
         mContentList = new HashMap<>();
@@ -53,10 +54,31 @@ public class CategoryFactory {
     }
 
     public static List<String> getSubMenuList() {
-        return mContentList.get(currentMenuKey).getSubMenuTitlesList();
+        return mContentList.get(mCurrentMenuKey).getSubMenuTitlesList();
+    }
+
+    public static List<String> geTitlesList() {
+        ArrayList<String> titles = new ArrayList<>(10);
+        for (Title title : mContentList.get(mCurrentMenuKey).getTitlesList()) {
+            titles.add(title.getTitle());
+        }
+        return titles;
+    }
+
+    public static Title getCurrentTitleData() {
+        for (Title title : mContentList.get(mCurrentMenuKey).getTitlesList()) {
+            if (title.getTitle().equals(mCurrentTitleKey)) {
+                return title;
+            }
+        }
+        return new Title("", "", "");
     }
 
     public static void setCurrentKey(String currentKey) {
-        CategoryFactory.currentMenuKey = currentKey;
+        CategoryFactory.mCurrentMenuKey = currentKey;
+    }
+
+    public static void setCurrentTitleKey(String currentTitleKey) {
+        CategoryFactory.mCurrentTitleKey = currentTitleKey;
     }
 }
