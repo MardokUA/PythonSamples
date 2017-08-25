@@ -14,28 +14,24 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 
 import com.soleren.pythonsamples.R;
-import com.soleren.pythonsamples.main_activity.MainActivity;
 import com.soleren.pythonsamples.databinding.FragmentItemBinding;
 import com.soleren.pythonsamples.model.Item;
-import com.soleren.pythonsamples.mvp.item_fragment.ItemFragmentContract;
-import com.soleren.pythonsamples.mvp.item_fragment.ItemFragmentPresenterImpl;
 
-public class ItemFragment extends Fragment implements ItemFragmentContract.View {
+public class ContentFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "Name";
-    private ItemFragmentPresenterImpl presenter;
     private FragmentItemBinding binding;
     private Item item;
     private ShareActionProvider shareActionProvider = null;
     private String content;
 
-    public ItemFragment() {
+    public ContentFragment() {
         // Required empty public constructor
         setHasOptionsMenu(true);
     }
 
-    public static ItemFragment newInstance(Item item) {
-        ItemFragment fragment = new ItemFragment();
+    public static ContentFragment newInstance(Item item) {
+        ContentFragment fragment = new ContentFragment();
         Bundle args = new Bundle();
 //        args.putParcelable(ARG_PARAM1, item);
         fragment.setArguments(args);
@@ -53,7 +49,6 @@ public class ItemFragment extends Fragment implements ItemFragmentContract.View 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        presenter = new ItemFragmentPresenterImpl(this);
         if (getArguments() != null) {
             item = getArguments().getParcelable(ARG_PARAM1);
         }
@@ -65,20 +60,7 @@ public class ItemFragment extends Fragment implements ItemFragmentContract.View 
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_item, container, false);
 
-        presenter.getItem(item);
         return binding.getRoot();
-    }
-
-    @Override
-    public void showData(String content, String print) {
-        this.content = content;
-        binding.content.setText(content);
-        binding.print.setText(print);
-    }
-
-    @Override
-    public void setTitle(String title) {
-        ((MainActivity) getActivity()).getSupportActionBar().setTitle(title);
     }
 
     @Override
@@ -93,7 +75,6 @@ public class ItemFragment extends Fragment implements ItemFragmentContract.View 
         };
 
         MenuItemCompat.setActionProvider(menuItem, shareActionProvider);
-        presenter.makeIntent(shareActionProvider, content);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
@@ -107,7 +88,6 @@ public class ItemFragment extends Fragment implements ItemFragmentContract.View 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        presenter.destroy();
         if (binding.adView != null)
             binding.adView.destroy();
     }

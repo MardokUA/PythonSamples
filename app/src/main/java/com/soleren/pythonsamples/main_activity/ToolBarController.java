@@ -1,8 +1,11 @@
 package com.soleren.pythonsamples.main_activity;
 
-import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 
+import com.soleren.pythonsamples.R;
+
+import java.util.EmptyStackException;
 import java.util.Stack;
 
 /**
@@ -15,11 +18,15 @@ import java.util.Stack;
 class ToolBarController {
 
     private Toolbar mMainActivityToolbar;
-    private Stack<ToolBarController.State> mToolBarTitleStack;
-    private ActionBarDrawerToggle mArrowToogle;
+    private ActionBar mMainActivityActionBar;
+    private Stack<ToolBarState> mToolBarTitleStack;
 
     private ToolBarController() {
         // запрещаем создавать контроллер через new, что бы обязать инициировать билдер
+    }
+
+    {
+        mToolBarTitleStack = new Stack<>();
     }
 
     /**
@@ -32,25 +39,50 @@ class ToolBarController {
         return new ToolBarController().new Builder();
     }
 
-    public void addToolBarTitle(ToolBarController.State currentState) {
+    void addToolBarTitle(ToolBarState currentState) {
         if (currentState != null) {
             mToolBarTitleStack.add(currentState);
-            changeActualTitle(currentState);
+            changeToolBarState(currentState);
+            changeArrowButtonState();
         }
     }
 
-    private void changeActualTitle(ToolBarController.State currentState) {
-        if (mMainActivityToolbar != null) {
-            if (currentState.getTitle() != null) {
-                mMainActivityToolbar.setTitle(currentState.getTitle());
-            }
-            if (currentState.getSubtitle() != null) {
-                mMainActivityToolbar.setSubtitle(currentState.getSubtitle());
+    void popToolBarState() {
+        mToolBarTitleStack.pop();
+        try {
+            changeToolBarState(mToolBarTitleStack.peek());
+        } catch (EmptyStackException exp) {
+            changeToolBarState(null);
+            changeArrowButtonState();
+        }
+    }
+
+    private void changeToolBarState(ToolBarState currentState) {
+        if (mMainActivityActionBar != null) {
+            if (currentState != null) {
+                if (currentState.getTitle() != null) {
+                    mMainActivityToolbar.setTitle(currentState.getTitle());
+                }
+                if (currentState.getSubtitle() != null) {
+                    mMainActivityToolbar.setSubtitle(currentState.getSubtitle());
+                }
+            } else {
+                mMainActivityToolbar.setTitle(R.string.app_name);
             }
         }
     }
 
-    public class Builder {
+    private void changeArrowButtonState() {
+        if (mMainActivityActionBar != null) {
+            mMainActivityActionBar.setDisplayHomeAsUpEnabled(isToolBarStackEmpty());
+        }
+    }
+
+    private boolean isToolBarStackEmpty() {
+        return mToolBarTitleStack.size() > 0;
+    }
+
+    class Builder {
 
         private Builder() {
         }
@@ -64,8 +96,8 @@ class ToolBarController {
             return this;
         }
 
-        Builder withActionBarDrawerToggle(ActionBarDrawerToggle arrowToggle) {
-            ToolBarController.this.mArrowToogle = arrowToggle;
+        Builder withActionBar(ActionBar actionBar) {
+            ToolBarController.this.mMainActivityActionBar = actionBar;
             return this;
         }
 
@@ -76,37 +108,7 @@ class ToolBarController {
          * @return new ToolBarController
          */
         ToolBarController build() {
-            ToolBarController.this.mToolBarTitleStack = new Stack<>();
-            return new ToolBarController();
-        }
-    }
-
-    private class State {
-
-        private String mTitle;
-        private String mSubtitle;
-
-        public State(String mTitle) {
-            this.mTitle = mTitle;
-        }
-
-        /**
-         * Перегруженный конструктор на будущее. Мало ли
-         *
-         * @param mTitle    заголовок для ToolBar
-         * @param mSubtitle подзаголовок для ToolBar
-         */
-        public State(String mTitle, String mSubtitle) {
-            this.mTitle = mTitle;
-            this.mSubtitle = mSubtitle;
-        }
-
-        String getTitle() {
-            return mTitle;
-        }
-
-        String getSubtitle() {
-            return mSubtitle;
+            return ToolBarController.this;
         }
     }
 }

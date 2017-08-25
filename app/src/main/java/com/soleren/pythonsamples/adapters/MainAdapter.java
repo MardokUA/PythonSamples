@@ -9,18 +9,19 @@ import android.widget.TextView;
 
 import com.soleren.pythonsamples.R;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by den on 2017-05-19.
+ * Адаптер для всех фрагментов
  */
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
-    private ArrayList<String> titles;
+    private List<String> titles;
     private AdapterListener listener;
 
-    public MainAdapter(ArrayList<String> titles) {
+    public MainAdapter(List<String> titles) {
         this.titles = titles;
     }
 
@@ -31,14 +32,13 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
-        LinearLayout cardView = holder.view;
-        TextView title = (TextView) cardView.findViewById(R.id.category_item);
-        title.setText(titles.get(position));
-        cardView.setOnClickListener(new View.OnClickListener() {
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        final String currentText = titles.get(position);
+        holder.mTextView.setText(currentText);
+        holder.mRootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onClick(position);
+                listener.onItemClick(currentText);
             }
         });
     }
@@ -49,11 +49,13 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        private LinearLayout view;
+        private LinearLayout mRootView;
+        private TextView mTextView;
 
         ViewHolder(LinearLayout itemView) {
             super(itemView);
-            view = itemView;
+            mRootView = itemView;
+            mTextView = (TextView) mRootView.findViewById(R.id.category_item);
         }
     }
 
@@ -62,6 +64,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     }
 
     public interface AdapterListener {
-        void onClick(int position);
+        void onItemClick(String adapterItemTitle);
     }
 }

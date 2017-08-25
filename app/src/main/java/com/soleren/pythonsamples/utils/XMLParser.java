@@ -2,6 +2,7 @@ package com.soleren.pythonsamples.utils;
 
 import android.text.TextUtils;
 
+import com.soleren.pythonsamples.R;
 import com.soleren.pythonsamples.application.PythonSamples;
 import com.soleren.pythonsamples.model.Item;
 
@@ -13,29 +14,25 @@ import java.util.ArrayList;
 
 /**
  * Created by den on 2017-05-22.
+ * Класс парсит XML и генерирует объекты Item для класса {@link CategoryFactory}
  */
 
 public class XMLParser {
-    private static XMLParser xmlParser = new XMLParser();
-    private static int resourceId;
-    private ArrayList<Item> items;
 
     private XMLParser() {
     }
 
-    public static XMLParser getXmlParser(int res) {
-        resourceId = res;
-        return xmlParser;
+    private static XmlPullParser prepare(int id) {
+        return PythonSamples.getAppContext().getResources().getXml(id);
     }
 
-
-    public ArrayList<Item> parse() {
-        XmlPullParser xpp = prepare(resourceId);
-        items = new ArrayList<>();
-        Item item = new Item();
+    public static void parse() {
+        XmlPullParser xpp = prepare(R.xml.main);
         String tag = "";
+        Item item = new Item();
         try {
             while (xpp.getEventType() != XmlPullParser.END_DOCUMENT) {
+
                 switch (xpp.getEventType()) {
                     case XmlPullParser.START_DOCUMENT:
                         break;
@@ -59,7 +56,6 @@ public class XMLParser {
                             case "print":
                                 tag = "print";
                                 break;
-
                         }
                         break;
                     case XmlPullParser.TEXT:
@@ -93,7 +89,7 @@ public class XMLParser {
                         break;
                     case XmlPullParser.END_TAG:
                         if (tag.equals("print")) {
-                            items.add(item);
+                            CategoryFactory.fetchContent(item);
                             item = new Item();
                         }
                         if (!TextUtils.isEmpty(tag)) {
@@ -105,14 +101,8 @@ public class XMLParser {
                 }
                 xpp.next();
             }
-            return items;
         } catch (XmlPullParserException | IOException e) {
             e.printStackTrace();
         }
-        return null;
-    }
-
-    private XmlPullParser prepare(int id) {
-        return PythonSamples.getAppContext().getResources().getXml(id);
     }
 }

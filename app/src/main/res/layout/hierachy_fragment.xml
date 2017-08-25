@@ -1,24 +1,18 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.den.pythonsamples.fragments.MainFragment">
+    tools:context="com.example.den.pythonsamples.fragments.MenuFragment">
 
     <RelativeLayout
-        android:id="@+id/relative_layout"
+        android:id="@+id/fragment_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/white">
+        android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
-
-            android:id="@+id/main_category_recycler"
+            android:id="@+id/rv_fragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="vertical">
-            <!--android:layout_marginBottom="50dp"-->
-
-        </android.support.v7.widget.RecyclerView>
-
+            android:scrollbars="vertical" />
 
         <com.google.android.gms.ads.AdView
             android:id="@+id/adView"
@@ -28,6 +22,5 @@
             android:layout_centerHorizontal="true"
             ads:adSize="BANNER"
             ads:adUnitId="@string/banner_home_footer" />
-
     </RelativeLayout>
 </layout>
