@@ -58,20 +58,16 @@ public class CategoryFactory {
     }
 
     public static List<String> geTitlesList() {
-        ArrayList<String> titles = new ArrayList<>(10);
-        for (Title title : mContentList.get(mCurrentMenuKey).getTitlesList()) {
-            titles.add(title.getTitle());
-        }
-        return titles;
+        return mContentList.get(mCurrentMenuKey).getTitlesList();
     }
 
     public static Title getCurrentTitleData() {
-        for (Title title : mContentList.get(mCurrentMenuKey).getTitlesList()) {
-            if (title.getTitle().equals(mCurrentTitleKey)) {
-                return title;
-            }
-        }
-        return new Title("", "", "");
+        return mContentList.get(mCurrentMenuKey).getTitleListAsMap().get(mCurrentTitleKey);
+    }
+
+    public static boolean isTitleContainsData(String key) {
+        Map<String, Title> currentTitleMap = mContentList.get(mCurrentMenuKey).getTitleListAsMap();
+        return (currentTitleMap.containsKey(key) && !currentTitleMap.get(key).getTitleContent().isEmpty());
     }
 
     public static void setCurrentKey(String currentKey) {

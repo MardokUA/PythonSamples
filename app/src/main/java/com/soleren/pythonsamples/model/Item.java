@@ -1,7 +1,9 @@
 package com.soleren.pythonsamples.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by den on 2017-05-22.
@@ -22,7 +24,7 @@ public class Item {
     private String print;
 
     private List<String> mSubmenuTitles;
-    private List<Title> mTitlesList;
+    private Map<String, Title> mTitlesList;
 
     public Item() {
     }
@@ -109,7 +111,11 @@ public class Item {
      *
      * @return список titles;
      */
-    public List<Title> getTitlesList() {
+    public List<String> getTitlesList() {
+        return new ArrayList<>(mTitlesList.keySet());
+    }
+
+    public Map<String, Title> getTitleListAsMap() {
         return mTitlesList;
     }
 
@@ -122,8 +128,8 @@ public class Item {
      */
     public void setTitleToTitlesList(Title title) {
         if (mTitlesList == null) {
-            mTitlesList = new ArrayList<>(10);
+            mTitlesList = new HashMap<>();
         }
-        mTitlesList.add(title);
+        mTitlesList.put(title.getTitle(), title);
     }
 }

@@ -16,7 +16,7 @@ public class TitleFragment extends HierarchyFragment {
 
     @Override
     public void onItemClick(String adapterItemTitle) {
-        if (mFragmentChangeListener != null) {
+        if (mFragmentChangeListener != null && CategoryFactory.isTitleContainsData(adapterItemTitle)) {
             CategoryFactory.setCurrentTitleKey(adapterItemTitle);
             mFragmentChangeListener.changeCurrentVisibleFragment(adapterItemTitle, Const.CONTENT_ID);
         }
