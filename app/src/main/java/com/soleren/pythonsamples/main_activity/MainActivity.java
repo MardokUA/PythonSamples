@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 SubMenuFragment subMenuFragment = new SubMenuFragment();
                 getSupportFragmentManager()
                         .beginTransaction()
+                        .setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_pop_enter, R.anim.fragment_pop_exit)
                         .replace(R.id.fragment_container, subMenuFragment)
                         .addToBackStack(SubMenuFragment.class.getName())
                         .commit();
