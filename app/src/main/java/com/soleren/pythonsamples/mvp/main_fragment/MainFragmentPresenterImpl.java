@@ -1,126 +1,109 @@
 package com.soleren.pythonsamples.mvp.main_fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 
 import com.soleren.pythonsamples.R;
 import com.soleren.pythonsamples.activities.MainActivity;
+import com.soleren.pythonsamples.application.PythonSamples;
 import com.soleren.pythonsamples.data.Const;
 import com.soleren.pythonsamples.fragments.CategoryFragment;
 import com.soleren.pythonsamples.model.Item;
+import com.soleren.pythonsamples.mvp.base.BasePresenterAdapter;
 import com.soleren.pythonsamples.utils.XMLParser;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/**
- * Created by den on 2017-05-22.
- */
+public class MainFragmentPresenterImpl extends BasePresenterAdapter implements MainFragmentContract.Presenter {
 
-public class MainFragmentPresenterImpl implements MainFragmentPresenter {
-    private MainFragmentView view;
+    private MainFragmentContract.View view;
     private MainActivity activity;
     private Fragment fragment;
-    private Context context;
-    private String[] arr;
-    private String title;
 
 
     public MainFragmentPresenterImpl(Fragment fragment) {
-        this.view = (MainFragmentView) fragment;
+        this.view = (MainFragmentContract.View) fragment;
         this.activity = (MainActivity) fragment.getActivity();
     }
 
-
     @Override
     public ArrayList<String> getListTitles(String fragmentName) {
+        ArrayList<String> titlesList;
+        String[] arr;
+
         switch (fragmentName) {
             case Const.MENU_STRINGS:
-                arr = context.getResources().getStringArray(R.array.strings_menu_names);
-                return new ArrayList<String>(Arrays.asList(arr));
-
+                arr = PythonSamples.getAppContext().getResources().getStringArray(R.array.strings_menu_names);
+                break;
             case Const.MENU_DICTIONARIES:
-                arr = context.getResources().getStringArray(R.array.dic_menu_names);
-                return new ArrayList<String>(Arrays.asList(arr));
-
+                arr = PythonSamples.getAppContext().getResources().getStringArray(R.array.dic_menu_names);
+                break;
             case Const.MENU_EXCEPTIONS:
-                arr = context.getResources().getStringArray(R.array.exept_menu_names);
-                return new ArrayList<String>(Arrays.asList(arr));
-
+                arr = PythonSamples.getAppContext().getResources().getStringArray(R.array.exept_menu_names);
+                break;
             case Const.MENU_FILES:
-                arr = context.getResources().getStringArray(R.array.file_menu_names);
-                return new ArrayList<String>(Arrays.asList(arr));
-
+                arr = PythonSamples.getAppContext().getResources().getStringArray(R.array.file_menu_names);
+                break;
             case Const.MENU_LOOPS:
-                arr = context.getResources().getStringArray(R.array.loop_menu_names);
-                return new ArrayList<String>(Arrays.asList(arr));
-
+                arr = PythonSamples.getAppContext().getResources().getStringArray(R.array.loop_menu_names);
+                break;
             case Const.MENU_FUNCTIONS:
-                arr = context.getResources().getStringArray(R.array.func_menu_names);
-                return new ArrayList<String>(Arrays.asList(arr));
-
+                arr = PythonSamples.getAppContext().getResources().getStringArray(R.array.func_menu_names);
+                break;
             case Const.MENU_GENERATORS:
-                arr = context.getResources().getStringArray(R.array.gen_menu_names);
-                return new ArrayList<String>(Arrays.asList(arr));
-
+                arr = PythonSamples.getAppContext().getResources().getStringArray(R.array.gen_menu_names);
+                break;
             case Const.MENU_CONDITIONS:
-                arr = context.getResources().getStringArray(R.array.cond_menu_names);
-                return new ArrayList<String>(Arrays.asList(arr));
-
+                arr = PythonSamples.getAppContext().getResources().getStringArray(R.array.cond_menu_names);
+                break;
             case Const.MENU_LISTS:
-                arr = context.getResources().getStringArray(R.array.list_menu_names);
-                return new ArrayList<String>(Arrays.asList(arr));
-
+                arr = PythonSamples.getAppContext().getResources().getStringArray(R.array.list_menu_names);
+                break;
             case Const.MENU_OOP:
-                arr = context.getResources().getStringArray(R.array.oop_menu_names);
-                return new ArrayList<String>(Arrays.asList(arr));
-
+                arr = PythonSamples.getAppContext().getResources().getStringArray(R.array.oop_menu_names);
+                break;
             case Const.MENU_TIME:
-                arr = context.getResources().getStringArray(R.array.time_menu_names);
-                return new ArrayList<String>(Arrays.asList(arr));
-
+                arr = PythonSamples.getAppContext().getResources().getStringArray(R.array.time_menu_names);
+                break;
             case Const.MENU_TUPLES:
-                arr = context.getResources().getStringArray(R.array.tup_menu_names);
-                return new ArrayList<String>(Arrays.asList(arr));
-
+                arr = PythonSamples.getAppContext().getResources().getStringArray(R.array.tup_menu_names);
+                break;
             case Const.MENU_SORTING:
-                arr = context.getResources().getStringArray(R.array.sort_menu_names);
-                return new ArrayList<String>(Arrays.asList(arr));
-
+                arr = PythonSamples.getAppContext().getResources().getStringArray(R.array.sort_menu_names);
+                break;
             case Const.MENU_NUMPY:
-                arr = context.getResources().getStringArray(R.array.numpy_menu_names);
-                Log.d("!!!", arr.toString());
-                return new ArrayList<String>(Arrays.asList(arr));
-
+                arr = PythonSamples.getAppContext().getResources().getStringArray(R.array.numpy_menu_names);
+                break;
             case Const.MENU_PANDAS:
-                arr = context.getResources().getStringArray(R.array.pandas_menu_names);
-                return new ArrayList<String>(Arrays.asList(arr));
-
+                arr = PythonSamples.getAppContext().getResources().getStringArray(R.array.pandas_menu_names);
+                break;
             case Const.MENU_UTILS:
-                arr = context.getResources().getStringArray(R.array.util_menu_names);
-                return new ArrayList<String>(Arrays.asList(arr));
-
-
+                arr = PythonSamples.getAppContext().getResources().getStringArray(R.array.util_menu_names);
+                break;
+            default:
+                return null;
         }
-        return null;
+
+        titlesList = new ArrayList<>(Arrays.asList(arr));
+        return titlesList;
     }
 
     @Override
     public void selectTitle(Bundle bundle) {
         String title = null;
-        if (bundle != null)
+        if (bundle != null) {
             title = bundle.getString(Const.MAIN_FRAGMENT_NAME);
-        else
-            title = (String) activity.getSupportActionBar().getTitle();
-
+        } else {
+            if (activity.getSupportActionBar() != null) {
+                title = (String) activity.getSupportActionBar().getTitle();
+            }
+        }
         view.setTitle(title);
     }
 
     @Override
     public void selectFragment(String fName, int position) {
-//        Log.d("!!!",fName+" - "+ position);
         switch (fName) {
 
             case Const.MENU_STRINGS:
@@ -251,7 +234,6 @@ public class MainFragmentPresenterImpl implements MainFragmentPresenter {
 //                break;
 //        }
 //        Log.d("!!!",view+"");
-        title = arr[position];
         view.setFragment(activity, fragment);
     }
 
@@ -270,7 +252,6 @@ public class MainFragmentPresenterImpl implements MainFragmentPresenter {
         }
         return strings;
     }
-
 
     @Override
     public void destroy() {
