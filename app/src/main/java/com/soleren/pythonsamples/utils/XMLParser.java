@@ -59,6 +59,7 @@ public class XMLParser {
                             case "print":
                                 tag = "print";
                                 break;
+
                         }
                         break;
                     case XmlPullParser.TEXT:
@@ -105,7 +106,6 @@ public class XMLParser {
                 xpp.next();
             }
             return items;
-
         } catch (XmlPullParserException | IOException e) {
             e.printStackTrace();
         }
