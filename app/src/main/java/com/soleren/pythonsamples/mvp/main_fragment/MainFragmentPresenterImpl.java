@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import com.soleren.pythonsamples.R;
-import com.soleren.pythonsamples.activities.MainActivity;
+import com.soleren.pythonsamples.main_activity.MainActivity;
 import com.soleren.pythonsamples.application.PythonSamples;
 import com.soleren.pythonsamples.data.Const;
 import com.soleren.pythonsamples.fragments.CategoryFragment;

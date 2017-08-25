@@ -1,60 +1,67 @@
-package com.soleren.pythonsamples.activities;
+package com.soleren.pythonsamples.main_activity;
 
 import android.databinding.DataBindingUtil;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 
 import com.soleren.pythonsamples.R;
 import com.soleren.pythonsamples.adapters.MainAdapter;
-
-
-import com.soleren.pythonsamples.data.Const;
 import com.soleren.pythonsamples.databinding.ActivityMainBinding;
-import com.soleren.pythonsamples.fragments.MainFragment;
 import com.soleren.pythonsamples.fragments.MenuFragment;
 import com.soleren.pythonsamples.model.Item;
-import com.google.android.gms.ads.AdRequest;
 import com.soleren.pythonsamples.utils.XMLParser;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ActionBarDrawerToggle drawerToggle;
-    private ActivityMainBinding binding;
-    private MainAdapter adapter;
+    private ActivityMainBinding mActivityBindings;
+    private ActionBarDrawerToggle mArrowToggle;
     private Toolbar toolbar;
+
+    private MainAdapter mAdapter;
+    private ToolBarController mToolBarController;
+
     private ArrayList<String> listMenu;
     private ArrayList<Item> listItems;
-    private FragmentManager fm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        initBindings();
+        initToolBarController();
 
         listMenu = new ArrayList<>();
-        fm = getSupportFragmentManager();
-        drawerToggle = new ActionBarDrawerToggle(this, binding.drawerLayout, R.string.open_drawer, R.string.close_drawer);
-        binding.drawerLayout.addDrawerListener(drawerToggle);
         listItems = getListMenu(R.xml.main);
-        adapter = new MainAdapter(listMenu);
-        binding.mainActivityRecycler.setAdapter(adapter);
+        mAdapter = new MainAdapter(listMenu);
+        mActivityBindings.mainActivityRecycler.setAdapter(mAdapter);
         LinearLayoutManager manager = new LinearLayoutManager(this);
-        binding.mainActivityRecycler.setLayoutManager(manager);
-
+        mActivityBindings.mainActivityRecycler.setLayoutManager(manager);
         setActiveFragment(MenuFragment.newInstance());
+    }
+
+    private void initBindings() {
+        mActivityBindings = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        mArrowToggle = new ActionBarDrawerToggle(this, mActivityBindings.drawerLayout, R.string.open_drawer, R.string.close_drawer);
+        mActivityBindings.drawerLayout.addDrawerListener(mArrowToggle);
+    }
+
+    private void initToolBarController() {
+        mToolBarController = ToolBarController
+                .createBuilder()
+                .withToolBar(toolbar)
+                .withActionBarDrawerToggle(mArrowToggle)
+                .build();
     }
 
     private ArrayList<Item> getListMenu(int res) {
@@ -78,9 +85,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void setActiveFragment(Fragment fragment) {
 
-        FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.fragment_container, fragment)
-                .addToBackStack(null)
+        getSupportFragmentManager().beginTransaction().
+                replace(R.id.fragment_container, fragment)
+                .addToBackStack(Fragment.class.getName())
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commit();
     }
@@ -88,32 +95,30 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        if (binding.adView != null)
-            binding.adView.pause();
+        if (mActivityBindings.adView != null)
+            mActivityBindings.adView.pause();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if (binding.adView != null)
-            binding.adView.resume();
+        if (mActivityBindings.adView != null)
+            mActivityBindings.adView.resume();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (binding.adView != null)
-            binding.adView.destroy();
+        if (mActivityBindings.adView != null)
+            mActivityBindings.adView.destroy();
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        if (fm != null) {
-            if (fm.getBackStackEntryCount() == 0) {
-                binding.mainActivityRecycler.setVisibility(View.VISIBLE);
-            }
+        if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
+            mActivityBindings.mainActivityRecycler.setVisibility(View.VISIBLE);
         }
     }
 }

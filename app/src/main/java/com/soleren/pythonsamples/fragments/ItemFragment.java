@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 
 import com.soleren.pythonsamples.R;
-import com.soleren.pythonsamples.activities.MainActivity;
+import com.soleren.pythonsamples.main_activity.MainActivity;
 import com.soleren.pythonsamples.databinding.FragmentItemBinding;
 import com.soleren.pythonsamples.model.Item;
 import com.soleren.pythonsamples.mvp.item_fragment.ItemFragmentContract;

@@ -2,7 +2,7 @@ package com.soleren.pythonsamples.mvp.main_fragment;
 
 import android.support.v4.app.Fragment;
 
-import com.soleren.pythonsamples.activities.MainActivity;
+import com.soleren.pythonsamples.main_activity.MainActivity;
 import com.soleren.pythonsamples.model.Item;
 import com.soleren.pythonsamples.mvp.base.BasePresenter;
 

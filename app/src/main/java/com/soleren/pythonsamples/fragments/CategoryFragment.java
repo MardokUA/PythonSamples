@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.soleren.pythonsamples.R;
-import com.soleren.pythonsamples.activities.MainActivity;
+import com.soleren.pythonsamples.main_activity.MainActivity;
 import com.soleren.pythonsamples.adapters.MainAdapter;
 import com.soleren.pythonsamples.data.Const;
 import com.soleren.pythonsamples.mvp.category_fragment.CategoryFragmentContract;
