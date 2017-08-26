@@ -3,7 +3,7 @@ package com.soleren.pythonsamples.application;
 import android.app.Application;
 import android.content.Context;
 
-import com.soleren.pythonsamples.utils.XMLParser;
+import com.soleren.pythonsamples.utils.XMLContentParser;
 
 /**
  * Created by laktionov on 25.08.2017.
@@ -18,7 +18,7 @@ public class PythonSamples extends Application {
     public void onCreate() {
         super.onCreate();
         appContext = this;
-        XMLParser.parse();
+        XMLContentParser.parse();
     }
 
     public static Context getAppContext() {

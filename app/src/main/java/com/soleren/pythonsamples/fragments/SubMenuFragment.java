@@ -2,7 +2,7 @@ package com.soleren.pythonsamples.fragments;
 
 import com.soleren.pythonsamples.adapters.MainAdapter;
 import com.soleren.pythonsamples.data.Const;
-import com.soleren.pythonsamples.utils.CategoryFactory;
+import com.soleren.pythonsamples.utils.ContentFactory;
 
 public class SubMenuFragment extends HierarchyFragment {
 
@@ -11,13 +11,14 @@ public class SubMenuFragment extends HierarchyFragment {
 
     @Override
     protected void createAdapter() {
-        mMainAdapter = new MainAdapter(CategoryFactory.getSubMenuList());
+        mMainAdapter = new MainAdapter(ContentFactory.getSubMenuList());
     }
 
     @Override
-    public void onItemClick(String adapterItemTitle) {
+    public void onItemClick(String subMenuTitle) {
         if (mFragmentChangeListener != null) {
-            mFragmentChangeListener.changeCurrentVisibleFragment(adapterItemTitle, Const.TITLE_ID);
+            ContentFactory.setCurrentSubMenuKey(subMenuTitle);
+            mFragmentChangeListener.changeCurrentVisibleFragment(subMenuTitle, Const.TITLE_ID);
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.soleren.pythonsamples.fragments;
 
 import com.soleren.pythonsamples.data.Const;
-import com.soleren.pythonsamples.utils.CategoryFactory;
+import com.soleren.pythonsamples.utils.ContentFactory;
 
 public class MenuFragment extends HierarchyFragment {
 
@@ -11,7 +11,7 @@ public class MenuFragment extends HierarchyFragment {
     @Override
     public void onItemClick(String menuKey) {
         if (mFragmentChangeListener != null){
-            CategoryFactory.setCurrentKey(menuKey);
+            ContentFactory.setCurrentMenuKey(menuKey);
             mFragmentChangeListener.changeCurrentVisibleFragment(menuKey, Const.SUB_MENU_TITLE_ID);
         }
     }

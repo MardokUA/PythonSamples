@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.soleren.pythonsamples.R;
 import com.soleren.pythonsamples.model.Title;
-import com.soleren.pythonsamples.utils.CategoryFactory;
+import com.soleren.pythonsamples.utils.ContentFactory;
 
 public class ContentFragment extends Fragment {
 
@@ -39,7 +39,7 @@ public class ContentFragment extends Fragment {
     }
 
     private void setContent() {
-        Title title = CategoryFactory.getCurrentTitleData();
+        Title title = ContentFactory.getCurrentTitleData();
         mTvContent.setText(title.getTitleContent());
         mTvPrint.setText(title.getmTitlePrint());
     }

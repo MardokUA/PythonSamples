@@ -10,16 +10,15 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * Created by den on 2017-05-22.
- * Класс парсит XML и генерирует объекты Item для класса {@link CategoryFactory}
+ * Класс парсит XML и генерирует объекты Item для класса {@link ContentFactory}
  */
 
-public class XMLParser {
+public class XMLContentParser {
 
-    private XMLParser() {
+    private XMLContentParser() {
     }
 
     private static XmlPullParser prepare(int id) {
@@ -89,7 +88,7 @@ public class XMLParser {
                         break;
                     case XmlPullParser.END_TAG:
                         if (tag.equals("print")) {
-                            CategoryFactory.fetchContent(item);
+                            ContentFactory.fetchContent(item);
                             item = new Item();
                         }
                         if (!TextUtils.isEmpty(tag)) {

@@ -5,5 +5,8 @@ public interface Const {
     int TITLE_ID = 2;
     int CONTENT_ID = 3;
 
-    String CATEGORY_FRAGMENT_NAME = "category_fragment_name";
+    int MAX_TITLE_CAPACITY = 20;
+    int MAX_SUBMENU_CAPACITY = 15;
+
+    String NOTES = "Заметки";
 }

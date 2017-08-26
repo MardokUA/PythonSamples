@@ -1,5 +1,9 @@
 package com.soleren.pythonsamples.model;
 
+import com.soleren.pythonsamples.data.Const;
+import com.soleren.pythonsamples.utils.ContentFactory;
+import com.soleren.pythonsamples.utils.XMLContentParser;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,11 +24,11 @@ public class Item {
     private String title;
     private String content;
 
-    // флаг "конец парсинга" для XMLParser
+    // флаг "конец парсинга" для XMLContentParser
     private String print;
 
     private List<String> mSubmenuTitles;
-    private Map<String, Title> mTitlesList;
+    private Map<String, List<Title>> mTitlesMap;
 
     public Item() {
     }
@@ -93,16 +97,13 @@ public class Item {
     }
 
     /**
-     * Добавляет текущий subtitle, который устанавливает {@link com.soleren.pythonsamples.utils.XMLParser},
+     * Добавляет текущий subtitle, который устанавливает {@link XMLContentParser},
      * к списку всех subtitles, которые относятся к этому айтему
-     * Этот метод использует {@link com.soleren.pythonsamples.utils.CategoryFactory}
+     * Этот метод использует {@link ContentFactory}
      *
      * @param subTitle
      */
     public void setSubMenuToSubMenuList(String subTitle) {
-        if (mSubmenuTitles == null) {
-            mSubmenuTitles = new ArrayList<>(10);
-        }
         this.mSubmenuTitles.add(subTitle);
     }
 
@@ -111,25 +112,35 @@ public class Item {
      *
      * @return список titles;
      */
-    public List<String> getTitlesList() {
-        return new ArrayList<>(mTitlesList.keySet());
-    }
-
-    public Map<String, Title> getTitleListAsMap() {
-        return mTitlesList;
+    public Map<String, List<Title>> getTitlesMap() {
+        return mTitlesMap;
     }
 
     /**
-     * Добавляет текущий title, который устанавливает {@link com.soleren.pythonsamples.utils.XMLParser},
+     * Добавляет текущий title, который устанавливает {@link XMLContentParser},
      * к списку всех subtitles, которые относятся к этому айтему
-     * Этот метод использует {@link com.soleren.pythonsamples.utils.CategoryFactory}
+     * Этот метод использует {@link ContentFactory}
      *
-     * @param title
+     * @param title       значение
+     * @param titleMapKey ключ, равный submenu
      */
-    public void setTitleToTitlesList(Title title) {
-        if (mTitlesList == null) {
-            mTitlesList = new HashMap<>();
+    public void setTitleToTitlesMap(String titleMapKey, Title title) {
+        if (title.getTitleContent() != null && !title.getTitleContent().isEmpty()
+                && title.getmTitlePrint() != null && !title.getmTitlePrint().isEmpty()) {
+            mTitlesMap.get(titleMapKey).add(title);
         }
-        mTitlesList.put(title.getTitle(), title);
+    }
+
+    public List<String> getTitlesList(String key) {
+        List<String> categoryTitles = new ArrayList<>(Const.MAX_TITLE_CAPACITY);
+        for (Title title : mTitlesMap.get(key)) {
+            categoryTitles.add(title.getTitle());
+        }
+        return categoryTitles;
+    }
+
+    public void initEmptyCollections() {
+        mSubmenuTitles = new ArrayList<>(Const.MAX_SUBMENU_CAPACITY);
+        mTitlesMap = new HashMap<>();
     }
 }

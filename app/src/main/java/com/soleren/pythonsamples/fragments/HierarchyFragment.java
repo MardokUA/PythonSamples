@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 
 import com.soleren.pythonsamples.R;
 import com.soleren.pythonsamples.adapters.MainAdapter;
-import com.soleren.pythonsamples.utils.CategoryFactory;
+import com.soleren.pythonsamples.utils.ContentFactory;
 
 /**
  * Created by laktionov on 25.08.2017.
@@ -38,7 +38,7 @@ public class HierarchyFragment extends Fragment implements MainAdapter.AdapterLi
     }
 
     protected void createAdapter() {
-        mMainAdapter = new MainAdapter(CategoryFactory.getMenuList());
+        mMainAdapter = new MainAdapter(ContentFactory.getMenuList());
     }
 
     private void initAdapter() {
@@ -55,7 +55,7 @@ public class HierarchyFragment extends Fragment implements MainAdapter.AdapterLi
     /**
      * Этот слушатель каждый фрагмент переопределяет солгласно своему поведению
      *
-     * @param adapterItemTitle является ключем для контента в {@link CategoryFactory}
+     * @param adapterItemTitle является ключем для контента в {@link ContentFactory}
      */
     @Override
     public void onItemClick(String adapterItemTitle) {
