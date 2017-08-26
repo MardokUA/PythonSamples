@@ -2,7 +2,11 @@ package com.soleren.pythonsamples.fragments;
 
 import com.soleren.pythonsamples.adapters.MainAdapter;
 import com.soleren.pythonsamples.data.Const;
+import com.soleren.pythonsamples.model.SubMenuComparator;
 import com.soleren.pythonsamples.utils.ContentFactory;
+
+import java.util.Collections;
+import java.util.List;
 
 public class SubMenuFragment extends HierarchyFragment {
 
@@ -11,7 +15,9 @@ public class SubMenuFragment extends HierarchyFragment {
 
     @Override
     protected void createAdapter() {
-        mMainAdapter = new MainAdapter(ContentFactory.getSubMenuList());
+        List<String> subMenuList = ContentFactory.getSubMenuList();
+        Collections.sort(subMenuList, new SubMenuComparator());
+        mMainAdapter = new MainAdapter(subMenuList,Const.VIEW_TYPE_CATEGORY);
     }
 
     @Override

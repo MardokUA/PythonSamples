@@ -2,7 +2,12 @@ package com.soleren.pythonsamples.fragments;
 
 import com.soleren.pythonsamples.adapters.MainAdapter;
 import com.soleren.pythonsamples.data.Const;
+import com.soleren.pythonsamples.model.SubMenuComparator;
 import com.soleren.pythonsamples.utils.ContentFactory;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.Locale;
 
 public class TitleFragment extends HierarchyFragment {
 
@@ -11,12 +16,14 @@ public class TitleFragment extends HierarchyFragment {
 
     @Override
     protected void createAdapter() {
-        mMainAdapter = new MainAdapter(ContentFactory.geTitlesList());
+        int viewCategory = ContentFactory.isSubMenuNeedExtendViewType() ? Const.VIEW_TYPE_NOTES : Const.VIEW_TYPE_CATEGORY;
+        mMainAdapter = new MainAdapter(ContentFactory.geTitlesList(), viewCategory);
     }
 
     @Override
     public void onItemClick(String adapterItemTitle) {
-        if (mFragmentChangeListener != null && !ContentFactory.getmCurrentSubMenuKey().equals(Const.NOTES)) {
+        if (mFragmentChangeListener != null && !ContentFactory.getCurrentSubMenuKey().equals(Const.NOTES) &&
+                mFragmentChangeListener != null && !ContentFactory.getCurrentSubMenuKey().equals(Const.TIPS)) {
             ContentFactory.setCurrentTitleKey(adapterItemTitle);
             mFragmentChangeListener.changeCurrentVisibleFragment(adapterItemTitle, Const.CONTENT_ID);
         }

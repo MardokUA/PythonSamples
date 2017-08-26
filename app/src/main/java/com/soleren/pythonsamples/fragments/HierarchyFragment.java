@@ -38,7 +38,7 @@ public class HierarchyFragment extends Fragment implements MainAdapter.AdapterLi
     }
 
     protected void createAdapter() {
-        mMainAdapter = new MainAdapter(ContentFactory.getMenuList());
+        // этот метод должен переопределить каждый фрагмент - наследник
     }
 
     private void initAdapter() {

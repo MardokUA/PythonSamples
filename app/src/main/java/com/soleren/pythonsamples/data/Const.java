@@ -5,8 +5,12 @@ public interface Const {
     int TITLE_ID = 2;
     int CONTENT_ID = 3;
 
+    int VIEW_TYPE_CATEGORY = 101;
+    int VIEW_TYPE_NOTES = 102;
+
     int MAX_TITLE_CAPACITY = 20;
     int MAX_SUBMENU_CAPACITY = 15;
 
     String NOTES = "Заметки";
+    String TIPS = "Шпаргалки(англ.)";
 }

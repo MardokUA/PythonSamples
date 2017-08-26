@@ -5,6 +5,7 @@ import com.soleren.pythonsamples.utils.ContentFactory;
 import com.soleren.pythonsamples.utils.XMLContentParser;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -125,10 +126,8 @@ public class Item {
      * @param titleMapKey ключ, равный submenu
      */
     public void setTitleToTitlesMap(String titleMapKey, Title title) {
-        if (title.getTitleContent() != null && !title.getTitleContent().isEmpty()
-                && title.getmTitlePrint() != null && !title.getmTitlePrint().isEmpty()) {
-            mTitlesMap.get(titleMapKey).add(title);
-        }
+        mTitlesMap.get(titleMapKey).add(title);
+
     }
 
     public List<String> getTitlesList(String key) {

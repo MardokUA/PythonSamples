@@ -5,6 +5,7 @@ import com.soleren.pythonsamples.model.Item;
 import com.soleren.pythonsamples.model.Title;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -104,11 +105,15 @@ public class ContentFactory {
         ContentFactory.mCurrentSubMenuKey = mCurrentSubMenuKey;
     }
 
+    public static boolean isSubMenuNeedExtendViewType() {
+        return mCurrentSubMenuKey.equals(Const.NOTES) || mCurrentSubMenuKey.equals(Const.TIPS);
+    }
+
     public static void setCurrentTitleKey(String mCurrentTitleKey) {
         ContentFactory.mCurrentTitleKey = mCurrentTitleKey;
     }
 
-    public static String getmCurrentSubMenuKey() {
+    public static String getCurrentSubMenuKey() {
         return mCurrentSubMenuKey;
     }
 
@@ -116,4 +121,5 @@ public class ContentFactory {
     public static Title getCurrentTitle() {
         return mCurrentTitle;
     }
+
 }
