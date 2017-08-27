@@ -47,6 +47,12 @@ class ToolBarController {
         }
     }
 
+    void restoreToolBarState() {
+        if (mToolBarTitleStack.size() != 0) {
+            addToolBarTitle(mToolBarTitleStack.pop());
+        }
+    }
+
     void popToolBarState() {
         mToolBarTitleStack.pop();
         try {
@@ -55,6 +61,15 @@ class ToolBarController {
             changeToolBarState(null);
             changeArrowButtonState();
         }
+    }
+
+    Stack<ToolBarState> getToolBarStack() {
+        return mToolBarTitleStack;
+    }
+
+    void setToolBarStack(Stack<ToolBarState> mToolBarTitleStack) {
+        this.mToolBarTitleStack = mToolBarTitleStack;
+        restoreToolBarState();
     }
 
     private void changeToolBarState(ToolBarState currentState) {
@@ -96,6 +111,10 @@ class ToolBarController {
             return this;
         }
 
+        /**
+         * @param actionBar из MainActivity
+         * @return возвращает Builder, что бы продолжить цепочку инициации;
+         */
         Builder withActionBar(ActionBar actionBar) {
             ToolBarController.this.mMainActivityActionBar = actionBar;
             return this;

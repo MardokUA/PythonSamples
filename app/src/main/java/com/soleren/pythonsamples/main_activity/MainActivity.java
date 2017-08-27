@@ -1,6 +1,7 @@
 package com.soleren.pythonsamples.main_activity;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -14,19 +15,28 @@ import com.soleren.pythonsamples.fragments.MenuFragment;
 import com.soleren.pythonsamples.fragments.SubMenuFragment;
 import com.soleren.pythonsamples.fragments.TitleFragment;
 
+import java.util.Stack;
+
 public class MainActivity extends AppCompatActivity {
 
     private ToolBarController mToolBarController;
+    private FragmentManager mFragmentManager;
     private Toolbar mToolBar;
+    private ActionBar mActionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mFragmentManager = getSupportFragmentManager();
+
         initViews();
         initToolbar();
-        initTopFragment();
+        initToolBarController(savedInstanceState);
+        if (savedInstanceState == null) {
+            initTopFragment();
+        }
     }
 
     private void initViews() {
@@ -35,16 +45,19 @@ public class MainActivity extends AppCompatActivity {
 
     private void initToolbar() {
         setSupportActionBar(mToolBar);
-        ActionBar supportActionBar = getSupportActionBar();
-        initToolBarController(supportActionBar);
+        mActionBar = getSupportActionBar();
     }
 
-    private void initToolBarController(ActionBar actionBar) {
+    private void initToolBarController(Bundle savedInstanceState) {
         mToolBarController = ToolBarController
                 .createBuilder()
-                .withActionBar(actionBar)
+                .withActionBar(mActionBar)
                 .withToolBar(mToolBar)
                 .build();
+        if (savedInstanceState != null) {
+            Stack<ToolBarState> savedStack = (Stack<ToolBarState>) savedInstanceState.get("key");
+            mToolBarController.setToolBarStack(savedStack);
+        }
     }
 
     private void initTopFragment() {
@@ -54,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setActiveFragment(MenuFragment fragment) {
-        getSupportFragmentManager()
+        mFragmentManager
                 .beginTransaction()
                 .replace(R.id.fragment_container, fragment)
                 .addToBackStack(MenuFragment.class.getName())
@@ -63,9 +76,9 @@ public class MainActivity extends AppCompatActivity {
 
     private HierarchyFragment.FragmentChangeListener fragmentChangeListener = new HierarchyFragment.FragmentChangeListener() {
         @Override
-        public void changeCurrentVisibleFragment(String menuTitle, int nextFragment) {
+        public void changeCurrentVisibleFragment(String categoryTitle, int nextFragment) {
             if (mToolBarController != null) {
-                mToolBarController.addToolBarTitle(new ToolBarState(menuTitle));
+                mToolBarController.addToolBarTitle(new ToolBarState(categoryTitle));
             }
             changeCurrentVisibilityFragment(nextFragment);
         }
@@ -76,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
             case Const.SUB_MENU_TITLE_ID:
                 SubMenuFragment subMenuFragment = new SubMenuFragment();
                 subMenuFragment.setFragmentChangeListener(fragmentChangeListener);
-                getSupportFragmentManager()
+                mFragmentManager
                         .beginTransaction()
                         .setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_pop_enter, R.anim.fragment_pop_exit)
                         .replace(R.id.fragment_container, subMenuFragment)
@@ -86,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
             case Const.TITLE_ID:
                 TitleFragment titleFragment = new TitleFragment();
                 titleFragment.setFragmentChangeListener(fragmentChangeListener);
-                getSupportFragmentManager()
+                mFragmentManager
                         .beginTransaction()
                         .setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_pop_enter, R.anim.fragment_pop_exit)
                         .replace(R.id.fragment_container, titleFragment)
@@ -95,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case Const.CONTENT_ID:
                 ContentFragment contentFragment = new ContentFragment();
-                getSupportFragmentManager()
+                mFragmentManager
                         .beginTransaction()
                         .setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_pop_enter, R.anim.fragment_pop_exit)
                         .replace(R.id.fragment_container, contentFragment)
@@ -117,17 +130,17 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
+        if (mFragmentManager.getBackStackEntryCount() > 1) {
+            mFragmentManager.popBackStack();
             mToolBarController.popToolBarState();
-            super.onBackPressed();
         } else {
-            finish();
+            super.onBackPressed();
         }
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
+        outState.putSerializable("key", mToolBarController.getToolBarStack());
         super.onSaveInstanceState(outState);
-        outState.putBoolean("visible", true);
     }
 }

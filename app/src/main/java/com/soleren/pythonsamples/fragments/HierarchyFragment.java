@@ -1,6 +1,7 @@
 package com.soleren.pythonsamples.fragments;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -25,6 +26,12 @@ public class HierarchyFragment extends Fragment implements MainAdapter.AdapterLi
     protected FragmentChangeListener mFragmentChangeListener;
     protected MainAdapter mMainAdapter;
     private RecyclerView mRecyclerView;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
