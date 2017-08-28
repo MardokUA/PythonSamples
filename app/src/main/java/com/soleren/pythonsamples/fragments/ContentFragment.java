@@ -88,7 +88,7 @@ public class ContentFragment extends HierarchyFragment {
     private void createShareIntent() {
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.putExtra(Intent.EXTRA_TEXT, mTitle.getTitleContent() + "\n" + "\n" + mTitle.getmTitlePrint());
-        shareIntent.setType("plain/text");
+        shareIntent.setType("text/plain");
         String chooserText = getActivity().getResources().getString(R.string.chooser_text);
         getActivity().startActivity(Intent.createChooser(shareIntent, chooserText));
 
