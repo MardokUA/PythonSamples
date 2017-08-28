@@ -15,14 +15,15 @@ import com.soleren.pythonsamples.fragments.MenuFragment;
 import com.soleren.pythonsamples.fragments.SubMenuFragment;
 import com.soleren.pythonsamples.fragments.TitleFragment;
 
+import java.util.EmptyStackException;
 import java.util.Stack;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ToolBarController mToolBarController;
     private FragmentManager mFragmentManager;
     private Toolbar mToolBar;
     private ActionBar mActionBar;
+    private Stack<String> mTitleStack = new Stack<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +34,10 @@ public class MainActivity extends AppCompatActivity {
 
         initViews();
         initToolbar();
-        initToolBarController(savedInstanceState);
         if (savedInstanceState == null) {
             initTopFragment();
+        } else {
+            restoreTitle(savedInstanceState);
         }
     }
 
@@ -46,18 +48,6 @@ public class MainActivity extends AppCompatActivity {
     private void initToolbar() {
         setSupportActionBar(mToolBar);
         mActionBar = getSupportActionBar();
-    }
-
-    private void initToolBarController(Bundle savedInstanceState) {
-        mToolBarController = ToolBarController
-                .createBuilder()
-                .withActionBar(mActionBar)
-                .withToolBar(mToolBar)
-                .build();
-        if (savedInstanceState != null) {
-            Stack<ToolBarState> savedStack = (Stack<ToolBarState>) savedInstanceState.get("key");
-            mToolBarController.setToolBarStack(savedStack);
-        }
     }
 
     private void initTopFragment() {
@@ -77,14 +67,12 @@ public class MainActivity extends AppCompatActivity {
     private HierarchyFragment.FragmentChangeListener fragmentChangeListener = new HierarchyFragment.FragmentChangeListener() {
         @Override
         public void changeCurrentVisibleFragment(String categoryTitle, int nextFragment) {
-            if (mToolBarController != null) {
-                mToolBarController.addToolBarTitle(new ToolBarState(categoryTitle));
-            }
-            changeCurrentVisibilityFragment(nextFragment);
+            addToolBarTitle(categoryTitle);
+            MainActivity.this.changeCurrentVisibleFragment(nextFragment);
         }
     };
 
-    private void changeCurrentVisibilityFragment(int nextFragment) {
+    private void changeCurrentVisibleFragment(int nextFragment) {
         switch (nextFragment) {
             case Const.SUB_MENU_TITLE_ID:
                 SubMenuFragment subMenuFragment = new SubMenuFragment();
@@ -132,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         if (mFragmentManager.getBackStackEntryCount() > 1) {
             mFragmentManager.popBackStack();
-            mToolBarController.popToolBarState();
+            popToolBarState();
         } else {
             super.onBackPressed();
         }
@@ -140,7 +128,38 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        outState.putSerializable("key", mToolBarController.getToolBarStack());
+        outState.putSerializable("key", mTitleStack);
         super.onSaveInstanceState(outState);
+    }
+
+    private void addToolBarTitle(String currentTitle) {
+        mActionBar.setDisplayHomeAsUpEnabled(true);
+        mTitleStack.add(currentTitle);
+        mToolBar.setTitle(currentTitle);
+    }
+
+    private void popToolBarState() {
+        try {
+            mTitleStack.pop();
+            mToolBar.setTitle(mTitleStack.peek());
+        } catch (EmptyStackException e) {
+            setDefaultState();
+        }
+    }
+
+    private void restoreTitle(Bundle savedInstanceState) {
+        mTitleStack = (Stack<String>) savedInstanceState.get("key");
+        try {
+            mToolBar.setTitle(mTitleStack.peek());
+            mActionBar.setDisplayHomeAsUpEnabled(true);
+        } catch (EmptyStackException e) {
+            setDefaultState();
+        }
+
+    }
+
+    private void setDefaultState() {
+        mActionBar.setDisplayHomeAsUpEnabled(false);
+        mToolBar.setTitle(R.string.app_name);
     }
 }
