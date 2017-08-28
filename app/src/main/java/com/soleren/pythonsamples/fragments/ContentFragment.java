@@ -1,6 +1,7 @@
 package com.soleren.pythonsamples.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.MenuItemCompat;
@@ -20,6 +21,7 @@ import com.soleren.pythonsamples.utils.ContentFactory;
 
 public class ContentFragment extends HierarchyFragment {
 
+    private Title mTitle;
     private TextView mTvContent;
     private TextView mTvPrint;
 
@@ -34,7 +36,9 @@ public class ContentFragment extends HierarchyFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
         getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        mTitle = ContentFactory.getCurrentTitleData();
     }
 
     @Override
@@ -52,9 +56,8 @@ public class ContentFragment extends HierarchyFragment {
     }
 
     private void setContent() {
-        Title title = ContentFactory.getCurrentTitleData();
-        mTvContent.setText(title.getTitleContent());
-        mTvPrint.setText(title.getmTitlePrint());
+        mTvContent.setText(mTitle.getTitleContent());
+        mTvPrint.setText(mTitle.getmTitlePrint());
     }
 
     @Override
@@ -70,6 +73,25 @@ public class ContentFragment extends HierarchyFragment {
 
         MenuItemCompat.setActionProvider(menuItem, shareActionProvider);
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_share:
+                createShareIntent();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void createShareIntent() {
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.putExtra(Intent.EXTRA_TEXT, mTitle.getTitleContent() + "\n" + "\n" + mTitle.getmTitlePrint());
+        shareIntent.setType("plain/text");
+        String chooserText = getActivity().getResources().getString(R.string.chooser_text);
+        getActivity().startActivity(Intent.createChooser(shareIntent, chooserText));
+
     }
 
     @Override

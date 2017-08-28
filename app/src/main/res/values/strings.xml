@@ -7,6 +7,7 @@
     <string name="app_description">
         С помощью Python Samples Вы овладеете основами программирования на языке Python. Для Вас более 200 примеров алгоритмов, а также краткий справочник по основным структурам данных.Изучайте Python легко и просто!
     </string>
+    <string name="chooser_text">Отправить загагалунки </string>
     <!-- AdMob ad unit IDs -->
     <string name="banner_home_footer">ca-app-pub-3634613834833645/7273897010</string>
     <string name="interstitial_full_screen">ca-app-pub-3634613834833645/5797163812</string>
