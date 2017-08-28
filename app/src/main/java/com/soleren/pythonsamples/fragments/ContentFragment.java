@@ -1,6 +1,7 @@
 package com.soleren.pythonsamples.fragments;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.ShareActionProvider;
@@ -10,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.soleren.pythonsamples.R;
@@ -22,6 +24,12 @@ public class ContentFragment extends HierarchyFragment {
     private TextView mTvPrint;
 
     public ContentFragment() {
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
     @Override
@@ -57,5 +65,11 @@ public class ContentFragment extends HierarchyFragment {
 
         MenuItemCompat.setActionProvider(menuItem, shareActionProvider);
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public void onDetach() {
+        getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        super.onDetach();
     }
 }
