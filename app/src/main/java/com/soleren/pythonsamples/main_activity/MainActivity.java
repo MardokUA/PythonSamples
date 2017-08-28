@@ -18,7 +18,7 @@ import com.soleren.pythonsamples.fragments.TitleFragment;
 import java.util.EmptyStackException;
 import java.util.Stack;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements HierarchyFragment.FragmentChangeListener {
 
     private Stack<String> mTitleStack;
     private FragmentManager mFragmentManager;
@@ -63,12 +63,13 @@ public class MainActivity extends AppCompatActivity {
      */
     private void initTopFragment() {
         MenuFragment menuFragment = new MenuFragment();
-        menuFragment.setFragmentChangeListener(fragmentChangeListener);
+        menuFragment.setFragmentChangeListener(this);
         setActiveFragment(menuFragment);
     }
 
     /**
      * Устанавливает первый фрагмент {@link MenuFragment} в активити в случае первого запуска приложения.
+     *
      * @param fragment меню приложения.
      */
     public void setActiveFragment(MenuFragment fragment) {
@@ -79,23 +80,21 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
     }
 
-    private HierarchyFragment.FragmentChangeListener fragmentChangeListener = new HierarchyFragment.FragmentChangeListener() {
-        @Override
-        public void changeCurrentVisibleFragment(String categoryTitle, int nextFragment) {
-            addToolBarTitle(categoryTitle);
-            MainActivity.this.changeCurrentVisibleFragment(nextFragment);
-        }
-    };
+    @Override
+    public void changeCurrentVisibleFragment(String categoryTitle, int nextFragment) {
+        addToolBarTitle(categoryTitle);
+        MainActivity.this.changeCurrentVisibleFragment(nextFragment);
+    }
 
     /**
      * Метод управляет логикой смены фрагментов при переходах "Вперед" по иерархии приложения.
-     * @param nextFragment  передается из слушателя во вермя смены фрагментов.
+     *
+     * @param nextFragment передается из слушателя во вермя смены фрагментов.
      */
     private void changeCurrentVisibleFragment(int nextFragment) {
         switch (nextFragment) {
             case Const.SUB_MENU_TITLE_ID:
                 SubMenuFragment subMenuFragment = new SubMenuFragment();
-                subMenuFragment.setFragmentChangeListener(fragmentChangeListener);
                 mFragmentManager
                         .beginTransaction()
                         .setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_pop_enter, R.anim.fragment_pop_exit)
@@ -105,7 +104,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case Const.TITLE_ID:
                 TitleFragment titleFragment = new TitleFragment();
-                titleFragment.setFragmentChangeListener(fragmentChangeListener);
                 mFragmentManager
                         .beginTransaction()
                         .setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_pop_enter, R.anim.fragment_pop_exit)
@@ -161,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Основной метод изменения состояния тулбара во время навигации "Вперед". Наполняет стэк для
      * организации переходов назад.
+     *
      * @param currentTitle передается из слушателя во вермя смены фрагментов.
      */
     private void addToolBarTitle(String currentTitle) {
@@ -186,11 +185,12 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Метод возвращает в активити последний видимый фрагмент. Этор реализуется путем помещения данных {@link FragmentManager}
      * в Bundle в методе onSavedInstanceState().
+     *
      * @param savedInstanceState передается из метода onCrate() активити.
      */
     private void restoreLastActiveFragment(Bundle savedInstanceState) {
         HierarchyFragment fragment = (HierarchyFragment) mFragmentManager.getFragment(savedInstanceState, Const.KEY_FRAGMENT);
-        fragment.setFragmentChangeListener(fragmentChangeListener);
+        fragment.setFragmentChangeListener(this);
         mFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, fragment)
                 .commit();
@@ -198,7 +198,8 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Метод восстанавливает состояние тулбара после изменения конфигурации телефона. Нарпимер, после поворота экрана
-     * @param savedInstanceState  передается из метода onCrate() активити.
+     *
+     * @param savedInstanceState передается из метода onCrate() активити.
      */
     private void restoreLastTitle(Bundle savedInstanceState) {
         mTitleStack = (Stack<String>) savedInstanceState.getSerializable(Const.KEY_STACK);

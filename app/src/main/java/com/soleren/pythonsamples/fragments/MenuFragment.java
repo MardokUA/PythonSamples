@@ -21,4 +21,5 @@ public class MenuFragment extends HierarchyFragment {
             mFragmentChangeListener.changeCurrentVisibleFragment(menuKey, Const.SUB_MENU_TITLE_ID);
         }
     }
+
 }

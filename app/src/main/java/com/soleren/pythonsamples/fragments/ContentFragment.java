@@ -1,8 +1,8 @@
 package com.soleren.pythonsamples.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.ShareActionProvider;
 import android.view.LayoutInflater;
@@ -24,6 +24,11 @@ public class ContentFragment extends HierarchyFragment {
     private TextView mTvPrint;
 
     public ContentFragment() {
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
     }
 
     @Override
