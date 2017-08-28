@@ -20,25 +20,33 @@ import java.util.Stack;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Stack<String> mTitleStack;
     private FragmentManager mFragmentManager;
     private Toolbar mToolBar;
     private ActionBar mActionBar;
-    private Stack<String> mTitleStack = new Stack<>();
+
+    private String mLastTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mFragmentManager = getSupportFragmentManager();
-
+        initData();
         initViews();
         initToolbar();
         if (savedInstanceState == null) {
             initTopFragment();
         } else {
-            restoreTitle(savedInstanceState);
+            restoreLastTitle(savedInstanceState);
+            restoreLastActiveFragment(savedInstanceState);
         }
+    }
+
+    private void initData() {
+        mFragmentManager = getSupportFragmentManager();
+        mTitleStack = new Stack<>();
+        mLastTitle = getResources().getString(R.string.app_name);
     }
 
     private void initViews() {
@@ -50,12 +58,19 @@ public class MainActivity extends AppCompatActivity {
         mActionBar = getSupportActionBar();
     }
 
+    /**
+     * Инициализирует меню приложения {@link MenuFragment}
+     */
     private void initTopFragment() {
         MenuFragment menuFragment = new MenuFragment();
         menuFragment.setFragmentChangeListener(fragmentChangeListener);
         setActiveFragment(menuFragment);
     }
 
+    /**
+     * Устанавливает первый фрагмент {@link MenuFragment} в активити в случае первого запуска приложения.
+     * @param fragment меню приложения.
+     */
     public void setActiveFragment(MenuFragment fragment) {
         mFragmentManager
                 .beginTransaction()
@@ -72,6 +87,10 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    /**
+     * Метод управляет логикой смены фрагментов при переходах "Вперед" по иерархии приложения.
+     * @param nextFragment  передается из слушателя во вермя смены фрагментов.
+     */
     private void changeCurrentVisibleFragment(int nextFragment) {
         switch (nextFragment) {
             case Const.SUB_MENU_TITLE_ID:
@@ -122,44 +141,85 @@ public class MainActivity extends AppCompatActivity {
             mFragmentManager.popBackStack();
             popToolBarState();
         } else {
-            super.onBackPressed();
+            finish();
         }
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        outState.putSerializable("key", mTitleStack);
+        outState.putSerializable(Const.KEY_STACK, mTitleStack);
+        outState.putString(Const.KEY_TITLE, mLastTitle);
+        mFragmentManager.putFragment(outState, Const.KEY_FRAGMENT, mFragmentManager.findFragmentById(R.id.fragment_container));
         super.onSaveInstanceState(outState);
     }
 
+    /*
+    * Методы управление состояниями тулбара, котроые меняются во время смены фрагметов , а так же восстановление этих состояний после
+    * вызова метода жизненного цикла активити onSavedInstanceState()
+    * */
+
+    /**
+     * Основной метод изменения состояния тулбара во время навигации "Вперед". Наполняет стэк для
+     * организации переходов назад.
+     * @param currentTitle передается из слушателя во вермя смены фрагментов.
+     */
     private void addToolBarTitle(String currentTitle) {
-        mActionBar.setDisplayHomeAsUpEnabled(true);
+        mLastTitle = currentTitle;
         mTitleStack.add(currentTitle);
-        mToolBar.setTitle(currentTitle);
+        mActionBar.setDisplayHomeAsUpEnabled(true);
+        mActionBar.setTitle(currentTitle);
     }
 
+    /**
+     * Основной метод изменения состояния тулбара во время навигации "Назад". Вызывает исключение,
+     * если в стэке нету больше названий. Это происходит при возвращении в {@link MenuFragment}.
+     */
     private void popToolBarState() {
         try {
             mTitleStack.pop();
-            mToolBar.setTitle(mTitleStack.peek());
+            mActionBar.setTitle(mTitleStack.peek());
         } catch (EmptyStackException e) {
             setDefaultState();
         }
     }
 
-    private void restoreTitle(Bundle savedInstanceState) {
-        mTitleStack = (Stack<String>) savedInstanceState.get("key");
+    /**
+     * Метод возвращает в активити последний видимый фрагмент. Этор реализуется путем помещения данных {@link FragmentManager}
+     * в Bundle в методе onSavedInstanceState().
+     * @param savedInstanceState передается из метода onCrate() активити.
+     */
+    private void restoreLastActiveFragment(Bundle savedInstanceState) {
+        HierarchyFragment fragment = (HierarchyFragment) mFragmentManager.getFragment(savedInstanceState, Const.KEY_FRAGMENT);
+        fragment.setFragmentChangeListener(fragmentChangeListener);
+        mFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .commit();
+    }
+
+    /**
+     * Метод восстанавливает состояние тулбара после изменения конфигурации телефона. Нарпимер, после поворота экрана
+     * @param savedInstanceState  передается из метода onCrate() активити.
+     */
+    private void restoreLastTitle(Bundle savedInstanceState) {
+        mTitleStack = (Stack<String>) savedInstanceState.getSerializable(Const.KEY_STACK);
+        mLastTitle = savedInstanceState.getString(Const.KEY_TITLE);
         try {
-            mToolBar.setTitle(mTitleStack.peek());
-            mActionBar.setDisplayHomeAsUpEnabled(true);
+            if (mFragmentManager.getBackStackEntryCount() > 1) {
+                mActionBar.setDisplayHomeAsUpEnabled(true);
+            }
+            mActionBar.setTitle(mLastTitle);
         } catch (EmptyStackException e) {
             setDefaultState();
         }
-
     }
 
+    /**
+     * Метод устанавливает состояние тулбара, которое было во время первого открытия приложения.
+     * Обрабатывает исключение {@link EmptyStackException}.
+     */
     private void setDefaultState() {
         mActionBar.setDisplayHomeAsUpEnabled(false);
-        mToolBar.setTitle(R.string.app_name);
+        mActionBar.setTitle(R.string.app_name);
+        mLastTitle = getResources().getString(R.string.app_name);
     }
 }

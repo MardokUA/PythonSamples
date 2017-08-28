@@ -19,7 +19,7 @@ import com.soleren.pythonsamples.utils.ContentFactory;
  * Основной фрагмент приложения. Родитель для всех остальных фрагметов, кроме {@link ContentFragment}
  */
 
-public class HierarchyFragment extends Fragment implements MainAdapter.AdapterListener {
+public abstract class HierarchyFragment extends Fragment implements MainAdapter.AdapterListener {
 
     private static final String TAG = HierarchyFragment.class.getName();
 
@@ -30,7 +30,6 @@ public class HierarchyFragment extends Fragment implements MainAdapter.AdapterLi
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRetainInstance(true);
     }
 
     @Override

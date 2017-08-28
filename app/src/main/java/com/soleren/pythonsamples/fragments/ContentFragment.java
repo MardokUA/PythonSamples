@@ -16,7 +16,7 @@ import com.soleren.pythonsamples.R;
 import com.soleren.pythonsamples.model.Title;
 import com.soleren.pythonsamples.utils.ContentFactory;
 
-public class ContentFragment extends Fragment {
+public class ContentFragment extends HierarchyFragment {
 
     private TextView mTvContent;
     private TextView mTvPrint;
