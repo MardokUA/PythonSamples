@@ -11,7 +11,6 @@ import numpy as np
 import pandas as pd
 from pandas import Series, DataFrame
 
-
 df = DataFrame({'key1' : ['a', 'a', 'b', 'b', 'a'],
                    'key2' : ['one', 'two', 'one', 'two', 'one'],
                     'data1' : np.random.randn(5),
@@ -120,7 +119,6 @@ b two
 </print>
 </item>
 
-
 <item>
 <id>3</id>
 <menu>Pandas</menu>
@@ -154,7 +152,6 @@ cty  JP  US
 3     2   3
 </print>
 </item>
-
 
 <item>
 <id>4</id>
@@ -192,7 +189,6 @@ b   -1.175843
 dtype: float64
 </print>
 </item>
-
 
 <item>
 <id>5</id>
@@ -234,10 +230,8 @@ print(pd.merge(df1,df2,on='key'),end='\n\n')
 3      2   a      0
 4      4   a      0
 5      5   a      0
-
 </print>
 </item>
-
 
 <item>
 <id>6</id>
@@ -295,7 +289,6 @@ print(pd.merge(df1,df2,left_on='lkey', right_on='rkey',how='outer'),end='\n\n')
 </print>
 </item>
 
-
 <item>
 <id>7</id>
 <menu>Pandas</menu>
@@ -312,7 +305,8 @@ left = DataFrame({'key1': ['foo', 'foo', 'bar'],
 right = DataFrame({'key1': ['foo', 'foo', 'bar', 'bar'],
                        'key2': ['one', 'one', 'one', 'two'],
                        'rval': [4, 5, 6, 7]})
-print(left ,end='\n\n')
+
+					   print(left ,end='\n\n')
 print(right,end='\n\n')
 print(pd.merge(left, right, on=['key1', 'key2'], how='outer'))
 </content>
@@ -336,7 +330,6 @@ print(pd.merge(left, right, on=['key1', 'key2'], how='outer'))
 4  bar  two   NaN   7.0
 </print>
 </item>
-
 
 <item>
 <id>8</id>
@@ -389,7 +382,6 @@ print(pd.merge(left1, right1, left_on='key', right_index=True, how='outer'))
 5   c      5        NaN
 </print>
 </item>
-
 
 <item>
 <id>9</id>
@@ -503,7 +495,6 @@ e   5.0     6.0      13.0     14.0
 </print>
 </item>
 
-
 <item>
 <id>11</id>
 <menu>Pandas</menu>
@@ -601,7 +592,6 @@ g  NaN  NaN    6.0
 </print>
 </item>
 
-
 <item>
 <id>13</id>
 <menu>Pandas</menu>
@@ -617,6 +607,7 @@ df1 = DataFrame(np.arange(6).reshape(3, 2), index=['a', 'b', 'c'],
 
 df2 = DataFrame(5 + np.arange(4).reshape(2, 2), index=['a', 'c'],
                     columns=['three', 'four'])
+
 print(pd.concat([df1, df2], axis=1, keys=['level1', 'level2']),end='\n\n')
 '''
 Если передать не список, а словарь объектов, то роль аргумента keys будут играть ключи словаря: 
@@ -644,7 +635,6 @@ b          2   3    NaN  NaN
 c          4   5    7.0  8.0
 </print>
 </item>
-
 
 <item>
 <id>14</id>
@@ -700,7 +690,6 @@ dtype: float64
 </print>
 </item>
 
-
 <item>
 <id>15</id>
 <menu>Pandas</menu>
@@ -745,7 +734,6 @@ print(df1.combine_first(df2),end='\n\n')
 </print>
 </item>
 
-
 <item>
 <id>16</id>
 <menu>Pandas</menu>
@@ -760,7 +748,6 @@ Panel - трехмерный аналог DataFrame,соответственно
 <print>
 </print>
 </item>
-
 
 <item>
 <id>17</id>
@@ -790,14 +777,12 @@ NumPy 					Интерпретируется так же, как «словарь
 Другой объект DataFrame Используются индексы DataFrame, если явно не заданы другие индексы 
 
 Объект NumPy MaskedArray  Как «двумерный ndarray» с тем отличием, что замаскированные значения становятся отсутствующими в результирующем объекте  DataFrame 
-
 </title>
 <content> 
 </content>
 <print>
 </print>
 </item>
-
 
 <item>
 <id>18</id>
@@ -834,7 +819,6 @@ unique 			Вычисляет массив уникальных значений 
 </print>
 </item>
 
-
 <item>
 <id>19</id>
 <menu>Pandas</menu>
@@ -851,7 +835,6 @@ ffill или pad 	Восполнить (или перенести) значен�
 <print>
 </print>
 </item>
-
 
 <item>
 <id>20</id>
@@ -877,7 +860,6 @@ level 			Сопоставить с простым объектом Index на у
 <print>
 </print>
 </item>
-
 
 <item>
 <id>21</id>
@@ -909,7 +891,6 @@ get_value, set_value	 Выбрать одно значение по меткам
 </print>
 </item>
 
-
 <item>
 <id>22</id>
 <menu>Pandas</menu>
@@ -930,7 +911,6 @@ mul			Умножение(*)
 <print>
 </print>
 </item>
-
 
 <item>
 <id>23</id>
@@ -1003,14 +983,12 @@ isin 		Вычисляет булев массив, показывающий, с�
 unique 		Вычисляет массив уникальных значений в Series и возвращает их в порядке появления 
 
 value_counts 	Возвращает объект Series, который содержит уникальное значение в качестве индекса и его частоту в качестве соответствующего значения. Отсортирован в порядке убывания частот 
-
 </title>
 <content> 
 </content>
 <print>
 </print>
 </item>
-
 
 <item>
 <id>25</id>
@@ -1032,7 +1010,6 @@ notnull 	Логическое отрицание isnull
 <print>
 </print>
 </item>
-
 
 <item>
 <id>26</id>
@@ -1057,7 +1034,6 @@ limit 		Для прямого и обратного восполнения ма�
 </print>
 </item>
 
-
 <item>
 <id>27</id>
 <menu>Pandas</menu>
@@ -1078,7 +1054,6 @@ read_clipboard 	Вариант read_taЬle, который читает данн
 <print>
 </print>
 </item>
-
 
 <item>
 <id>28</id>
@@ -1136,7 +1111,6 @@ thousands 		Разделитель тысяч, например, ',' или '.'
 </print>
 </item>
 
-
 <item>
 <id>29</id>
 <menu>Pandas</menu>
@@ -1172,7 +1146,6 @@ copy			Если равен False, то в некоторых особых слу
 </print>
 </item>
 
-
 <item>
 <id>30</id>
 <menu>Pandas</menu>
@@ -1204,7 +1177,6 @@ ignore_index 	Не сохранять индексы вдоль оси конк�
 </print>
 </item>
 
-
 <item>
 <id>31</id>
 <menu>Pandas</menu>
@@ -1227,14 +1199,12 @@ min,max		Минимальное и максимальное отличное о�
 prod 		Произведение отличных от NA значений
 
 first,last 	Первое и последнее отличное от NA значение 
-
 </title>
 <content> 
 </content>
 <print>
 </print>
 </item>
-
 
 <item>
 <id>32</id>
@@ -1264,7 +1234,6 @@ Index(['a', 'b', 'c', 'd'], dtype='object')
 </print>
 </item>
 
-
 <item>
 <id>33</id>
 <menu>Pandas</menu>
@@ -1277,6 +1246,7 @@ data = [4, 7, -5,  3]
 index = ['a', 'b', 'c', 'd']
 obj = Series(data=data,index=index)
 obj['d'] = 0
+
 print(obj, end='\n\n')
 </content>
 <print>
@@ -1287,7 +1257,6 @@ d    0
 dtype: int64
 </print>
 </item>
-
 
 <item>
 <id>34</id>
@@ -1313,7 +1282,6 @@ d    3
 dtype: int64
 </print>
 </item>
-
 
 <item>
 <id>35</id>
@@ -1387,7 +1355,6 @@ dtype: int64
 </print>
 </item>
 
-
 <item>
 <id>37</id>
 <menu>Pandas</menu>
@@ -1413,7 +1380,6 @@ False
 </print>
 </item>
 
-
 <item>
 <id>38</id>
 <menu>Pandas</menu>
@@ -1436,7 +1402,6 @@ dtype: int64
 </print>
 </item>
 
-
 <item>
 <id>39</id>
 <menu>Pandas</menu>
@@ -1448,6 +1413,7 @@ from pandas import Series, DataFrame
 
 data = {'Ohio':  None,  'Texas':  71000,  'Oregon':  16000,  'Utah':  5000}
 obj = Series(data=data)
+
 print(pd.isnull(obj), end='\n\n')
 print(pd.notnull(obj), end='\n\n')
 print(obj.isnull, end='\n\n')
@@ -1506,7 +1472,6 @@ Name: population, dtype: float64
 </print>
 </item>
 
-
 <item>
 <id>41</id>
 <menu>Pandas</menu>
@@ -1531,7 +1496,6 @@ print(frame, end='\n\n')
 4    2.9  Nevada  2002
 </print>
 </item>
-
 
 <item>
 <id>42</id>
@@ -1564,7 +1528,6 @@ Ohio     1.5   1.7   3.6
 </print>
 </item>
 
-	
 <item>
 <id>43</id>
 <menu>Pandas</menu>
@@ -1600,7 +1563,6 @@ print(frame, end='\n\n')
 4  2002  Nevada  2.9
 </print>
 </item>
-
 
 <item>
 <id>44</id>
@@ -1652,7 +1614,6 @@ print(frame, end='\n\n')
 </print>
 </item>
 
-
 <item>
 <id>45</id>
 <menu>Pandas</menu>
@@ -1666,7 +1627,6 @@ data ={ 'state':  ['Ohio',  'Ohio' ,   'Ohio',  'Nevada',  'Nevada'] ,
         'popl' :  [ 1.5 ,  1.7 ,  3.6 ,  2.4 ,  2.9 ]}
 index = ['one','two','three','four','five']
 frame =  DataFrame(data,index=index)
-
 
 print(frame.ix['three'], end='\n\n')
 print(frame.ix['three'].popl)
@@ -1682,7 +1642,6 @@ Name: three, dtype: object
 Ohio
 </print>
 </item>
-
 
 <item>
 <id>46</id>
@@ -1722,10 +1681,8 @@ two     2.5    Ohio  2001
 three   NaN    Ohio  2002
 four    6.0  Nevada  2001
 five    1.2  Nevada  2002
-
 </print>
 </item>
-
 
 <item>
 <id>47</id>
@@ -1764,8 +1721,6 @@ five   Nevada  2002
 </print>
 </item>
 
-
-
 <item>
 <id>48</id>
 <menu>Pandas</menu>
@@ -1777,6 +1732,7 @@ from pandas import Series, DataFrame
 данные будут реорганизованы в соответствии с новым индексом, а если каких-то из имеющихся в этом индексе значений раньше не было, то вместо них будут подставлены отсутствующие значения
 '''
 obj = Series([4.5, 7.2, -5.3, 3.6], index=['d', 'b', 'a', 'c'])
+
 print(obj,end='\n\n')
 
 obj2 = obj.reindex(['a', 'b', 'c', 'd', 'e'],fill_value=0)
@@ -1799,7 +1755,6 @@ dtype: float64
 </print>
 </item>
 
-
 <item>
 <id>49</id>
 <menu>Pandas</menu>
@@ -1809,6 +1764,7 @@ dtype: float64
 from pandas import Series, DataFrame
 
 obj = Series(['blue', 'purple', 'yellow'], index=[0, 2, 4])
+
 print(obj,end='\n\n')
 
 obj2 = obj.reindex(range(6), method='ffill')
@@ -1843,6 +1799,7 @@ import pandas as pd
 from pandas import Series, DataFrame
 
 obj = Series(np.arange(5.), index=['a', 'b', 'c', 'd', 'e'])
+
 print(obj,end='\n\n')
 
 new_obj = obj.drop(['c','d'])
@@ -1863,7 +1820,6 @@ e    4.0
 dtype: float64
 </print>
 </item>
-
 
 <item>
 <id>51</id>
@@ -1901,7 +1857,6 @@ Utah         10    11
 New York     14    15
 </print>
 </item>
-
 
 <item>
 <id>52</id>
@@ -1954,7 +1909,6 @@ dtype: float64
 </print>
 </item>
 
-
 <item>
 <id>53</id>
 <menu>Pandas</menu>
@@ -1992,7 +1946,6 @@ New York   12   13     14    15
 </print>
 </item>
 
-
 <item>
 <id>54</id>
 <menu>Pandas</menu>
@@ -2008,7 +1961,9 @@ data = DataFrame(np.arange(16).reshape((4, 4)),
                   columns=['one', 'two', 'three', 'four'])
 
 print(data &lt; 5,end='\n\n')
+
 data[data &lt; 5] = 0
+
 print(data,end='\n\n')
 </content>
 <print>
@@ -2063,7 +2018,6 @@ New York   12   13     14
 </print>
 </item>
 
-
 <item>
 <id>56</id>
 <menu>Pandas</menu>
@@ -2109,7 +2063,6 @@ print(df1.mul(df2,fill_value = 0),end='\n\n')
 </print>
 </item>
 
-
 <item>
 <id>57</id>
 <menu>Pandas</menu>
@@ -2147,7 +2100,6 @@ one    4  7  6  5
 </print>
 </item>
 
-
 <item>
 <id>58</id>
 <menu>Pandas</menu>
@@ -2168,7 +2120,6 @@ c    3
 dtype: int32
 </print>
 </item>
-
 
 <item>
 <id>59</id>
@@ -2204,7 +2155,6 @@ print(frame.sort_values(by=['a','b']),end='\n\n')
 1  1  7
 </print>
 </item>
-
 
 <item>
 <id>60</id>
@@ -2249,7 +2199,6 @@ dtype: float64
 dtype: float64
 </print>
 </item>
-
 
 <item>
 <id>61</id>
@@ -2301,7 +2250,6 @@ d  9.25 -5.8
 </print>
 </item>
 
-
 <item>
 <id>62</id>
 <menu>Pandas</menu>
@@ -2336,7 +2284,6 @@ min    0.750000 -4.500000
 max    7.100000 -1.300000
 </print>
 </item>
-
 
 <item>
 <id>63</id>
@@ -2394,15 +2341,8 @@ dtype: object
 </print>
 </item>
 
-
 <item>
 <id>64</id>
-<menu>Pandas</menu>
-<submenu>Базовые операции</submenu>
-
-
-<item>
-<id>65</id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Удаление отсутствующих данных Series</title>
@@ -2439,7 +2379,7 @@ dtype: float64
 
 
 <item>
-<id>66</id>
+<id>65</id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Удаление отсутствующих данных DataFrame</title>
@@ -2476,7 +2416,7 @@ print(data.dropna(axis=0,how='all'),end='\n\n')
 
 
 <item>
-<id>67</id>
+<id>66</id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Восполнение отсутствующих данных </title>
@@ -2508,7 +2448,7 @@ print(data.fillna(0),end='\n\n')
 
 
 <item>
-<id>68</id>
+<id>67</id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Иерархическое индексирование Series</title>
@@ -2585,7 +2525,7 @@ dtype: float64
 
 
 <item>
-<id>69</id>
+<id>68</id>
 <menu>Pandas</menu>
 <submenu>Базовые операции</submenu>
 <title>Иерархическое индексирование DataFrame</title>
@@ -2633,7 +2573,10 @@ key2 key1
 </print>
 </item>
 
-
+<item>
+<id>69</id>
+<menu>Pandas</menu>
+<submenu>Базовые операции</submenu>
 <title>Нахождение одинаковых значений в DataFrame</title>
 <content> 
 import numpy as np
@@ -2711,7 +2654,6 @@ b    1        14    7
 </print>
 </item>
 
-
 <item>
 <id>71</id>
 <menu>Pandas</menu>
@@ -2776,7 +2718,6 @@ two 0  3  4  two  0
 </print>
 </item>
 
-
 <item>
 <id>72</id>
 <menu>Pandas</menu>
@@ -2825,7 +2766,6 @@ three   Ohio        2
 dtype: int32
 </print>
 </item>
-
 
 <item>
 <id>73</id>
@@ -2876,7 +2816,6 @@ dtype: bool
 </print>
 </item>
 
-
 <item>
 <id>74</id>
 <menu>Pandas</menu>
@@ -2920,7 +2859,6 @@ Categories (4, interval[int64]): [[18, 26) &lt; [26, 36) &lt; [36, 61) &lt; [61,
 </print>
 </item>
 
-
 <item>
 <id>75</id>
 <menu>Pandas</menu>
@@ -2941,7 +2879,6 @@ Categories (4, interval[float64]): [(0.096, 0.3] &lt; (0.3, 0.51] &lt; (0.51, 0.
 </print>
 </item>
 
-
 <item>
 <id>76</id>
 <menu>Pandas</menu>
@@ -2953,6 +2890,7 @@ Categories (4, interval[float64]): [(0.096, 0.3] &lt; (0.3, 0.51] &lt; (0.51, 0.
 '''
 data = np.random.randn(10) # Normally distributed
 cats = pd.qcut(data, 4) # Cut into quartiles
+
 print(cats,end='\n\n')
 print(pd.value_counts(cats),end='\n\n')
 '''
@@ -2975,7 +2913,6 @@ Categories (4, interval[float64]): [(-0.883, -0.714] &lt; (-0.714, 0.52] &lt; (0
 </print>
 </item>
 
-
 <item>
 <id>77</id>
 <menu>Pandas</menu>
@@ -2989,12 +2926,14 @@ from pandas import Series, DataFrame
 
 np.random.seed(12345)
 data = DataFrame(np.random.randn(1000, 4))
+
 print(data.describe(),end='\n\n')
 '''
 Допустим, что мы хотим найти  в одном из столбцов значения, превышающие 3 по абсолютной величине
 '''
 
 col = data[3]
+
 print(col[np.abs(col) > 3],end='\n\n')
 '''
 Чтобы выбрать все строки, в которых встречаются значения, по абсолютной величине превышающие 3, мы можем воспользоваться методом any для булева объекта DataFrame
@@ -3049,7 +2988,6 @@ max       3.000000     2.653656     3.000000     3.000000
 </print>
 </item>
 
-
 <item>
 <id>78</id>
 <menu>Сортировка</menu>
@@ -3067,7 +3005,9 @@ def selection_sort(arrayToSort):
         a[idxMin] = a[i]
         a[i] = tmp
     return a
+
 arr = [34,3,5,1,2,3,5,4,2,43,24]
+
 print (selection_sort(arr))
 </content>
 <print>
@@ -3087,7 +3027,9 @@ def insertion_sort(array):
             array[i], array[i - 1] = array[i - 1], array[i]
             i -= 1
     return array
+
 arr = [34,3,5,1,2,3,5,4,2,43,24]
+
 print (insertion_sort(arr))
 </content>
 <print>
@@ -3109,10 +3051,12 @@ def bubble_sort(arrayToSort):
                 tmp = a[j-1]
                 a[j-1] = a[j]
                 a[j] = tmp
-                print a
+                # print (a)
     return a
+
 arr = [5, 0, 10, 4, 1, 5, 8, 4, 3, 12, 41]
-print bubble_sort(arr)
+
+print (bubble_sort(arr))
 </content>
 <print>
 [1, 2, 2, 3, 3, 4, 5, 5, 24, 34, 43]
@@ -3158,7 +3102,6 @@ print (MergerSort(arr))
 [1, 2, 2, 3, 3, 4, 5, 5, 24, 34, 43]
 </print>
 </item> 
-
 
 <item>
 <id>82</id>
@@ -3310,6 +3253,7 @@ myfile = open('C:\\new\\text.dat', 'w')
 <title>Длина строки - len()</title>
 <content>
 str = 'abcd'
+
 print(len(str))
 </content>
 <print>
@@ -3324,6 +3268,7 @@ print(len(str))
 <title>Конкатенация строк</title>
 <content>
 str = 'abc'+'def'
+
 print(str)
 </content>
 <print>
@@ -3353,6 +3298,7 @@ h a c k e r
 <title>Поиск в строке</title>
 <content>
 myjob = 'hacker'
+
 print('k' in myjob)
 </content>
 <print>
@@ -3367,6 +3313,7 @@ true
 <title>Поиск в строке с возвратом позиции - find()</title>
 <content>
 myjob = 'hacker'
+
 print(myjob.find('k'))
 </content>
 <print>
@@ -3381,6 +3328,7 @@ print(myjob.find('k'))
 <title>Обращение к элементу строки по индексу</title>
 <content>
 s = 'python'
+
 print(s[0]+'  '+s[-2])
 </content>
 <print>
@@ -3395,6 +3343,7 @@ p  o
 <title>Срезы - извлечение подстроки</title>
 <content>
 s = 'python'
+
 print(s[1:3]+'  '+s[1:]+'  '+s[:-1])
 </content>
 <print>
@@ -3413,6 +3362,7 @@ yt  ython  pytho
 последовательности в диапазоне от 1 до 9
 '''
 s='learning_python'  
+
 print(s[1:10:2])
 </content>
 <print>
@@ -3431,6 +3381,7 @@ erigp
 последовательности в диапазоне от -2 до 1
 '''
 s = 'learning_python'
+
 print(s[-2:1:-2])					
 </content>
 <print>
@@ -3445,8 +3396,11 @@ nhy_nna
 <title>Пребразование из/в строку</title>
 <content>
 s = int(""42""),str(17),float('1.5')
+
 print(s)
+
 s = '1.234E-10'
+
 print(float(s))
 </content>
 <print>
@@ -3462,6 +3416,7 @@ print(float(s))
 <title>Преобразование одиночного символав его целочисленный код ASCII</title>
 <content>
 a = ord('s')
+
 print(a)
 </content>
 <print>
@@ -3476,6 +3431,7 @@ print(a)
 <title>Преобразование ASCII кода в символ</title>
 <content>
 a = chr(115)
+
 print(a)
 </content>
 <print>
@@ -3491,6 +3447,7 @@ s
 <content>
 s = 'python'
 s = s.replace('py', 'kivy')
+
 print(s)
 </content>
 <print>
@@ -3535,6 +3492,7 @@ That is 1 dead bird!
 <content>
 l = {'n':1, 'x':'spam'}
 str = '%(n)d %(x)s'
+
 print(str % l)
 </content>
 <print>
@@ -3554,6 +3512,7 @@ Hello %(name)s!
 Your age squared is %(age)s
 '''
 values = {'name': 'Bob', 'age': 40} 
+
 print (reply % values)
 </content>
 <print>
@@ -3570,6 +3529,7 @@ Your age squared is 40
 <title>Спецификаторы формата</title>
 <content>
 x = 1234
+
 print("integers: ...%d...%6d...%-6d...%06d" % (x, x, x, x))
 </content>
 <print>
@@ -3584,6 +3544,7 @@ integers: ...1234...  1234...1234  ...001234
 <title>Спецификаторы формата(2)</title>
 <content>
 x = 1.23456789
+
 print('%e | %f | %g' % (x, x, x))
 </content>
 <print>
@@ -3598,6 +3559,7 @@ print('%e | %f | %g' % (x, x, x))
 <title>Спецификаторы формата(3)</title>
 <content>
 x = 1.23456789
+
 print('%-6.2f|%05.2f|%+06.1f' % (x, x, x))
 </content>
 <print>
@@ -3625,6 +3587,7 @@ That is 1 dead bird!
 <title>Метод форматирования строки(2) - format()</title>
 <content>
 template = '{0}, {1} and {2}'
+
 print(template.format('spam', 'ham', 'eggs'))
 </content>
 <print>
@@ -3639,6 +3602,7 @@ spam, ham and eggs
 <title>Метод форматирования строки(3) - format()</title>
 <content>
 template = '{motto}, {pork} and {food}'
+
 print(template.format(motto = 'spam', pork = 'ham', food = 'eggs'))
 </content>
 <print>
@@ -3654,8 +3618,11 @@ spam, ham and eggs
 <content>
 import sys
 str = 'My {1[spam]} runs {0.platform}'.format(sys, {'spam': 'laptop'})
+
 print(str)
+
 str = 'My {config[spam]} runs {sys.platform}'.format(sys = sys,config = {'spam': 'laptop'})
+
 print(str)
 </content>
 <print>
@@ -3671,8 +3638,11 @@ My laptop runs win32
 <title>Метод форматирования строки(5) - format()</title>
 <content>
 l = list('SPAM')
+
 print('first = {0[0]}, third = {0[2]}'.format(l))
+
 parts = l[0], l[-1], l[1:3]
+
 print('first = {0}, last = {1}, middle = {2}'.format(*parts))
 </content>
 <print>
@@ -3688,6 +3658,7 @@ first = S, last = M, middle = ['P', 'A']
 <title>Метод форматирования строки - выравнивание</title>
 <content>
 import sys
+
 print('|{0.platform:&gt;10}| = |{1[item]:&lt;10}|'.format(sys, dict(item = 'laptop')))
 </content>
 <print>
@@ -3732,6 +3703,7 @@ print('{:,.2f}'.format(296999.2567))
 <title>Длина строки - len()</title>
 <content>
 str = 'hello'
+
 print(len(str))
 </content>
 <print>
@@ -3746,6 +3718,7 @@ print(len(str))
 <title>Вставка кавычек и апострофов в строку</title>
 <content>
 str = "first\"s",'second\'s'
+
 print(str)
 </content>
 <print>
@@ -3761,6 +3734,7 @@ print(str)
 <content>
 s = 'spammy'
 l = list(s)
+
 print(l)
 </content>
 <print>
@@ -3779,6 +3753,7 @@ l = list(s)
 l[3] = 'x'
 l[4] = 'x'
 s = ''.join(l)
+
 print(s)
 </content>
 <print>
@@ -3793,6 +3768,7 @@ spaxxy
 <title>Строка-разделитель - join()</title>
 <content>
 s = '-|-'.join(['I','like','python'])
+
 print(s)
 </content>
 <print>
@@ -3821,6 +3797,7 @@ print(line.split(','))
 <title>Удаление пустых символов с конца строки - rstrip()</title>
 <content>
 line="The knights who say Ni!\n"
+
 print(line.rstrip())
 </content>
 <print>
@@ -3835,6 +3812,7 @@ The knights who say Ni!
 <title>Пребразование символов в заглавные - upper()</title>
 <content>
 line="The knights who say Ni!\n"
+
 print(line.upper())
 </content>
 <print>
@@ -3849,6 +3827,7 @@ THE KNIGHTS WHO SAY NI!
 <title>Проверка символов на принадлежность к буквам - isalpha()</title>
 <content>
 line="The knights who say Ni!\n"
+
 print(line.isalpha())
 </content>
 <print>
@@ -3863,8 +3842,10 @@ False
 <title>Проверка окончания строки - endswith()</title>
 <content>
 line="The knights who say Ni!\n"
+
 print(line.endswith('Ni!\n'))
 #Выполняется быстрее
+
 print(line[-4:] == "Ni!\n")
 </content>
 <print>
@@ -3881,9 +3862,12 @@ True
 <content>
 line="The knights who say Ni!\n"
 line = line.translate({ord(c): None for c in '!@#$'})
+
 print(line)
+
 import re
 line = re.sub('[!@#$]', '', line)
+
 print(line)
 </content>
 <print>
@@ -3899,8 +3883,10 @@ The knights who say Ni
 <title>Проверка начала строки - startswith()</title>
 <content>
 line="The knights who say Ni!\n"
+
 print(line.startswith('The'))
 #Выполняется быстрее
+
 print(line[:3]=="The")
 </content>
 <print>
@@ -3928,8 +3914,10 @@ print(s1 == s2)
 являются ли сравниваемые объекты одним и тем же объектом (то есть расположены ли они по одному и тому же адресу в памяти).
 '''
 print(s1 is s2)
+
 s3 = 'abc'
 s4 = 'adc'
+
 print(s1 > s2)
 </content>
 <print>
@@ -3954,6 +3942,7 @@ S = 'Bugger all down here on earth!'
 B = b'Bugger all down here on earth!' 
 a = re.match('(.*) down (.*) on (.*)', S).groups() 
 b = re.match(b'(.*) down (.*) on (.*)', B).groups() 
+
 print(a)
 print(b)
 </content>
@@ -4004,6 +3993,7 @@ import datetime
 now = datetime.datetime.now()
 today = now.date()
 moment = now.time()
+
 print(now) 
 print(today)
 print(moment)
@@ -4026,6 +4016,7 @@ import datetime
 today = datetime.date.today()
 moment = datetime.datetime.now().time()
 now = datetime.datetime.combine(today, moment)
+
 print(now)
 print(today)
 print(moment)
@@ -4048,6 +4039,7 @@ import datetime
 today = datetime.date.today()
 yesterday = today - datetime.timedelta(1)
 delta = yesterday - today
+
 print(today)
 print(yesterday)
 print(delta)
@@ -4068,8 +4060,11 @@ print(delta)
 <content> 
 import datetime
 my_date = datetime.date(1984, 6, 24)
+
 print(my_date)
+
 my_date = datetime.date(day=24, year=1984, month=6)
+
 print(my_date)
 </content>
 <print>
@@ -4087,10 +4082,15 @@ print(my_date)
 <content> 
 import datetime
 my_time = datetime.time()
+
 print(my_time)
+
 my_time = datetime.time(1,34) # Час, Минута
+
 print(my_time)
+
 my_time = datetime.time(hour=2, minute=15)
+
 print(my_time)
 </content>
 <print>
@@ -4109,9 +4109,12 @@ print(my_time)
 <content> 
 import datetime
 datetime = datetime.datetime.now()
+
 print(datetime)
+
 another_datetime = datetime.replace(year=2014, month=1, day=10,
                                     hour=10, minute=20, second=15)
+
 print(another_datetime)
 </content>
 <print>
@@ -4129,12 +4132,17 @@ print(another_datetime)
 <content> 
 import datetime
 epoch = datetime.datetime.utcfromtimestamp(0)
+
 print(epoch)
+
 # 60 секунд с начала 
 epoch = datetime.datetime.utcfromtimestamp(60)
+
 print(epoch)
+
 # 1000 000 секунд с начала
 epoch = datetime.datetime.utcfromtimestamp(1000000)
+
 print(epoch)
 </content>
 <print>
@@ -4155,12 +4163,19 @@ import datetime
 now = datetime.datetime.now()
 epoch = datetime.datetime.utcfromtimestamp(0)
 delta = now - epoch
+
 print(delta)
+
 days = delta.days
+
 print(days)
+
 seconds = delta.seconds	# секунды с 00:00:00 текущего дня
+
 print(seconds)
+
 total_seconds = delta.total_seconds()
+
 print(total_seconds)
 </content>
 <print>
@@ -4181,6 +4196,7 @@ print(total_seconds)
 import datetime
 string_date = '2017-05-28'
 my_date = datetime.date(*[int(i) for i in string_date.split("-")])
+
 print(my_date)
 </content>
 <print>
@@ -4198,13 +4214,13 @@ print(my_date)
 import datetime
 my_date = datetime.datetime.now()
 string_date =  my_date.strftime('%m / %d / %Y ')
+
 print(string_date)
 </content>
 <print>
 05 / 28 / 2017
 </print>
 </item> 
-
 
 <item>
 <id>144</id>
@@ -4286,7 +4302,6 @@ timedelta 	Представляет разность между двумя зн�
 <print>
 </print>
 </item>
-
 
 <item>
 <id>147</id>
@@ -4389,12 +4404,17 @@ timedelta 	Представляет разность между двумя зн�
 t = ()	
 # Кортеж из одного элемента
 t = (0,)	
+
 print(t)
+
 # Кортеж из 4-х элементов
 t = (0, 'HI', 1.2, 3)	
+
 print(t)
+
 # Кортеж из 4-х элементов
 t = 0, 'HI', 1.2, 3		
+
 print(t)
 </content>
 <print>
@@ -4412,6 +4432,7 @@ print(t)
 <content> 
 t1 = (1, 2)
 t2 = (3, 4)
+
 print(t1 + t2)
 </content>
 <print>
@@ -4426,6 +4447,7 @@ print(t1 + t2)
 <title>Повторение кортежей</title>
 <content> 
 t1 = (1, 2)
+
 print(t1 * 2)
 </content>
 <print>
@@ -4440,6 +4462,7 @@ print(t1 * 2)
 <title>Индексирование,извлечение среза</title>
 <content> 
 t = (1, 2, 3, 4)
+
 print(t[0])
 print(t[1:3])
 </content>
@@ -4456,10 +4479,13 @@ print(t[1:3])
 <title>Методы кортежей - index(), count()</title>
 <content> 
 T = (1, 2, 4, 2, 4, 2) 
+
 # Первое вхождение находится в позиции 2
 print(T.index(2)) 
+
 # Следующее вхождение за позицией 2
 print(T.index(2, 2)) 
+
 # Определить количество 4 в кортеже
 print(T.count(4)) 
 </content>
@@ -4481,12 +4507,17 @@ t = ('cc', 'aa', 'dd', 'bb')
 tmp = list(t) 
 # Отсортировать списка
 tmp.sort() 
+
 print(tmp)
+
 # Создать кортеж из элементов списка
 t1 = tuple(tmp) 
+
 print(t1)
+
 # Или использовать встроенную функцию sorted
 t2 = sorted(t)  
+
 print(t2) 
 </content>
 <print>
@@ -4506,9 +4537,12 @@ X = (1, 2)
 Y = (3, 4)
 # Упаковать кортежи: возвратит итерируемый объект
 L = list(zip(X, Y)) 
+
 print(L)
+
 # Распаковать упакованные кортежи!
 A, B = zip(*zip(X, Y)) 
+
 print(A)
 print(B)
 </content>
@@ -4519,40 +4553,55 @@ print(B)
 </print>
 </item> 
 
-
 <item>
 <id>160</id>
-<menu>Разное</menu>
-<submenu>Базовые операции</submenu>
-<title>Таймер</title>
+<menu>Время</menu>
+<submenu>Таймеры</submenu>
+<title>Таймер для измерения времени операции</title>
 <content> 
 import time
+
 def timer(func, *pargs, **kargs):
     start = time.clock()
     ret = func(*pargs, **kargs)
     elapsed = time.clock() - start
     return (elapsed, ret)
+
+
 # Использование
+
 import sys
 reps = 1000000
 repslist = range(reps) 
+
+
 def forLoop():
     res = []
     for x in repslist:
         res.append(abs(x))
     return res
+
+	
 def listComp():
     return [abs(x) for x in repslist]
+
+	
 def mapCall():
     return list(map(abs, repslist))    
+
+	
 def genExpr():
     return list(abs(x) for x in repslist) 
+
+	
 def genFunc():
     def gen():
         for x in repslist:
             yield abs(x)
     return list(gen())
+
 print(sys.version)
+
 for test in (forLoop, listComp, mapCall, genExpr, genFunc):
     elapsed, result = timer(test)
     print('-' *33)
@@ -4577,7 +4626,7 @@ for test in (forLoop, listComp, mapCall, genExpr, genFunc):
 <item>
 <id>161</id>
 <menu>Разное</menu>
-<submenu>Базовые операции</submenu>
+<submenu>shelve/picke</submenu>
 <title>pickle</title>
 <content> 
 '''
@@ -4587,16 +4636,22 @@ for test in (forLoop, listComp, mapCall, genExpr, genFunc):
 '''
 class someClass:
     name = 'someClassName'
+
 import pickle
+
 filename = 'data.txt'
 object = someClass()
+
 # Создать внешний файл
 file   = open(filename, 'wb') 
+
 # Сохранить объект в файле
 pickle.dump(object, file)     
 file = open(filename, 'rb')
+
 # Позднее извлечь обратно
 object = pickle.load(file)
+
 print(object)
 </content>
 <print>
@@ -4607,22 +4662,28 @@ print(object)
 <item>
 <id>162</id>
 <menu>Разное</menu>
-<submenu>Базовые операции</submenu>
+<submenu>shelve/picke</submenu>
 <title>shelve</title>
 <content> 
 class someClass:
     name = 'someClassName'
+
     def __str__(self):
         return str(self.__class__) + ' ' + self.name
+
+
 import shelve
 filename = 'data.txt'
 object = someClass()
 dbase  = shelve.open('filename')
+
 # Сохранить под ключом key
 dbase['key'] = object          
 dbase  = shelve.open('filename')
+
 # Позднее извлечь обратно
 object = dbase['key'] 
+
 print(object)
 </content>
 <print>
@@ -4704,6 +4765,7 @@ print(object)
 <title>Создание словаря</title>
 <content> 
 d = {'one': 1, 'two': 2, 'three': 3}
+
 print(d)
 print(dict([('one', 1), ('two', 2), ('three', 3)]))
 print(dict('one' = 1, 'two' = 2, 'three' = 3))
@@ -4724,6 +4786,7 @@ print(dict(one = 1, two = 2,three = 3))
 <title>Извлечение по ключу</title>
 <content> 
 d = {'one': 1, 'two': 2, 'three': 3}
+
 print(d['two'])
 </content>
 <print>
@@ -4738,6 +4801,7 @@ print(d['two'])
 <title>Создание списка ключей</title>
 <content> 
 d = {'one': 1, 'two': 2, 'three': 3}
+
 print(list(d.keys()))
 </content>
 <print>
@@ -4752,6 +4816,7 @@ print(list(d.keys()))
 <title>Проверка на вхождение</title>
 <content> 
 d = {'one': 1, 'two': 2, 'three': 3}
+
 print('two' in d)
 </content>
 <print>
@@ -4767,6 +4832,7 @@ True
 <content> 
 d = {'one': 1, 'two': 2, 'three': 3}
 d['one'] = ['four', 'five']
+
 print(d)
 </content>
 <print>
@@ -4782,6 +4848,7 @@ print(d)
 <content> 
 d = {'one': 1, 'two': 2, 'three': 3}
 del d['two']
+
 print(d)
 </content>
 <print>
@@ -4797,6 +4864,7 @@ print(d)
 <content> 
 d = {'one': 1, 'two': 2, 'three': 3}
 d['four'] = 4
+
 print(d)
 </content>
 <print>
@@ -4812,6 +4880,7 @@ print(d)
 <content> 
 d = {'one': 1, 'two': 2, 'three': 3}
 l = list(d.values())
+
 print(l)
 </content>
 <print>
@@ -4826,6 +4895,7 @@ print(l)
 <title>Метод - items()</title>
 <content> 
 d = {'one': 1, 'two': 2, 'three': 3}
+
 print(d.items()))
 </content>
 <print>
@@ -4844,6 +4914,7 @@ None
 d = {'one': 1, 'two': 2, 'three': 3}
 e = {'four': 4, 'five': 5, 'six': 6}
 d.update(e)
+
 print(d)
 </content>
 <print>
@@ -4858,6 +4929,7 @@ print(d)
 <title>Удаление и возврат значения - pop()</title>
 <content> 
 d = {'one': 1, 'two': 2, 'three': 3}
+
 print(d.pop('one'))
 print(d)
 </content>
@@ -4879,6 +4951,7 @@ m={}
 m[(2, 3, 4)]=88
 m[(7, 8, 9)]=99
 x=2;y=3;z=4
+
 print(m[(x, y, z)])
 print(m)
 </content>
@@ -4896,9 +4969,12 @@ print(m)
 <content> 
 # Объединить ключи и значения
 L=list(zip(['a', 'b', 'c'], [1, 2, 3]))  
+
 print(L)
+
 # Создать словарь из результата
 D = dict(L)
+
 print(D)
 </content>
 <print>
@@ -4913,8 +4989,11 @@ print(D)
 <title>Инициализация с помощью fromkeys</title>
 <content>
 d = dict.fromkeys(['a', 'b', 'c'],0)
+
 print(d)
+
 d = dict.fromkeys('spam')
+
 print(d)
 </content>
 <print>
@@ -4930,8 +5009,11 @@ print(d)
 <title>Инициализация с помощью генератора</title>
 <content> 
 d =  {k: None for k in 'spam'}
+
 print(d)
+
 d = dict.fromkeys('spam')
+
 print(d)
 </content>
 <print>
@@ -4950,6 +5032,7 @@ d =  {'a': 1, 'b': 2, 'c': 3}
 k = list(d.keys())
 v = list(d.values())
 i = list(d.items())
+
 print(k)
 print(v)
 print(i)
@@ -4970,6 +5053,7 @@ dict_items([('a', 1), ('b', 2), ('c', 3)])
 import json
 path = r'path to file'
 records = [json.loads(line) for line in open(path)]
+
 print(records[0]["some json key in file"])
 </content>
 <print>
@@ -4984,6 +5068,7 @@ print(records[0]["some json key in file"])
 <content> 
 D1 = {'a': 1, 'b': 2}
 D2 = {'a': 1, 'b': 3}
+
 print(D1 == D2)
 print(sorted(D1.items()) &lt; sorted(D2.items()))
 </content>
@@ -5002,23 +5087,25 @@ True
 m={}
 m[(2, 3, 4)]=88
 m[(7, 8, 9)]=99
+
 if(2, 3, 6) in m:
 	print(m[(2, 3, 6)])
 else:
 	print ("if/else")
+
 try:
 	print(m[(2, 3, 6)])
 except KeyError:
 	print("try/except")
-	
-print(m.get((2, 3, 4),"m.get()"))
-print(m.get((2, 3, 6),"m.get()"))
+
+print("m.get(2, 3, 4) = ", m.get((2, 3, 4)))
+print("m.get(2, 3, 6) = ", m.get((2, 3, 6)))
 </content>
 <print>
 if/else
 try/except
-88
-m.get()
+m.get(2, 3, 4) =  88
+m.get(2, 3, 6) =  None
 </print>
 </item> 
 
@@ -5051,6 +5138,7 @@ c 1
 l = [1,2,3]
 n = ['one','two','three']
 d=dict(zip(l, n))
+
 print(d)
 </content>
 <print>
@@ -5067,8 +5155,10 @@ print(d)
 d =  {'a': 1, 'b': 2, 'c': 3}
 if 'c' in d:
 	print('present', d['c'])
+
 print(d.get('c'))
 print(d.get('d'))
+
 if d.get('c') != None:
 	print('present',d['c'])
 </content>
@@ -5079,7 +5169,6 @@ None
 present 3
 </print>
 </item> 
-
 
 <item>
 <id>190</id>
@@ -5286,8 +5375,10 @@ class FormatError(Exception):
 	def logerror(self):
         log = open(self.logfile, 'a')
 		print('Error at', self.file, self.line, file=log)
+
 def parser():
     raise FormatError(40, 'spam.txt')
+
 try:
     parser()
 except FormatError as exc:
@@ -5298,7 +5389,6 @@ except FormatError as exc:
 Error at spam.txt 40
 </print>
 </item> 
-
 
 <item>
 <id>199</id>
@@ -5311,7 +5401,6 @@ onlyfiles = [f for f in listdir(path_to_folder) if isfile(join(path, f))]
 <print>
 </print>
 </item>
-
 
 <item>
 <id>200</id>
@@ -5365,7 +5454,6 @@ onlyfiles = [f for f in listdir(path_to_folder) if isfile(join(path, f))]
 </print>
 </item> 
 
-
 <item>
 <id>204</id>
 <menu>Файлы</menu>
@@ -5374,20 +5462,29 @@ onlyfiles = [f for f in listdir(path_to_folder) if isfile(join(path, f))]
 <content> 
 # Открывает файл (создает/очищает)
 myfile = open('myfile.txt', 'w') 
+
 # Записывает строку текста
 myfile.write('hello text file\n') 
 myfile.write('goodbye text file\n')
+
 # Выталкивает выходные буферы на диск
 myfile.close() 
+
 # Открывает файл: 'r' – по умолчанию
 myfile = open('myfile.txt')
+
 # Читает строку 
 str = myfile.readline() 
+
 print(str)
+
 str1 = myfile.readline()
+
 print(str1)
+
 # Пустая строка: конец файл
 str2 = myfile.readline() 
+
 print(str2)
 </content>
 <print>
@@ -5404,6 +5501,7 @@ goodbye text file
 <content> 
 # Прочитать файл целиком в строку
 str = open('myfile.txt').read() 
+
 print(str)
 </content>
 <print>
@@ -5442,16 +5540,21 @@ X, Y, Z = 43, 44, 45
 S = 'Spam' 
 D = {'a': 1, 'b': 2}
 L = [1, 2, 3]
+
 # Создает файл для записи
 F = open('datafile.txt', 'w')
+
 # Строки завершаются символом \n
 F.write(S + '\n') 
+
 # Преобразует числа в строки
 F.write('%s,%s,%s\n' % (X, Y, Z))
+
 # Преобразует и разделяет символом $
 F.write(str(L) + '$' + str(D) + '\n') 
 F.close()
 F = open('datafile.txt').read()
+
 print(F)
 </content>
 <print>
@@ -5469,20 +5572,30 @@ Spam
 <content> 
 # Открыть файл
 F = open('datafile.txt')
+
 # Прочитать одну строку
 line = F.readline()         
+
 print(line)
+
 line = F.readline()
+
 # Разбить на подстроки по запятым и преобразовать в список целых чисел
 l = [int(x) for x in line.split(',')]
+
 print(l)
 line = F.readline()
+
 # Разбить на строки по символу $
 m = line.split('$')        
+
 # Преобразовать строку в объект 
 l = eval(m[0])             
+
 print(l)
+
 d = eval(m[1])
+
 print(d)
 </content>
 <print>
@@ -5501,13 +5614,17 @@ Spam
 <content> 
 D = {'a': 1, 'b': 2}
 F = open('datafile.txt', 'wb')
+
 import pickle
+
 # Модуль pickle запишет в файл любой объект
 pickle.dump(D, F)   
 F.close()
 F = open('datafile.txt', 'rb')
+
 # Загружает любые объекты из файла
 E = pickle.load(F)  
+
 print(E)
 </content>
 <print>
@@ -5519,23 +5636,27 @@ print(E)
 <id>210</id>
 <menu>Файлы</menu>
 <submenu>Базовые операции</submenu>
-<title>Сохранение и интерпретация
-упакованных двоичных данных в файлах
+<title>Сохранение и интерпретация упакованных двоичных данных в файлах
 </title>
 <content> 
 import struct
+
 # Открыть файл для записи в двоичном режиме
 F = open('data.bin', 'wb') 
 values = (1, 5, 2.7,2.5,b'hgf')
+
 # формат 2 int,2 float,строка из 3-х символов
 data = struct.pack('&lt;2i2f3s',*values)    
+
 # Записать строку байтов
 F.write(data) 
 F.close()
 F = open('data.bin', 'rb')
+
 # Получить упакованные двоичные данные
 data = F.read() 
 values = struct.unpack('&lt;2i2f3s', data)
+
 print(values)
 </content>
 <print>
@@ -5550,8 +5671,10 @@ spam...99...['eggs']|..
 <title>Перенаправление потока в файл</title>
 <content> 
 import sys
+
 # Перенаправить вывод в файл
 sys.stdout = open('log.txt', 'a') 
+
 while True:
     reply =input()
     print(reply)
@@ -5568,13 +5691,16 @@ while True:
 <title>Посимвольное чтение файла</title>
 <content> 
 x, y, z = 'spam', 99, ['eggs']
+
 print(x, y, z, sep='...', end='|..\n',file=open('data.txt', 'w'))
 file = open('data.txt')
+
 while True:
 	# Читать по одному символу
     char = file.read(1)
     if not char: break
     print(char, end='')
+
 for char in open('data.txt').read():
     print(char, end='')
 </content>
@@ -5591,8 +5717,10 @@ spam...99...['eggs']|..
 <title>Чтение файла построчно</title>
 <content> 
 x, y, z = 'spam', 99, ['eggs']
+
 print(x, y, z, sep='...', end='|..\n',file=open('data.txt', 'w'))
 file = open('data.txt')
+
 while True:
 	# Читать строку за строкой
     line = file.readline() 
@@ -5600,7 +5728,9 @@ while True:
 	
 	# Прочитанная строка уже содержит символ \n
     print(line, end=' ')   
+
 file = open('data.txt', 'rb')
+
 while True:
 	# Читать блоками по 10 байтов
     chunk = file.read(10)  
@@ -5622,15 +5752,16 @@ b'|..\r\n'
 <title>Чтение файла построчно</title>
 <content> 
 x, y, z = 'spam', 99, ['eggs']
+
 print(x, y, z, sep='...', end='|..\n',file=open('data.txt', 'w'))
 '''
 Метод файлов readlines загружает файл целиком в список строк, тогда как при использовании итератора файла в каждой итерации загружается только одна строка
 '''
+
 for line in open('data.txt').readlines():
     print(line, end='')
 '''
-Использование итератора: лучший способ
-чтения текста
+Использование итератора: лучший способ чтения текста
 '''
 for line in open('data.txt'): 	
     print(line, end='') 		
@@ -5640,7 +5771,6 @@ spam...99...['eggs']|..
 spam...99...['eggs']|..
 </print>
 </item>
-
 
 <item>
 <id>215</id>
@@ -5708,7 +5838,6 @@ lambda – это выражение, а не инструкция. По это�
 </print>
 </item> 
 
-
 <item>
 <id>220</id>
 <menu>Pandas</menu>
@@ -5721,7 +5850,6 @@ result =pd.read_taЫe('ch06/ex3.txt',  sep='\s+')
 </print>
 </item>
 
-
 <item>
 <id>221</id>
 <menu>Pandas</menu>
@@ -5733,7 +5861,6 @@ pd.read_csv('ch06/ex4.csv',skiprows=[0,2,3])
 <print>
 </print>
 </item>
-
 
 <item>
 <id>222</id>
@@ -5750,7 +5877,6 @@ pd.read_csv('ch06/ex6.csv', chunksize=l000)
 <print>
 </print>
 </item>
-
 
 <item>
 <id>223</id>
@@ -5774,7 +5900,6 @@ data.to_csv(sys.stdout,index=False, cols=['a', 'b',  'с'))
 </print>
 </item>
 
-
 <item>
 <id>224</id>
 <menu>Pandas</menu>
@@ -5789,7 +5914,6 @@ One-dimensional array-like object containing an array of data (of any NumPy data
 <print>
 </print>
 </item>
-
 
 <item>
 <id>225</id>
@@ -5809,7 +5933,6 @@ Can think of Series as a fixed-length, ordered dict. Series can be substitued in
 <print>
 </print>
 </item>
-
 
 <item>
 <id>226</id>
@@ -5848,7 +5971,6 @@ series2 = series1.unique()
 </print>
 </item>
 
-
 <item>
 <id>227</id>
 <menu>Pandas</menu>
@@ -5874,14 +5996,11 @@ Tabular data structure with ordered collections of columns, each of which can be
 dict1 = {'state': ['Ohio', 'CA'], 'year': [2000, 2010]}
 df1 = pd.DataFrame(dict1)
 
-
 # columns are placed in sorted order 
 df1 = pd.DataFrame(dict1,index = ['row1', 'row2']))
 
-
 # specifying index
 df1 = pd.DataFrame(dict1,columns = ['year', 'state'])
-
 
 # columns are placed in your given order (from nested dict of dicts) 
 # The inner keys as row indices
@@ -5904,7 +6023,6 @@ df1 = pd.DataFrame(dict1)
 df1.columns
 df1.index
 
-
 # Get Name Attribute (None is default)
 df1.columns.name
 df1.index.name
@@ -5913,24 +6031,19 @@ df1.index.name
 df1.values
 # returns the data as a 2D ndarray, the dtype will be chosen to accomandate all of the columns
 
-
 # Get Column as Series ** 
 df1['state'] or df1.state
-
 
 # Get Row as Series **
 df1.ix['row2'] or df1.ix[1]
 **  
 Data returned is a ‘view’ on the underlying data, NOT a copy. Thus, any in-place modificatons to the data will be reflected in df1.
 
-
 # Assign a column that doesn’t exist will create a new column
 df1['eastern'] = df1.state == 'Ohio'
 
-
 # Delete a column 
 del df1['eastern']
-
 
 # Switch Columns and Rows
 df1.T
@@ -5962,8 +6075,6 @@ series1['b']
 # Inner Level
 series1[:, 2] 
 
-
-
 # DF Partial Indexing
 df1['outerCol3','InnerCol2']               
 Or
@@ -5975,7 +6086,6 @@ df1['outerCol3']['InnerCol2']
 </print>
 </item>
 
-
 <item>
 <id>231</id>
 <menu>Pandas</menu>
@@ -5983,17 +6093,14 @@ df1['outerCol3']['InnerCol2']
 <title>
 Swaping and Sorting Levels
 
-
 #Swap Level (level interchanged) *
 swapSeries1 = series1.swaplevel('key1', 'key2')
 * 
 The order of the rows do not change. Only the two levels got swapped.
 
-
 # Sort Level
 # sorts according to first inner level
 series1.sortlevel(1) 
-
 
 # Common Ops : Swap and Sort **
 series1.swaplevel(0, 1).sortlevel(0)
@@ -6016,10 +6123,8 @@ Data selection performance is much better if the index is sorted starting with t
 Summary Statistics by Level
 # Most stats functions in DF or Series have a “level” option that you can specify the level you want on an axis. 
 
-
 # Sum rows (that have same ‘key2’ value)
 df1.sum(level = 'key2')
-
 
 # Sum columns ..
 df1.sum(level = 'col3', axis = 1)
@@ -6041,7 +6146,7 @@ DataFrame’s Columns as Indexes
 
 New DF using columns as index
 df2 = df1.set_index(['col3', 'col4']) * 
-‡
+
 # col3 becomes the outermost index, col4 becomes inner index. Values of col3, col4 become the index values.
 # By default, 'col3' and 'col4' will be removed from the DF, though you can leave them by option : 'drop = False'
 
@@ -6063,7 +6168,6 @@ Missing  DATA
 ---Use pd.isnull(),pd.notnull() or series1/df1.isnull() to detect missing data. 
 
 dropna() returns with ONLY non-null data, source data NOT modified.
-
 
 # drop any row containing missing value
 df1.dropna() 
@@ -6094,10 +6198,8 @@ df1.dropna(thresh = 3)
 <title>
 FILLING IN MISSING DATA
 
-
 # fill all missing data with 0 
 df2 = df1.fillna(0)    
-
 
 # modify in-place
 df1.fillna('inplace = True') 
@@ -6126,20 +6228,16 @@ with the value from 2, NOT 5 and 6.
 <title>
 INDEXING (SLICING/SUBSETTING)
 
-
 # Index by Column(s)
 df1['col1']            
 df1[ ['col1', 'col3'] ]
-
 
 #Index by Row(s)
 df1.ix['row1']          
 df1.ix[ ['row1', 'row3'] ] 
 
-
 # Index by Both Column(s) and Row(s)
 df1.ix[['row2', 'row1'], 'col3']
-
 
 # Boolean Indexing
 df1[ [True, False] ]
@@ -6153,7 +6251,6 @@ df1[df1['col2'] > 6] *
 </print>
 </item>
 
-
 <item>
 <id>237</id>
 <menu>Pandas</menu>
@@ -6161,12 +6258,10 @@ df1[df1['col2'] > 6] *
 <title>
 DROPPING ROWS/COLUMNS
 
-
 # Drop operation returns a new object (i.e. DF) :
 # Remove Row(s) (axis = 0 is default) 
 df1.drop('row1')            
 df1.drop(['row1', 'row3'])
-
 
 # Remove Column(s)
 df1.drop('col2', axis = 1) 
@@ -6176,7 +6271,6 @@ df1.drop('col2', axis = 1)
 <print>
 </print>
 </item>
-
 
 <item>
 <id>238</id>
@@ -6190,22 +6284,17 @@ Create a new object with rearraging data conformed to a new index, introducing m
 # Change df1 Date Index Values to the New Index Values 
 date_index = pd.date_range('01/23/2010', periods = 10, freq = 'D')
 
-
 # (ReIndex default is row index) 
 df1.reindex(date_index)
-
 
 # Replace Missing Values (NaN) with 0
 df1.reindex(date_index, fill_value = 0) 
 
-
 # ReIndex Columns
 df1.reindex(columns = ['a', 'b'])
 
-
 # ReIndex Both Rows and Columns
 df1.reindex(index = [..], columns = [..])
-
 
 # Succinct ReIndex
 df1.ix[[..], [..]]
@@ -6226,11 +6315,9 @@ ARITHMETIC AND DATA ALIGNMENT
  
 • df1 + df2 : For indices that don’t overlap, internal data alignment introduces NaN
 
-
 # Instead of NaN, replace with 0 for the indice that is not found in th df :   
 df1.add(df2, fill_value = 0)    
-
-     
+   
 # Useful Operations :   
 df1 - df1.ix[0] 
 # subtract every row in df1 by first row
@@ -6240,7 +6327,6 @@ df1 - df1.ix[0]
 <print>
 </print>
 </item>
-
 
 <item>
 <id>240</id>
@@ -6254,23 +6340,18 @@ sort_index() returns a new, sorted object. Default is “ascending = True”.
 Row index are sorted by default, “axis = 1” is used for sorting column.
 Sorting Index/Column means sort the row/column labels, not sorting the data.
 
-
 Sort Data 
 Missing values (np.nan) are sorted to the end of the Series by default
-
 
 # Series Sorting
 sortedS1 = series1.order()
 
-
 # In-place sort
 series1.sort() 
-
 
 DF Sorting
 # sort by col2 first then col1
 df1.sort_index(by = ['col2', 'col1']) 
-
 
 Ranking 
 Break rank ties by assigning each tie-group the mean rank. (e.g. 3, 3 are tie as the 5th place; thus, the result is 5.5 for each)
@@ -6319,7 +6400,6 @@ df1.applymap(f)
 </print>
 </item>
 
-
 <item>
 <id>242</id>
 <menu>Pandas</menu>
@@ -6331,17 +6411,14 @@ GROUPBY (SPLIT-APPLY-COMBINE)
 # Compute Group Mean       
 df1.groupby('col2').mean()
 
-
 # GroupBy More Than One Key
 # result in hierarchical index consisting of unique pairs of keys
 df1.groupby([df1['col2'], df1['col3']]).mean()
-
 
 # “GroupBy” Object :(ONLY computed intermediate data about the group key - df1['col2']
 grouped = df1['col1'].groupby(df1['col2'])
 # gets the mean of each group formed by 'col2'
 grouped.mean() 
-
 
 # Indexing “GroupBy” Object       
 # select ‘col1’ for aggregation : 
@@ -6352,7 +6429,6 @@ df1['col1'].groupby(df1['col2'])
 Note
 Any missing values in the group are excluded 
 from the result
-
 
 
 1. Iterating over GroupBy object
@@ -6402,10 +6478,8 @@ grouped.agg(func1)
 # Get DF with Column Names as Fuction Names
 grouped.agg([mean, std])
 
-
 # Get DF with Self-Defined Column Names 
 grouped.agg([('col1', mean), ('col2', std)])
-
 
 # Use Different Fuction Depending on the Column   
 grouped.agg({'col1' : [min, max], 'col3' : sum})
@@ -6441,7 +6515,6 @@ returns = close_price.pct_change().dropna()
 by_year = returns.groupby(lambda x : x.year) 
 spx_corr = lambda x : x.corrwith(x['SPX'])by_year.apply(spx_corr)
 
-
 # Example 2 : Exploratory Regression
 import statsmodels.api as sm
 def regress(data, y, x):
@@ -6468,7 +6541,6 @@ COMBINING AND MERGING DATA
 
 1. pd.merge() akadatabase “join” : connects rows in DF based on one or more keys.
 
-
 Merge via Column (Common)
 df3  = pd.merge(df1, df2, on = 'col2') * 
 # INNER join is default Or use option : how = 'outer/left/right'
@@ -6476,18 +6548,15 @@ df3  = pd.merge(df1, df2, on = 'col2') *
 Use ALL overlapping column names as the keys to merge. Good practice is to specify the keys :on = [‘col2’, ‘col3’]
 If different key name in df1 and df2, use option : left_on=’lkey’, right_on=’rkey’
 
-
 Merge via Row (Uncommon)
 df3 = pd.merge(df1, df2, left_index = True, right_index = True)
 # Use indexes as merge key : aka rows with same index 
 value are joined together
 
-
 2. pd.concat(): glues or stacks objects along an axis (default is along “rows : axis = 0”)
 df3 = pd.concat([df1, df2], ignore_index = True) 
 # ignore_index = True : Discard indexes in df3
 # If df1 has 2 rows, df2 has 3 rows, then df3 has 5 rows
-
 
 3. combine_first(): combine data with overlap, patching missing value.
 df3 = df1.combine_first(df2) 
@@ -6498,7 +6567,6 @@ df3 = df1.combine_first(df2)
 <print>
 </print>
 </item>
-
 
 <item>
 <id>246</id>
@@ -6531,7 +6599,6 @@ pivotedDf2  = df1.pivot('date', 'stock_name', 'price')
 </print>
 </item>
 
-
 <item>
 <id>247</id>
 <menu>Pandas</menu>
@@ -6546,7 +6613,6 @@ series1 = df1.duplicated()
 # Duplicates has been dropped in df2 
 df2  = df1.drop_duplicates()
 
-
 2.  Add New Column Based On Value of Column(s)
 
 # Maps col2 value as dict1‘s key, gets dict1‘s value
@@ -6554,7 +6620,6 @@ df1['newCol'] = df1['col2'].map(dict1)
 
 # Apply a function to each col2 value
 df1['newCol'] = df1['col2'].map(func1)  
-
 
 3. Replacing Values
 
@@ -6568,7 +6633,6 @@ df2 = df1.replace([-1, np.nan], [1, 2])
 # Argument Can Be a Dict As Well
 df2 = df1.replace({-1: 1, np.nan : 2})
 
-
 4. Renaming Axis Indexes
 
 # Convert Index to Upper Case
@@ -6577,7 +6641,6 @@ df1.index = df1.index.map(str.upper)
 # Rename ‘row1’ to ‘newRow1’
 df2 = df1.rename(index = {'row1' : 'newRow1'}, columns = str.upper) 
 # Optionally inplace = True
-
 
 5. Discretization and Binning
 • Continuous data is often discretized into “bins” for analysis.
@@ -6595,7 +6658,6 @@ cat = pd.cut(array1, numofBins)
 # Bins the data based on sample quantiles - roughly equal-size bins
 cat = pd.qcut(array1, numofBins)
 
-
 6. Detecting and Filtering Outliers
 • any() test along an axis if any element is “True”. 
 Default is test along column (axis = 0).
@@ -6606,11 +6668,9 @@ df1[(np.abs(df1) > 3).any(axis = 1)]
 # Another useful function : 
 np.sign() returns 1 or -1.
 
-
 7. Permutation and Random Sampling
 randomOrder = np.random.permutation(df1.shape[0]) 
 df2 = df1.take(randomOrder)
-
 
 8. Computing Indicator/Dummy Variables
 • If a column in DF has “K” distinct values, derive a “indicator” DF containing K columns of 0s and 1s.1 means exist, 0 means NOT exist
@@ -6655,7 +6715,6 @@ df1.to_csv(filepath/sys.stdout, sep = ',')
 <print>
 </print>
 </item>
-
 
 <item>
 <id>249</id>
@@ -6738,7 +6797,6 @@ CORRELATION AND COVARIANCE
 • cov(), corr()
 • corrwith() - pairwise correlations : aka compute a DF with a Series. If input is not Series, but another DF, it will compute the correlations of matching column names. i.e. returns.corrwith(volumes)
 
-
 # Example : Correlation 
 import pandas_datareader.data as web
 data = {}
@@ -6768,7 +6826,6 @@ TIME SERIES
 • Pandas data type for date and time : “Timestamp”. *
 “datetime” is widely used, it stores both the date and time down to microsecond.“Timestamp” object can be substituted anywhere you would use “datetime” object.
 
-
 # Convert String to DateTime
 from datetime import datetime
 datetime.strptime('8/8/2008','%m/%d/%Y')
@@ -6780,7 +6837,6 @@ now = datetime.now()
 from datetime import timedelta
 # Timedelta represents temporal difference between two datetime objects.
 datetime(2011, 1, 8) + timedelta(12) => 2011-01-20
-
 
 # Convert String to Pandas Timestamp Type
 timestamps = pd.to_datetime(['8/8/2008', ..])
@@ -6810,8 +6866,6 @@ ts1 = pd.Series(..., index = pd.date_range('1/1/2000', periods = 1000))
 # ts1.index is "DatetimeIndex" Panda class
 
 Index value ts1.index[0] is Panda “Timestamp” object which stores timestamp using NumPy’s “datetime64” type at the nanoseond resolution.  Further, Timestamp class stores the frequency information as well as timezone.ts1.index.dtype => datetime64[ns]
-
-
 Indexing (Slicing/Subsetting)
 Argument can be a string date, datetime or Timestamp. 
 
@@ -6827,8 +6881,6 @@ ts1['1/1/2001':'8/1/2001']
 
 # Select From 2001-01-08 On
 ts1[datetime(2001, 1, 8):]
-
-
 
 Common Operations
 
@@ -6862,7 +6914,6 @@ ts1.resample('D', how = ..)
 freq = '4H'                
 freq = '1h30min'
 
-
 2. Generating Date Ranges
 
 # Default Frequency is Daily
@@ -6870,21 +6921,17 @@ pd.date_range(begin, end)
 pd.date_range(begin or end, periods = n)
 # Option freq = 'BM' means last business day at end of the month 
 
-
 3. Shifting (Leading and Lagging) Data
 • Shifting refers to moving data backward and forward through time. 
 • Series and DF “shift()” does naive shift, aka index does not shift, only value. *
 
-
 # ts1 is Daily Data
 ts1.shift(1) 
-
 
 # move yesterday’s value to today, today value to tomorrow, etc.
 # ts1 is Any Time Series Data. Shift Data By 3 Days
 ts1.shift(3, freq = 'D') 
 ts1.shift(1, freq = '3D')
-
 
 # Common Use of Shift : To Computer % Change
 ts1 / ts.shift(1) - 1
@@ -6920,7 +6967,6 @@ pytz.common_timezones
 # Get a Timezone Object
 pytz.timezone('US/Eastern')
 
-
 2. Localization and Conversion
 
 #Time Series By Default is Time Zone Naive
@@ -6935,11 +6981,9 @@ ts1_utc = ts1.tz_localize('UTC')
 # Convert to Another Time Zone Once Time Series Been Localized
 ts1_eastern = ts1_utc.tz_convert('US/Eastern')
 
-
 3. ** Time Zone-aware Timestamp Objects
 stamp_utc = pd.Timestamp('2008-08-08 03:00', tz = 'UTC')
 stamp_eastern = stamp_utc.tz_convert(...)
-
 
 # Panda’s Time Arithmetic - Daylight Savings Time Transitions Are Respected :
 stamp = pd.Timestamp('2012-11-04 00:30', tz = 'US/Eastern') => 2012-11-04-00:30:00 -400 EDT
@@ -7023,7 +7067,6 @@ px.ix['2008'].plot()
 </print>
 </item>
 
-
 <item>
 <id>259</id>
 <menu>Pandas</menu>
@@ -7066,12 +7109,16 @@ class Number:
         return Number(self.data - other)
 		# Результат – число
 		#return self.data - other 
+		
 # Number.__init__(X, 5)
 X = Number(5)
+
 # Number.__sub__(X, 2) 
 Y = X - 2 
+
 # Y - новый экземпляр класса Number
 print(Y.data) 
+
 # Результат – число
 #print(X - 2) 
 </content>
@@ -7090,18 +7137,24 @@ class Number:
 	# Вызов Number(start)
     def __init__(self, start):           
         self.data = start
+		
+		
 	# Выражение: экземпляр - other
     def __sub__(self, other):            
 		# Результат – новый экземпляр
         #return Number(self.data - other.data)
 		# Результат – число
         return self.data - other.data 	 
+		
+		
 # Number.__init__(X, 5)
 X = Number(5) 
 Y = Number(3)
 Z = X - Y
+
 # Z - новый экземпляр класса Number
 #print(Z.data)	
+
 # Результат – число
 print(X - Y)	
 </content>
@@ -7119,6 +7172,7 @@ print(X - Y)
 class Iters:
     def __init__(self, value):
         self.data = value
+		
 	'''
 	Крайний случай для итераций
 	А также для индексирования и срезов
@@ -7126,6 +7180,7 @@ class Iters:
     def __getitem__(self, i):           
         print('get[%s]:' % i, end='')   
         return self.data[i]
+		
 	'''
 	Предпочтительный для итераций
 	Возможен только 1 активный итератор
@@ -7134,6 +7189,8 @@ class Iters:
         print('iter=> ', end='')        
         self.ix = 0
         return self
+		
+		
     def __next__(self):
         print('next:', end='')
         if self.ix == len(self.data): raise StopIteration
@@ -7145,20 +7202,27 @@ class Iters:
     def __contains__(self, x):         
         print('contains: ', end='')
         return x in self.data
+		
+		
 # Создать экземпляр
-X = Iters([1, 2, 3, 4, 5])             
+X = Iters([1, 2, 3, 4, 5])   
+          
 # Проверка на вхождение
-print(3 in X)                          
+print(3 in X)        
+                  
 for i in X:                            
     print(i, end=' | ')
+	
 print()
 print([i ** 2 for i in X])             
 print( list(map(bin, X)) )
+
 '''
 Обход вручную (именно так действуют
 другие итерационные контексты)
 '''
-I = iter(X)                             
+I = iter(X)   
+                          
 while True:                             
     try:
         print(next(I), end=' @ ')
@@ -7196,13 +7260,18 @@ class Privacy:
     def __getattr__(self, item):    
         print('Getting: ' + item)    
         return item
+		
+		
     def __str__(self):
         return str(self.age)+ ' '+ self.name
+		
 class Test1(Privacy):
     pass
+	
 x = Test1()
 x.age = 40
 x.name = 'Bob'
+
 print(x)
 print(x.new_attr)
 </content>
@@ -7227,28 +7296,32 @@ class adder:
 	# Инициализировать атрибут data
     def __init__(self, value=0):
         self.data = value 
-'''
-__repr__ используется везде, за исключением функций print и st
-Однако, если метод __str__ отсутствует, операции вывода будут
-использовать метод __repr__, но не наоборот
-'''
+	'''
+	__repr__ используется везде, за исключением функций print и st
+	Однако, если метод __str__ отсутствует, операции вывода будут
+	использовать метод __repr__, но не наоборот
+	'''
 	class addrepr(adder): # Наследует __init__, __add__
 	
 	# Добавляет строковое представление
 	def __repr__(self): 
-		
 		# Преобразует в строку программного кода
         return 'addrepr(%s)' % self.data 
-                                            
+                          
+						  
 	# есть __str__, но нет __repr__
     # def __str__(self):  
 		# Преобразовать в красивую строку
     #     return '[Value: % s]' % self.data  
+	
 # Формат отображения по умолчанию
 x = adder() 
+
 print(x)
+
 # Вызовет __init__
 x = addrepr(2)
+
 # Вызовет __str__ , если нет __str__ вызовет __repr__ 
 print(x) 
 </content>
@@ -7277,10 +7350,13 @@ class Number:
 		# Обычно возвращает self
         return self
 		
+		
 x = Number(5)
 x += 1
 x += 1
+
 print(x.val)
+
 class Number:
     def __init__(self, val):
         self.val = val
@@ -7288,9 +7364,12 @@ class Number:
 	# __add__ - как крайнее средство: x=(x + y)
 	def __add__(self, other): 
         return Number(self.val + other) 
+		
+		
 x = Number(5)
 x += 1
 x += 1
+
 print(x.val)
 </content>
 <print>
@@ -7311,12 +7390,18 @@ class C:
     def __gt__(self, other):
         print('__gt__')
         return self.data > other
+		
+		
     def __lt__(self, other):
         print('__lt__')
         return self.data &lt; other
+		
+		
 X = C()
+
 # Выведет True (вызовет __gt__)
-print(X > 'ham')               
+print(X > 'ham')             
+  
 # Выведет False (вызовет __lt__)
 print(X &lt; 'ham')               
 </content>
@@ -7354,7 +7439,9 @@ class Truth:
                             
                             
 X = Truth()
-if not X:print('Not X')
+if not X:
+	print('Not X')
+
 print(len(X))
 </content>
 <print>
@@ -7402,34 +7489,51 @@ Goodbye Brian
 class AbstractFactory(object):
     def create_drink(self):
         raise NotImplementedError()
+		
     def create_food(self):
         raise NotImplementedError()
+		
+		
 class Drink(object):
     def __init__(self, name):
         self._name = name
+		
     def __str__(self):
         return self._name
+		
+		
 class Food(object):
     def __init__(self, name):
         self._name = name
+		
     def __str__(self):
         return self._name
+		
+		
 class ConcreteFactory1(AbstractFactory):
     def create_drink(self):
         return Drink('Coca-cola')
+		
     def create_food(self):
         return Food('Hamburger')
+		
+		
 class ConcreteFactory2(AbstractFactory):
     def create_drink(self):
         return Drink('Pepsi')
+		
     def create_food(self):
         return Food('Cheeseburger')
+		
+		
 def get_factory(ident):
     if ident == 0:
         return ConcreteFactory1()
     elif ident == 1:
         return ConcreteFactory2()
+		
 factory = get_factory(1)
+
 print (factory.create_drink()) 
 print (factory.create_food())
 </content>
@@ -7455,22 +7559,32 @@ Cheeseburger
 class Document(object):
     def show(self):
         raise NotImplementedError()
+		
+		
 class ODFDocument(Document):
     def show(self):
         print ('Open document format')
+		
+		
 class MSOfficeDocument(Document):
     def show(self):
         print ('MS Office document format')
+		
+		
 class Application(object):
     def create_document(self, type_):
         # параметризованный фабричный метод 
         raise NotImplementedError()
+		
+		
 class MyApplication(Application):
     def create_document(self, type_):
         if type_ == 'odf':
             return ODFDocument()
         elif type_ == 'doc':
             return MSOfficeDocument()
+			
+			
 app = MyApplication()
 app.create_document('odf').show() 
 app.create_document('doc').show() 
@@ -7498,12 +7612,17 @@ MS Office document format
 class Builder(object):
     def build_body(self):
         raise NotImplementedError()
+		
     def build_lamp(self):
         raise NotImplementedError()
+		
     def build_battery(self):
         raise NotImplementedError()
+		
     def create_flashlight(self):
         raise NotImplementedError()
+		
+		
 class Flashlight(object):
     """Карманный фонарик"""
     def __init__(self, body, lamp, battery):
@@ -7511,34 +7630,51 @@ class Flashlight(object):
         self._body = body
         self._lamp = lamp
         self._battery = battery
+		
     def on(self):
         self._shine = True
+		
     def off(self):
         self._shine = False
+		
     def __str__(self):
         shine = 'on' if self._shine else 'off'
         return 'Flashlight [%s]' % shine
+		
+		
 class Lamp(object):
     """Лампочка"""
+	
+	
 class Body(object):
     """Корпус"""
+	
+	
 class Battery(object):
     """Батарея"""
+	
+	
 class FlashlightBuilder(Builder):
     def build_body(self):
         return Body()
+		
     def build_battery(self):
         return Battery()
+		
     def build_lamp(self):
         return Lamp()
+		
     def create_flashlight(self):
         body = self.build_body()
         lamp = self.build_lamp()
         battery = self.build_battery()
         return Flashlight(body, lamp, battery)
+		
+		
 builder = FlashlightBuilder()
 flashlight = builder.create_flashlight()
 flashlight.on()
+
 print (flashlight) # Flashlight [on]
 </content>
 <print>
@@ -7561,22 +7697,32 @@ import copy
 class Prototype(object):
     def __init__(self):
         self._objects = {}
+		
     def register(self, name, obj):
         self._objects[name] = obj
+		
     def unregister(self, name):
         del self._objects[name]
+		
     def clone(self, name, attrs):
         obj = copy.deepcopy(self._objects[name])
         obj.__dict__.update(attrs)
         return obj
+		
+		
 class Bird(object):
     """Птица"""
+	
+	
 prototype = Prototype()
 prototype.register('bird', Bird())
 owl = prototype.clone('bird', {'name': 'Owl'})
+
 # class '__main__.Bird' Owl
 print (type(owl), owl.name)  
+
 duck = prototype.clone('bird', {'name': 'Duck'})
+
 # class '__main__.Bird' Duck
 print (type(duck), duck.name) 
 </content>
@@ -7603,19 +7749,28 @@ class SingletonMeta(type):
         # глобальная точка доступа `Singleton.get_instance()`
         cls.get_instance = classmethod(lambda c: c._instance)
         super(SingletonMeta, cls).__init__(*args, **kwargs)
+		
     def __call__(cls, *args, **kwargs):
         if not cls._instance:
             cls._instance = super(SingletonMeta, cls).__call__(*args, **kwargs)
         return cls._instance
+		
+		
 class Singleton(object):
     __metaclass__ = SingletonMeta
     def __init__(self, name):
         self._name = name
+		
     def get_name(self):
         return self._name
+		
+		
 obj1 = Singleton('MyInstance 1')
+
 print (obj1.get_name())  # MyInstance 1
+
 obj2 = Singleton('MyInstance 2')
+
 print (obj2.get_name())  # MyInstance 1
 print (obj1 is obj2 is Singleton.get_instance()) 
 </content>
@@ -7640,13 +7795,19 @@ True
 class Dog(object):
     def __init__(self, name):
         self._name = name
+		
     def bark(self):
         return '%s: гав-гав!' % self._name
+		
+		
 class Cat(object):
     def __init__(self, name):
         self._name = name
+		
     def meow(self):
         return '%s: мяу-мяу!' % self._name
+		
+		
 class CatAdapter(Dog):
     '''
 	благодаря адаптеру мы можем использовать
@@ -7655,12 +7816,18 @@ class CatAdapter(Dog):
     def __init__(self, name):
         super(CatAdapter, self).__init__(name=name)
         self._cat = Cat(name=name)
+		
     def bark(self):
         # запрос `bark` преобразуется в запрос `meow`
         return self._cat.meow()
+		
+		
 dog = Dog('Spike')
+
 print (dog.bark())  
+
 dog = CatAdapter('Spike')
+
 print (dog.bark())</content>
 <print>
 Spike: woof-woof!
@@ -7683,38 +7850,53 @@ class TVBase(object):
     """Абстрактный телевизор"""
     def tune_channel(self, channel):
         raise NotImplementedError()
+		
 class SonyTV(TVBase):
     """Телевизор Sony"""
     def tune_channel(self, channel):
         print('Sony TV: выбран %d канал' % channel)
+		
+		
 class SharpTV(TVBase):
     """Телевизор Sharp"""
     def tune_channel(self, channel):
         print('Sharp TV: выбран %d канал' % channel)
+		
+		
 class RemoteControlBase(object):
     """Абстрактный пульт управления"""
     def __init__(self):
         self._tv = self.get_tv()
+		
     def get_tv(self):
         raise NotImplementedError()
+		
     def tune_channel(self, channel):
         self._tv.tune_channel(channel)
+		
+		
 class RemoteControl(RemoteControlBase):
     """Пульт управления"""
     def __init__(self):
         super(RemoteControl, self).__init__()
         self._channel = 0  # текущий канал
+		
     def get_tv(self):
         return SharpTV()
+		
     def tune_channel(self, channel):
         super(RemoteControl, self).tune_channel(channel)
         self._channel = channel
+		
     def next_channel(self):
         self._channel += 1
         self.tune_channel(self._channel)
+		
     def previous_channel(self):
         self._channel -= 1
         self.tune_channel(self._channel)
+		
+		
 remote_control = RemoteControl()
 remote_control.tune_channel(5)  # Sharp TV: выбран 5 канал
 remote_control.next_channel() # Sharp TV: выбран 6 канал
@@ -7740,37 +7922,54 @@ Sharp TV: выбран 6 канал
 class Graphic(object):
     def draw(self):
         raise NotImplementedError()
+		
     def add(self, obj):
         raise NotImplementedError()
+		
     def remove(self, obj):
         raise NotImplementedError()
+		
     def get_child(self, index):
         raise NotImplementedError()
+		
+		
 class Line(Graphic):
     def draw(self):
         print ('Линия')
+		
+		
 class Rectangle(Graphic):
     def draw(self):
         print ('Прямоугольник')
+		
+		
 class Text(Graphic):
     def draw(self):
         print ('Текст')
+		
+		
 class Picture(Graphic):
     def __init__(self):
         self._children = []
+		
     def draw(self):
         print ('Изображение')
         # вызываем отрисовку у вложенных объектов
         for obj in self._children:
             obj.draw()
+			
     def add(self, obj):
         if isinstance(obj, Graphic) and not obj in self._children:
             self._children.append(obj)
+			
     def remove(self, obj):
         index = self._children.index(obj)
         del self._children[index]
+		
     def get_child(self, index):
         return self._children[index]
+		
+		
 pic = Picture()
 pic.add(Line())
 pic.add(Rectangle())
@@ -7803,17 +8002,24 @@ class Man(object):
     """Человек"""
     def __init__(self, name):
         self._name = name
+		
     def say(self):
         print ('Привет! Меня зовут %s!' % self._name)
+		
+		
 class Jetpack(object):
     """Реактивный ранец"""
     def __init__(self, man):
         self._man = man
+		
     def __getattr__(self, item):
         return getattr(self._man, item)
+		
     def fly(self):
         # расширяем функциональность объекта добавляя возможность летать
         print ('%s летит на реактивном ранце!' % self._man._name)
+		
+		
 man = Man('Виктор')
 man_jetpack = Jetpack(man)
 man_jetpack.say()  # Привет! Меня зовут Виктор!
@@ -7840,27 +8046,36 @@ class Paper(object):
     """Бумага"""
     def __init__(self, count):
         self._count = count
+		
     def get_count(self):
         return self._count
+		
     def draw(self, text):
         if self._count > 0:
             self._count -= 1
             print (text)
+			
+			
 class Printer(object):
     """Принтер"""
     def error(self, msg):
         print ('Error: %s' % msg)
+		
     def print_(self, paper, text):
         if paper.get_count() > 0:
             paper.draw(text)
         else:
             self.error('Paper is over')
+			
 class Facade(object):
     def __init__(self):
         self._printer = Printer()
         self._paper = Paper(1)
+		
     def write(self, text):
         self._printer.print_(self._paper, text)
+		
+		
 f = Facade()
 f.write('Hello world!')
 f.write('Hello world!') 
@@ -7886,8 +8101,10 @@ class Color(object):
     """Приспособленец"""
     def __init__(self, name):
         self._name = name
+		
     def __str__(self):
         return self._name
+		
 class ColorFactory(object):
     """Фабрика приспособленцев"""
     _colors = weakref.WeakValueDictionary()
@@ -7898,6 +8115,8 @@ class ColorFactory(object):
             value = Color(name)
             cls._colors[name] = value
         return value
+		
+		
 class Placemark(object):
     """Метка на карте"""
     def __init__(self, latitude, longitude, color_name):
@@ -7906,11 +8125,16 @@ class Placemark(object):
         self._longitude = longitude
         # цвет - внешнее состояние которое может быть общим у разных меток
         self._color = ColorFactory.get_color(color_name)
+		
+		
     def __str__(self):
         args = (self._color, self._latitude, self._longitude)
         return 'Color: %s; Coordinates: (%0.4f, %0.4f)' % args
+		
+		
 plmrk0 = Placemark(-74.007121, 40.714551, 'green')  # Нью-Йорк
 plmrk1 = Placemark(37.617761, 55.755773, 'green')  # Москва
+
 print (plmrk0)  # Цвет: green; Координаты: (-74.0071, 40.7146)
 print (plmrk1)  # Цвет: green; Координаты: (37.6178, 55.7558)
 print (plmrk0._color is plmrk1._color) # True
@@ -7939,29 +8163,39 @@ class ImageBase(metaclass=ABCMeta):
     def create(cls, width, height):
         """Создает изображение"""
         return cls(width, height)
+		
     @abstractmethod
     def draw(self, x, y, color):
         """Рисует точку заданным цветом"""
         raise NotImplementedError()
+		
     @abstractmethod
     def fill(self, color):
         """Заливка цветом"""
         raise NotImplementedError()
+		
     @abstractmethod
     def save(self, filename):
         """Сохраняет изображение в файл"""
         raise NotImplementedError()
+		
+		
 class Image(ImageBase):
     """Изображение"""
     def __init__(self, width, height):
         self._width = int(width)
         self._height = int(height)
+		
     def draw(self, x, y, color):
         print ('Drawing dot; coordinates: (%d, %d); color: %s' % (x, y, color))
+		
     def fill(self, color):
         print ('Fill color %s' % color)
+		
     def save(self, filename):
         print ('Saving image in %s' % filename)
+		
+		
 class ImageProxy(ImageBase):
     """
     Заместитель изображения.
@@ -7970,16 +8204,20 @@ class ImageProxy(ImageBase):
     def __init__(self, *args, **kwargs):
         self._image = Image(*args, **kwargs)
         self.operations = []
+		
     def draw(self, *args):
         func = partial(self._image.draw, *args)
         self.operations.append(func)
+		
     def fill(self, *args):
         func = partial(self._image.fill, *args)
         self.operations.append(func)
+		
     def save(self, filename):
         # выполняем все операции над изображением
         list(map(lambda f: f(), self.operations))
         self._image.save(filename)
+		
 img = ImageProxy(200, 200)
 img.fill('gray')
 img.draw(0, 0, 'green')
@@ -8014,21 +8252,29 @@ class HttpHandler(object):
     """Абстрактный класс обработчика"""
     def handle(self, code):
         raise NotImplementedError()
+		
+		
 class Http404Handler(HttpHandler):
     """Обработчик для кода 404"""
     def handle(self, code):
         if code == 404:
             return 'Page not found'
+			
+			
 class Http500Handler(HttpHandler):
     """Обработчик для кода 500"""
     def handle(self, code):
         if code == 500:
             return 'Server error'
+			
+			
 class Client(object):
     def __init__(self):
         self._handlers = []
+		
     def add_handler(self, h):
         self._handlers.append(h)
+		
     def response(self, code):
         for h in self._handlers:
             msg = h.handle(code)
@@ -8037,6 +8283,8 @@ class Client(object):
                 break
         else:
             print ('Response not handled')
+			
+			
 client = Client()
 client.add_handler(Http404Handler())
 client.add_handler(Http500Handler())
@@ -8066,28 +8314,43 @@ Response: Server error
 class Light(object):
     def turn_on(self):
         print ('Light on')
+		
     def turn_off(self):
         print ('Light off')
+		
+		
 class CommandBase(object):
     def execute(self):
         raise NotImplementedError()
+		
+		
 class LightCommandBase(CommandBase):
     def __init__(self, light):
         self.light = light
+		
+		
 class TurnOnLightCommand(LightCommandBase):
     def execute(self):
         self.light.turn_on()
+		
+		
 class TurnOffLightCommand(LightCommandBase):
     def execute(self):
         self.light.turn_off()
+		
+		
 class Switch(object):
     def __init__(self, on_cmd, off_cmd):
         self.on_cmd = on_cmd
         self.off_cmd = off_cmd
+		
     def on(self):
         self.on_cmd.execute()
+		
     def off(self):
         self.off_cmd.execute()
+		
+		
 light = Light()
 switch = Switch(on_cmd=TurnOnLightCommand(light),
                 off_cmd=TurnOffLightCommand(light))
@@ -8124,6 +8387,7 @@ class RomanNumeralInterpreter(object):
             'D': 500,
             'M': 1000
         }
+		
     def interpret(self, text):
         numbers = list(map(self.grammar.get, text))  # строки в значения
         if None in numbers:
@@ -8138,7 +8402,10 @@ class RomanNumeralInterpreter(object):
                 result += (num - temp * 2)
             temp = num
         return result
+		
+		
 interp = RomanNumeralInterpreter()
+
 print (interp.interpret('MMMCMXCIX') == 3999)  # True
 print (interp.interpret('MCMLXXXVIII') == 1988) # True
 </content>
@@ -8166,53 +8433,70 @@ class IteratorBase(object):
         """Возвращает первый элемент коллекции.
         Если элемента не существует возбуждается исключение IndexError."""
         raise NotImplementedError()
+		
     def last(self):
         """Возвращает последний элемент коллекции.
         Если элемента не существует возбуждается исключение IndexError."""
         raise NotImplementedError()
+		
     def next(self):
         """Возвращает следующий элемент коллекции"""
         raise NotImplementedError()
+		
     def prev(self):
         """Возвращает предыдущий элемент коллекции"""
         raise NotImplementedError()
+		
     def current_item(self):
         """Возвращает текущий элемент коллекции"""
         raise NotImplementedError()
+		
     def is_done(self, index):
         """Возвращает истину если элемент с указанным индексом существует, иначе ложь"""
         raise NotImplementedError()
+		
     def get_item(self, index):
         """Возвращает элемент коллекции с указанным индексом, иначе возбуждает исключение IndexError"""
         raise NotImplementedError()
+		
+		
 class Iterator(IteratorBase):
     def __init__(self, list_=None):
         self._list = list_ or []
         self._current = 0
+		
     def first(self):
         return self._list[0]
+		
     def last(self):
         return self._list[-1]
+		
     def current_item(self):
         return self._list[self._current]
+		
     def is_done(self, index):
         last_index = len(self._list) - 1
         return 0  &lt;= index &lt;= last_index
+		
     def next(self):
         self._current += 1
         if not self.is_done(self._current):
             self._current = 0
         return self.current_item()
+		
     def prev(self):
         self._current -= 1
         if not self.is_done(self._current):
             self._current = len(self._list) - 1
         return self.current_item()
+		
     def get_item(self, index):
         if not self.is_done(index):
             raise IndexError('There is no element with such index: %d' % index)
         return self._list[index]
+		
 it = Iterator(['one', 'two', 'three', 'four', 'five'])
+
 print ([it.prev() for i in range(5)])  
 print ([it.next() for i in range(5)]) 
 </content>
@@ -8238,37 +8522,54 @@ print ([it.next() for i in range(5)])
 class WindowBase(object):
     def show(self):
         raise NotImplementedError()
+		
     def hide(self):
         raise NotImplementedError()
+		
 class MainWindow(WindowBase):
     def show(self):
         print ('Show MainWindow')
+		
     def hide(self):
         print ('Hide MainWindow')
+		
+		
 class SettingWindow(WindowBase):
     def show(self):
         print ('Show SettingWindow')
+		
     def hide(self):
         print ('Hide SettingWindow')
+		
+		
 class HelpWindow(WindowBase):
     def show(self):
         print ('Show HelpWindow')
+		
     def hide(self):
         print ('Hide HelpWindow')
+		
+		
 class WindowMediator(object):
     def __init__(self):
         self.windows = dict.fromkeys(['main', 'setting', 'help'])
+		
     def show(self, win):
         for window in self.windows.values():
             if not window is win:
                 window.hide()
         win.show()
+		
     def set_main(self, win):
         self.windows['main'] = win
+		
     def set_setting(self, win):
         self.windows['setting'] = win
+		
     def set_help(self, win):
         self.windows['help'] = win
+		
+		
 main_win = MainWindow()
 setting_win = SettingWindow()
 help_win = HelpWindow()
@@ -8277,9 +8578,13 @@ med.set_main(main_win)
 med.set_setting(setting_win)
 med.set_help(help_win)
 main_win.show()
+
 print('-'*10)
+
 med.show(setting_win)
+
 print('-'*10)
+
 med.show(help_win)
 </content>
 <print>
@@ -8311,36 +8616,54 @@ class Memento(object):
     """Хранитель"""
     def __init__(self, state):
         self._state = state
+		
     def get_state(self):
         return self._state
+		
+		
 class Caretaker(object):
     """Опекун"""
     def __init__(self):
         self._memento = None
+		
     def get_memento(self):
         return self._memento
+		
     def set_memento(self, memento):
         self._memento = memento
+		
+		
 class Originator(object):
     """Создатель"""
     def __init__(self):
         self._state = None
+		
     def set_state(self, state):
         self._state = state
+		
     def get_state(self):
         return self._state
+		
     def save_state(self):
         return Memento(self._state)
+		
     def restore_state(self, memento):
         self._state = memento.get_state()
+		
+		
 originator = Originator()
 caretaker = Caretaker()
 originator.set_state('on')
+
 print ('Originator state:', originator.get_state())  # Originator state: on
+
 caretaker.set_memento(originator.save_state())
 originator.set_state('off')
+
 print ('Originator change state:', originator.get_state())  # Originator change state: off
+
 originator.restore_state(caretaker.get_memento())
+
 print ('Originator restore state:', originator.get_state()) # Originator restore state: on
 </content>
 <print>
@@ -8368,33 +8691,45 @@ class Subject(object):
     def __init__(self):
         self._data = None
         self._observers = set()
+		
     def attach(self, observer):
         # подписаться на оповещение
         if not isinstance(observer, ObserverBase):
             raise TypeError()
         self._observers.add(observer)
+		
     def detach(self, observer):
         # отписаться от оповещения
         self._observers.remove(observer)
+		
     def get_data(self):
         return self._data
+		
     def set_data(self, data):
         self._data = data
         self.notify(data)
+		
     def notify(self, data):
         # уведомить всех наблюдателей о событии
         for observer in self._observers:
             observer.update(data)
+			
+			
 class ObserverBase(object):
     """Абстрактный наблюдатель"""
     def update(self, data):
         raise NotImplementedError()
+		
+		
 class Observer(ObserverBase):
     """Наблюдатель"""
     def __init__(self, name):
         self._name = name
+		
     def update(self, data):
         print ('%s: %s' % (self._name, data))
+		
+		
 subject = Subject()
 subject.attach(Observer('Observer 1'))
 subject.attach(Observer('Observer 2'))
@@ -8422,21 +8757,31 @@ class LampStateBase(object):
     """Состояние лампы"""
     def get_color(self):
         raise NotImplementedError()
+		
+		
 class GreenLampState(LampStateBase):
     def get_color(self):
         return 'Green'
+		
+		
 class RedLampState(LampStateBase):
     def get_color(self):
         return 'Red'
+		
+		
 class BlueLampState(LampStateBase):
     def get_color(self):
         return 'Blue'
+		
+		
 class Lamp(object):
     def __init__(self):
         self._current_state = None
         self._states = self.get_states()
+		
     def get_states(self):
         return [GreenLampState(), RedLampState(), BlueLampState()]
+		
     def next_state(self):
         if self._current_state is None:
             self._current_state = self._states[0]
@@ -8448,9 +8793,11 @@ class Lamp(object):
                 index = 0
             self._current_state = self._states[index]
         return self._current_state
+		
     def light(self):
         state = self.next_state()
         print (state.get_color())
+		
 lamp = Lamp()
 [lamp.light() for i in range(3)]
 </content>
@@ -8477,18 +8824,26 @@ class ImageDecoder(object):
     @staticmethod
     def decode(filename):
         raise NotImplementedError()
+		
+		
 class PNGImageDecoder(ImageDecoder):
     @staticmethod
     def decode(filename):
         print ('PNG decode')
+		
+		
 class JPEGImageDecoder(ImageDecoder):
     @staticmethod
     def decode(filename):
         print ('JPEG decode')
+		
+		
 class GIFImageDecoder(ImageDecoder):
     @staticmethod
     def decode(filename):
         print ('GIF decode')
+		
+		
 class Image(object):
     @classmethod
     def open(cls, filename):
@@ -8503,9 +8858,12 @@ class Image(object):
             raise RuntimeError('Can not decode file %s' % filename)
         byterange = decoder.decode(filename)
         return cls(byterange, filename)
+		
     def __init__(self, byterange, filename):
         self._byterange = byterange
         self._filename = filename
+		
+		
 Image.open('picture.png')  
 Image.open('picture.jpg')  
 Image.open('picture.gif') 
@@ -8534,19 +8892,28 @@ class ExampleBase(object):
         self.step_one()
         self.step_two()
         self.step_three()
+		
     def step_one(self):
         raise NotImplementedError()
+		
     def step_two(self):
         raise NotImplementedError()
+		
     def step_three(self):
         raise NotImplementedError()
+		
+		
 class Example(ExampleBase):
     def step_one(self):
         print ('First step')
+		
     def step_two(self):
         print ('Second step')
+		
     def step_three(self):
         print ('Third step')
+		
+		
 example = Example()
 example.template_method()
 </content>
@@ -8578,22 +8945,35 @@ class FruitVisitor(object):
         }
         draw = methods.get(type(fruit), self.draw_unknown)
         draw(fruit)
+		
     def draw_apple(self, fruit):
         print ('Apple')
+		
     def draw_pear(self, fruit):
         print ('Pineapple')
+		
     def draw_unknown(self, fruit):
         print ('Friut')
+		
+		
 class Fruit(object):
     """Фрукты"""
     def draw(self, visitor):
         visitor.draw(self)
+		
+		
 class Apple(Fruit):
     """Яблоко"""
+	
+	
 class Pear(Fruit):
     """Груша"""
+	
+	
 class Banana(Fruit):
     """Банан"""
+	
+	
 visitor = FruitVisitor()
 apple = Apple()
 apple.draw(visitor)
@@ -8628,54 +9008,73 @@ class Blackboard(object):
             'contributions': [],
             'progress': 0   # percentage, if 100 -> task is finished
         }
+		
     def add_expert(self, expert):
         self.experts.append(expert)
+		
+		
 class Controller(object):
     def __init__(self, blackboard):
         self.blackboard = blackboard
+		
     def run_loop(self):
         while self.blackboard.common_state['progress'] %lt; 100:
             for expert in self.blackboard.experts:
                 if expert.is_eager_to_contribute:
                     expert.contribute()
         return self.blackboard.common_state['contributions']
+		
+		
 class AbstractExpert(object):
     __metaclass__ = abc.ABCMeta
     def __init__(self, blackboard):
         self.blackboard = blackboard
+		
     @abc.abstractproperty
     def is_eager_to_contribute(self):
         raise NotImplementedError('Must provide implementation in subclass.')
+		
     @abc.abstractmethod
     def contribute(self):
         raise NotImplementedError('Must provide implementation in subclass.')
+		
+		
 class Student(AbstractExpert):
     @property
     def is_eager_to_contribute(self):
         return True
+		
     def contribute(self):
         self.blackboard.common_state['problems'] += random.randint(1, 10)
         self.blackboard.common_state['suggestions'] += random.randint(1, 10)
         self.blackboard.common_state['contributions'] += [self.__class__.__name__]
         self.blackboard.common_state['progress'] += random.randint(1, 2)
+		
+		
 class Scientist(AbstractExpert):
     @property
     def is_eager_to_contribute(self):
         return random.randint(0, 1)
+		
     def contribute(self):
         self.blackboard.common_state['problems'] += random.randint(10, 20)
         self.blackboard.common_state['suggestions'] += random.randint(10, 20)
         self.blackboard.common_state['contributions'] += [self.__class__.__name__]
         self.blackboard.common_state['progress'] += random.randint(10, 30)
+		
+		
 class Professor(AbstractExpert):
     @property
     def is_eager_to_contribute(self):
         return True if self.blackboard.common_state['problems'] > 100 else False
+		
     def contribute(self):
         self.blackboard.common_state['problems'] += random.randint(1, 2)
         self.blackboard.common_state['suggestions'] += random.randint(10, 20)
         self.blackboard.common_state['contributions'] += [self.__class__.__name__]
         self.blackboard.common_state['progress'] += random.randint(10, 100)
+		
+		
 if __name__ == '__main__':
     blackboard = Blackboard()
     blackboard.add_expert(Student(blackboard))
@@ -8705,7 +9104,6 @@ pprint(contributions)
 </print>
 </item> 
 
-
 <item>
 <id>293</id>
 <menu>ООП</menu>
@@ -8717,12 +9115,15 @@ class C1():
 	# Присвоить: C1.setname
     def setname(self, who):     
 		# self – либо I1, либо I2
-        self.name = who         
+        self.name = who 
+        
 # Создать два экземпляра
 I1 = C1()                       
 I2 = C1()
+
 # Записать ‘bob’ в I1.name
-I1.setname('bob')               
+I1.setname('bob')        
+       
 # Записать ‘mel’ в I2.name
 I2.setname('mel')         
       
@@ -8745,6 +9146,7 @@ class SecondClass:
 	# Изменяет display
     def display(self):  
         print('Current value = " % s"' % self.data)
+		
 # Наследует SecondClass
 class ThirdClass(SecondClass): 
 	# Вызывается из ThirdClass(value)
@@ -8758,24 +9160,33 @@ class ThirdClass(SecondClass):
 	# Вызывается из print(self), str()
     def __str__(self): 
         return '[ThirdClass: %s]' % self.data
+		
 	# Изменяет сам объект: обычный метод
     def mul(self, other):  
         self.data *= other
+		
+		
 # Вызывается новый метод __init__
 a = ThirdClass('abc')
+
 # Унаследованный метод  
 a.display()  
 value = "abc"
+
 # __str__: возвращает строку
 print(a)  
+
 # Новый __add__: создается новый экземпляр
 b = a + 'xyz'  
 b.display()
 value = 'abcxyz'
+
 # __str__: возвращает строку
 print(b)  
+
 # mul: изменяется сам экземпляр
 a.mul(3)  
+
 print(a)
 </content>
 <print>
@@ -8795,8 +9206,11 @@ Current value = " abcxyz"
 <content> 
 class Rec: 
     pass
+	
+	
 Rec.name = 'name'
 y = Rec()
+
 print(y.name)
 </content>
 <print>
@@ -8812,19 +9226,27 @@ name
 <content> 
 class Rec:
     pass
+	
+	
 # функция вне класса
 def upperName(self):
     return self.name.upper()
+	
 # создаем атрибут
 Rec.name = 'name'
+
 # создаем экземпляр
 y = Rec()
+
 # присваиваем функцию атрибуту класса
 Rec.method = upperName
+
 # в каждом созданом экземплре будет атрибут name
 print(y.name)
+
 #теперь можно вызывать метод экземпляра
 print(y.method())
+
 #либо метод класса,передав ему экземпляр - self
 print(Rec.method(y))
 </content>
@@ -8868,15 +9290,21 @@ class Manager(Person):
 if __name__ == '__main__':
     bob = Person('Bob Smith')
     sue = Person('Sue Jones', job='dev', pay=100000)
+	
     print(bob)
     print(sue)
     print(bob.lastName(), sue.lastName())
+	
     sue.giveRaise(.10)
+	
     print(sue)
+	
 # Экземпляр Manager: __init__
 tom = Manager('Tom Jones', 'mgr', 50000)
+
 # Вызов адаптированной версии 
 tom.giveRaise(.10) 
+
 # Вызов унаследованного метода
 print(tom.lastName()) 
 print(tom)
@@ -8908,8 +9336,11 @@ class Person:
     
     def giveRaise(self, percent):
         self.pay = int(self.pay * (1 + percent))
+		
     def __str__(self):
             return '[Person: % s, % s]' % (self.name, self.pay)
+			
+			
 class Manager(Person):
 	# Переопределенный конструктор
     def __init__(self, name, pay):
@@ -8921,6 +9352,8 @@ class Manager(Person):
       
         def giveRaise(self, percent, bonus=.10):
             Person.giveRaise(self, percent + bonus)
+			
+			
 if __name__ == '__main__':
     bob = Person('Bob Smith')
     sue = Person('Sue Jones', job ='dev', pay = 100000)
@@ -8963,17 +9396,24 @@ class Class1(object):
 		
 		# Возбуждаем исключение с помощью assert
         #assert False, "assert - You need override method"
+		
+		
 # Наследуем абстрактный метод
 class Class2(Class1):      
 	# Переопределяем метод
     def test(self, x):     
         print(x)
+		
+		
 # Класс не переопределяет метод
 class Class3(Class1):      
     pass
+	
+	
 c2 = Class2()
 c2.test(50)               
 c3 = Class3()
+
 try:                       	
     c3.test(50)            
 except NotImplementedError as msg:
@@ -8999,14 +9439,20 @@ class Class1(metaclass=ABCMeta):
     @abstractmethod
     def test(self, x):     
         pass
+		
+		
 # Наследуем абстрактный метод
 class Class2(Class1):      
 	# Переопределяем метод
     def test(self, x):     
         print(x)
+		
+		
 # Класс не переопределяет метод
 class Class3(Class1):      
     pass
+	
+	
 c2 = Class2()
 c2.test(50)                
 c3 = Class3()
@@ -9028,27 +9474,40 @@ class Employee:
     def __init__(self, name, salary=0):
         self.name = name
         self.salary = salary
+		
     def giveRaise(self, percent):
         self.salary = self.salary + (self.salary * percent)
+		
     def work(self):
         print(self.name, 'does stuff')
+		
     def __repr__(self):
         return '&lt; Employee: name = % s, salary = % s >' % (self.name, self.salary)
+		
+		
 class Chef(Employee):
     def __init__(self, name):
         Employee.__init__(self, name, 50000)
+		
     def work(self):
         print(self.name, 'makes food')
+		
+		
 class Server(Employee):
     def __init__(self, name):
         Employee.__init__(self, name, 40000)
+		
     def work(self):
         print(self.name, 'interfaces with customer')
+		
+		
 class PizzaRobot(Chef):
     def __init__(self, name):
         Chef.__init__(self, name)
+		
     def work(self):
         print(self.name, 'makes pizza')
+		
 if __name__ == '__main__':
     bob = PizzaRobot('bob')
 	
@@ -9086,27 +9545,40 @@ class Employee:
     def __init__(self, name, salary=0):
         self.name = name
         self.salary = salary
+		
     def giveRaise(self, percent):
         self.salary = self.salary + (self.salary * percent)
+		
     def work(self):
         print(self.name, 'does stuff')
+		
     def __repr__(self):
         return '&lt; Employee: name = % s, salary = % s >' % (self.name, self.salary)
+		
 class Chef(Employee):
     def __init__(self, name):
         Employee.__init__(self, name, 50000)
+		
     def work(self):
         print(self.name, 'makes food')
+		
+		
 class Server(Employee):
     def __init__(self, name):
         Employee.__init__(self, name, 40000)
+		
     def work(self):
         print(self.name, 'interfaces with customer')
+		
+		
 class PizzaRobot(Chef):
     def __init__(self, name):
         Chef.__init__(self, name)
+		
     def work(self):
         print(self.name, 'makes pizza')
+		
+		
 class Customer:
     def __init__(self, name):
         self.name = name
@@ -9116,20 +9588,27 @@ class Customer:
         
     def pay(self, server):
         print(self.name, 'pays for item to', server)
+		
+		
 class Oven:
     def bake(self):
         print('oven bakes')
+		
+		
 class PizzaShop:
     def __init__(self):
         self.server = Server('Pat')        
         self.chef   = PizzaRobot('Bob')    
         self.oven  = Oven()
+		
     def order(self, name):
         customer = Customer(name)          
         customer.order(self.server)        
         self.chef.work()
         self.oven.bake()
         customer.pay(self.server)
+		
+		
 if __name__ == '__main__':
     scene = PizzaShop()                    
     scene.order('Homer')                   
@@ -9137,11 +9616,7 @@ if __name__ == '__main__':
     scene.order('Shaggy')                  
 	
 '''
-Класс PizzaShop – это контейнер и контроллер – это конструктор, который создает и встраивает экземпляры классов работников, а также экземпляры класса Oven.
-Когда вызываетcz метод order класса PizzaShop, встроенным объектам предлагается приступить к выполнению своих обязанностей. Для каждого клиента создается новый 
-экземпляр класса Customer и передаем встроенный объект Server(официант) методам класса Customer (клиент) – клиенты приходят и уходят,
-а официант остается частью пиццерии. Кроме того, работники по-прежнему вовлечены во взаимосвязи наследования –
-композиция и наследование – это взаимодополняющие инструменты.
+Класс PizzaShop – это контейнер и контроллер – это конструктор, который создает и встраивает экземпляры классов работников, а также экземпляры класса Oven.Когда вызываетcz метод order класса PizzaShop, встроенным объектам предлагается приступить к выполнению своих обязанностей. Для каждого клиента создается новый экземпляр класса Customer и передаем встроенный объект Server(официант) методам класса Customer (клиент) – клиенты приходят и уходят,а официант остается частью пиццерии. Кроме того, работники по-прежнему вовлечены во взаимосвязи наследования –композиция и наследование – это взаимодополняющие инструменты.
 '''
 </content>
 <print>
@@ -9166,12 +9641,17 @@ Shaggy pays for item to  Employee: name = Pat, salary = 40000
 class Spam:
     def doit(self, message):
         print(message)
+		
+		
 object1 = Spam()
+
 # Обычная ситуация
 object1.doit('hello world') 
 object1 = Spam()
+
 # Объект связанного метода: экземпляр+функция
 x = object1.doit 
+
 # То же, что и object1.doit(‘...’)
 x('hello world')  
 </content>
@@ -9200,14 +9680,19 @@ class Class1(object):
 	# Вызов из метода класса
     def sum3(self, x, y):
         return Class1.sum1(x, y)  
+		
+		
 # Вызываем статический метод
 Class1.sum1(10, 20)  
 c1 = Class1()
+
 # Вызываем метод класса
 c1.sum2(15, 6)  
+
 # Вызываем статический метод
 # через экземпляр класса
 c1.sum1(50, 12)  
+
 # Вызываем статический метод
 # внутри класса
 c1.sum3(23, 5)  
@@ -9413,9 +9898,14 @@ class Person:
 class BaseClass:                  
 	# Общее поведение
     def computeSalary(self): ...  
+	
     def giveRaise(self): ...
+	
     def promote(self): ...
+	
     def retire(self): 
+	
+	
 # Наследуемый класс
 class DerivedClass(BaseClass):        
 	# Особенная реализация
@@ -9462,16 +9952,22 @@ class Class1:
 class Class2(Class1): 
     def f_func2(self):
         print ("Метод f_func2() класса Class2")
+		
+		
 # Класс Class3 наследует класс Class1
 class Class3(Class1): 
     def f_func1(self):
         print ("Метод f_func1() класса Class3")
+		
     def f_func2(self):
         print ("Метод f_func2() класса Class3")
+		
     def f_func3(self):
         print ("Метод f_func3() класса Class3")
+		
     def f_func4(self):
         print ("Метод f_func4() класса Class3")
+ 
  
 # Множественное наследование
 class Class4(Class2, Class3): 
@@ -9479,15 +9975,20 @@ class Class4(Class2, Class3):
         print ("Метод f_func4() класса Class4")
  
 # Создаем экземпляр класса Class4
-c1 = Class4()             
+c1 = Class4()           
+  
 # Выведет: Метод f_func1() класса Class1
 c1.f_func1()              
+
 # Выведет: Метод f_func2() класса Class2
-c1.f_func2()              
+c1.f_func2()       
+       
 # Выведет: Метод f_func3() класса Class3
-c1.f_func3()              
+c1.f_func3()      
+        
 # Выведет: Метод f_func4() класса Class4
-c1.f_func4()              
+c1.f_func4()     
+         
 метод f_func1() определен в двух классах - Class1 и Class3. Так как класс Class2 стоит первым в списке базовых классов, вначале просматривается этот класс, а затем все его базовые классы. Поэтому метод f_func1() будет найден в классе Class1, а не в классе Class3.
 Метод f_func2() также определен в двух классах - Class2 и Class3. Так как класс Class2 стоит первым в списке базовых классов, то метод будет найден именно в этом классе. Чтобы наследовать метод из класса Class3, следует указать это явным образом. Передаем определение класса Class4 из предыдущего примера и наследуем метод f_func2() из класса Class3.
 </title>
@@ -9506,8 +10007,11 @@ c1.f_func4()
 class Class4(Class2, Class3): 
     # Наследуем f_func2() из класса Class3, а не из класса Class2
     f_func2 = Class3.f_func2
+	
     def f_func4(self):
         print ("Метод f_func4() класса Class4")
+		
+		
 Метод f_func3() определен только в классе Class3, поэтому метод наследуется от этого класса. Метод f_func4(), определенный в классе Class3, переопределяется в производном классе. Если метод найден в производном классе, то вся иерархия наследования просматривается не будет.
 </title>
 <content> 
@@ -9615,6 +10119,7 @@ print(np.random.randint(5,size=(2,3)), end='\n\n')
 import numpy as np
 
 arr = np.arange(6)
+
 print(arr)
 print(np.append(arr,8), end='\n\n')
 
@@ -9623,7 +10128,6 @@ l =[[1,2,3],
 arr = np.array(l)
 
 print(arr, end='\n\n')
-
 print(np.append(arr,[[7,8,9]],axis=0))
 </content>
 <print>
@@ -9649,6 +10153,7 @@ print(np.append(arr,[[7,8,9]],axis=0))
 import numpy as np
 
 arr = np.arange(6)
+
 print(arr)
 print(np.insert(arr,1,8), end='\n\n')
 
@@ -9657,7 +10162,6 @@ l =[[1,2,3],
 arr = np.array(l)
 
 print(arr, end='\n\n')
-
 print(np.insert(arr,1,[[7,8,9]],axis=0))
 </content>
 <print>
@@ -9683,6 +10187,7 @@ print(np.insert(arr,1,[[7,8,9]],axis=0))
 import numpy as np
 
 arr = np.arange(6)
+
 print(arr)
 print(np.delete(arr,1), end='\n\n')
 
@@ -9691,7 +10196,6 @@ l =[[1,2,3],
 arr = np.array(l)
 
 print(arr, end='\n\n')
-
 print(np.delete(arr,1,axis=0))
 </content>
 <print>
@@ -9731,6 +10235,7 @@ print(np.zeros(5))
 import numpy as np
 
 m = np.ones((3,3))
+
 print(m)
 </content>
 <print>
@@ -10351,7 +10856,6 @@ print('min row: ',m.min(axis=1))
 
 # минимальное число в каждом столбце
 print('min col: ',m.min(axis=0),end='\n\n')
-
 </content>
 <print>
 sum:  136
@@ -10364,7 +10868,6 @@ min row:  [ 1  5  9 13]
 min col:  [1 2 3 4]
 </print>
 </item> 
-
 
 <item>
 <id>341</id>
@@ -10473,7 +10976,6 @@ print(m)
 </print>
 </item> 
 
-
 <item>
 <id>344</id>
 <menu>Numpy</menu>
@@ -10512,7 +11014,6 @@ print(np.in1d(ints,x))
 [ True  True  True False False  True  True False False]
 </print>
 </item> 
-
 
 <item>
 <id>346</id>
@@ -10884,8 +11385,6 @@ logical_not 		Вычислить значение истинности not  х �
 </print>
 </item> 
 
-
-
 <item>
 <id>357</id>
 <menu>Numpy</menu>
@@ -10927,7 +11426,6 @@ logical_xor  		Вычислить логическое значение исти
 </print>
 </item> 
 
-
 <item>
 <id>358</id>
 <menu>Numpy</menu>
@@ -10956,7 +11454,6 @@ cumprod 			Нарастающее произведение с начальным
 </print>
 </item> 
 
-
 <item>
 <id>359</id>
 <menu>Numpy</menu>
@@ -10981,7 +11478,6 @@ setxor1d(x, у) 		Симметрическая разность множеств
 <print>
 </print>
 </item> 
-
 
 <item>
 <id>360</id>
@@ -11017,7 +11513,6 @@ lstsq 				Вычисляет решение уравнения y  =  xb по м�
 <print>
 </print>
 </item> 
-
 
 <item>
 <id>361</id>
@@ -11056,7 +11551,6 @@ uniform 		Случайная выборка с равномерным распр
 </print>
 </item>
 
-
 <item>
 <id>362</id>
 <menu>Numpy</menu>
@@ -11085,7 +11579,6 @@ hsplit / vsplit		Вспомогательные функции для разби
 </print>
 </item>
 
-
 <item>
 <id>363</id>
 <menu>Numpy</menu>
@@ -11107,7 +11600,6 @@ outer(x, у) 		Применяет операцию ко всем парам эл
 </print>
 </item>
 
-
 <item>
 <id>364</id>
 <menu>Numpy</menu>
@@ -11128,7 +11620,6 @@ np.savetxt('file.csv',arr,delimiter=',') 	Writes to a CSV file
 <print>
 </print>
 </item>
-
 
 <item>
 <id>365</id>
@@ -11165,8 +11656,6 @@ np.random.randint(5,size=(2,3)) 	2x3 array with random ints between 0-4
 </print>
 </item>
 
-
-
 <item>
 <id>366</id>
 <menu>Numpy</menu>
@@ -11191,7 +11680,6 @@ np.info(np.eye) 	View documentation for np.eye
 <print>
 </print>
 </item>
-
 
 <item>
 <id>367</id>
@@ -11222,8 +11710,6 @@ arr.resize((5,6)) 	Changes arr shape to 5x6 and fills new values with 0
 </print>
 </item>
 
-
-
 <item>
 <id>368</id>
 <menu>Numpy</menu>
@@ -11245,8 +11731,6 @@ np.delete(arr,4,axis=1) 	Deletes column on index 4 of arr
 </print>
 </item>
 
-
-
 <item>
 <id>369</id>
 <menu>Numpy</menu>
@@ -11267,7 +11751,6 @@ np.hsplit(arr,5) 	Splits arr horizontally on the 5th index
 <print>
 </print>
 </item>
-
 
 <item>
 <id>370</id>
@@ -11306,7 +11789,6 @@ arr[arr&lt;5] 	Returns array elements smaller than 5
 </print>
 </item>
 
-
 <item>
 <id>371</id>
 <menu>Numpy</menu>
@@ -11329,7 +11811,6 @@ np.power(arr,5) 	Raise each array element to the 5th power
 <print>
 </print>
 </item>
-
 
 <item>
 <id>372</id>
@@ -11370,7 +11851,6 @@ np.round(arr) 	Rounds to the nearest int
 </print>
 </item>
 
-
 <item>
 <id>373</id>
 <menu>Numpy</menu>
@@ -11398,7 +11878,6 @@ arr.corrcoef() 			Returns correlation coefficient of array
 </print>
 </item>
 
-
 <item>
 <id>374</id>
 <menu>Numpy</menu>
@@ -11422,8 +11901,6 @@ print(m)
  [7 8 9]]
 </print>
 </item> 
-
-
 
 <item>
 <id>375</id>
@@ -11456,7 +11933,6 @@ print(m[[2,0,3,-1]])
  [3 3 3 3]]
 </print>
 </item> 
-
 
 <item>
 <id>376</id>
@@ -11492,7 +11968,6 @@ print(arr.take(inds,axis=1))
 </print>
 </item> 
 
-
 <item>
 <id>377</id>
 <menu>Numpy</menu>
@@ -11518,7 +11993,6 @@ print(arr, end='\n\n')
 </print>
 </item> 
 
-
 <item>
 <id>378</id>
 <menu>Numpy</menu>
@@ -11535,7 +12009,6 @@ print(np.where(cond, xarr, yarr))
 [ 1.1  2.2  1.3  1.4  2.5]
 </print>
 </item> 
-
 
 <item>
 <id>379</id>
@@ -11568,7 +12041,6 @@ print(np.where(m &lt; 7, 0, 1))
 </print>
 </item> 
 
-
 <item>
 <id>380</id>
 <menu>Numpy</menu>
@@ -11591,7 +12063,6 @@ print(m[(m &lt; 5)].sum())
 </print>
 </item> 
 
-
 <item>
 <id>381</id>
 <menu>Numpy</menu>
@@ -11610,7 +12081,6 @@ print(list(zip(last_name[sorter], first_name[sorter])))
 [('Arnold', 'Jane'), ('Arnold', 'Steve'), ('Jones', 'Bill'), ('Jones', 'Bob'), ('Walters', 'Barbara')]
 </print>
 </item> 
-
 
 <item>
 <id>382</id>
@@ -11642,7 +12112,6 @@ print(arr, end='\n\n')
  [-0.1281721  -0.05746653  0.14277006  0.35082203  1.05158927]]
 </print>
 </item> 
-
 
 <item>
 <id>383</id>
@@ -11677,7 +12146,6 @@ print(np.digitize(data,bins))
 </print>
 </item>
 
-
 <item>
 <id>384</id>
 <menu>Numpy</menu>
@@ -11701,7 +12169,6 @@ print(sarr[0]['y'])
 6
 </print>
 </item>
-
 
 <item>
 <id>385</id>
@@ -11741,7 +12208,6 @@ print(data['x']['a'])
 [ 1.  3.]
 </print>
 </item>
-
 
 <item>
 <id>386</id>
@@ -11867,14 +12333,19 @@ else:
 l = ['spam', 'eggs', 'ham']
 for x in l:
     print(x, end=' ')
+	
 print()
+
 sum = 0
 for x in [1, 2, 3, 4]:
     sum = sum + x
+	
 print(sum,end='\n')
+
 prod = 1
 for item in range(1, 5):
     prod *= item
+	
 print(prod)
 </content>
 <print>
@@ -11894,21 +12365,26 @@ S = 'lumberjack'
 T = ('and', 'I’m', 'okay')
 T1 = [(1, 2), (3, 4), (5, 6)]
 for x in S:
-	
 	# Обход строки
     print(x, end=' ') 
-print()
-for x in T:
 	
+print()
+
+for x in T:
 	# Обход элементов кортежа
     print(x, end=' ')
+	
 print()
+
 D = {'a': 1, 'b': 2, 'c': 3}
+
 # Используется итератор словаря
 # и операция индексирования
 for key in D:
-	print(key, '=>', D[key])	
-print()							
+	print(key, '=>', D[key])
+	
+print()					
+		
 D = {'a': 4, 'c': 6, 'b': 5}
 for (key, value) in D.items():
     print(key,' => ',value)
@@ -11932,6 +12408,7 @@ b  =>  5
 <title>Присваивание кортежа (for)</title>
 <content> 
 T = [(1, 2), (3, 4), (5, 6)]
+
 # Операция присваивания кортежа
 for (a, b) in T: 
 	print(a, b)
@@ -11951,10 +12428,14 @@ for (a, b) in T:
 <content> 
 # Вложенные структуры также могут использоваться
 ((a, b), c) = ((1, 2), 3) 
+
 print(((a, b), c))
+
 for ((a, b), c) in [((1, 2), 3), ((4, 5), 6)]:
     print(a, b, c)
+	
 print()
+
 for ((a, b), c) in [([7, 8], 9), ['XY', 12]]:
     print(a, b, c)
 </content>
@@ -11974,6 +12455,7 @@ X Y 12
 <title>Присваивание последовательности множеству переменных</title>
 <content> 
 a, *b, c = (10, 21, 32, 44) 
+
 print(a, b, c)  
             
 (1, [2, 3], 4)
@@ -11996,9 +12478,11 @@ for (a, *b, c) in [(1, 2, 3, 4), (5, 6, 7, 8)]:
 seq1 = 'spam'
 seq2 = 'scam'
 res = [] 
+
 for x in seq1: 
     if x in seq2: 
         res.append(x) 
+		
 for i in res:
     print(i, end=' ')
 </content>
@@ -12038,9 +12522,12 @@ nums = [1, 2, 3]
 #Обычный вид
 def f(x):
     return x*x
+	
 for num in nums:
     print (f(num),end=' ')
+	
 print()
+
 # С использованием map()
 for x in map(f,nums):
     print(x, end=' ')
@@ -12062,8 +12549,11 @@ for x in map(f,nums):
 '''
 numbers = [10, 4, 2, -1, 6]
 l = filter(bool, ['spam', '', 'ni'])
+
 print(list(l))
+
 l = filter(lambda x:x &lt;5,numbers)
+
 print(list(l))
 </content>
 <print>
@@ -12108,6 +12598,7 @@ l=[]
 <title>Длина списка</title>
 <content> 
 l=[1,2,3]
+
 print(len(l))
 </content>
 <print>
@@ -12123,6 +12614,7 @@ print(len(l))
 <content> 
 l = [1, 2, 3]
 s = [4, 5, 6]
+
 print(l + s)
 </content>
 <print>
@@ -12137,6 +12629,7 @@ print(l + s)
 <title>Повторение списков</title>
 <content> 
 s = [4, 5, 6]
+
 print(s * 2)
 </content>
 <print>
@@ -12151,6 +12644,7 @@ print(s * 2)
 <title>Проверка на вхождение</title>
 <content> 
 l = [1, 2, 3]
+
 print(3 in l)
 </content>
 <print>
@@ -12179,6 +12673,7 @@ for x in [1, 2, 3]:
 <title>Доступ к элементу / Срезы</title>
 <content> 
 l=['one', 'two', 'three']
+
 print(l[2])
 print(l[-2])
 print(l[1:])
@@ -12197,6 +12692,7 @@ three
 <title>Двумерный массив</title>
 <content> 
 m=[[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
 print(m[1])
 print(m[1][1])
 </content>
@@ -12214,6 +12710,7 @@ print(m[1][1])
 <content> 
 l=[1, 2, 3]
 l[0:2]=[10, 11]
+
 print(l)
 </content>
 <print>
@@ -12229,6 +12726,7 @@ print(l)
 <content> 
 l=[1, 2, 3]
 l.append('hello')
+
 print(l)
 </content>
 <print>
@@ -12243,14 +12741,20 @@ print(l)
 <title>Сортировка - sort()</title>
 <content> 
 l=['Dog','cat' ,'Mouse' ]
+
 #Сортировка с учетом регистра символов
 l.sort() 
+
 print(l)
+
 #Сортировка с учетом нижнего регистра
 l.sort(key=str.lower)  
+
 print(l)
+
 #Обратная сортировка
 l.sort(key=str.lower,reverse=True) 
+
 print(l)
 </content>
 <print>
@@ -12268,8 +12772,11 @@ print(l)
 <content> 
 l=['Dog','cat' ,'Mouse' ]
 l = sorted(l, key=str.lower, reverse=True)
+
 print(l)
+
 s = sorted([x.lower() for x in l], reverse=True)
+
 print(s)
 </content>
 <print>
@@ -12286,6 +12793,7 @@ print(s)
 <content> 
 l=[1, 2]
 l.extend([3, 4, 5])
+
 print(l)
 </content>
 <print>
@@ -12300,6 +12808,7 @@ print(l)
 <title>Удаление и возврат элемента - pop()</title>
 <content> 
 l=[1, 2, 3, 4, 5]
+
 print(l.pop(),'-',l)
 print(l.pop(1),'-',l)
 </content>
@@ -12317,6 +12826,7 @@ print(l.pop(1),'-',l)
 <content> 
 l=[1, 2, 3, 4, 5]
 l.reverse()
+
 print(l)
 </content>
 <print>
@@ -12331,6 +12841,7 @@ print(l)
 <title>Встроенная функция сортировки - reversed()</title>
 <content> 
 l=[1, 2, 3, 4, 5]
+
 print(list(reversed(l)))
 </content>
 <print>
@@ -12346,6 +12857,7 @@ print(list(reversed(l)))
 <content> 
 l=['one', 'two', 'three']
 l.insert(1,'four')
+
 print(l)
 </content>
 <print>
@@ -12361,6 +12873,7 @@ print(l)
 <content> 
 l=['one', 'two', 'three']
 l.remove('two')
+
 print(l)
 </content>
 <print>
@@ -12376,6 +12889,7 @@ print(l)
 <content> 
 l=['one', 'two', 'three']
 del l[0]
+
 print(l)
 </content>
 <print>
@@ -12391,9 +12905,12 @@ print(l)
 <content> 
 l=['one', 'two', 'three']
 del l[1:]
+
 print(l)
+
 l=['one', 'two', 'three']
 l[1:]=[]
+
 print(l)
 </content>
 <print>
@@ -12411,9 +12928,11 @@ print(l)
 l=['one', 'two', 'three']
 # Удаление и возврат последнего элемента
 l.pop()  
+
 print(l)
 # Удаление и возврат элемента с заданой позиции 
 l.pop(1)  
+
 print(l)
 </content>
 <print>
@@ -12440,8 +12959,10 @@ print(L1 == L2)
 являются ли сравниваемые объекты одним и тем же объектом (то есть расположены ли они по одному и тому же адресу в памяти).
 '''
 print(L1 is L2)
+
 L1 = [1, ('a', 3)]
 L2 = [1, ('b', 2)]
+
 print(L1 &lt; L2, L1 &gt; L2)
 </content>
 <print>
@@ -12458,6 +12979,7 @@ False True
 <title>Сумма списка,макс/мин элемент - sum(), max(), min()</title>
 <content>
 l = [1, 22, 54, 3]
+
 print(sum(l))
 print(max(l))
 print(min(l))
@@ -12479,6 +13001,7 @@ print(min(l))
 Функция sum вычисляет сумму всех чисел в любом итерируемом объекте. Встроенные функции any и all возвращают True, если любой (any) или все (all) элементы итерируемого объекта являются истинными значениями соответственно
 '''
 l = [1, '', 25]
+
 print(any(l))
 print(all(l))
 </content>
@@ -12617,10 +13140,13 @@ C функциональной точки зрения, списки – это 
 <content> 
 D = {k: v for (k, v) in zip(['a', 'b', 'c'], [1, 2, 3])}
 print(D)
+
 D = {x: x ** 2 for x in range(1, 5)} 
 print(D)
+
 D = {c: c * 4 for c in 'SPAM'}
 print(D)
+
 D = {c.lower(): c + '!' for c in ['SPAM', 'EGGS', 'HAM']}
 print(D)
 </content>
@@ -12638,13 +13164,20 @@ print(D)
 <submenu>Базовые операции</submenu>
 <title>Генераторы списков</title>
 <content> 
-for x in [1, 2, 3, 4]: print(x ** 2, end=' ')
+for x in [1, 2, 3, 4]: 
+	print(x ** 2, end=' ')
 print()
-for x in (1, 2, 3, 4): print(x ** 3, end=' ')
+
+for x in (1, 2, 3, 4): 
+	print(x ** 3, end=' ')
 print()
-for x in 'spam': print(x * 2, end=' ')
+
+for x in 'spam': 
+	print(x * 2, end=' ')
 print()
+
 res = [x + y for x in [0, 1, 2] for y in [100, 200, 300]]
+
 print(res)
 </content>
 <print>
@@ -12665,12 +13198,19 @@ ss pp aa mm
 Отобрать только строки, начинающиеся с символа s в ранее созданном файле
 '''
 lines = [line.rstrip() for line in open('data.txt') if line[0] == 's']
+
 print(lines)
+
 l = [x + y for x in 'abc' for y in 'lmn']
+
 print(l)
+
 d = {ix: line for (ix, line) in enumerate(open('data.txt')) if(len(line) > 5)}
+
 print(d)
+
 a = [i for i in range(30,250) if i%30 == 0 or i%31 == 0]
+
 print(a)
 </content>
 <print>
@@ -12688,7 +13228,9 @@ print(a)
 <title>Сложные примеры генераторов</title>
 <content> 
 l = [(x, y) for x in range(5) if x % 2 == 0 for y in range(5) if y % 2 == 1]
+
 print(l)
+
 # аналог,используя циклы
 res = []
 for x in range(5):
@@ -12698,8 +13240,10 @@ for x in range(5):
                 res.append((x, y))
 				
 print(res)
+
 l = range(-5,5)
 s = ['even' if x %2 == 0 else 'odd' for x in l ]
+
 print(s)
 </content>
 <print>
@@ -12722,9 +13266,13 @@ N = [[2, 2, 2],
     [3, 3, 3],
     [4, 4, 4]]
 l = [M[row][col] * N[row][col] for row in range(3) for col in range(3)]
+
 print(l)
+
 l =  [[M[row][col] * N[row][col] for col in range(3)] for row in range(3)]
+
 print(l)
+
 # Используя циклы
 res = []
 for row in range(3):
@@ -12767,6 +13315,7 @@ def &lt;name&gt;(arg1, arg2,... argN):
 <content> 
 def f(x):
     print(x)
+	
 # Связывание объекта функции с именем
 func = f	
 	
@@ -12786,7 +13335,9 @@ func(1)
 <content> 
 def f(x):
     print(x)
+	
 f.attr = "hello"
+
 print(f.attr)
 </content>
 <print>
@@ -12803,7 +13354,6 @@ hello
 def tester(start):
     state = start
     def nested(label):
-		
 		# без инструкции nonlocal 
         nonlocal state	
         print(label, state)
@@ -12813,8 +13363,9 @@ F = tester(0)
 F('hello')
 </content>
 <print>
-hello
-# without nonlocal 
+hello 0
+
+# без инструкции nonlocal 
 UnboundLocalError: local variable 'state' referenced before assignment
 </print>
 </item> 
@@ -12830,7 +13381,9 @@ def mysum(L):
         return 0
     else:
         return L[0] + mysum(L[1:]) 
+		
 L = [1,2,3,4,5]
+
 print(mysum(L))
 </content>
 <print>
@@ -12846,7 +13399,9 @@ print(mysum(L))
 <content> 
 f = lambda x, y, z: x + y + z
 result = f(1, 2, 3)
+
 print(result)
+
 L = [lambda x: x**2,
     lambda x: x**3,
     lambda x: x**4]
@@ -12856,8 +13411,10 @@ for f in L:
 	
 print()
 print(L[0](3))
+
 L = [1, 6, 8, 4, 7, 3, 2, 1, 0]
 l = lambda x :[y for y in L if y &lt; x]
+
 print(l(5))
 </content>
 <print>
@@ -12877,7 +13434,9 @@ print(l(5))
 def action(x):
 	# Создать и вернуть ф-цию, запомнить x
     return (lambda y: x + y) 
+	
 act = action(99)
+
 # Вызвать функцию, созданную ф-цией action
 print(act(2))       
 '''
@@ -12886,6 +13445,7 @@ print(act(2))
 action = (lambda x: (lambda y: x + y))
 act = action(99)
 act(3)
+
 print(act(3))
 print(((lambda x: (lambda y: x + y))(99))(4))
 </content>
@@ -12901,10 +13461,15 @@ print(((lambda x: (lambda y: x + y))(99))(4))
 <title>Функция map()</title>
 <content> 
 counters = [1, 2, 3, 4]
-def inc(x): return x + 10 
+def inc(x): 
+	return x + 10 
+	
 l = list(map(inc, counters))
+
 print(l) 
+
 m = list(map((lambda x: x + 3), counters))
+
 print(m)
 </content>
 <print>
@@ -12921,8 +13486,11 @@ print(m)
 <content> 
 L = list(range(-5, 5))
 l = list(filter((lambda x: x > 0), range(-5, 5)))
+
 print(l)
+
 l = list(filter(lambda x: x % 2 == 0,L))
+
 print(l)
 </content>
 <print>
@@ -12945,10 +13513,15 @@ x – текущий пункт, а – аккумулятор. Это знач�
 from functools import reduce
 L = [1, 2, 3, 4]
 l = reduce((lambda a, x: a + x), L)
+
 print(l)
+
 l =  reduce((lambda a, x: a * x), L)
+
 print(l)
+
 l = reduce(lambda res, x: [x]+res, L, [])
+
 print(l)
 </content>
 <print>
@@ -12958,5 +13531,1944 @@ print(l)
 </print>
 </item>
 
+<item>
+<id>449</id>
+<menu>Networking</menu>
+<submenu>Simple threaded server</submenu>
+<title>Client</title>
+<content> 
+import socket,common
+
+host = 'localhost'
+port = 10000
+buf = 64
+
+if __name__ == '__main__':
+    while True:
+        try:
+            sock = socket.socket(socket.AF_INET,
+                                 socket.SOCK_STREAM)
+            sock.connect((host, port))
+            print('\nConnected to {}:{}'.format(host, port))
+            print("Type message, enter to send, 'q' to quit")
+            msg = input()
+            if msg == 'q': break
+			
+			# Блокировать до отправки
+            common.send_msg(sock, msg)  
+			
+            print('Sent message: {}'.format(msg))
+			# Блокировать до получения полного сообщения
+            msg = common.recv_msg(sock)  
+                                             
+                                             
+            print('Received echo: ' + msg)
+        except ConnectionError:
+            print('Socket error')
+            break
+        finally:
+            sock.close()
+            print('Closed connection to server\n')
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>450</id>
+<menu>Networking</menu>
+<submenu>Simple threaded server</submenu>
+<title>Server</title>
+<content> 
+import threading
+import common
+
+host = 'localhost'
+port = 10000
+buf = 64
+
+
+def handle_client(sock, addr):
+    try:
+        msg = common.recv_msg(sock)
+        print(msg)
+        common.send_msg(sock,msg)
+    except(ConnectionError, BrokenPipeError):
+        print("Socket Error")
+    finally:
+        sock.close()
+
+if __name__ == "__main__":
+    sock = common.create_listen_socket(host, port)
+    addr = sock.getsockname()
+
+    while True:
+        conn, addr = sock.accept()
+        '''
+        Thread will run function handle_client() autonomously
+        and concurrently to this while loop
+        '''
+
+        thread = threading.Thread(target=handle_client,args=[conn,addr],daemon=True)
+        thread.start()
+        print('Connection from {}'.format(addr))
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>451</id>
+<menu>Networking</menu>
+<submenu>Simple threaded server</submenu>
+<title>common</title>
+<content> 
+import socket
+HOST = ''
+PORT = 4040
+
+
+def create_listen_socket(host, port):
+    """ Иницализация сокетов ,через которые сервер будет получать сообщения """
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    sock.bind((host, port))
+    sock.listen(100)
+    return sock
+
+
+def recv_msg(sock):
+    """ Ждем получения данных через сокет ,парсим используя b'\0' как разграничитель """
+    data = bytearray()
+    msg = ''
+    ''' В цикле читаем 4096 байт из сокета сохраняя байты в data пока не наткнемся на разграничитель '''
+  
+    while not msg:
+        recvd = sock.recv(4096)
+        if not recvd:
+            # Сокет закрылся преждемременно
+            raise ConnectionError()
+        data = data + recvd
+        if b'\0' in recvd:
+			''' Мы можем послать только 1 сообщение в соединении,поэтому  b'\0' всегда будет последным символом'''
+            msg = data.rstrip(b'\0')
+    msg = msg.decode('utf-8')
+    return msg
+
+
+def prep_msg(msg):
+    """ Готовим строку для отсылки"""
+    msg += '\0'
+    return msg.encode('utf-8')
+
+
+def send_msg(sock, msg):
+    """ Посылаем строку через сокет,предварительно подготовив """
+    data = prep_msg(msg)
+    sock.sendall(data)
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>452</id>
+<menu>Networking</menu>
+<submenu>Simple eventdriven chat server</submenu>
+<title>Asincio server</title>
+<content> 
+import asyncio
+import common
+
+HOST = common.HOST
+PORT = common.PORT
+
+clients = []
+
+class ChatServerProtocol(asyncio.Protocol):
+    """ Each instance of class represents a client and the socket 
+         connection to it. """
+
+    def connection_made(self, transport):
+        """ Called on instantiation, when new client connects """
+        self.transport = transport
+        self.addr = transport.get_extra_info('peername')
+        self._rest = b''
+        clients.append(self)
+        print("Connection from " ,self.addr)
+
+    def data_received(self, data):
+        """ Handle data as it's received. Broadcast complete
+        messages to all other clients """
+
+        data += self._rest
+        (msgs, rest) = common.parse_recv_data(data)
+        self._rest = rest
+
+        for msg in msgs:
+            msg = msg.decode('utf-8')
+            msg = '%s: %s' % (self.addr,msg)
+            print(msg)
+            msg = common.prep_msg(msg)
+
+            for client in clients:
+                client.transport.write(msg) # -- non-blocking
+
+
+    def connection_lost(self, exc):
+        """ Called on client disconnect. Clean up client state """
+        print('Client %s disconnected'% (self.addr))
+        clients.remove(self)
+
+
+if __name__ == "__main__":
+    loop = asyncio.get_event_loop()
+    # Create server and initialize on the event loop
+    coroutine = loop.create_server(ChatServerProtocol,host=HOST,port=PORT)
+
+    server = loop.run_until_complete(coroutine)
+
+    # print listening socket info
+
+    for socket in server.sockets:
+        addr = socket.getsockname()
+
+    # Run the loop to process client connections
+    loop.run_forever()
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>453</id>
+<menu>Networking</menu>
+<submenu>Simple eventdriven chat server</submenu>
+<title>Asyncio client</title>
+<content> 
+import socket, common
+import sys, threading
+
+host = 'localhost'
+port = 10000
+buf = 64
+
+
+def handle_input(sock):
+    """ Prompt user for message and send it to server """
+    print("Type message, enter to send, 'q' to quit")
+    while True:
+        # Blocks
+        msg = input()
+        if msg == 'q':
+            sock.shutdown(socket.SHUT_RDWR)
+            sock.close()
+            break
+        try:
+            # Block untill sent
+            common.send_msg(sock, msg)
+        except (BrokenPipeError, ConnectionError):
+            break
+
+
+if __name__ == '__main__':
+
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.connect((host, port))
+    print('\nConnected to {}:{}'.format(host, port))
+
+    # Create thread for handling user input and message sending
+    thread = threading.Thread(target=handle_input,args=[sock],daemon=True)
+    thread.start()
+
+    rest = bytes()
+    addr = sock.getsockname()
+
+    # Loop indefinitely to receive messages from server
+    while True:
+        try:
+            #Blocks
+            (msgs, rest) = common.recv_msgs(sock, rest)
+            for msg in msgs:
+                print(msg)
+
+        except ConnectionError:
+            print("Connection to server closed")
+            sock.close()
+            break 
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>454</id>
+<menu>Networking</menu>
+<submenu>Simple eventdriven chat server</submenu>
+<title>common</title>
+<content> 
+import socket
+HOST = ''
+PORT = 4040
+
+
+def create_listen_socket(host, port):
+    """ Setup the sockets our server will receive connection 
+    requests on """
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    sock.bind((host, port))
+    sock.listen(100)
+    return sock
+
+
+def recv_msgs(sock, data=bytes()):
+    """ Receive data and break into complete messages on null byte
+       delimiter. Block until at least one message received, then
+       return received messages """
+    msgs = []
+    while not msgs:
+        recvd = sock.recv(4096)
+        if not recvd:
+            raise ConnectionError()
+
+        data +=recvd
+        (msgs, rest) = parse_recv_data(data)
+        msgs = [msg.decode('utf-8') for msg in msgs]
+        return (msgs, rest)
+
+
+def parse_recv_data(data):
+    """ Break up raw received data into messages, delimited
+        by null byte """
+    parts = data.split(b'\0')
+    msgs = parts[:-1]
+    rest = parts[-1]
+    return (msgs,rest)
+
+def prep_msg(msg):
+    """ Prepare a string to be sent as a message """
+    msg += '\0'
+    return msg.encode('utf-8')
+
+
+def send_msg(sock, msg):
+    """ Send a string over a socket, preparing it first """
+    data = prep_msg(msg)
+    sock.sendall(data)
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>455</id>
+<menu>Networking</menu>
+<submenu>Simple broadcast chat server</submenu>
+<title>Server</title>
+<content> 
+import threading, queue
+import common
+
+host = 'localhost'
+port = 10000
+buf = 64
+
+send_queues = {}
+lock = threading.Lock()
+
+
+def handle_client_recv(sock, addr):
+    """ Receive messages from client and broadcast them to
+        other clients until client disconnects """
+    rest = bytes()
+    while True:
+        try:
+            (msgs, rest) = common.recv_msgs(sock, rest)
+
+        except(ConnectionError, EOFError):
+            handle_disconnect(sock, addr)
+            break
+
+        for msg in msgs:
+            msg = '%s: %s' % (addr,msg)
+            print(msg)
+            broadcast_msg(msg)
+
+
+def handle_client_send(sock, q, addr):
+    """ Monitor queue for new messages, send them to client as
+        they arrive """
+
+    while True:
+        msg = q.get()
+        if msg == None:break
+
+        try:
+            common.send_msg(sock,msg)
+        except (ConnectionError,BrokenPipeError):
+            handle_disconnect(sock, addr)
+            break
+
+
+def broadcast_msg(msg):
+    ''' Add message to each connected client's send queue '''
+    with lock:
+        for q in send_queues.values():
+            q.put(msg)
+
+
+def handle_disconnect(sock, addr):
+
+    ''' Ensure queue is cleaned up and socket closed when a client disconnects '''
+    fd = sock.fileno()
+
+    with lock:
+
+        ''' Get send queue for this client '''
+        q = send_queues.get(fd, None)
+
+    '''If we find a queue then this disconnect has not yet been handled'''
+    if q:
+        q.put(None)
+        del send_queues[fd]
+        addr = sock.getpeername()
+        print('Client %s disconnected' % (addr))
+        sock.close()
+
+
+if __name__ == "__main__":
+    sock = common.create_listen_socket(host, port)
+    addr = sock.getsockname()
+
+    while True:
+        ''' accept incoming connection and get client socket and address '''
+        conn, addr = sock.accept()
+        q = queue.Queue()
+        ''' use lock for thead safe operation with dic '''
+        with lock:
+            send_queues[conn.fileno()] = q
+
+        recv_thread = threading.Thread(target=handle_client_recv,args=[conn, addr],daemon=True)
+        send_thread = threading.Thread(target=handle_client_send,args=[conn, q, addr],daemon=True)
+
+        recv_thread.start()
+        send_thread.start()
+
+        print('Connection from {}'.format(addr)) 
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>456</id>
+<menu>Networking</menu>
+<submenu>Simple broadcast chat server</submenu>
+<title>Client</title>
+<content> 
+import socket, common
+import sys, threading
+
+host = 'localhost'
+port = 10000
+buf = 64
+
+
+def handle_input(sock):
+    """ Prompt user for message and send it to server """
+    print("Type message, enter to send, 'q' to quit")
+    while True:
+        # Blocks
+        msg = input()
+        if msg == 'q':
+            sock.shutdown(socket.SHUT_RDWR)
+            sock.close()
+            break
+        try:
+            # Block untill sent
+            common.send_msg(sock, msg)
+        except (BrokenPipeError, ConnectionError):
+            break
+
+
+if __name__ == '__main__':
+
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.connect((host, port))
+    print('\nConnected to {}:{}'.format(host, port))
+
+    # Create thread for handling user input and message sending
+    thread = threading.Thread(target=handle_input,args=[sock],daemon=True)
+    thread.start()
+
+    rest = bytes()
+    addr = sock.getsockname()
+
+    # Loop indefinitely to receive messages from server
+    while True:
+        try:
+            #Blocks
+            (msgs, rest) = common.recv_msgs(sock, rest)
+            for msg in msgs:
+                print(msg)
+
+        except ConnectionError:
+            print("Connection to server closed")
+            sock.close()
+            break 
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>457</id>
+<menu>Networking</menu>
+<submenu>Simple broadcast chat server</submenu>
+<title>common</title>
+<content> 
+import socket
+HOST = ''
+PORT = 4040
+
+
+def create_listen_socket(host, port):
+    """ Setup the sockets our server will receive connection 
+    requests on """
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    sock.bind((host, port))
+    sock.listen(100)
+    return sock
+
+
+def recv_msgs(sock, data=bytes()):
+    """ Receive data and break into complete messages on null byte
+       delimiter. Block until at least one message received, then
+       return received messages """
+    msgs = []
+    while not msgs:
+        recvd = sock.recv(4096)
+        if not recvd:
+            raise ConnectionError()
+
+        data +=recvd
+        (msgs, rest) = parse_recv_data(data)
+        msgs = [msg.decode('utf-8') for msg in msgs]
+        return (msgs, rest)
+
+
+def parse_recv_data(data):
+    """ Break up raw received data into messages, delimited
+        by null byte """
+    parts = data.split(b'\0')
+    msgs = parts[:-1]
+    rest = parts[-1]
+    return (msgs,rest)
+
+def prep_msg(msg):
+    """ Prepare a string to be sent as a message """
+    msg += '\0'
+    return msg.encode('utf-8')
+
+
+def send_msg(sock, msg):
+    """ Send a string over a socket, preparing it first """
+    data = prep_msg(msg)
+    sock.sendall(data)
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>458</id>
+<menu>Время</menu>
+<submenu>Таймеры</submenu>
+<title>Простой таймер</title>
+<content> 
+import time
+import os
+sec=int(0)
+mi=int(0)
+chas=int(0)
+if __name__ == "__main__":
+    while 1==1:
+        time.sleep(1)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(chas,":",mi,":",sec)
+        sec +=1
+        if sec==60:
+            mi=1
+            sec=0
+        if mi==60:
+            chas=1
+            mi=0
+            sec=0
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>459</id>
+<menu>Файлы</menu>
+<submenu>Расширеный функционал</submenu>
+<title>Изменение файла</title>
+<content> 
+'''
+main.txt
+11111
+11111
+11111
+'''
+
+path = r'main.txt'
+path1 = r'main1.txt'
+
+lines = []
+for line in open(path,mode='r',encoding='utf-8'):
+    lines.append(line)
+
+f = open(path1,mode='a',encoding='utf-8')
+for line in lines:
+    if line[:1] == '1':
+		# line[:-1] отделяем перенос строки
+        line = '222'+line[:-1]+'222\n'
+    f.write(line)
+f.close()
+</content>
+<print>
+main1.txt
+
+22211111222
+22211111222
+22211111222
+</print>
+</item>
+
+<item>
+<id>460</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>461</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>462</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>463</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>464</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>465</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>466</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>467</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>468</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>469</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>470</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>471</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>472</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>473</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>474</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>475</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>476</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>477</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>478</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>479</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>480</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>481</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>482</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>483</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>484</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>485</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>486</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>487</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>488</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>489</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>490</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>491</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>492</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>493</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>494</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>495</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>496</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>497</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>498</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>499</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id>500</id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
+
+<item>
+<id></id>
+<menu></menu>
+<submenu></submenu>
+<title></title>
+<content> 
+
+</content>
+<print>
+
+</print>
+</item>
 
 </data>
