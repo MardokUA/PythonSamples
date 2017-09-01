@@ -46,7 +46,7 @@ public class MainAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if (viewType == Const.VIEW_TYPE_NOTES) {
+        if (viewType == Const.VIEW_TYPE_NOTES ) {
             CardView view = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.note_view, parent, false);
             return new NoteViewHolder(view);
         } else {

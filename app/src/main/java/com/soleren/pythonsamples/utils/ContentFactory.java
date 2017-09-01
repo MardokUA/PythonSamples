@@ -106,7 +106,7 @@ public class ContentFactory {
     }
 
     public static boolean isSubMenuNeedExtendViewType() {
-        return mCurrentSubMenuKey.equals(Const.NOTES) || mCurrentSubMenuKey.equals(Const.TIPS);
+        return mCurrentSubMenuKey.equals(Const.NOTES) || mCurrentSubMenuKey.equals(Const.TIPS) || mCurrentSubMenuKey.equals(Const.DEFINITIONS);
     }
 
     public static void setCurrentTitleKey(String mCurrentTitleKey) {

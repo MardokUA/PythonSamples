@@ -17,4 +17,5 @@ public interface Const {
 
     String NOTES = "Заметки";
     String TIPS = "Шпаргалки(англ.)";
+    String DEFINITIONS = "Основные определения";
 }
