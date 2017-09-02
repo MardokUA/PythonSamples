@@ -44,6 +44,7 @@ public class MainAdapter extends RecyclerView.Adapter<ViewHolder> {
         return mViewType;
     }
 
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == Const.VIEW_TYPE_NOTES ) {
