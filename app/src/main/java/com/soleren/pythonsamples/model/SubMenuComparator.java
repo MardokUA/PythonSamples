@@ -1,5 +1,7 @@
 package com.soleren.pythonsamples.model;
 
+import android.util.Log;
+
 import com.soleren.pythonsamples.data.Const;
 import java.util.Comparator;
 
