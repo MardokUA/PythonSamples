@@ -5749,7 +5749,7 @@ b'|..\r\n'
 <id>214</id>
 <menu>Файлы</menu>
 <submenu>Базовые операции</submenu>
-<title>Чтение файла построчно</title>
+<title>Чтение файла построчн (2)о</title>
 <content> 
 x, y, z = 'spam', 99, ['eggs']
 
@@ -14342,11 +14342,23 @@ KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
 
 <item>
 <id>468</id>
-<menu></menu>
-<submenu></submenu>
-<title></title>
+<menu>Файлы</menu>
+<submenu>Расширеный функционал</submenu>
+<title>Чтение файла по несколько строк</title>
 <content> 
+def more(p,numlines=30):
+    file = open(p)
+    lines = file.readlines()
 
+    while lines:
+        chunk = lines[:numlines]
+        lines = lines[numlines:]
+        for line in chunk:
+            print(line,end="")
+        if lines and input('More? press enter to continue or type smth. to exit'):break
+
+if __name__ == "__main__":
+    more(path)
 </content>
 <print>
 
@@ -14355,24 +14367,56 @@ KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
 
 <item>
 <id>469</id>
-<menu></menu>
-<submenu></submenu>
-<title></title>
+<menu>Разное</menu>
+<submenu>os</submenu>
+<title>Средства администрирования</title>
 <content> 
+# -*- coding:utf-8 -*-
+import os
 
+# числовой идентификатор процесса
+print(os.getpid())
+
+# текущий рабочий каталог
+print(os.getcwd())
+
+# смена каталога
+os.chdir(r'D:\DISTR')
+print(os.getcwd())
+
+print(os.pathsep, os.sep, os.pardir, os.curdir)
+
+# os.linesep возвращает последовательность символов \r\n
 </content>
 <print>
-
+4792
+D:\Projects\ex2
+D:\DISTR
+; \ .. .
 </print>
 </item>
 
 <item>
 <id>470</id>
-<menu></menu>
-<submenu></submenu>
-<title></title>
+<menu>Разное</menu>
+<submenu>os</submenu>
+<title>Инструменты модуля os</title>
 <content> 
+Переменные окружения	os.environ
 
+Запуск программ		os.system, os.popen, os.execv, os.spawnv
+
+Порождение дочерних процессов	os.fork, os.pipe, os.waitpid, os.kill
+
+Дескрипторы файлов, блокировки	os.open, os.read, os.write
+
+Обработка файлов	os.remove, os.rename, os.mkfifo, os.mkdir,os.rmdir
+
+Инструменты администрирования	os.getcwd, os.chdir, os.chmod, os.getpid,os.listdir, os.access
+
+Инструменты обеспечения переносимости	os.sep, os.pathsep, os.curdir, os.path.split,os.path.join
+
+Инструменты для работы с путями к каталогам		os.path.exists('path'), os.path.isdir('path'), os.path.getsize('path')
 </content>
 <print>
 
@@ -14381,36 +14425,103 @@ KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
 
 <item>
 <id>471</id>
-<menu></menu>
-<submenu></submenu>
-<title></title>
+<menu>Разное</menu>
+<submenu>os</submenu>
+<title>Основные инструменты os.path</title>
 <content> 
+# -*- coding:utf-8 -*-
+import os
 
+print('Проверка каталога: ', os.path.isdir(r'C:\Users'))
+
+print('Проверка файла: ', os.path.isfile(r'C:\Users'))
+
+print('Проверка пути: ', os.path.exists(r'C:\Windows\System32'))
+
+print('Получение размера файла: ', os.path.getsize(r'C:\Windows\regedit.exe'))
+
+print('Отделение имени файла от пути: ',os.path.split(r'C:\Windows\System32\regedit.exe'))
+
+print('Объединение имени файла и пути: ',os.path.join(r'C:\temp', 'output.txt'))
+
+name = '/home/lutz/temp/data.txt'
+print('Путь в стиле Unix:', os.path.dirname(name),' файл:', os.path.basename(name))
+
+print("Отделение расширения файла:",os.path.splitext(r'C:\PP4E\PyDemos.pyw'))
 </content>
 <print>
-
+Проверка каталога:  True
+Проверка файла:  False
+Проверка пути:  True
+Получение размера файла:  398336
+Отделение имени файла от пути:  ('C:\\Windows\\System32', 'regedit.exe')
+Объединение имени файла и пути:  C:\temp\output.txt
+Путь в стиле Unix: /home/lutz/temp  файл: data.txt
+Отделение расширения файла: ('C:\\PP4E\\PyDemos', '.pyw')
 </print>
 </item>
 
 <item>
 <id>472</id>
-<menu></menu>
-<submenu></submenu>
-<title></title>
+<menu>Разное</menu>
+<submenu>os</submenu>
+<title>Основные инструменты os.path - 2</title>
 <content> 
+# -*- coding:utf-8 -*-
+import os
 
+pathname = r'C:\PP4thEd\Examples\PP4E\PyDemos.pyw'
+
+print("Разбиение пути по слешу:",pathname.split(os.sep))
+
+print(os.sep.join(pathname.split(os.sep)))
+
+print('Возврат текущего каталога:',os.path.abspath(''))
+
+print('Добавление к текущему пути:',os.path.abspath('temp'))
+
+print('Изменение пути:',os.path.abspath(r'C:\temp'))
+
+print('Расширение относит. путей:',os.path.abspath(r'.\temp'))
+
+print('Расширение относит. путей:',os.path.abspath(r'..\temp'))
 </content>
 <print>
-
+Разбиение пути по слешу: ['C:', 'PP4thEd', 'Examples', 'PP4E', 'PyDemos.pyw']
+C:\PP4thEd\Examples\PP4E\PyDemos.pyw
+Возврат текущего каталога: D:\Projects\ex2
+Добавление к текущему пути: D:\Projects\ex2\temp
+Изменение пути: C:\temp
+Расширение относит. путей: D:\Projects\ex2\temp
+Расширение относит. путей: D:\Projects\temp
 </print>
 </item>
 
 <item>
 <id>473</id>
-<menu></menu>
-<submenu></submenu>
-<title></title>
+<menu>Разное</menu>
+<submenu>os</submenu>
+<title>Выполнение команд оболочки из сценариев</title>
 <content> 
+# -*- coding:utf-8 -*-
+import subprocess
+
+# запустит программу на языке Python
+os.system('python helloshell.py')
+
+subprocess.call('python helloshell.py')
+
+# Запуск через встроеные команды
+subprocess.call('type helloshell.py', shell=True)
+
+# Открыть страничку в браузере
+os.startfile('webpage.html') 
+
+# Открыть файл в Word
+os.startfile('document.doc') 
+
+# Запустить скрипт в python
+os.startfile('myscript.py')
 
 </content>
 <print>
