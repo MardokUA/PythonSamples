@@ -10452,6 +10452,9 @@ m = np.array(l)
 print(m[1:])
 print(m[0][1:],end="\n\n")
 
+print(m[:,0:1])
+print(m[:,1:])
+	
 # Данные копируются,
 print(m[2:].copy())
 print(m[1][2:].copy())
@@ -10461,6 +10464,12 @@ print(m[1][2:].copy())
  [7 8 9]]
 [2 3]
 
+[[1]
+ [4]
+ [7]]
+[[2 3]
+ [5 6]
+ [8 9]]
 [[7 8 9]]
 [6]
 </print>
@@ -14764,189 +14773,37 @@ Counter({5: 4, 1: 2, 2: 1, 3: 1, 4: 1})
 
 <item>
 <id>483</id>
-<menu>Machine Learning</menu>
-<submenu>Реализация алгоритмов</submenu>
-<title>Математические операции над векторами</title>
+<menu>Списки</menu>
+<submenu>Расширеный функционал</submenu>
+<title>Создание 2-х списков из 1</title>
 <content> 
-# -*- coding:utf-8 -*-
-import math
-from functools import reduce
-a = [2,3,5]
-b = [1,2,3]
+data = open('mnist_test.csv')
 
-
-def vector_add(v, w):
-    """Сложение 2-х векторов"""
-    return [v_i + w_i for v_i, w_i in zip(v,w)]
-
-
-def vector_subtract(v, w):
-    """Вычитание 2-х векторов"""
-    return [v_i - w_i for v_i, w_i in zip(v,w)]
-
-
-def vector_sum(vectors):
-    """Сумма векторов"""
-    return reduce(vector_add, vectors)
-
-
-def scalar_multiply(c, v):
-    """Умножение вектора на скаляр"""
-    return [c * v_i for v_i in v]
-
-
-def vector_mean(vectors):
-    """Средний вектор векторов"""
-    n = len(vectors)
-    return scalar_multiply(1/n, vector_sum(vectors))
-
-
-def dot(v, w):
-    """v_1 * w_1 + ... + v_n * w_n"""
-    return sum(v_i * w_i for v_i, w_i in zip(v, w))
-
-
-def sum_of_squares(v):
-    """v_1 * v_1 + ... + v_n * v_n"""
-    return dot(v, v)
-
-
-def magnitude(v):
-    """Длина вектора"""
-    return math.sqrt(sum_of_squares(v))
-
-
-def squared_distance(v, w):
-    """Квадрат расстояния между 2-мя векторами"""
-    return sum_of_squares(vector_subtract(v, w))
-
-
-def distance(v, w):
-    """Евклидово расстояние между 2-мя векторами"""
-    return math.sqrt(squared_distance(v, w))
-
-
-print("Сложение 2-х векторов: {}".format(vector_add(a, b)))
-print("Вычитание 2-х векторов: {}".format(vector_subtract(a, b)))
-print("Сложение векторов: {}".format(vector_sum([a, b, a, b,])))
-print("Умножение вектора на скаляр: {}".format(scalar_multiply(2,a)))
-print("Средний вектор векторов: {}".format(vector_mean([a,b])))
-print("Скалярное произведение векторов: {}".format(dot(a,b)))
-print("Скалярное квадратов вектора: {}".format(sum_of_squares(a)))
-print("Длина вектора: {}".format(magnitude(a)))
-print("Квадрат расстояния между 2-мя векторами: {}".format(squared_distance(a,b)))
-print("Евклидово расстояние между 2-мя векторами: {}".format(distance(a,b)))
+def train_test_split(set,k):
+    l = list(map(lambda x:x[:-1],set))
+    delimiter = int(len(l) * k)
+    train = l[:delimiter]
+    train_x, train_y = zip(*map(lambda y,x:(x[0],y[2:]),train,train))
+    print(list(train_x))
+    print(list(train_y))
 </content>
 <print>
-Сложение 2-х векторов: [3, 5, 8]
-Вычитание 2-х векторов: [1, 1, 2]
-Сложение векторов: [6, 10, 16]
-Умножение вектора на скаляр: [4, 6, 10]
-Средний вектор векторов: [1.5, 2.5, 4.0]
-Скалярное произведение векторов: 23
-Скалярное квадратов вектора: 38
-Длина вектора: 6.164414002968976
-Квадрат расстояния между 2-мя векторами: 6
-Евклидово расстояние между 2-мя векторами: 2.449489742783178
+['7', '2', '1', '0', '4', '1', '4', '9', '5', '9']
+# большой массив данных обрезан
+['0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </print>
 </item>
 
 <item>
 <id>484</id>
-<menu>Machine Learning</menu>
-<submenu>Реализация алгоритмов</submenu>
-<title>Статистические методы</title>
+<menu></menu>
+<submenu></submenu>
+<title></title>
 <content> 
-# -*- coding:utf-8 -*-
-import math
 
-a = [1,2,3,4,5,3,7,9,12,45,22]
-b = [1,2,3,4,5,5,78,2,45,1,21]
-
-
-def median(v):
-    """находит среднее в векторе v"""
-    n = len(v)
-    sorted_v = sorted(v)
-    print(sorted_v)
-    midpoint = n // 2
-
-    if n % 2 == 1:
-        # если нечетное возвращаем среднее
-        return sorted_v[midpoint]
-    else:
-        # если четное возвращаем среднее между lo и hi
-        lo = midpoint - 1
-        hi = midpoint
-        return (sorted_v[lo] + sorted_v[hi]) / 2
-
-
-def quantile(x, p):
-    """ возвращает p-й перцентиль значения в x"""
-    p_index = int(p * len(x))
-    return sorted(x)[p_index]
-
-
-'''Дисперсия - сумма квадратов отклонений от среднего'''
-def variance(x):
-    """assumes x has at least two elements"""
-    n = len(x)
-    deviations = de_mean(x)
-    return dot(deviations,deviations) / (n - 1)
-
-
-def de_mean(x):
-    """translate x by subtracting its mean (so the result has mean 0)"""
-    x_bar = sum(x) / len(x)
-    return [x_i - x_bar for x_i in x]
-
-
-def dot(v, w):
-    """v_1 * w_1 + ... + v_n * w_n"""
-    return sum(v_i * w_i for v_i, w_i in zip(v, w))
-
-
-def standard_deviation(x):
-    return math.sqrt(variance(x))
-
-"""Ковариация - совместное отклонение двух переменных от своих средних
-Большая положительная ковариация означает,что х стремится принимать большие значения при больших
-положительных y и малые значения, при малых y.Отрицательная ковариация,означает обратное,малые x при большом y
-и наоборот.Близкая к нулю,означает,что связи не существует
-"""
-def covariance(x, y):
-    n = len(x)
-    return dot(de_mean(x), de_mean(y)) /(n - 1)
-
-
-def dot(v, w):
-    """v_1 * w_1 + ... + v_n * w_n"""
-    return sum(v_i * w_i for v_i, w_i in zip(v, w))
-
-
-def correlation(x, y):
-    stdev_x = standard_deviation(x)
-    stdev_y = standard_deviation(y)
-    if stdev_x > 0 and stdev_y > 0:
-        return covariance(x, y) / stdev_x / stdev_y
-    else:
-        return 0 # if no variation, correlation is zero
-
-print("Медиана:",median(a))
-print("Квантиль:",quantile(a,0.4))
-print("Дисперсия:",variance(a))
-print("Стандартное отклонение:",standard_deviation(a))
-print("Ковариация:",covariance(a, b))
-print("Кореляция:",correlation(a, b))
 </content>
 <print>
-[1, 2, 3, 3, 4, 5, 7, 9, 12, 22, 45]
-Медиана: 5
-Квантиль: 4
-Дисперсия: 168.6181818181818
-Стандартное отклонение: 12.985306381375135
-Ковариация: -3.4545454545454604
-Кореляция: -0.010771761722391287
+
 </print>
 </item>
 
