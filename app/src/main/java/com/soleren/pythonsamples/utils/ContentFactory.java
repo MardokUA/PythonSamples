@@ -48,7 +48,7 @@ public class ContentFactory {
     }
 
     private static void fetchItem(Item item, String itemKey) {
-        if (!mContentList.get(itemKey).getSubmenu().equals(item.getSubmenu())) {
+        if (!mContentList.get(itemKey).getSubMenuTitlesList().contains(item.getSubmenu())) {
             mContentList.get(itemKey).setSubmenu(item.getSubmenu());
             mContentList.get(itemKey).setSubMenuToSubMenuList(item.getSubmenu());
         }
