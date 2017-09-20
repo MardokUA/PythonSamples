@@ -14164,7 +14164,7 @@ main1.txt
 <item>
 <id>460</id>
 <menu>Scikit-Learn</menu>
-<submenu>Уроки</submenu>
+<submenu>Примеры</submenu>
 <title>Классификация цветков Ириса методом KNN</title>
 <content> 
 # -*- coding:utf-8 -*-
