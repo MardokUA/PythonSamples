@@ -1,5 +1,7 @@
 package com.soleren.pythonsamples.utils;
 
+import android.util.Log;
+
 import com.soleren.pythonsamples.data.Const;
 import com.soleren.pythonsamples.model.Item;
 import com.soleren.pythonsamples.model.Title;
@@ -31,6 +33,7 @@ public class ContentFactory {
 
     static void fetchContent(Item item) {
         if (item != null) {
+            Log.e(TAG, item.getMenu() + ":" + item.getSubmenu());
             String itemKey = item.getMenu() == null ? "" : item.getMenu();
             if (!itemKey.isEmpty() && mContentList.containsKey(itemKey)) {
                 fetchItem(item, itemKey);
@@ -41,17 +44,16 @@ public class ContentFactory {
         }
     }
 
+    private static void fetchItem(Item item, String itemKey) {
+        if (!mContentList.get(itemKey).getSubMenuTitlesList().contains(item.getSubmenu())) {
+            mContentList.get(itemKey).setSubMenuToSubMenuList(item.getSubmenu());
+        }
+    }
+
     private static void generateNewMainMenuItem(Item item, String itemKey) {
         item.initEmptyCollections();
         item.setSubMenuToSubMenuList(item.getSubmenu());
         mContentList.put(itemKey, item);
-    }
-
-    private static void fetchItem(Item item, String itemKey) {
-        if (!mContentList.get(itemKey).getSubMenuTitlesList().contains(item.getSubmenu())) {
-            mContentList.get(itemKey).setSubmenu(item.getSubmenu());
-            mContentList.get(itemKey).setSubMenuToSubMenuList(item.getSubmenu());
-        }
     }
 
     private static void fetchTitleToItem(Item item, String itemKey) {
