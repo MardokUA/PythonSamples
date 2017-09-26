@@ -4502,28 +4502,28 @@ print(T.count(4))
 <submenu>Базовые операции</submenu>
 <title>Сортировка кортежей</title>
 <content> 
-t = ('cc', 'aa', 'dd', 'bb')
-# Создать список из элементов кортежа
-tmp = list(t) 
-# Отсортировать списка
-tmp.sort() 
+# -*- coding: utf-8 -*-
 
-print(tmp)
+from operator import itemgetter
+names = [("Jack",3,2,7),("Peter",5,1,9),("Andrew",8,4,2),("Don",2,5,1)]
 
-# Создать кортеж из элементов списка
-t1 = tuple(tmp) 
+# По-умолчанию сортировка проходит по 0 элементу
+names.sort()
 
-print(t1)
+print(names)
 
-# Или использовать встроенную функцию sorted
-t2 = sorted(t)  
+# Заменим на сортировку по 1 элементу
+names.sort(key=lambda x: x[1])
+print(names)
 
-print(t2) 
+# по 3 элементу
+names.sort(key=itemgetter(3))
+print(names)
 </content>
 <print>
-['aa', 'bb', 'cc', 'dd']
-('aa', 'bb', 'cc', 'dd')
-['aa', 'bb', 'cc', 'dd']
+[('Andrew', 8, 4, 2), ('Don', 2, 5, 1), ('Jack', 3, 2, 7), ('Peter', 5, 1, 9)]
+[('Don', 2, 5, 1), ('Jack', 3, 2, 7), ('Peter', 5, 1, 9), ('Andrew', 8, 4, 2)]
+[('Don', 2, 5, 1), ('Andrew', 8, 4, 2), ('Jack', 3, 2, 7), ('Peter', 5, 1, 9)]
 </print>
 </item> 
 
@@ -16047,77 +16047,177 @@ plt.show()
 
 <item>
 <id>508</id>
-<menu></menu>
-<submenu></submenu>
-<title></title>
+<menu>ООП</menu>
+<submenu>Базовые операции</submenu>
+<title>Инкапсуляция</title>
 <content> 
+# -*- coding: utf-8 -*-
 
+class A(object):
+    def __init__(self):
+        self.__x = 2
+
+    def sum(self,val):
+        return val + self.__x
+
+
+a = A()
+
+# print(a.__x) # нет доступа
+print(a.sum(2))
+
+# Однако можно просмотреть аттрибуты
+print(a.__dict__)
+
+# и получить доступ к скрытому аттрибуту
+print(a._A__x)
 </content>
 <print>
-
+4
+{'_A__x': 2}
+2
 </print>
 </item>
 
 <item>
 
 <id>509</id>
-<menu></menu>
-<submenu></submenu>
-<title></title>
+<menu>Встроеные функции</menu>
+<submenu>Базовые операции</submenu>
+<title>Декораторы</title>
 <content> 
+# -*- coding: utf-8 -*-
 
+def decor(f):
+    def wrapprer(x):
+        print("before")
+        f(x)
+        print("after")
+    return wrapprer
+
+@decor
+def func(x):
+    print("func " + x)
+
+func("hello")
 </content>
 <print>
-
+before
+func hello
+after
 </print>
 </item>
 
 <item>
 <id>510</id>
-<menu></menu>
-<submenu></submenu>
-<title></title>
+<menu>Встроеные функции</menu>
+<submenu>Базовые операции</submenu>
+<title>Динамическое создание функций</title>
 <content> 
+# -*- coding: utf-8 -*-
 
+class cl(object):
+    def __init__(self):
+        for i in range(10):
+            setattr(self,"a%s"%i,lambda x=i:x)
+
+c = cl()
+print(c.a4())
 </content>
 <print>
-
+4
 </print>
 </item>
 
 <item>
 <id>511</id>
-<menu></menu>
-<submenu></submenu>
-<title></title>
+<menu>Сортировка</menu>
+<submenu>Расширеный функционал</submenu>
+<title>Сортировка файлов</title>
 <content> 
+# -*- coding: utf-8 -*-
 
+import os
+path = "D:\\"
+l = os.listdir(path)
+
+
+def sort(x):
+    # сортировка по длине названия
+    return len(x)
+    # сортировка по количеству букв
+    # return x.count('e')
+
+print(sorted(l,reverse=1,key=sort))
+
+# сортировка по размеру
+print(sorted(l,reverse=1,key=lambda x:os.stat(os.path.join(path,x)).st_size))
 </content>
 <print>
+['System Volume Information', 'Git', .....
+['foto.rar', 'input.dic', 'output.txt', ......
 
 </print>
 </item>
 
 <item>
 <id>512</id>
-<menu></menu>
-<submenu></submenu>
-<title></title>
+<menu>Время</menu>
+<submenu>Таймеры</submenu>
+<title>Таймер для изменения времени операции - 2</title>
 <content> 
+import time
+class Timer(object):
+    def __enter__(self):
+        self.t = time.time()
 
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print("Time:",time.time() - self.t)
+
+with Timer():
+    for i in range(100000):
+        print(i)
 </content>
 <print>
-
+0
+1
+....
+99998
+99999
+Time: 1.0530602931976318
 </print>
 </item>
 
 <item>
 <id>513</id>
-<menu></menu>
-<submenu></submenu>
-<title></title>
+<menu>Файлы</menu>
+<submenu>Расширеный функционал</submenu>
+<title>Архивация/разархивация</title>
 <content> 
+# -*- coding: utf-8 -*-
 
+import zipfile
+import os
+
+out = 'd:\\ss1.zip'
+
+# Архивация
+with zipfile.ZipFile(out,'w',compression=zipfile.ZIP_DEFLATED) as zf:
+    for path, dirs, files in os.walk('.'):
+            for file in files:
+                zf.write(os.path.join(path,file))
+
+				
+# Разархивация
+with zipfile.ZipFile(out,'r') as zr:
+    for file in zr.namelist():
+        full = os.path.join("D:/",file)
+        d = os.path.dirname(full)
+        if d:
+            if not os.path.exists(d):
+                os.makedirs(d)
+        unpack = open(full,'wb')
+        unpack.write(zr.read(file))
 </content>
 <print>
 
@@ -16126,37 +16226,53 @@ plt.show()
 
 <item>
 <id>514</id>
-<menu></menu>
-<submenu></submenu>
-<title></title>
+<menu>Файлы</menu>
+<submenu>Расширеный функционал</submenu>
+<title>Поиск файлов по маске</title>
 <content> 
+# -*- coding: utf-8 -*-
+import glob
 
+path = 'C:\\Windows'
+
+print(glob.glob1(path,"*.exe"))
+print(glob.glob1(path,"*[0-9].exe"))
 </content>
 <print>
-
+['bfsvc.exe', 'explorer.exe', 'fveupdate.exe', 'HelpPane.exe', .....
+['RtCRU64.exe', 'splwow64.exe', 'twunk_16.exe', 'twunk_32.exe', 'winhlp32.exe']
 </print>
 </item>
 
 <item>
 <id>515</id>
-<menu></menu>
-<submenu></submenu>
-<title></title>
+<menu>Списки</menu>
+<submenu>Базовые операции</submenu>
+<title>Enumerate</title>
 <content> 
+# добавляет счетчик к элементам списка
+for i in enumerate([1,2,3]):
+    print(i)
 
+# нумерация с 5 элемента
+print(list(map(lambda x:x,enumerate([1,2,3],5))))
 </content>
 <print>
+(0, 1)
+(1, 2)
+(2, 3)
 
+[(5, 1), (6, 2), (7, 3)]
 </print>
 </item>
 
 <item>
 <id>516</id>
-<menu></menu>
-<submenu></submenu>
-<title></title>
+<menu>Pandas</menu>
+<submenu>Базовые операции</submenu>
+<title>Удаление строки по условию</title>
 <content> 
-
+X.drop(X[X.age &lt; 45].index, inplace=True)
 </content>
 <print>
 
