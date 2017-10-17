@@ -5,7 +5,6 @@ import com.soleren.pythonsamples.model.Item;
 import com.soleren.pythonsamples.model.Title;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,17 +15,16 @@ import java.util.Map;
 
 public class ContentFactory {
 
-    private static final String TAG = ContentFactory.class.getName();
-
     private static Map<String, Item> mContentList;
+    private static List<Title> mTitleList;
+
     private static String mCurrentMenuKey;
     private static String mCurrentSubMenuKey;
     private static String mCurrentTitleKey;
-    //для ShareContentProvider
-    private static Title mCurrentTitle;
 
     static {
         mContentList = new HashMap<>();
+        mTitleList = new ArrayList<>(500);
     }
 
     static void fetchContent(Item item) {
@@ -68,6 +66,7 @@ public class ContentFactory {
                     itemInMap.getTitlesMap().put(titleMapKey, newTitleList);
                 }
             }
+            mTitleList.add(title);
         }
     }
 
@@ -90,7 +89,6 @@ public class ContentFactory {
         List<Title> currentTitlesList = mContentList.get(mCurrentMenuKey).getTitlesMap().get(mCurrentSubMenuKey);
         for (Title title : currentTitlesList) {
             if (title.getTitle().equals(mCurrentTitleKey)) {
-                mCurrentTitle = title;
                 return title;
             }
         }
@@ -117,9 +115,7 @@ public class ContentFactory {
         return mCurrentSubMenuKey;
     }
 
-    // метод доступа для ShareActionProvider
-    public static Title getCurrentTitle() {
-        return mCurrentTitle;
+    public static List<Title> getTitleList() {
+        return mTitleList;
     }
-
 }

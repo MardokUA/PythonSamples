@@ -1,11 +1,14 @@
 package com.soleren.pythonsamples.main_activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.soleren.pythonsamples.R;
 import com.soleren.pythonsamples.data.Const;
@@ -14,6 +17,7 @@ import com.soleren.pythonsamples.fragments.HierarchyFragment;
 import com.soleren.pythonsamples.fragments.MenuFragment;
 import com.soleren.pythonsamples.fragments.SubMenuFragment;
 import com.soleren.pythonsamples.fragments.TitleFragment;
+import com.soleren.pythonsamples.search_activity.SearchActivity;
 
 import java.util.EmptyStackException;
 import java.util.Stack;
@@ -222,5 +226,10 @@ public class MainActivity extends AppCompatActivity implements HierarchyFragment
         mActionBar.setDisplayHomeAsUpEnabled(false);
         mActionBar.setTitle(R.string.app_name);
         mLastTitle = getResources().getString(R.string.app_name);
+    }
+
+    public void onSearchClick(View view) {
+        Intent intent = new Intent(this, SearchActivity.class);
+        startActivity(intent);
     }
 }

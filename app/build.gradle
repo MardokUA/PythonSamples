@@ -30,6 +30,9 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.config
         versionCode 4
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
     buildTypes {
         release {

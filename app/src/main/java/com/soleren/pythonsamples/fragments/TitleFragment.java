@@ -23,8 +23,8 @@ public class TitleFragment extends HierarchyFragment {
     @Override
     public void onItemClick(String adapterItemTitle) {
         if (mFragmentChangeListener != null && !ContentFactory.getCurrentSubMenuKey().equals(Const.NOTES) &&
-                mFragmentChangeListener != null && !ContentFactory.getCurrentSubMenuKey().equals(Const.TIPS) &&
-                mFragmentChangeListener != null && !ContentFactory.getCurrentSubMenuKey().equals(Const.DEFINITIONS)) {
+                !ContentFactory.getCurrentSubMenuKey().equals(Const.TIPS) &&
+                !ContentFactory.getCurrentSubMenuKey().equals(Const.DEFINITIONS)) {
             ContentFactory.setCurrentTitleKey(adapterItemTitle);
             mFragmentChangeListener.changeCurrentVisibleFragment(adapterItemTitle, Const.CONTENT_ID);
         }

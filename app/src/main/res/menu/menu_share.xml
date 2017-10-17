@@ -8,6 +8,6 @@
         app:showAsAction="always"
         app:actionProviderClass="android.support.v7.widget.ShareActionProvider"
         android:title=""
-        android:icon="@drawable/share" />
+        android:icon="@drawable/ic_share" />
 
 </menu>
