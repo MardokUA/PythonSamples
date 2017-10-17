@@ -2,7 +2,6 @@ package com.soleren.pythonsamples.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.soleren.pythonsamples.R;
-import com.soleren.pythonsamples.adapters.MainAdapter;
+import com.soleren.pythonsamples.fragments.adapter.FragmentAdapter;
 import com.soleren.pythonsamples.utils.ContentFactory;
 
 /**
@@ -20,12 +19,12 @@ import com.soleren.pythonsamples.utils.ContentFactory;
  * Основной фрагмент приложения. Родитель для всех остальных фрагметов, кроме {@link ContentFragment}
  */
 
-public abstract class HierarchyFragment extends Fragment implements MainAdapter.AdapterListener {
+public abstract class HierarchyFragment extends Fragment implements FragmentAdapter.AdapterListener {
 
     private static final String TAG = HierarchyFragment.class.getName();
 
     protected FragmentChangeListener mFragmentChangeListener;
-    protected MainAdapter mMainAdapter;
+    protected FragmentAdapter mMainAdapter;
     private RecyclerView mRecyclerView;
 
     @Override

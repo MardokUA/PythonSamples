@@ -2,15 +2,19 @@ package com.soleren.pythonsamples.search_activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.soleren.pythonsamples.R;
+import com.soleren.pythonsamples.search_activity.adapter.SearchAdapter;
 
-public class SearchActivity extends AppCompatActivity implements SearchContract.SearchView {
+public class SearchActivity extends AppCompatActivity implements SearchContract.SearchView, SearchViewHolder.SearchFieldListener {
 
     private Toolbar mToolBar;
+    private SearchViewHolder mViewHolder;
+    private SearchAdapter mSearchAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -18,6 +22,8 @@ public class SearchActivity extends AppCompatActivity implements SearchContract.
         setContentView(R.layout.activity_search);
 
         initToolBar();
+        initViewHolder();
+        initAdapter();
     }
 
     private void initToolBar() {
@@ -26,6 +32,21 @@ public class SearchActivity extends AppCompatActivity implements SearchContract.
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+    }
+
+    private void initViewHolder() {
+        ConstraintLayout container = (ConstraintLayout) findViewById(R.id.search_container);
+        mViewHolder = SearchViewHolder.initViewHolder().withContainer(container);
+        mViewHolder.setSearchFieldListener(this);
+    }
+
+    private void initAdapter() {
+
+    }
+
+    @Override
+    public void onTextChanged(String textQuery) {
+
     }
 
     @Override

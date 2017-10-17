@@ -10,4 +10,7 @@ interface SearchContract {
 
     }
 
+    interface Model {
+
+    }
 }

@@ -1,6 +1,7 @@
 package com.soleren.pythonsamples.utils;
 
 import com.soleren.pythonsamples.data.Const;
+import com.soleren.pythonsamples.fragments.adapter.FragmentAdapter;
 import com.soleren.pythonsamples.model.Item;
 import com.soleren.pythonsamples.model.Title;
 
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Класс формируем список из {@link Item} для {@link com.soleren.pythonsamples.adapters.MainAdapter}
+ * Класс формируем список из {@link Item} для {@link FragmentAdapter}
  */
 
 public class ContentFactory {

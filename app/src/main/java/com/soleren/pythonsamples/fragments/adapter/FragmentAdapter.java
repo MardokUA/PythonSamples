@@ -1,4 +1,4 @@
-package com.soleren.pythonsamples.adapters;
+package com.soleren.pythonsamples.fragments.adapter;
 
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -20,7 +19,7 @@ import java.util.List;
  * Адаптер для всех фрагментов
  */
 
-public class MainAdapter extends RecyclerView.Adapter<ViewHolder> {
+public class FragmentAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private List<String> mTitles;
     private AdapterListener mListener;
@@ -34,7 +33,7 @@ public class MainAdapter extends RecyclerView.Adapter<ViewHolder> {
      *                 VIEW_TYPE_CATEGORY - для всех остальных;
      *
      */
-    public MainAdapter(List<String> titles, int viewType) {
+    public FragmentAdapter(List<String> titles, int viewType) {
         mTitles = titles;
         mViewType = viewType;
     }
