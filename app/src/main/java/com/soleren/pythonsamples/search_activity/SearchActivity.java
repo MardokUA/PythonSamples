@@ -8,22 +8,26 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.soleren.pythonsamples.R;
-import com.soleren.pythonsamples.search_activity.adapter.SearchAdapter;
+import com.soleren.pythonsamples.model.Title;
 
-public class SearchActivity extends AppCompatActivity implements SearchContract.SearchView, SearchViewHolder.SearchFieldListener {
+import java.util.List;
+
+public class SearchActivity extends AppCompatActivity
+        implements SearchContract.SearchView, SearchViewHolder.SearchFieldListener {
 
     private Toolbar mToolBar;
     private SearchViewHolder mViewHolder;
-    private SearchAdapter mSearchAdapter;
+    private SearchPresenterImp mSearchPresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
+        mSearchPresenter = new SearchPresenterImp();
+
         initToolBar();
         initViewHolder();
-        initAdapter();
     }
 
     private void initToolBar() {
@@ -40,13 +44,18 @@ public class SearchActivity extends AppCompatActivity implements SearchContract.
         mViewHolder.setSearchFieldListener(this);
     }
 
-    private void initAdapter() {
-
+    @Override
+    public void onTextChanged(String textQuery) {
+        if (mSearchPresenter != null) {
+            mSearchPresenter.onSearchRequestChanged(textQuery);
+        }
     }
 
     @Override
-    public void onTextChanged(String textQuery) {
-
+    public void updateSearchQuery(List<Title> queryTitles) {
+        if (mViewHolder != null) {
+            mViewHolder.updateQuery(queryTitles);
+        }
     }
 
     @Override
@@ -57,5 +66,17 @@ public class SearchActivity extends AppCompatActivity implements SearchContract.
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mSearchPresenter.onBindView(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mSearchPresenter.onUnbindView(this);
     }
 }

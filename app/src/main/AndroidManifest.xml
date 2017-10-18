@@ -18,7 +18,8 @@
         </activity>
         <activity
             android:name=".search_activity.SearchActivity"
-            android:label="Поиск" />
+            android:label="Поиск"
+            android:windowSoftInputMode="adjustPan" />
     </application>
 
 </manifest>

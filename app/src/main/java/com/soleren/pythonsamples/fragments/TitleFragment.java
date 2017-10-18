@@ -12,7 +12,7 @@ public class TitleFragment extends HierarchyFragment {
     @Override
     protected void createAdapter() {
         int viewCategory = ContentFactory.isSubMenuNeedExtendViewType() ? Const.VIEW_TYPE_NOTES : Const.VIEW_TYPE_CATEGORY;
-        mMainAdapter = new FragmentAdapter(ContentFactory.geTitlesList(), viewCategory);
+        mMainAdapter = new FragmentAdapter(ContentFactory.getTitlesList(), viewCategory);
     }
 
     @Override

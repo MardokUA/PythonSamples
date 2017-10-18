@@ -82,7 +82,7 @@ public class ContentFactory {
         return mContentList.get(mCurrentMenuKey).getSubMenuTitlesList();
     }
 
-    public static List<String> geTitlesList() {
+    public static List<String> getTitlesList() {
         return mContentList.get(mCurrentMenuKey).getTitlesList(mCurrentSubMenuKey);
     }
 
