@@ -10,5 +10,6 @@
     <string name="chooser_text">Отправить загагулинки </string>
     <string name="search_hint_text">Введите название категории</string>
     <string name="search_error_text">Ничего не найдено</string>
+    <string name="search_title">Поиск</string>
 
 </resources>

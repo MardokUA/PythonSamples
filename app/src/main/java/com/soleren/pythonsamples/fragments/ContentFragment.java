@@ -16,6 +16,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.soleren.pythonsamples.R;
+import com.soleren.pythonsamples.data.Const;
 import com.soleren.pythonsamples.model.Title;
 import com.soleren.pythonsamples.utils.ContentFactory;
 
@@ -28,6 +29,14 @@ public class ContentFragment extends HierarchyFragment {
     public ContentFragment() {
     }
 
+    public static ContentFragment createInstance(Title title) {
+        ContentFragment contentFragment = new ContentFragment();
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(Const.SEARCHED_TITLE, title);
+        contentFragment.setArguments(bundle);
+        return contentFragment;
+    }
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -38,7 +47,16 @@ public class ContentFragment extends HierarchyFragment {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
         getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        mTitle = ContentFactory.getCurrentTitleData();
+        obtainData();
+    }
+
+    private void obtainData() {
+        Bundle bundle = getArguments();
+        if (bundle == null) {
+            mTitle = ContentFactory.getCurrentTitleData();
+        } else {
+            mTitle = bundle.getParcelable(Const.SEARCHED_TITLE);
+        }
     }
 
     @Override

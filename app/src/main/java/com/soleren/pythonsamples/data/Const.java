@@ -11,6 +11,8 @@ public interface Const {
     int MAX_TITLE_CAPACITY = 20;
     int MAX_SUBMENU_CAPACITY = 15;
 
+    String SEARCHED_TITLE = "searched_title";
+
     String KEY_STACK = "last_stack_state";
     String KEY_TITLE = "last_title";
     String KEY_FRAGMENT = "last_fragment";

@@ -16,6 +16,7 @@ import java.util.List;
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchViewHolder> {
 
     private List<Title> mSearchedTitles;
+    private OnTitleClickListener mTitleClickListener;
 
     public SearchAdapter() {
         mSearchedTitles = new ArrayList<>();
@@ -34,7 +35,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
 
     @Override
     public void onBindViewHolder(SearchViewHolder holder, int position) {
-        Title title = mSearchedTitles.get(position);
+        final Title title = mSearchedTitles.get(position);
         holder.mTitle.setText(title.getTitle());
 
         if (title.getTitleContent().isEmpty()) {
@@ -43,6 +44,15 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
             holder.mContentPreview.setVisibility(View.VISIBLE);
             holder.mContentPreview.setText(title.getTitleContent());
         }
+
+        holder.mContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mTitleClickListener != null) {
+                    mTitleClickListener.onTitleClick(title);
+                }
+            }
+        });
     }
 
     @Override
@@ -52,13 +62,24 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
 
     class SearchViewHolder extends RecyclerView.ViewHolder {
 
+        private View mContainer;
         private TextView mTitle;
         private TextView mContentPreview;
 
         SearchViewHolder(View itemView) {
             super(itemView);
+            mContainer = itemView;
             mTitle = (TextView) itemView.findViewById(R.id.search_item_title);
             mContentPreview = (TextView) itemView.findViewById(R.id.search_item_content_preview);
         }
+    }
+
+    public void setTitleClickListener(OnTitleClickListener mTitleClickListener) {
+        this.mTitleClickListener = mTitleClickListener;
+    }
+
+    public interface OnTitleClickListener {
+
+        void onTitleClick(Title title);
     }
 }

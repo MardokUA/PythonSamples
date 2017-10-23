@@ -8,12 +8,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.soleren.pythonsamples.R;
+import com.soleren.pythonsamples.fragments.ContentFragment;
+import com.soleren.pythonsamples.fragments.HierarchyFragment;
+import com.soleren.pythonsamples.fragments.TitleFragment;
 import com.soleren.pythonsamples.model.Title;
 
 import java.util.List;
 
 public class SearchActivity extends AppCompatActivity
-        implements SearchContract.SearchView, SearchViewHolder.SearchFieldListener {
+        implements SearchContract.SearchView, SearchViewHolder.SearchFieldListener, HierarchyFragment.FragmentChangeListener {
 
     private Toolbar mToolBar;
     private SearchViewHolder mViewHolder;
@@ -26,16 +29,8 @@ public class SearchActivity extends AppCompatActivity
 
         mSearchPresenter = new SearchPresenterImp();
 
-        initToolBar();
         initViewHolder();
-    }
-
-    private void initToolBar() {
-        mToolBar = (Toolbar) findViewById(R.id.search_tool_bar);
-        setSupportActionBar(mToolBar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
+        initToolBar();
     }
 
     private void initViewHolder() {
@@ -44,11 +39,30 @@ public class SearchActivity extends AppCompatActivity
         mViewHolder.setSearchFieldListener(this);
     }
 
+    private void initToolBar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.search_tool_bar);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+        mViewHolder.addToolBar(toolbar);
+    }
+
     @Override
     public void onTextChanged(String textQuery) {
         if (mSearchPresenter != null) {
             mSearchPresenter.onSearchRequestChanged(textQuery);
         }
+    }
+
+    @Override
+    public void onTitleClick(Title title) {
+        HierarchyFragment titleFragment = ContentFragment.createInstance(title);
+        getSupportFragmentManager().beginTransaction()
+                .setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_pop_enter, R.anim.fragment_pop_exit)
+                .replace(R.id.search_fragment_container, titleFragment)
+                .addToBackStack(TitleFragment.class.getName())
+                .commit();
     }
 
     @Override
@@ -78,5 +92,20 @@ public class SearchActivity extends AppCompatActivity
     protected void onStop() {
         super.onStop();
         mSearchPresenter.onUnbindView(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            mViewHolder.setToolBarState();
+        }
+        super.onBackPressed();
+    }
+
+    @Override
+    public void changeCurrentVisibleFragment(String menuTitle, int nextFragment) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(menuTitle);
+        }
     }
 }

@@ -3,6 +3,7 @@ package com.soleren.pythonsamples.search_activity;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -16,7 +17,7 @@ import com.soleren.pythonsamples.search_activity.adapter.SearchAdapter;
 
 import java.util.List;
 
-class SearchViewHolder {
+class SearchViewHolder implements SearchAdapter.OnTitleClickListener {
 
     private static String LOG_TAG = SearchViewHolder.class.getName();
 
@@ -24,12 +25,14 @@ class SearchViewHolder {
     private ImageView mSearchErrorImage;
     private TextView mSearchErrorText;
     private RecyclerView mRecycler;
+    private Toolbar mToolBar;
 
     private SearchAdapter mSearchAdapter;
     private SearchFieldListener mSearchFieldListener;
 
     private SearchViewHolder() {
         mSearchAdapter = new SearchAdapter();
+        mSearchAdapter.setTitleClickListener(this);
     }
 
     static SearchViewHolder initViewHolder() {
@@ -53,6 +56,39 @@ class SearchViewHolder {
         mRecycler.setAdapter(mSearchAdapter);
     }
 
+    void addToolBar(Toolbar toolbar) {
+        mToolBar = toolbar;
+    }
+
+    void setToolBarState() {
+        mToolBar.setTitle(R.string.search_title);
+        changeViewVisibility(false);
+    }
+
+    private void setToolBarState(String title) {
+        mToolBar.setTitle(title);
+        changeViewVisibility(true);
+    }
+
+    private void changeViewVisibility(boolean isFragmentAdded) {
+        if (isFragmentAdded) {
+            mSearchField.setEnabled(false);
+            mRecycler.setEnabled(false);
+        } else {
+//            Animator searchAnimator = ObjectAnimator.ofFloat(mSearchField, View.ALPHA, 0f, 1f);
+//            Animator recyclerAnimator = ObjectAnimator.ofFloat(mRecycler, View.ALPHA, 0f, 1f);
+//
+//            AnimatorSet animatorSet = new AnimatorSet();
+//            animatorSet.playTogether(searchAnimator, recyclerAnimator);
+//            animatorSet.setDuration(350);
+//            animatorSet.setupEndValues();
+//            animatorSet.setInterpolator(new AccelerateDecelerateInterpolator());
+//            animatorSet.start();
+            mSearchField.setEnabled(true);
+            mRecycler.setEnabled(true);
+        }
+    }
+
     private TextWatcher mTextWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -73,10 +109,6 @@ class SearchViewHolder {
         }
     };
 
-    void setSearchFieldListener(SearchFieldListener searchFieldListener) {
-        mSearchFieldListener = searchFieldListener;
-    }
-
     void updateQuery(List<Title> queryTitles) {
         changeErrorViewVisibility(queryTitles.isEmpty());
         mSearchAdapter.updateAdapter(queryTitles);
@@ -92,7 +124,22 @@ class SearchViewHolder {
         }
     }
 
+    @Override
+    public void onTitleClick(Title title) {
+        if (mSearchFieldListener != null) {
+            mSearchFieldListener.onTitleClick(title);
+            setToolBarState(title.getTitle());
+        }
+    }
+
+    void setSearchFieldListener(SearchFieldListener searchFieldListener) {
+        mSearchFieldListener = searchFieldListener;
+    }
+
     interface SearchFieldListener {
+
         void onTextChanged(String textQuery);
+
+        void onTitleClick(Title title);
     }
 }
