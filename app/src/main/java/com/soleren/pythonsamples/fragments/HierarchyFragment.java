@@ -14,6 +14,9 @@ import com.soleren.pythonsamples.R;
 import com.soleren.pythonsamples.fragments.adapter.FragmentAdapter;
 import com.soleren.pythonsamples.utils.ContentFactory;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 /**
  * Created by laktionov on 25.08.2017.
  * Основной фрагмент приложения. Родитель для всех остальных фрагметов, кроме {@link ContentFragment}
@@ -26,6 +29,7 @@ public abstract class HierarchyFragment extends Fragment implements FragmentAdap
     protected FragmentChangeListener mFragmentChangeListener;
     protected FragmentAdapter mMainAdapter;
     private RecyclerView mRecyclerView;
+    private AdView аdView;
 
     @Override
     public void onAttach(Context context) {
@@ -38,6 +42,10 @@ public abstract class HierarchyFragment extends Fragment implements FragmentAdap
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hierachy_fragment, container, false);
         mRecyclerView = (RecyclerView) root.findViewById(R.id.rv_fragment);
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        аdView = (AdView)root.findViewById(R.id.adView);
+        аdView.loadAd(adRequest);
 
         createAdapter();
         initAdapter();
@@ -75,5 +83,29 @@ public abstract class HierarchyFragment extends Fragment implements FragmentAdap
     public interface FragmentChangeListener {
 
         void changeCurrentVisibleFragment(String menuTitle, int nextFragment);
+    }
+
+    @Override
+    public void onPause() {
+        if (аdView != null) {
+            аdView.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (аdView != null) {
+            аdView.resume();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        if (аdView != null) {
+            аdView.destroy();
+        }
+        super.onDestroy();
     }
 }

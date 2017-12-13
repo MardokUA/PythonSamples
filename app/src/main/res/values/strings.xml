@@ -12,4 +12,7 @@
     <string name="search_error_text">Ничего не найдено</string>
     <string name="search_title">Поиск</string>
 
+    <!-- AdMob ad unit IDs -->
+    <string name="banner_home_footer">ca-app-pub-3634613834833645/5228619104</string>
+    <string name="interstitial_full_screen"></string>
 </resources>

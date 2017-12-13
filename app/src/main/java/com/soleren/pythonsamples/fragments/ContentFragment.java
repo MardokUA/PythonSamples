@@ -20,11 +20,16 @@ import com.soleren.pythonsamples.data.Const;
 import com.soleren.pythonsamples.model.Title;
 import com.soleren.pythonsamples.utils.ContentFactory;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 public class ContentFragment extends HierarchyFragment {
 
     private Title mTitle;
     private TextView mTvContent;
     private TextView mTvPrint;
+    private AdView аdView;
 
     public ContentFragment() {
     }
@@ -63,6 +68,11 @@ public class ContentFragment extends HierarchyFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_item, container, false);
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        аdView = (AdView)root.findViewById(R.id.adView);
+        аdView.loadAd(adRequest);
+
         initViews(root);
         setContent();
         return root;
@@ -116,5 +126,29 @@ public class ContentFragment extends HierarchyFragment {
     public void onDetach() {
         getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         super.onDetach();
+    }
+
+    @Override
+    public void onPause() {
+        if (аdView != null) {
+            аdView.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (аdView != null) {
+            аdView.resume();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        if (аdView != null) {
+            аdView.destroy();
+        }
+        super.onDestroy();
     }
 }
