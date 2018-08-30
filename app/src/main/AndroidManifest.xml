@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.soleren.pythonsamples">
+    package="com.soleren.pythonsamples"
+    android:installLocation="preferExternal" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:installLocation="auto"
         android:name=".application.PythonSamples"
         android:allowBackup="true"
         android:icon="@mipmap/icon"

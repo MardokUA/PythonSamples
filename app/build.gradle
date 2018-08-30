@@ -25,11 +25,11 @@ android {
     defaultConfig {
         applicationId 'com.soleren.pythonsamples'
         minSdkVersion 16
-        targetSdkVersion 25
-        versionName '3.0'
+        targetSdkVersion 26
+        versionName '3.3'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.config
-        versionCode 5
+        versionCode 9
         vectorDrawables {
             useSupportLibrary = true
         }

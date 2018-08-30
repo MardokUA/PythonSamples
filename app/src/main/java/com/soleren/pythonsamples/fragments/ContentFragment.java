@@ -29,7 +29,7 @@ public class ContentFragment extends HierarchyFragment {
     private Title mTitle;
     private TextView mTvContent;
     private TextView mTvPrint;
-    private AdView аdView;
+//    private AdView аdView;
 
     public ContentFragment() {
     }
@@ -70,8 +70,8 @@ public class ContentFragment extends HierarchyFragment {
         View root = inflater.inflate(R.layout.fragment_item, container, false);
 
         AdRequest adRequest = new AdRequest.Builder().build();
-        аdView = (AdView)root.findViewById(R.id.adView);
-        аdView.loadAd(adRequest);
+//        аdView = (AdView)root.findViewById(R.id.adView);
+//        аdView.loadAd(adRequest);
 
         initViews(root);
         setContent();
@@ -130,25 +130,25 @@ public class ContentFragment extends HierarchyFragment {
 
     @Override
     public void onPause() {
-        if (аdView != null) {
-            аdView.pause();
-        }
+//        if (аdView != null) {
+//            аdView.pause();
+//        }
         super.onPause();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        if (аdView != null) {
-            аdView.resume();
-        }
+//        if (аdView != null) {
+//            аdView.resume();
+//        }
     }
 
     @Override
     public void onDestroy() {
-        if (аdView != null) {
-            аdView.destroy();
-        }
+//        if (аdView != null) {
+//            аdView.destroy();
+//        }
         super.onDestroy();
     }
 }
