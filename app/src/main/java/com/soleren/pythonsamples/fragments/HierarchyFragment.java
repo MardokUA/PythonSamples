@@ -2,9 +2,9 @@ package com.soleren.pythonsamples.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,9 +14,8 @@ import com.soleren.pythonsamples.R;
 import com.soleren.pythonsamples.fragments.adapter.FragmentAdapter;
 import com.soleren.pythonsamples.utils.ContentFactory;
 
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
+
 /**
  * Created by laktionov on 25.08.2017.
  * Основной фрагмент приложения. Родитель для всех остальных фрагметов, кроме {@link ContentFragment}

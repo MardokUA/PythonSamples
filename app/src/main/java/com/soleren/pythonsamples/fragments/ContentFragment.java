@@ -3,9 +3,9 @@ package com.soleren.pythonsamples.fragments;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v7.widget.ShareActionProvider;
+import androidx.annotation.Nullable;
+import androidx.core.view.MenuItemCompat;
+import androidx.appcompat.widget.ShareActionProvider;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,9 +20,7 @@ import com.soleren.pythonsamples.data.Const;
 import com.soleren.pythonsamples.model.Title;
 import com.soleren.pythonsamples.utils.ContentFactory;
 
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 
 public class ContentFragment extends HierarchyFragment {
 
